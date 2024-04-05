@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+}
+
+body {
+  direction: ltr;
+
+}
+.x3x7a5m::before {
+  margin-top: -5px;
+  display: block;
+  content: "";
+}
+.x3x7a5m::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -4px;
+}
+
+#scrollView {
+  scrollbar-color: transparent #242526 !important;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Track (background) */
+
+
+::-webkit-scrollbar-track {
+  background-color: #282b2d !important;
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888 !important;
+}
+
+
+
+#wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  /* scrollbar-width: none; */
+  z-index: 0;
+}
+
+.owl-wrapper {
+  overflow: visible !important;
+  /* Allow interaction with child elements */
+}
+
+
+.owl-next:hover {
+  background-color: #525455 !important;
+}
+
+.owl-prev:hover {
+  background-color: #525455 !important;
+}
+
+.scroll-container {
+  height: 860px;
+  position: relative;
+
+}
+
+.mainScroll * {
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+.content {
+  height: 100%;
+  overflow-y: scroll;
+
+  /* Enable vertical scrolling */
+}
+
+.custom-scrollbar {
+  z-index: 2;
+  height: 480px;
+  position: absolute;
+  top: 0;
+  right: 6px;
+  width: 8.6px;
+  /* Width of the custom scrollbar */
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  /* Roundness of the custom scrollbar */
+  /* Show pointer cursor when hovering over scrollbar */
+}
+
+.custom-scrollbar-track-1 {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 5px;
+  width: 13px;
+  /* Show pointer cursor when hovering over scrollbar */
+}
+
+.custom-scrollbar-track-2 {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 5px;
+  width: 13px;
+  /* Show pointer cursor when hovering over scrollbar */
+}
+
+
+/* Hide default scrollbar in Firefox */
+.scroll-container * {
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+.owl-next>svg {
+
+  bottom: 14px;
+  right: 15px;
+  position: absolute;
+
+}
+
+.owl-prev>svg {
+
+  bottom: 14px;
+  right: 15px;
+  position: absolute;
+
+}
+
+.owl-carousel.owl-loaded {
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 100%;
+  width: 680px;
+
+}
+
+
+.owl-stage-outer {
+
+  display: flex !important;
+  overflow-x: auto !important;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  overflow-y: hidden !important;
+  flex-grow: 1;
+  flex-direction: column;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 44px;
+  padding-top: 8px;
+  margin-bottom: 0;
+  margin-top: -8px;
+  box-sizing: border-box;
+
+}
+
+.owl-theme .owl-nav .disabled {
+  display: none !important;
+  cursor: default;
+}
+
+.owl-carousel .owl-item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-item,
+.owl-item[active] {
+
+  width: 140.633px !important;
+}
+
+.owl-stage {
+  display: flex;
+  flex-grow: 1;
+
+}
+
+
+.disabled {
+  display: none;
+}
+
+
+
+
+@media (min-width: 375px) and (max-width:700px) {
+
+
+
+
+
+
+
+  .owl-prev {
+
+    transform: translate(calc(-370% - 4px), -0%)
+  }
+
+  .owl-next {
+
+    transform: translate(calc(204% + 4px), -0%);
+
+  }
+
+
+
+}
+
+@media (min-width: 375px) and (max-width:700px) {
+
+
+
+  .owl-prev {
+
+    transform: translate(calc(-370% - 4px), -0%)
+  }
+
+  .owl-next {
+
+    transform: translate(calc(204% + 4px), -0%);
+
+  }
+
+
+
+}
+
+/* @media (min-width: 700px) {
+
+  .owl-item,
+  .owl-item[active] {
+    width: 146px !important;
+
+
+  } */
+
+/* .stories {
+    width: 627px;
+  }
+
+  .posts {
+    width: 627px;
+  } */
+
+
+
+
+/* Media query for medium screens */
+/* @media (min-width: 800px) {
+.stories {
+  width: 500px;
+}
+.posts {
+  width: 472px!important;
+}
+}
+@media (min-width: 1500px) {
+.stories {
+  width: 702px;
+}
+.posts {
+  width: 700px!important;
+}
+}
+@media (min-width: 1000px) {
+.stories {
+  width: 500px;
+}
+.posts {
+  width: 500px!important;
+}
+} */
+
+
+@media (min-width: 768px) {
+  .nav {
+    max-width: calc(15vw - 55px);
+  }
+}
+
+.owl-prev,
+.owl-next {
+  border-radius: 50px !important;
+  background-color: #464649 !important;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 90px !important;
+
+  font-size: 40px !important;
+  /* Increase the font size of the navigation arrows */
+  color: #fff !important;
+  /* Change the color of the navigation arrows */
+}
+
+/* Adjust the position of the navigation arrows if needed */
+.owl-prev {
+
+  transform: translate(calc(-370% - 4px), -0%);
+  left: 195px;
+}
+
+.owl-next {
+
+  transform: translate(calc(204% + 4px), -0%);
+  right: 122px;
+}
+
+.owl-nav {
+  z-index: 1 !important;
+
+}
+
+.owl-theme .owl-nav [class*="owl-"] {
+  margin: 11px !important;
+}
+
+.clip-element {
+  clip: rect(1px, 1px, 1px, 1px);
+}
