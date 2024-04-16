@@ -17,6 +17,8 @@ function Header() {
   const [showSettings, setShowSettings] = useState(false)
   const [showNotif, setShowNotif] = useState(false);
   const [showUser, setShowUser] = useState(false);
+  const [showAll, setShowAll] = useState(true);
+  const [showUnread, setShowUnread] = useState(false);
   const containerRef = useRef(null);
 
  const handleNotif = () => {
@@ -41,6 +43,17 @@ const handleUser = () => {
   const clickHandler2 = () => {
 
     setSeeMore2((prev) => !prev)
+  }
+
+  const handleShowAll = () => {
+
+    setShowAll(true);
+    setShowUnread(false);
+  }
+  const handleShowUnread = () => {
+
+    setShowUnread(true);
+    setShowAll(false);
   }
 
   useEffect(() => {
@@ -625,29 +638,29 @@ const handleUser = () => {
                   (<svg viewBox="0 0 24 24" width="20" height="20" fill="#E4E6EB"><path d="M11 19a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6z"></path></svg>)
                 }
               </div>
-              <div onClick={() => handleSettings()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-15">
+              <div onClick={() => handleSettings()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10">
               </div>
             </div>
             <div className='messenger relative mr-[8px]'>
-              <div className={`flex justify-center cursor-pointer items-center w-[40px] h-[40px] ${showMessenger ? 'bg-[#1D85FC]' : 'bg-[#E4E6EB]'}  bg-opacity-10 rounded-full`} onClick={() => navigate(item.slug)}>
+              <div className={`flex justify-center cursor-pointer items-center w-[40px] h-[40px] ${showMessenger ? 'bg-[#1D85FC33]' : 'bg-[#E4E6EB]'}  bg-opacity-10 rounded-full`} onClick={() => navigate(item.slug)}>
                 <svg viewBox="0 0 24 24" width="20" height="20"  fill={`${showMessenger ? '#0866FF' : '#E4E6EB'}`}><path d="M.5 12C.5 5.649 5.649.5 12 .5S23.5 5.649 23.5 12 18.351 23.5 12 23.5c-1.922 0-3.736-.472-5.33-1.308a.63.63 0 0 0-.447-.069l-3.4.882a1.5 1.5 0 0 1-1.828-1.829l.882-3.4a.63.63 0 0 0-.07-.445A11.454 11.454 0 0 1 .5 12zm17.56-1.43a.819.819 0 0 0-1.125-1.167L14 11.499l-3.077-2.171a1.5 1.5 0 0 0-2.052.308l-2.93 3.793a.819.819 0 0 0 1.123 1.167L10 12.5l3.076 2.172a1.5 1.5 0 0 0 2.052-.308l2.931-3.793z"></path></svg>
               </div>
-              <div onClick={() => handleMessenger()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-15">
+              <div onClick={() => handleMessenger()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10">
               </div>
             </div>
             <div
             className='notification relative mr-[8px]'>
-              <div className={`flex justify-center items-center cursor-pointer w-[40px] h-[40px]  bg-opacity-10 ${showNotif ? 'bg-[#1D85FC]' : 'bg-[#E4E6EB]'} rounded-full`} >
+              <div className={`flex justify-center items-center cursor-pointer w-[40px] h-[40px]  bg-opacity-10 ${showNotif ? 'bg-[#1D85FC33]' : 'bg-[#E4E6EB]'} rounded-full`} >
                 <svg viewBox="0 0 24 24" width="20" height="20" fill={`${showNotif ? '#0866FF' : '#E4E6EB'}`}><path d="M3 9.5a9 9 0 1 1 18 0v2.927c0 1.69.475 3.345 1.37 4.778a1.5 1.5 0 0 1-1.272 2.295h-4.625a4.5 4.5 0 0 1-8.946 0H2.902a1.5 1.5 0 0 1-1.272-2.295A9.01 9.01 0 0 0 3 12.43V9.5zm6.55 10a2.5 2.5 0 0 0 4.9 0h-4.9z"></path></svg>
               </div>
-              <div onClick={() => handleNotif()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-15"></div>
+              <div onClick={() => handleNotif()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10"></div>
           
             </div>
             <div className='user relative mr-[8px]'>
-              <div className={`flex justify-center items-center cursor-pointer w-[40px] h-[40px] bg-opacity-10 ${showUser ? 'bg-[#1D85FC]' : 'bg-[#E4E6EB]'} rounded-full`} onClick={() => navigate(item.slug)}>
+              <div className={`flex justify-center items-center cursor-pointer w-[40px] h-[40px] bg-opacity-10 ${showUser ? 'bg-[#1D85FC33]' : 'bg-[#E4E6EB]'} rounded-full`} onClick={() => navigate(item.slug)}>
                 <img className='object-cover w-full h-full rounded-full cursor-pointer select-none' src="/me.jpg" alt="" />
               </div>
-              <div onClick={() => handleUser()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-15">
+              <div onClick={() => handleUser()} className="absolute inset-0 rounded-full bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10">
               </div>
             </div>
 
@@ -658,7 +671,7 @@ const handleUser = () => {
   <div className="notif-container flex flex-col fixed right-0 shadow-xl shadow-[#141414]" style={{ transform: 'translate(-16px, 48px)' }}>
   <div className='flex flex-col w-[360px] h-[600px] bg-[#242526] rounded-lg'>
       <div className="flex justify-between ">
-        <div className="flex relative mt-[1.45rem] mb-3 mx-4 flex-1 ">
+        <div className="flex relative mt-[1rem] mx-4 flex-1 ">
           <div className="flex flex-1">
           <span className='text-[#E4E6EB] text-2xl font-bold'>Notifications</span>
        
@@ -685,7 +698,37 @@ const handleUser = () => {
       
 
 
+<div className="flex pl-4">
+  <div className='pr-2 '>
+  <div className={`relative h-[36px] flex flex-wrap ${showAll ? 'bg-[#1D85FC33]' : 'bg-transparent'} rounded-[18px] justify-center items-center px-3 mt-[0.1rem] outline-none w-full`} role='button' onClick={() => handleShowAll()} >
+    <span className={`${showAll ? 'text-[#75B6FF]' : 'text-[#E4E6EB]'}`}>
+      <span className='text-[.875rem] font-medium leading-[2.3333]'>
+      All
+        </span>
+        </span>
+        <div className="overlay absolute rounded-[18px] inset-0 hover:bg-opacity-10 bg-white bg-opacity-0 ">
 
+        </div>
+    </div>
+    </div>
+  
+  <div>
+
+    <div className={`relative h-[36px] flex flex-wrap rounded-[18px] ${showUnread ? 'bg-[#1D85FC33]' : 'bg-transparent'} justify-center items-center px-3 mt-[0.1rem] outline-none w-full `}
+     role='button' onClick={() => handleShowUnread()} >
+    <span className={`${showUnread ? 'text-[#75B6FF]' : 'text-[#E4E6EB]'}`}>
+
+        <span className='text-[.875rem] font-medium leading-[2.3333]'>
+        Unread
+        </span>
+      </span>
+      <div className="overlay absolute rounded-[18px] inset-0 hover:bg-opacity-10 bg-white bg-opacity-0 ">
+
+</div>
+   
+    </div>
+</div>
+  </div>
   </div>
   </div>
 
