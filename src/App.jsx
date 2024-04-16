@@ -11,7 +11,7 @@ function App() {
         <div>Loading...</div>
       ) : (
         
-        <div  className='h-min relative mainScroll '>
+        <div  className='h-min relative mainScroll'>
           
           <Header />
           <div className='wrapper relative box-border'>

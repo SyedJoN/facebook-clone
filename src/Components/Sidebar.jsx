@@ -38,11 +38,10 @@ function Sidebar() {
   }
 
   useEffect(() => {
-    if (containerRef.current && !seeMore) {
-      // Scroll to the top when seeMore is false
-      containerRef.current.scrollTop = 0;
-      setScrollbarPosition(0);
+    if (containerRef.current && seeMore) {
+      // Scroll to the top when seeMore is true
 
+      setScrollbarPosition(0);
     }
   }, [seeMore])
 
@@ -70,11 +69,12 @@ function Sidebar() {
       const deltaY = e.clientY - startY;
       const scrollY = startScrollOffset + deltaY * (contentRef?.current?.scrollHeight / contentRef?.current?.clientHeight);
       contentRef.current.scrollTop = scrollY;
-      if (seeMore) {
-        setScrollOpacity(30);
-      }
+    
     };
+    if (seeMore) {
+      setScrollOpacity(30);
 
+    }
     const onMouseUp = () => {
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
