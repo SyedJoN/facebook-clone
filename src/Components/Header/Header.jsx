@@ -13,12 +13,34 @@ function Header() {
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
   const [showMessenger, setShowMessenger] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
+  const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const [showNotif, setShowNotif] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const [showAll, setShowAll] = useState(true);
   const [showUnread, setShowUnread] = useState(false);
   const containerRef = useRef(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showSettings2, setShowSettings2] = useState(false);
+  const [showSettings3, setShowSettings3] = useState(false);
+
+  const handleShowSettings = () => {
+    setShowSettings(true);
+  };
+  const handleHideSettings = () => {
+    setShowSettings(false);
+  };
+  const handleShowSettings2 = () => {
+    setShowSettings2(true);
+  };
+  const handleHideSettings2 = () => {
+    setShowSettings2(false);
+  };
+  const handleShowSettings3 = () => {
+    setShowSettings3(true);
+  };
+  const handleHideSettings3 = () => {
+    setShowSettings3(false);
+  };
 
   const handleNotif = () => {
     setShowNotif((prev) => !prev);
@@ -28,7 +50,7 @@ function Header() {
   };
 
   const handleSettings = () => {
-    setShowSettings((prev) => !prev);
+    setShowSettingsMenu((prev) => !prev);
   };
   const handleUser = () => {
     setShowUser((prev) => !prev);
@@ -727,7 +749,7 @@ function Header() {
               <div
                 aria-label="Create"
                 className={`flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
-                  showSettings ? "bg-[#1D85FC]" : "bg-[#E4E6EB]"
+                  showSettingsMenu ? "bg-[#1D85FC]" : "bg-[#E4E6EB]"
                 } bg-opacity-10 rounded-full `}
                 onClick={() => navigate(item.slug)}
               >
@@ -736,7 +758,7 @@ function Header() {
                     viewBox="0 0 24 24"
                     width="20"
                     height="20"
-                    fill={`${showSettings ? "#0866FF" : "#E4E6EB"}`}
+                    fill={`${showSettingsMenu ? "#0866FF" : "#E4E6EB"}`}
                   >
                     <path d="M12 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 17a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
                   </svg>
@@ -915,6 +937,199 @@ function Header() {
             </div>
             <div className="relative" role="row">
               <div
+                onMouseOver={handleShowSettings}
+                onMouseLeave={handleHideSettings}
+                data-visualcompletion="ignore-dynamic"
+                role="none"
+                className="px-[8px]"
+              >
+                <div role="grid-cell">
+                  <a
+                    className="block relative rounded-[8px] bg-transparent"
+                    href=""
+                  >
+                    <div className="flex px-[8px]">
+                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "56px", width: "56px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id="circleMask">
+                                <circle cx="28" cy="28" r="28" fill="white" />
+                                <circle
+                                  cx="48"
+                                  cy="48"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="9"
+                                ></circle>
+                              </mask>
+
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#circleMask)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="/notifImg/notif_image_2.jpg"
+                                  style={{ height: "56px", width: "56px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                              <div className="relative cursor-pointer">
+                                <div
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  style={{ backgroundColor: "transparent" }}
+                                >
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      backgroundImage:
+                                        "url(/notifImg/notif_msg.png)",
+                                      backgroundPosition: "0 -986px",
+                                      backgroundSize: "auto",
+                                      width: "28px",
+                                      height: "28px",
+                                      backgroundRepeat: "no-repeat",
+                                      display: "inline-block",
+                                    }}
+                                  />
+                                </div>
+                                <div
+                                  className="rounded-full transition-opacity"
+                                  role="none"
+                                  data-visualcompletion="ignore"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                        <div className="flex flex-col items-stretch justify-between relative py-[8px] ">
+                          <div className="">
+                            <div className="flex flex-col mb-[-5px] mt-[-5px]">
+                              <div className="mb-[3px] mt-[3px]">
+                                <span
+                                  className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
+                                  dir="auto"
+                                >
+                                  <span className="relative overflow-hidden textClass">
+                                    <div
+                                      className="absolute"
+                                      style={{
+                                        clip: "rect(0,0,0,0",
+                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
+                                      }}
+                                    >
+                                      Unread
+                                    </div>
+                                    <strong style={{ fontWeight: "600" }}>
+                                      Sajid Hussain Khan{" "}
+                                    </strong>{" "}
+                                    commented on the status you shared.
+                                  </span>
+                                </span>
+                              </div>
+                              <div className="mb-[3px] mt-[-3px]">
+                                <span
+                                  className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
+                                  dir="auto"
+                                >
+                                  <span className="pb-[1px] overflow-ellipsis relative block overflow-hidden whitespace-nowrap">
+                                    <span className="max-w-full font-normal text-[#8A8D91] text-[.75rem] break-words">
+                                      <span className="">
+                                        about an hour ago
+                                      </span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex flex-col -mx-[12px]">
+                            <div className="max-w-full"></div>
+                          </div>
+                        </div>
+                        <div className="relative ml-[12px] left-[2px] my-[8px] self-center ">
+                          <div className="flex items-center">
+                            <div className="">
+                              <div
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                role="presentation"
+                                tabindex="0"
+                              >
+                                <span
+                                  className="inline-flex w-[12px] h-[12px] rounded-full justify-center items-center bg-[#0866FF] cursor-pointer"
+                                  data-visualcompletion="ignore"
+                                ></span>
+                              </div>
+                              <div
+                                className="absolute duration-100 ease-in-out inset-0 opacity-0 transition-opacity "
+                                role="presentation"
+                                tabIndex="0"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span
+                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px]"
+                      data-visualcompletion="ignore"
+                    ></span>
+                  </a>
+                </div>
+                <div className="flex absolute right-[52px] h-[150.2px] top-[9px] w-0 ">
+                  <div
+                    className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
+                      showSettings ? "[clip:unset], w-[40px]" : "clip-element"
+                    }`}
+                  >
+                    <span>
+                      <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8] cursor-pointer">
+                        <svg
+                          className="block"
+                          viewBox="0 0 20 20"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                        >
+                          <g
+                            fillRule="evenodd"
+                            transform="translate(-446 -350)"
+                          >
+                            <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative" role="row">
+              <div
+                onMouseOver={handleShowSettings2}
+                onMouseLeave={handleHideSettings2}
                 data-visualcompletion="ignore-dynamic"
                 role="none"
                 className="px-[8px]"
@@ -997,19 +1212,29 @@ function Header() {
                         <div className="flex flex-col items-stretch justify-between relative py-[8px] ">
                           <div className="">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                              <div className="">
+                              <div className="mb-[3px] mt-[3px]">
                                 <span
                                   className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
                                   dir="auto"
                                 >
-                                  <span className="relative overflow-hidden">
-                                  <div className="absolute" style={{clip:'rect(0,0,0,0', clipPath:'polygon(0 0,0 0,0 0,0 0)'}}>Unread</div>
-                                    <strong>Hamza Sohail </strong>
+                                  <span className="relative overflow-hidden textClass">
+                                    <div
+                                      className="absolute"
+                                      style={{
+                                        clip: "rect(0,0,0,0",
+                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
+                                      }}
+                                    >
+                                      Unread
+                                    </div>
+                                    <strong style={{ fontWeight: "600" }}>
+                                      Hamza Sohail{" "}
+                                    </strong>
                                     reacted to a video you shared.
                                   </span>
                                 </span>
                               </div>
-                              <div className="">
+                              <div className="mb-[3px] mt-[-3px]">
                                 <span
                                   className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91] leading-[1.2308]"
                                   dir="auto"
@@ -1023,18 +1248,28 @@ function Header() {
                               </div>
                             </div>
                           </div>
+
                           <div className="flex flex-col -mx-[12px]">
                             <div className="max-w-full"></div>
                           </div>
                         </div>
-                        <div className="relative ml-[12px] my-[8px] self-center ">
+                        <div className="relative ml-[12px] left-[2px] my-[8px] self-center ">
                           <div className="flex items-center">
                             <div className="">
-                              <div class="w-[12px] h-[12px]"></div>
+                              <div
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                role="presentation"
+                                tabindex="0"
+                              >
+                                <span
+                                  className="inline-flex w-[12px] h-[12px] rounded-full justify-center items-center bg-[#0866FF] cursor-pointer"
+                                  data-visualcompletion="ignore"
+                                ></span>
+                              </div>
                               <div
                                 className="absolute duration-100 ease-in-out inset-0 opacity-0 transition-opacity  "
                                 role="presentation"
-                                tabindex="0"
+                                tabIndex="0"
                               ></div>
                             </div>
                           </div>
@@ -1047,10 +1282,39 @@ function Header() {
                     ></span>
                   </a>
                 </div>
+
+                <div className="flex absolute right-[52px] h-[150.2px] top-[9px] w-0 ">
+                  <div
+                    className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
+                      showSettings2 ? "[clip:unset], w-[40px]" : "clip-element"
+                    }`}
+                  >
+                    <span>
+                      <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8] cursor-pointer">
+                        <svg
+                          className="block"
+                          viewBox="0 0 20 20"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                        >
+                          <g
+                            fillRule="evenodd"
+                            transform="translate(-446 -350)"
+                          >
+                            <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="relative" role="row">
               <div
+                onMouseOver={handleShowSettings3}
+                onMouseLeave={handleHideSettings3}
                 data-visualcompletion="ignore-dynamic"
                 role="none"
                 className="px-[8px]"
@@ -1133,21 +1397,37 @@ function Header() {
                         <div className="flex flex-col items-stretch justify-between relative py-[8px] ">
                           <div className="">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                              <div className="">
+                              <div className="mb-[3px] mt-[3px]">
                                 <span
                                   className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
                                   dir="auto"
                                 >
-                                  <span className="relative overflow-hidden">
-                                  <div className="absolute" style={{clip:'rect(0,0,0,0', clipPath:'polygon(0 0,0 0,0 0,0 0)'}}>Unread</div>
-                                    <strong>Omer Anzar</strong>,{" "}
-                                    <strong>Mohammad Ismail Zabi</strong> and{" "}
-                                    <strong>4 other people</strong> reacted to a
-                                    video you shared.
+                                  <span className="relative overflow-hidden textClass">
+                                    <div
+                                      className="absolute"
+                                      style={{
+                                        clip: "rect(0,0,0,0",
+                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
+                                      }}
+                                    >
+                                      Unread
+                                    </div>
+                                    <strong style={{ fontWeight: "600" }}>
+                                      Omer Anzar
+                                    </strong>
+                                    ,{" "}
+                                    <strong style={{ fontWeight: "600" }}>
+                                      Mohammad Ismail Zabi
+                                    </strong>{" "}
+                                    and{" "}
+                                    <strong style={{ fontWeight: "600" }}>
+                                      4 other people
+                                    </strong>{" "}
+                                    reacted to a video you shared.
                                   </span>
                                 </span>
                               </div>
-                              <div className="">
+                              <div className="mb-[3px] mt-[-3px]">
                                 <span
                                   className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91] leading-[1.2308]"
                                   dir="auto"
@@ -1167,14 +1447,23 @@ function Header() {
                             <div className="max-w-full"></div>
                           </div>
                         </div>
-                        <div className="relative ml-[12px] my-[8px] self-center ">
+                        <div className="relative ml-[12px] left-[2px] my-[8px] self-center ">
                           <div className="flex items-center">
                             <div className="">
-                              <div class="w-[12px] h-[12px]"></div>
+                              <div
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                role="presentation"
+                                tabindex="0"
+                              >
+                                <span
+                                  className="inline-flex w-[12px] h-[12px] rounded-full justify-center items-center bg-[#0866FF] cursor-pointer"
+                                  data-visualcompletion="ignore"
+                                ></span>
+                              </div>
                               <div
                                 className="absolute duration-100 ease-in-out inset-0 opacity-0 transition-opacity "
                                 role="presentation"
-                                tabindex="0"
+                                tabIndex="0"
                               ></div>
                             </div>
                           </div>
@@ -1186,6 +1475,32 @@ function Header() {
                       data-visualcompletion="ignore"
                     ></span>
                   </a>
+                </div>
+                <div className="flex absolute right-[52px] h-[150.2px] top-[9px] w-0 ">
+                  <div
+                    className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
+                      showSettings3 ? "[clip:unset], w-[40px]" : "clip-element"
+                    }`}
+                  >
+                    <span>
+                      <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8] cursor-pointer">
+                        <svg
+                          className="block"
+                          viewBox="0 0 20 20"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                        >
+                          <g
+                            fillRule="evenodd"
+                            transform="translate(-446 -350)"
+                          >
+                            <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

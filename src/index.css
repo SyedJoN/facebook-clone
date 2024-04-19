@@ -355,3 +355,8 @@ body {
 .clip-element {
   clip: rect(1px, 1px, 1px, 1px);
 }
+.textClass {
+  -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+}
