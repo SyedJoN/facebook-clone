@@ -354,9 +354,19 @@ body {
 
 .clip-element {
   clip: rect(1px, 1px, 1px, 1px);
+  clip-path: circle(1px at 0% 0%);
 }
 .textClass {
   -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     display: -webkit-box;
+}
+
+.customShadow {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+}
+
+.customShadow-2 {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }

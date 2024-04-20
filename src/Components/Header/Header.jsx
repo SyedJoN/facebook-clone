@@ -14,7 +14,7 @@ function Header() {
   const [seeMore2, setSeeMore2] = useState(false);
   const [showMessenger, setShowMessenger] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
-  const [showNotif, setShowNotif] = useState(false);
+  const [showNotif, setShowNotif] = useState(true);
   const [showUser, setShowUser] = useState(false);
   const [showAll, setShowAll] = useState(true);
   const [showUnread, setShowUnread] = useState(false);
@@ -935,10 +935,13 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div className="relative" role="row">
+            <div
+              onMouseOver={handleShowSettings}
+              onMouseLeave={handleHideSettings}
+              className="relative"
+              role="row"
+            >
               <div
-                onMouseOver={handleShowSettings}
-                onMouseLeave={handleHideSettings}
                 data-visualcompletion="ignore-dynamic"
                 role="none"
                 className="px-[8px]"
@@ -1024,7 +1027,7 @@ function Header() {
                       </div>
 
                       <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex flex-col items-stretch justify-between relative py-[8px] ">
+                        <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
                               <div className="mb-[3px] mt-[3px]">
@@ -1075,7 +1078,7 @@ function Header() {
                               <div
                                 className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
                                 role="presentation"
-                                tabindex="0"
+                                tabIndex="0"
                               >
                                 <span
                                   className="inline-flex w-[12px] h-[12px] rounded-full justify-center items-center bg-[#0866FF] cursor-pointer"
@@ -1092,44 +1095,63 @@ function Header() {
                         </div>
                       </div>
                     </div>
-                    <span
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px]"
+                    <div
+                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
                       data-visualcompletion="ignore"
-                    ></span>
+                    ></div>
                   </a>
                 </div>
-                <div className="flex absolute right-[52px] h-[150.2px] top-[9px] w-0 ">
-                  <div
-                    className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
-                      showSettings ? "[clip:unset], w-[40px]" : "clip-element"
-                    }`}
-                  >
-                    <span>
-                      <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8] cursor-pointer">
-                        <svg
-                          className="block"
-                          viewBox="0 0 20 20"
-                          width="20"
-                          height="20"
-                          fill="currentColor"
-                        >
-                          <g
-                            fillRule="evenodd"
-                            transform="translate(-446 -350)"
-                          >
-                            <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
-                          </g>
-                        </svg>
+              </div>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className={` flex absolute top-[24%] ${
+                    showSettings
+                      ? "[clip:unset] right-[36px]"
+                      : "clip-element h-[1px] overflow-hidden w-[1px]"
+                  }`}
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage Syed Muhammad Jon notification settings"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage:
+                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="relative" role="row">
+            <div
+              onMouseOver={handleShowSettings2}
+              onMouseLeave={handleHideSettings2}
+              className="relative"
+              role="row"
+            >
               <div
-                onMouseOver={handleShowSettings2}
-                onMouseLeave={handleHideSettings2}
                 data-visualcompletion="ignore-dynamic"
                 role="none"
                 className="px-[8px]"
@@ -1209,7 +1231,7 @@ function Header() {
                       </div>
 
                       <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex flex-col items-stretch justify-between relative py-[8px] ">
+                        <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
                               <div className="mb-[3px] mt-[3px]">
@@ -1259,62 +1281,75 @@ function Header() {
                               <div
                                 className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
                                 role="presentation"
-                                tabindex="0"
+                                tabIndex="0"
                               >
                                 <span
                                   className="inline-flex w-[12px] h-[12px] rounded-full justify-center items-center bg-[#0866FF] cursor-pointer"
                                   data-visualcompletion="ignore"
                                 ></span>
                               </div>
-                              <div
-                                className="absolute duration-100 ease-in-out inset-0 opacity-0 transition-opacity  "
-                                role="presentation"
-                                tabIndex="0"
-                              ></div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <span
+                    <div
                       className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] "
                       data-visualcompletion="ignore"
-                    ></span>
+                    ></div>
                   </a>
                 </div>
-
-                <div className="flex absolute right-[52px] h-[150.2px] top-[9px] w-0 ">
-                  <div
-                    className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
-                      showSettings2 ? "[clip:unset], w-[40px]" : "clip-element"
-                    }`}
-                  >
-                    <span>
-                      <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8] cursor-pointer">
-                        <svg
-                          className="block"
-                          viewBox="0 0 20 20"
-                          width="20"
-                          height="20"
-                          fill="currentColor"
-                        >
-                          <g
-                            fillRule="evenodd"
-                            transform="translate(-446 -350)"
-                          >
-                            <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
-                          </g>
-                        </svg>
+              </div>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className={`flex absolute top-[24%] ${
+                    showSettings2
+                      ? "[clip:unset] right-[36px] "
+                      : "clip-element h-[1px] overflow-hidden w-[1px]"
+                  }`}
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage Syed Muhammad Jon notification settings"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage:
+                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="relative" role="row">
+            <div
+              onMouseOver={handleShowSettings3}
+              onMouseLeave={handleHideSettings3}
+              className="relative"
+              role="row"
+            >
               <div
-                onMouseOver={handleShowSettings3}
-                onMouseLeave={handleHideSettings3}
                 data-visualcompletion="ignore-dynamic"
                 role="none"
                 className="px-[8px]"
@@ -1394,7 +1429,7 @@ function Header() {
                       </div>
 
                       <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex flex-col items-stretch justify-between relative py-[8px] ">
+                        <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
                               <div className="mb-[3px] mt-[3px]">
@@ -1453,7 +1488,7 @@ function Header() {
                               <div
                                 className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
                                 role="presentation"
-                                tabindex="0"
+                                tabIndex="0"
                               >
                                 <span
                                   className="inline-flex w-[12px] h-[12px] rounded-full justify-center items-center bg-[#0866FF] cursor-pointer"
@@ -1470,36 +1505,52 @@ function Header() {
                         </div>
                       </div>
                     </div>
-                    <span
+                    <div
                       className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px]"
                       data-visualcompletion="ignore"
-                    ></span>
+                    ></div>
                   </a>
                 </div>
-                <div className="flex absolute right-[52px] h-[150.2px] top-[9px] w-0 ">
-                  <div
-                    className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
-                      showSettings3 ? "[clip:unset], w-[40px]" : "clip-element"
-                    }`}
-                  >
-                    <span>
-                      <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8] cursor-pointer">
-                        <svg
-                          className="block"
-                          viewBox="0 0 20 20"
-                          width="20"
-                          height="20"
-                          fill="currentColor"
-                        >
-                          <g
-                            fillRule="evenodd"
-                            transform="translate(-446 -350)"
-                          >
-                            <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
-                          </g>
-                        </svg>
+              </div>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className={`flex absolute top-[24%] ${
+                    showSettings3
+                      ? "[clip:unset] right-[36px] "
+                      : "clip-element h-[1px] overflow-hidden w-[1px]"
+                  }`}
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage Syed Muhammad Jon notification settings"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage:
+                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
