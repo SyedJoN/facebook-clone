@@ -14,7 +14,7 @@ function Header() {
   const [seeMore2, setSeeMore2] = useState(false);
   const [showMessenger, setShowMessenger] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
-  const [showNotif, setShowNotif] = useState(true);
+  const [showNotif, setShowNotif] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const [showAll, setShowAll] = useState(true);
   const [showUnread, setShowUnread] = useState(false);
