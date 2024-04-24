@@ -7,7 +7,7 @@ import Sidebar from "./Sidebar";
 import Sidebar_2 from "./Sidebar_2";
 import Stories from "./Stories";
 import Posts from "./Posts";
-import CustomScrollbar from "./customScrollbar";
+import CustomScrollbar from "./CustomScrollbar";
 
 
 export {
@@ -21,5 +21,4 @@ export {
     Stories,
     Posts,
     CustomScrollbar
-
 }

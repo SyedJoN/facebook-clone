@@ -774,7 +774,7 @@ function Header() {
                 )}
               </div>
               <div
-                onClick={() => handleSettings()}
+                onMouseDown={() => handleSettings()}
                 className="absolute inset-0 rounded-full transition-opacity duration-100 bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10"
               ></div>
             </div>
@@ -795,7 +795,7 @@ function Header() {
                 </svg>
               </div>
               <div
-                onClick={() => handleMessenger()}
+                onMouseDown={() => handleMessenger()}
                 className="absolute inset-0 rounded-full transition-opacity duration-100  bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10"
               ></div>
             </div>
@@ -815,7 +815,8 @@ function Header() {
                 </svg>
               </div>
               <div
-                onClick={() => handleNotif()}
+
+  onMouseDown={() => handleNotif()}
                 className="absolute inset-0 rounded-full transition-opacity duration-100 bg-opacity-0 cursor-pointer bg-white hover:bg-opacity-10"
               ></div>
             </div>
@@ -833,7 +834,7 @@ function Header() {
                 />
               </div>
               <div
-                onClick={() => handleUser()}
+                onMouseDown={() => handleUser()}
                 className="absolute inset-0 rounded-full bg-opacity-0 transition-opacity duration-100 cursor-pointer bg-white hover:bg-opacity-10"
               ></div>
             </div>
@@ -880,7 +881,7 @@ function Header() {
                     showAll ? "bg-[#1D85FC33]" : "bg-transparent"
                   } rounded-[18px] justify-center items-center px-3 mt-[0.1rem] outline-none w-full`}
                   role="button"
-                  onClick={() => handleShowAll()}
+                  onMouseDown={() => handleShowAll()}
                 >
                   <span
                     className={`${
@@ -1104,7 +1105,7 @@ function Header() {
               </div>
               <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={` flex absolute top-[24%] ${
+                  className={`flex absolute top-[24%] ${
                     showSettings
                       ? "[clip:unset] right-[36px]"
                       : "clip-element h-[1px] overflow-hidden w-[1px]"
@@ -1113,7 +1114,7 @@ function Header() {
                   <div>
                     <div className="rounded-full customShadow">
                       <div
-                        aria-label="Manage Syed Muhammad Jon notification settings"
+                        aria-label="Manage notification settings"
                         className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
                         role="button"
                         tabIndex="0"
@@ -1311,7 +1312,7 @@ function Header() {
                   <div>
                     <div className="rounded-full customShadow">
                       <div
-                        aria-label="Manage Syed Muhammad Jon notification settings"
+                        aria-label="Manage notification settings"
                         className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
                         role="button"
                         tabIndex="0"
@@ -1523,7 +1524,7 @@ function Header() {
                   <div>
                     <div className="rounded-full customShadow">
                       <div
-                        aria-label="Manage Syed Muhammad Jon notification settings"
+                        aria-label="Manage notification settings"
                         className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
                         role="button"
                         tabIndex="0"

@@ -124,27 +124,46 @@ function Sidebar_2() {
                   </span>
                 </div>
               </a>
-              <div className='flex absolute right-[30px] h-[150.2px] top-[0px] w-0'>
+              <div aria-label="Options for this ad" role="gridcell">
                 <div
-                  className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
-                    showSettings ? "[clip:unset], w-[40px]" : "clip-element"
+                  className={`flex absolute top-[4%] ${
+                    showSettings
+                      ? "[clip:unset] right-[15px] "
+                      : "clip-element h-[1px] overflow-hidden w-[1px]"
                   }`}
                 >
-                  <span>
-                    <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8]">
-                      <svg
-                        className="block"
-                        viewBox="0 0 20 20"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage ad settings"
+                        className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
                       >
-                        <g fillRule="evenodd" transform="translate(-446 -350)">
-                          <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
-                        </g>
-                      </svg>
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage:
+                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
+                      </div>
                     </div>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -167,28 +186,46 @@ function Sidebar_2() {
                   </span>
                 </div>
               </a>
-              <div className='flex absolute right-[30px] h-[150.2px] top-[0px] w-0'>
-
+              <div aria-label="Options for this ad" role="gridcell">
                 <div
-                  className={`absolute h-[1px] w-[1px] z-[1] top-[5px] right-[-15px] ${
-                    showSettings2 ? "[clip:unset], w-[40px]" : "clip-element"
+                  className={`flex absolute top-[4%] ${
+                    showSettings2
+                      ? "[clip:unset] right-[15px] "
+                      : "clip-element h-[1px] overflow-hidden w-[1px]"
                   }`}
                 >
-                  <span>
-                    <div className="inset-0 flex absolute items-center justify-center flex-wrap right-2 h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] text-[#B0B3B8]">
-                      <svg
-                        className="block"
-                        viewBox="0 0 20 20"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage ad settings"
+                        className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
                       >
-                        <g fillRule="evenodd" transform="translate(-446 -350)">
-                          <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
-                        </g>
-                      </svg>
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage:
+                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
+                      </div>
                     </div>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
