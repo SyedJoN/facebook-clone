@@ -85,13 +85,19 @@ body {
 
 .scroll-container {
   height: 860px;
-  position: relative;
+
+
+}.scroll-container-messenger {
+  height: 860px;
 
 }
 
-.mainScroll * {
+.mainScroll *:not(.messenger) {
   scrollbar-width: none;
-  /* Firefox */
+}
+.messenger {
+scrollbar-color: #7B7B7B #424242;
+
 }
 
 
@@ -114,6 +120,7 @@ body {
   border-radius: 5px;
   /* Roundness of the custom scrollbar */
   /* Show pointer cursor when hovering over scrollbar */
+  
 }
 
 .custom-scrollbar-track-1 {
@@ -136,12 +143,6 @@ body {
   /* Show pointer cursor when hovering over scrollbar */
 }
 
-
-/* Hide default scrollbar in Firefox */
-.scroll-container * {
-  scrollbar-width: none;
-  /* Firefox */
-}
 
 
 .owl-next>svg {
