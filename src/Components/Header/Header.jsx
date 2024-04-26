@@ -931,14 +931,14 @@ function Header() {
             <div className="flex justify-between">
               <div className="flex mt-[0.5rem] mx-4 flex-1 ">
                 <div className="flex flex-col flex-1">
-                  <div className="flex">
+                  <div className="flex pb-[4px]">
                     <span className="text-[#E4E6EB] text-base font-medium">
                       Earlier
                     </span>
                   </div>
                 </div>
                 <div className="relative flex flex-col justify-center">
-                  <div className="flex">
+                  <div className="flex pb-[4px]">
                     <span className="text-[#5AA7FF] text-[.875rem] leading-[1.5555]">
                       See all
                     </span>
@@ -963,7 +963,7 @@ function Header() {
                     className="block relative rounded-[8px] bg-transparent"
                     href=""
                   >
-                    <div className="flex px-[8px]">
+                    <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                         <div className="inline-block align-bottom">
                           <div>
@@ -1173,7 +1173,7 @@ function Header() {
                     className="block relative rounded-[8px] bg-transparent"
                     href=""
                   >
-                    <div className="flex px-[8px]">
+                    <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                         <div className="inline-block align-bottom">
                           <div>
@@ -1371,7 +1371,7 @@ function Header() {
                     className="block relative rounded-[8px] bg-transparent"
                     href=""
                   >
-                    <div className="flex px-[8px]">
+                    <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                         <div className="inline-block align-bottom">
                           <div>
@@ -1583,8 +1583,8 @@ function Header() {
                     Chats
                   </span>
                 </div>
-                <div className="flex">
-                  <div className="mx-1 flex justify-center items-center rounded-full p-2 -mr-[2px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer">
+                <div className="flex pb-[4px]">
+                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 rounded-full pl-[24px] pr-[16px] pt-[7px] pb-[6px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer w-[32px] h-[32px] bg-transparent">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -1600,7 +1600,7 @@ function Header() {
                       }}
                     />
                   </div>
-                  <div className="mx-1 flex justify-center items-center rounded-full p-2 -mr-[2px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer">
+                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 rounded-full pl-[24px] pr-[16px] pt-[7px] pb-[6px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer w-[32px] h-[32px] bg-transparent">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -1616,7 +1616,7 @@ function Header() {
                       }}
                     />
                   </div>
-                  <div className="mx-1 flex justify-center items-center rounded-full p-2 -mr-[2px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer">
+                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 rounded-full pl-[24px] pr-[16px] pt-[7px] pb-[6px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer w-[32px] h-[32px] bg-transparent">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -1638,8 +1638,8 @@ function Header() {
 
             <div>
               <div className="flex flex-col">
-                <div className="flex justify-center items-center py-2">
-                  <label className="search w-[320px] relative bg-[#3A3B3C] rounded-full flex items-center ">
+                <div className="flex justify-center items-center py-[0.55rem]">
+                  <label className="search w-[328px] relative bg-[#3A3B3C] rounded-full flex items-center ">
                     <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
                       <svg
                         viewBox="0 0 16 16"
@@ -1672,7 +1672,7 @@ function Header() {
                     </span>
                     <input
                       aria-label="Search Messenger"
-                      className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#B0B3B8] bg-[#3A3B3C] h-[36px] px-[6px] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
+                      className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#B0B3B8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
                       type="text"
                       placeholder="Search Messenger"
                     />
@@ -1682,7 +1682,7 @@ function Header() {
               </div>
             </div>
 
-            <div className="flex pl-4 py-2">
+            <div className="flex pl-4 py-[0.35rem]">
               <div className="pr-2 ">
                 <div
                   className={`relative h-[36px] flex flex-wrap ${
@@ -1725,44 +1725,25 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="flex mt-[0.5rem] mx-4 flex-1 ">
-                <div className="flex flex-col flex-1">
-                  <div className="flex">
-                    <span className="text-[#E4E6EB] text-base font-medium">
-                      Earlier
-                    </span>
-                  </div>
-                </div>
-                <div className="relative flex flex-col justify-center">
-                  <div className="flex">
-                    <span className="text-[#5AA7FF] text-[.875rem] leading-[1.5555]">
-                      See all
-                    </span>
-                    <div className="overlay absolute inset-[-4px] bg-white bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-100 rounded-[4px] cursor-pointer"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div
               onMouseOver={handleShowSettings}
               onMouseLeave={handleHideSettings}
-              className="relative"
+              className="relative mb-[-6px]"
               role="row"
             >
               <div
                 data-visualcompletion="ignore-dynamic"
                 role="none"
-                className="px-[8px]"
+                className="px-[8px] pt-[5px] pb-[5px] "
               >
                 <div role="grid-cell">
                   <a
                     className="block relative rounded-[8px] bg-transparent"
                     href=""
                   >
-                    <div className="flex px-[8px]">
+                    <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="inline-block align-bottom">
+                        <div className="relative inline-block align-bottom">
                           <div>
                             <svg
                               aria-hidden="true"
@@ -1774,13 +1755,7 @@ function Header() {
                               {/* Define a circular mask */}
                               <mask id="circleMask">
                                 <circle cx="28" cy="28" r="28" fill="white" />
-                                <circle
-                                  cx="48"
-                                  cy="48"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="9"
-                                ></circle>
+                              
                               </mask>
 
                               {/* Apply the mask to the image */}
@@ -1791,53 +1766,22 @@ function Header() {
                                   height="100%"
                                   preserveAspectRatio="xMidYMid slice"
                                   width="100%"
-                                  xlinkHref="/notifIcons/notif_image_2.jpg"
+                                  xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/268617265_10224430631047182_4317552559651093289_n.jpg?stp=dst-jpg_p100x100&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eFIXV4VitfsQ7kNvgGhJ9_y&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfB9-LeXtSFyZWU3pEytDbbIAakjNilTKpsYZdeK-iereg&oe=66317070"
                                   style={{ height: "56px", width: "56px" }}
                                 ></image>
                               </g>
                             </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                              <div className="relative cursor-pointer">
-                                <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
-                                  style={{ backgroundColor: "transparent" }}
-                                >
-                                  <i
-                                    data-visualcompletion="css-img"
-                                    style={{
-                                      backgroundImage:
-                                        "url(/notifIcons/notif_msg.png)",
-                                      backgroundPosition: "0 -986px",
-                                      backgroundSize: "auto",
-                                      width: "28px",
-                                      height: "28px",
-                                      backgroundRepeat: "no-repeat",
-                                      display: "inline-block",
-                                    }}
-                                  />
-                                </div>
-                                <div
-                                  className="rounded-full transition-opacity"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
+                         
+                          </div>
+                          <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                          <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex items-stretch justify-between relative">
-                          <div className="w-[74%] py-[5px]">
+                      <div className="notif-text flex justify-between relative items-center self-stretch min-w-0 flex-1">
+                        <div className="flex items-stretch justify-between relative w-full">
+                          <div className="pb-[5px] w-full">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
                               <div className="mb-[3px] mt-[3px]">
                                 <span
@@ -1855,34 +1799,37 @@ function Header() {
                                       Unread
                                     </div>
                                     <strong style={{ fontWeight: "600" }}>
-                                      Sajid Hussain Khan{" "}
+                                      Hasan Rizvi{" "}
                                     </strong>
                                   </span>
                                 </span>
                               </div>
-                              <div className="mb-[3px] min-h-[16px]">
+                              <div className="mb-[4px] min-h-[16px]">
                                 <span
-                                  className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
+                                  className="block max-w-full font-medium text-left text-[.75rem] text-[#8A8D91]"
                                   dir="auto"
                                 >
-                                  <span className="flex min-w-0 pb-[1px] pr-[2px]">
+                                  <span className="flex min-w-0 pr-[2px] items-center">
                                     <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                      <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
-                                        Messages and calls are secured with
-                                        end-to-end encryption.
-                                      </span>
+                                      <span className="block text-[#E4E6EB] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap] pr-[2px]">
+                                        Hasan sent an attachment. </span>
                                     </span>
+                                    <span
+                                  className="dot text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
+                                  dir="auto"
+                                >
                                     <span className="block [white-space:nowrap] overflow-ellipsis relative ">
                                       <span>
-                                        <span className="h-[1px] overflow-x-hidden pb-[3px] ">
+                                        <span style={{clip: 'rect(0,0,0,0)'}} className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px] ">
                                           &nbsp;
                                         </span>
                                         <span aria-hidden="true"> · </span>
                                       </span>
                                     </span>
+                                    </span>
 
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] pl-[2px]">
-                                      <span>1d</span>
+                                    <span className="max-w-full flex items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] ">
+                                      <span>12h</span>
                                     </span>
                                   </span>
                                 </span>
@@ -1894,17 +1841,23 @@ function Header() {
                           </div>
                         </div>
                       </div>
+                      <div className="flex items-center">
+                        <div className="inline-flex ">
+                          <span className="w-[12px] h-[12px] bg-[#0866FF] rounded-full">
+                              
+                          </span>
+                        </div>
+                      </div>
                     </div>
                     <div
                       className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
                       data-visualcompletion="ignore"
                     ></div>
+                   
                   </a>
-                </div>
-              </div>
-              <div aria-label="Options for this notification" role="gridcell">
+                  <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={`flex absolute top-[24%] ${
+                  className={`flex absolute top-[28%] ${
                     showSettings
                       ? "[clip:unset] right-[36px]"
                       : "clip-element h-[1px] overflow-hidden w-[1px]"
@@ -1944,25 +1897,29 @@ function Header() {
                   </div>
                 </div>
               </div>
-            </div>           <div
+                </div>
+              
+              </div>
+      
+            </div>  <div
               onMouseOver={handleShowSettings}
               onMouseLeave={handleHideSettings}
-              className="relative"
+              className="relative mb-[-6px]"
               role="row"
             >
               <div
                 data-visualcompletion="ignore-dynamic"
                 role="none"
-                className="px-[8px]"
+                className="px-[8px] pt-[5px] pb-[5px] "
               >
                 <div role="grid-cell">
                   <a
                     className="block relative rounded-[8px] bg-transparent"
                     href=""
                   >
-                    <div className="flex px-[8px]">
+                    <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="inline-block align-bottom">
+                        <div className="relative inline-block align-bottom">
                           <div>
                             <svg
                               aria-hidden="true"
@@ -1974,13 +1931,7 @@ function Header() {
                               {/* Define a circular mask */}
                               <mask id="circleMask">
                                 <circle cx="28" cy="28" r="28" fill="white" />
-                                <circle
-                                  cx="48"
-                                  cy="48"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="9"
-                                ></circle>
+                              
                               </mask>
 
                               {/* Apply the mask to the image */}
@@ -1991,53 +1942,22 @@ function Header() {
                                   height="100%"
                                   preserveAspectRatio="xMidYMid slice"
                                   width="100%"
-                                  xlinkHref="/notifIcons/notif_image_2.jpg"
+                                  xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/432444540_7390380054360948_1272875945481127857_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=HM8KTXEQh7cQ7kNvgHazwjD&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDSB1BBolae7EfJfsSW12hPFNKcsW_mnUEgBX8FWrZ21A&oe=6631897D"
                                   style={{ height: "56px", width: "56px" }}
                                 ></image>
                               </g>
                             </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                              <div className="relative cursor-pointer">
-                                <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
-                                  style={{ backgroundColor: "transparent" }}
-                                >
-                                  <i
-                                    data-visualcompletion="css-img"
-                                    style={{
-                                      backgroundImage:
-                                        "url(/notifIcons/notif_msg.png)",
-                                      backgroundPosition: "0 -986px",
-                                      backgroundSize: "auto",
-                                      width: "28px",
-                                      height: "28px",
-                                      backgroundRepeat: "no-repeat",
-                                      display: "inline-block",
-                                    }}
-                                  />
-                                </div>
-                                <div
-                                  className="rounded-full transition-opacity"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
+                         
+                          </div>
+                          <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                          <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex items-stretch justify-between relative">
-                          <div className="w-[74%] py-[5px]">
+                      <div className="notif-text flex justify-between relative items-center self-stretch min-w-0 flex-1">
+                        <div className="flex items-stretch justify-between relative w-full">
+                          <div className="pb-[5px] w-full">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
                               <div className="mb-[3px] mt-[3px]">
                                 <span
@@ -2055,34 +1975,39 @@ function Header() {
                                       Unread
                                     </div>
                                     <strong style={{ fontWeight: "600" }}>
-                                      Sajid Hussain Khan{" "}
+                                      Muhammad Salar{" "}
                                     </strong>
                                   </span>
                                 </span>
                               </div>
-                              <div className="mb-[3px] min-h-[16px]">
+                              <div className="mb-[4px] min-h-[16px]">
                                 <span
                                   className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
                                   dir="auto"
                                 >
-                                  <span className="flex min-w-0 pb-[1px] pr-[2px]">
+                                  <span className="flex min-w-0 pr-[2px] items-center">
                                     <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                      <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
+                                    <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
                                         Messages and calls are secured with
                                         end-to-end encryption.
                                       </span>
                                     </span>
+                                    <span
+                                  className="dot text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
+                                  dir="auto"
+                                >
                                     <span className="block [white-space:nowrap] overflow-ellipsis relative ">
                                       <span>
-                                        <span className="h-[1px] overflow-x-hidden pb-[3px] ">
+                                        <span style={{clip: 'rect(0,0,0,0)'}} className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px] ">
                                           &nbsp;
                                         </span>
                                         <span aria-hidden="true"> · </span>
                                       </span>
                                     </span>
+                                    </span>
 
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] pl-[2px]">
-                                      <span>1d</span>
+                                    <span className="max-w-full flex items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] ">
+                                      <span>12h</span>
                                     </span>
                                   </span>
                                 </span>
@@ -2093,18 +2018,26 @@ function Header() {
                             <div className="max-w-full"></div>
                           </div>
                         </div>
+                      
+                      </div>
+                      <div className="flex items-center absolute right-[8px] top-[41%]">
+                        <div className="inline-flex ">
+                          <span className="w-[12px] h-[12px] bg-[#0866FF] rounded-full">
+                              
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div
                       className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
                       data-visualcompletion="ignore"
                     ></div>
+                     
+                
                   </a>
-                </div>
-              </div>
-              <div aria-label="Options for this notification" role="gridcell">
+                  <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={`flex absolute top-[24%] ${
+                  className={`flex absolute top-[28%] ${
                     showSettings
                       ? "[clip:unset] right-[36px]"
                       : "clip-element h-[1px] overflow-hidden w-[1px]"
@@ -2144,25 +2077,30 @@ function Header() {
                   </div>
                 </div>
               </div>
-            </div>           <div
+                </div>
+              
+              </div>
+      
+            </div> 
+            <div
               onMouseOver={handleShowSettings}
               onMouseLeave={handleHideSettings}
-              className="relative"
+              className="relative mb-[-6px]"
               role="row"
             >
               <div
                 data-visualcompletion="ignore-dynamic"
                 role="none"
-                className="px-[8px]"
+                className="px-[8px] pt-[5px] pb-[5px] "
               >
                 <div role="grid-cell">
                   <a
                     className="block relative rounded-[8px] bg-transparent"
                     href=""
                   >
-                    <div className="flex px-[8px]">
+                    <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="inline-block align-bottom">
+                        <div className="relative inline-block align-bottom">
                           <div>
                             <svg
                               aria-hidden="true"
@@ -2174,13 +2112,7 @@ function Header() {
                               {/* Define a circular mask */}
                               <mask id="circleMask">
                                 <circle cx="28" cy="28" r="28" fill="white" />
-                                <circle
-                                  cx="48"
-                                  cy="48"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="9"
-                                ></circle>
+                              
                               </mask>
 
                               {/* Apply the mask to the image */}
@@ -2196,97 +2128,44 @@ function Header() {
                                 ></image>
                               </g>
                             </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                              <div className="relative cursor-pointer">
-                                <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
-                                  style={{ backgroundColor: "transparent" }}
-                                >
-                                  <i
-                                    data-visualcompletion="css-img"
-                                    style={{
-                                      backgroundImage:
-                                        "url(/notifIcons/notif_msg.png)",
-                                      backgroundPosition: "0 -986px",
-                                      backgroundSize: "auto",
-                                      width: "28px",
-                                      height: "28px",
-                                      backgroundRepeat: "no-repeat",
-                                      display: "inline-block",
-                                    }}
-                                  />
-                                </div>
-                                <div
-                                  className="rounded-full transition-opacity"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
+                         
+                          </div>
+                          <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                          <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex items-stretch justify-between relative">
-                          <div className="w-[74%] py-[5px]">
+                      <div className="notif-text flex justify-between relative items-center self-stretch min-w-0 flex-1">
+                        <div className="flex items-stretch justify-between relative w-full">
+                          <div className="pb-[5px] w-full">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
                               <div className="mb-[3px] mt-[3px]">
                                 <span
                                   className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
                                   dir="auto"
                                 >
-                                  <span className="flex relative overflow-hidden textClass">
-                                    <div
-                                      className="absolute"
-                                      style={{
-                                        clip: "rect(0,0,0,0",
-                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
-                                      }}
-                                    >
-                                      Unread
-                                    </div>
+                              
                                     <strong style={{ fontWeight: "600" }}>
                                       Sajid Hussain Khan{" "}
                                     </strong>
-                                  </span>
+                                
                                 </span>
                               </div>
-                              <div className="mb-[3px] min-h-[16px]">
-                                <span
-                                  className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                  dir="auto"
-                                >
-                                  <span className="flex min-w-0 pb-[1px] pr-[2px]">
-                                    <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                      <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
-                                        Messages and calls are secured with
-                                        end-to-end encryption.
-                                      </span>
-                                    </span>
-                                    <span className="block [white-space:nowrap] overflow-ellipsis relative ">
-                                      <span>
-                                        <span className="h-[1px] overflow-x-hidden pb-[3px] ">
-                                          &nbsp;
-                                        </span>
-                                        <span aria-hidden="true"> · </span>
-                                      </span>
-                                    </span>
-
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] pl-[2px]">
-                                      <span>1d</span>
-                                    </span>
-                                  </span>
-                                </span>
-                              </div>
+                              <div className="mb-[4px] min-h-[16px]">
+  <span
+    className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
+    dir="auto"
+  >
+    <span className="flex min-w-0 pr-[2px] items-center">
+      <span className="block min-w-0 [word-wrap:break-word] text-[.75rem] leading-[1.3333]">
+        <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap]">
+          Messages and calls are secured with end-to-end encryption.
+        </span>
+      </span>
+      </span>
+  </span>
+</div>
                             </div>
                           </div>
                           <div className="flex flex-col -mx-[12px]">
@@ -2300,11 +2179,9 @@ function Header() {
                       data-visualcompletion="ignore"
                     ></div>
                   </a>
-                </div>
-              </div>
-              <div aria-label="Options for this notification" role="gridcell">
+                  <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={`flex absolute top-[24%] ${
+                  className={`flex absolute top-[28%] ${
                     showSettings
                       ? "[clip:unset] right-[36px]"
                       : "clip-element h-[1px] overflow-hidden w-[1px]"
@@ -2344,607 +2221,16 @@ function Header() {
                   </div>
                 </div>
               </div>
-            </div>           <div
-              onMouseOver={handleShowSettings}
-              onMouseLeave={handleHideSettings}
-              className="relative"
-              role="row"
-            >
-              <div
-                data-visualcompletion="ignore-dynamic"
-                role="none"
-                className="px-[8px]"
-              >
-                <div role="grid-cell">
-                  <a
-                    className="block relative rounded-[8px] bg-transparent"
-                    href=""
-                  >
-                    <div className="flex px-[8px]">
-                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "56px", width: "56px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id="circleMask">
-                                <circle cx="28" cy="28" r="28" fill="white" />
-                                <circle
-                                  cx="48"
-                                  cy="48"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="9"
-                                ></circle>
-                              </mask>
-
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#circleMask)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="/notifIcons/notif_image_2.jpg"
-                                  style={{ height: "56px", width: "56px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                              <div className="relative cursor-pointer">
-                                <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
-                                  style={{ backgroundColor: "transparent" }}
-                                >
-                                  <i
-                                    data-visualcompletion="css-img"
-                                    style={{
-                                      backgroundImage:
-                                        "url(/notifIcons/notif_msg.png)",
-                                      backgroundPosition: "0 -986px",
-                                      backgroundSize: "auto",
-                                      width: "28px",
-                                      height: "28px",
-                                      backgroundRepeat: "no-repeat",
-                                      display: "inline-block",
-                                    }}
-                                  />
-                                </div>
-                                <div
-                                  className="rounded-full transition-opacity"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex items-stretch justify-between relative">
-                          <div className="w-[74%] py-[5px]">
-                            <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                              <div className="mb-[3px] mt-[3px]">
-                                <span
-                                  className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                  dir="auto"
-                                >
-                                  <span className="flex relative overflow-hidden textClass">
-                                    <div
-                                      className="absolute"
-                                      style={{
-                                        clip: "rect(0,0,0,0",
-                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
-                                      }}
-                                    >
-                                      Unread
-                                    </div>
-                                    <strong style={{ fontWeight: "600" }}>
-                                      Sajid Hussain Khan{" "}
-                                    </strong>
-                                  </span>
-                                </span>
-                              </div>
-                              <div className="mb-[3px] min-h-[16px]">
-                                <span
-                                  className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                  dir="auto"
-                                >
-                                  <span className="flex min-w-0 pb-[1px] pr-[2px]">
-                                    <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                      <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
-                                        Messages and calls are secured with
-                                        end-to-end encryption.
-                                      </span>
-                                    </span>
-                                    <span className="block [white-space:nowrap] overflow-ellipsis relative ">
-                                      <span>
-                                        <span className="h-[1px] overflow-x-hidden pb-[3px] ">
-                                          &nbsp;
-                                        </span>
-                                        <span aria-hidden="true"> · </span>
-                                      </span>
-                                    </span>
-
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] pl-[2px]">
-                                      <span>1d</span>
-                                    </span>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex flex-col -mx-[12px]">
-                            <div className="max-w-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                      data-visualcompletion="ignore"
-                    ></div>
-                  </a>
                 </div>
+              
               </div>
-              <div aria-label="Options for this notification" role="gridcell">
-                <div
-                  className={`flex absolute top-[24%] ${
-                    showSettings
-                      ? "[clip:unset] right-[36px]"
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
-                >
-                  <div>
-                    <div className="rounded-full customShadow">
-                      <div
-                        aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                        role="button"
-                        tabIndex="0"
-                      >
-                        <i
-                          data-visualcompletion="css-img"
-                          className="align-[-0.25em] text-[#B0B3B8]"
-                          style={{
-                            filter:
-                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                            backgroundPosition: "0px -494px",
-                            backgroundSize: "auto",
-                            width: "20px",
-                            height: "20px",
-                            backgroundRepeat: "no-repeat",
-                            display: "inline-block",
-                          }}
-                        ></i>
-                        <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                          role="none"
-                          data-visualcompletion="ignore"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>           <div
-              onMouseOver={handleShowSettings}
-              onMouseLeave={handleHideSettings}
-              className="relative"
-              role="row"
-            >
-              <div
-                data-visualcompletion="ignore-dynamic"
-                role="none"
-                className="px-[8px]"
-              >
-                <div role="grid-cell">
-                  <a
-                    className="block relative rounded-[8px] bg-transparent"
-                    href=""
-                  >
-                    <div className="flex px-[8px]">
-                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "56px", width: "56px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id="circleMask">
-                                <circle cx="28" cy="28" r="28" fill="white" />
-                                <circle
-                                  cx="48"
-                                  cy="48"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="9"
-                                ></circle>
-                              </mask>
-
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#circleMask)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="/notifIcons/notif_image_2.jpg"
-                                  style={{ height: "56px", width: "56px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                              <div className="relative cursor-pointer">
-                                <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
-                                  style={{ backgroundColor: "transparent" }}
-                                >
-                                  <i
-                                    data-visualcompletion="css-img"
-                                    style={{
-                                      backgroundImage:
-                                        "url(/notifIcons/notif_msg.png)",
-                                      backgroundPosition: "0 -986px",
-                                      backgroundSize: "auto",
-                                      width: "28px",
-                                      height: "28px",
-                                      backgroundRepeat: "no-repeat",
-                                      display: "inline-block",
-                                    }}
-                                  />
-                                </div>
-                                <div
-                                  className="rounded-full transition-opacity"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex items-stretch justify-between relative">
-                          <div className="w-[74%] py-[5px]">
-                            <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                              <div className="mb-[3px] mt-[3px]">
-                                <span
-                                  className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                  dir="auto"
-                                >
-                                  <span className="flex relative overflow-hidden textClass">
-                                    <div
-                                      className="absolute"
-                                      style={{
-                                        clip: "rect(0,0,0,0",
-                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
-                                      }}
-                                    >
-                                      Unread
-                                    </div>
-                                    <strong style={{ fontWeight: "600" }}>
-                                      Sajid Hussain Khan{" "}
-                                    </strong>
-                                  </span>
-                                </span>
-                              </div>
-                              <div className="mb-[3px] min-h-[16px]">
-                                <span
-                                  className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                  dir="auto"
-                                >
-                                  <span className="flex min-w-0 pb-[1px] pr-[2px]">
-                                    <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                      <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
-                                        Messages and calls are secured with
-                                        end-to-end encryption.
-                                      </span>
-                                    </span>
-                                    <span className="block [white-space:nowrap] overflow-ellipsis relative ">
-                                      <span>
-                                        <span className="h-[1px] overflow-x-hidden pb-[3px] ">
-                                          &nbsp;
-                                        </span>
-                                        <span aria-hidden="true"> · </span>
-                                      </span>
-                                    </span>
-
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] pl-[2px]">
-                                      <span>1d</span>
-                                    </span>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex flex-col -mx-[12px]">
-                            <div className="max-w-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                      data-visualcompletion="ignore"
-                    ></div>
-                  </a>
-                </div>
-              </div>
-              <div aria-label="Options for this notification" role="gridcell">
-                <div
-                  className={`flex absolute top-[24%] ${
-                    showSettings
-                      ? "[clip:unset] right-[36px]"
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
-                >
-                  <div>
-                    <div className="rounded-full customShadow">
-                      <div
-                        aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                        role="button"
-                        tabIndex="0"
-                      >
-                        <i
-                          data-visualcompletion="css-img"
-                          className="align-[-0.25em] text-[#B0B3B8]"
-                          style={{
-                            filter:
-                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                            backgroundPosition: "0px -494px",
-                            backgroundSize: "auto",
-                            width: "20px",
-                            height: "20px",
-                            backgroundRepeat: "no-repeat",
-                            display: "inline-block",
-                          }}
-                        ></i>
-                        <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                          role="none"
-                          data-visualcompletion="ignore"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>           <div
-              onMouseOver={handleShowSettings}
-              onMouseLeave={handleHideSettings}
-              className="relative"
-              role="row"
-            >
-              <div
-                data-visualcompletion="ignore-dynamic"
-                role="none"
-                className="px-[8px]"
-              >
-                <div role="grid-cell">
-                  <a
-                    className="block relative rounded-[8px] bg-transparent"
-                    href=""
-                  >
-                    <div className="flex px-[8px]">
-                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "56px", width: "56px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id="circleMask">
-                                <circle cx="28" cy="28" r="28" fill="white" />
-                                <circle
-                                  cx="48"
-                                  cy="48"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="9"
-                                ></circle>
-                              </mask>
-
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#circleMask)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="/notifIcons/notif_image_2.jpg"
-                                  style={{ height: "56px", width: "56px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                              <div className="relative cursor-pointer">
-                                <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
-                                  style={{ backgroundColor: "transparent" }}
-                                >
-                                  <i
-                                    data-visualcompletion="css-img"
-                                    style={{
-                                      backgroundImage:
-                                        "url(/notifIcons/notif_msg.png)",
-                                      backgroundPosition: "0 -986px",
-                                      backgroundSize: "auto",
-                                      width: "28px",
-                                      height: "28px",
-                                      backgroundRepeat: "no-repeat",
-                                      display: "inline-block",
-                                    }}
-                                  />
-                                </div>
-                                <div
-                                  className="rounded-full transition-opacity"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
-                        <div className="flex items-stretch justify-between relative">
-                          <div className="w-[74%] py-[5px]">
-                            <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                              <div className="mb-[3px] mt-[3px]">
-                                <span
-                                  className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                  dir="auto"
-                                >
-                                  <span className="flex relative overflow-hidden textClass">
-                                    <div
-                                      className="absolute"
-                                      style={{
-                                        clip: "rect(0,0,0,0",
-                                        clipPath: "polygon(0 0,0 0,0 0,0 0)",
-                                      }}
-                                    >
-                                      Unread
-                                    </div>
-                                    <strong style={{ fontWeight: "600" }}>
-                                      Sajid Hussain Khan{" "}
-                                    </strong>
-                                  </span>
-                                </span>
-                              </div>
-                              <div className="mb-[3px] min-h-[16px]">
-                                <span
-                                  className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                  dir="auto"
-                                >
-                                  <span className="flex min-w-0 pb-[1px] pr-[2px]">
-                                    <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                      <span className="block text-[#B0B3B8] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap]">
-                                        Messages and calls are secured with
-                                        end-to-end encryption.
-                                      </span>
-                                    </span>
-                                    <span className="block [white-space:nowrap] overflow-ellipsis relative ">
-                                      <span>
-                                        <span className="h-[1px] overflow-x-hidden pb-[3px] ">
-                                          &nbsp;
-                                        </span>
-                                        <span aria-hidden="true"> · </span>
-                                      </span>
-                                    </span>
-
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] pl-[2px]">
-                                      <span>1d</span>
-                                    </span>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex flex-col -mx-[12px]">
-                            <div className="max-w-full"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                      data-visualcompletion="ignore"
-                    ></div>
-                  </a>
-                </div>
-              </div>
-              <div aria-label="Options for this notification" role="gridcell">
-                <div
-                  className={`flex absolute top-[24%] ${
-                    showSettings
-                      ? "[clip:unset] right-[36px]"
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
-                >
-                  <div>
-                    <div className="rounded-full customShadow">
-                      <div
-                        aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                        role="button"
-                        tabIndex="0"
-                      >
-                        <i
-                          data-visualcompletion="css-img"
-                          className="align-[-0.25em] text-[#B0B3B8]"
-                          style={{
-                            filter:
-                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                            backgroundPosition: "0px -494px",
-                            backgroundSize: "auto",
-                            width: "20px",
-                            height: "20px",
-                            backgroundRepeat: "no-repeat",
-                            display: "inline-block",
-                          }}
-                        ></i>
-                        <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                          role="none"
-                          data-visualcompletion="ignore"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      
+            </div>    
+                  
+                  
+                  
+                  
+          
           </div>
         </div>
       )}

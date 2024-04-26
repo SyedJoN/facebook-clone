@@ -34,6 +34,20 @@ body {
   height: 0;
   margin-bottom: -4px;
 }
+.ba::before {
+  margin-top: -5px;
+  display: block;
+  content: "";
+}
+.ba::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -4px;
+}
+
+
+
 
 #scrollView {
   scrollbar-color: transparent #242526 !important;
