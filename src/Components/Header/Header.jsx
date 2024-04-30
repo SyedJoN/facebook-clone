@@ -1827,7 +1827,7 @@ function Header() {
                                           className="dot text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
                                           dir="auto"
                                         >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative ">
+                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
                                             <span>
                                               <span
                                                 style={{
@@ -2019,7 +2019,7 @@ function Header() {
                                           className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308] leading-[1.2308]"
                                           dir="auto"
                                         >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative ">
+                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
                                             <span>
                                               <span
                                                 style={{
@@ -2307,7 +2307,7 @@ function Header() {
                                           className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308] leading-[1.2308]"
                                           dir="auto"
                                         >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative ">
+                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
                                             <span>
                                               <span
                                                 style={{
@@ -2526,7 +2526,7 @@ function Header() {
                                           className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308]"
                                           dir="auto"
                                         >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative ">
+                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
                                             <span>
                                               <span
                                                 style={{
