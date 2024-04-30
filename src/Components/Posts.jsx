@@ -317,7 +317,7 @@ function Posts() {
 
       )}
       <div onClick={() => setWritePost(false)} className={` ${writePost ? 'block' : 'hidden'} fixed overflow-auto bg-[#070707]  w-full h-full top-0 left-0 z-40 opacity-[0.8]`}></div>
-      <div className=" flex flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[10px] justify-center items-center ">
+      <div className=" flex flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[13px] justify-center items-center ">
         <div className="flex flex-wrap justify-start w-full">
           <div className="flex img-wrapper justify-start w-10 h-10 rounded-full cursor-pointer  ">
             <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
@@ -333,7 +333,7 @@ function Posts() {
 
           <div className='flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
             <div className='flex  items-center'>
-              <span className='inline-flex'>
+              <span className='inline-flex mt-[2px]'>
                 <img width={'24px'} height={'24px'} src="/video.png" alt="" />
               </span>
               <span className='w-[8px]'></span>
@@ -344,7 +344,7 @@ function Posts() {
 
           <div className='flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
             <div className='flex items-center '>
-              <span className='inline-flex  '>
+              <span className='inline-flex mt-[2px]'>
                 <img width={'24px'} height={'24px'} src="/photo.png" alt="" />
               </span>
               <span className='w-[8px]'></span>
@@ -356,7 +356,7 @@ function Posts() {
 
           <div className='flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
             <div className='flex items-center'>
-              <span className='inline-flex '>
+              <span className='inline-flex mt-[2px]'>
                 <img width={'24px'} height={'24px'} src="/feeling.png" alt="" />
               </span>
               <span className='w-[8px]'></span>
