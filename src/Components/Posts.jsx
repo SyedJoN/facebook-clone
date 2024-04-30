@@ -454,10 +454,10 @@ function Posts() {
           </div>
 
         </div>
-        <div className="relative flex w-full my-[5px] h-[40px] justify-around ">
+        <div className="relative flex w-full my-[5px] h-[30px] justify-around items-center ">
 
 
-          <div className='flex sm:p-[1.2rem] justify-center flex-1 flex-grow-1 items-center hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
+          <div className='flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]'>
             <div className='flex items-center'>
               <span className='inline-flex'>
                 <i
@@ -481,7 +481,7 @@ function Posts() {
           </div>
 
 
-          <div className='flex sm:p-[1.2rem] justify-center flex-1 flex-grow-1 items-center hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
+          <div className='flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]'>
             <div className='flex items-center'>
               <span className='inline-flex'>
                 <i
@@ -505,7 +505,7 @@ function Posts() {
           </div>
 
 
-          <div className='flex sm:p-[1.2rem] justify-center flex-1 flex-grow-1 items-center hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
+          <div className='flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]'>
             <div className='flex  items-center'>
               <span className='inline-flex'>
                 <i
@@ -534,10 +534,10 @@ function Posts() {
             <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
           </div>
           <div className="block w-full h-[35px] ml-1 mt-2">
-            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[1px] cursor-text '>
+            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[2px] cursor-text '>
               <div className="flex ">
                 <div className="flex ml-2 items-center">
-                  <span className='text-xs sm:text-[1rem] text-[#B0B3B8]'>Write a comment...</span>
+                  <span className='text-xs sm:text-[1rem] text-[#B0B3B8]'>Comment as Syed Muhammad Jon</span>
 
                 </div>
 
@@ -546,7 +546,7 @@ function Posts() {
                 <ul className='flex ml-auto'>
                   <li>
                     <span className=''>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -566,7 +566,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -588,7 +588,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -610,7 +610,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -632,7 +632,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -745,10 +745,10 @@ function Posts() {
           </div>
 
         </div>
-        <div className="relative flex w-full my-[5px] h-[40px] justify-around ">
+        <div className="relative flex w-full my-[5px] h-[30px] justify-around items-center ">
 
 
-          <div className='flex sm:p-[1.2rem] justify-center flex-1 flex-grow-1 items-center hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
+          <div className='flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]'>
             <div className='flex items-center'>
               <span className='inline-flex'>
                 <i
@@ -772,7 +772,7 @@ function Posts() {
           </div>
 
 
-          <div className='flex sm:p-[1.2rem] justify-center flex-1 flex-grow-1 items-center hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
+          <div className='flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]'>
             <div className='flex items-center'>
               <span className='inline-flex'>
                 <i
@@ -796,7 +796,7 @@ function Posts() {
           </div>
 
 
-          <div className='flex sm:p-[1.2rem] justify-center flex-1 flex-grow-1 items-center hover:bg-[#3A3B3C] rounded-lg cursor-pointer '>
+          <div className='flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]'>
             <div className='flex  items-center'>
               <span className='inline-flex'>
                 <i
@@ -825,10 +825,10 @@ function Posts() {
             <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
           </div>
           <div className="block w-full h-[35px] ml-1 mt-2">
-            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[1px] cursor-text '>
+            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[2px] cursor-text '>
               <div className="flex ">
                 <div className="flex ml-2 items-center">
-                  <span className='text-xs sm:text-[1rem] text-[#B0B3B8]'>Write a comment...</span>
+                  <span className='text-xs sm:text-[1rem] text-[#B0B3B8]'>Comment as Syed Muhammad Jon</span>
 
                 </div>
 
@@ -837,7 +837,7 @@ function Posts() {
                 <ul className='flex ml-auto'>
                   <li>
                     <span className=''>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -857,7 +857,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -879,7 +879,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -901,7 +901,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i
@@ -923,7 +923,7 @@ function Posts() {
                   </li>
                   <li>
                     <span>
-                      <div className="inline-flex hover:bg-[#525454] rounded-full p-2 cursor-pointer ">
+                      <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
 
 
                         <i

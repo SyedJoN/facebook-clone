@@ -1575,7 +1575,7 @@ function Header() {
           className="msg-container messenger flex flex-col fixed right-0 shadow-xl shadow-[#141414]"
           style={{ transform: "translate(-16px, 53px)" }}
         >
-          <div className="flex messenger flex-col w-[360px] h-[478px] bg-[#242526] rounded-lg  overflow-x-hidden">
+          <div className="flex messenger flex-col w-[360px] h-[478px] bg-[#242526] rounded-lg overflow-x-hidden">
             <div className="">
               <div className="flex relative mt-[0.7rem] mx-4 flex-1 ">
                 <div className="flex flex-1">
@@ -1744,130 +1744,135 @@ function Header() {
                       className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
-                      <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
-                        <div className="flex justify-between items-center">
-                          <div className="flex flex-col self-start relative p-[6px]">
-                            <div className="relative inline-block align-bottom">
-                              <div>
-                                <svg
-                                  aria-hidden="true"
-                                  className="align-bottom"
-                                  data-visualcompletion="ignore-dynamic"
-                                  role="none"
-                                  style={{ height: "56px", width: "56px" }}
-                                >
-                                  {/* Define a circular mask */}
-                                  <mask id="circleMask">
-                                    <circle
-                                      cx="28"
-                                      cy="28"
-                                      r="28"
-                                      fill="white"
-                                    />
-                                  </mask>
+                      <div className="flex flex-col">
+                        <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
+                          <div className="flex justify-between items-center">
+                            <div className="flex flex-col self-start relative p-[6px]">
+                              <div className="relative inline-block align-bottom">
+                                <div>
+                                  <svg
+                                    aria-hidden="true"
+                                    className="align-bottom"
+                                    data-visualcompletion="ignore-dynamic"
+                                    role="none"
+                                    style={{ height: "56px", width: "56px" }}
+                                  >
+                                    {/* Define a circular mask */}
+                                    <mask id="circleMask">
+                                      <circle
+                                        cx="28"
+                                        cy="28"
+                                        r="28"
+                                        fill="white"
+                                      />
+                                    </mask>
 
-                                  {/* Apply the mask to the image */}
-                                  <g mask="url(#circleMask)">
-                                    <image
-                                      x="0"
-                                      y="0"
-                                      height="100%"
-                                      preserveAspectRatio="xMidYMid slice"
-                                      width="100%"
-                                      xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/268617265_10224430631047182_4317552559651093289_n.jpg?stp=dst-jpg_p100x100&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eFIXV4VitfsQ7kNvgGhJ9_y&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfB9-LeXtSFyZWU3pEytDbbIAakjNilTKpsYZdeK-iereg&oe=66317070"
-                                      style={{ height: "56px", width: "56px" }}
-                                    ></image>
-                                  </g>
-                                </svg>
-                              </div>
-                              <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
-                                <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                    {/* Apply the mask to the image */}
+                                    <g mask="url(#circleMask)">
+                                      <image
+                                        x="0"
+                                        y="0"
+                                        height="100%"
+                                        preserveAspectRatio="xMidYMid slice"
+                                        width="100%"
+                                        xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/268617265_10224430631047182_4317552559651093289_n.jpg?stp=dst-jpg_p100x100&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eFIXV4VitfsQ7kNvgGhJ9_y&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfB9-LeXtSFyZWU3pEytDbbIAakjNilTKpsYZdeK-iereg&oe=66317070"
+                                        style={{
+                                          height: "56px",
+                                          width: "56px",
+                                        }}
+                                      ></image>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                                  <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
-                            <div className="flex items-stretch justify-between relative w-full p-[6px]">
-                              <div className="pb-[3px] w-full">
-                                <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                                  <div className="mb-[3px] mt-[3px]">
-                                    <span
-                                      className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                      dir="auto"
-                                    >
-                                      <span className="flex relative overflow-hidden textClass">
-                                        <div
-                                          className="absolute"
-                                          style={{
-                                            clip: "rect(0,0,0,0",
-                                            clipPath:
-                                              "polygon(0 0,0 0,0 0,0 0)",
-                                          }}
-                                        >
-                                          Unread
-                                        </div>
-                                        <strong style={{ fontWeight: "600" }}>
-                                          Hasan Rizvi{" "}
-                                        </strong>
-                                      </span>
-                                    </span>
-                                  </div>
-                                  <div className="mb-[3px] min-h-[16px]">
-                                    <span
-                                      className="block max-w-full font-medium text-left text-[.75rem] text-[#8A8D91]"
-                                      dir="auto"
-                                    >
-                                      <span className="flex min-w-0 items-center">
-                                        <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                          <span className="block text-[#E4E6EB] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap] pr-[2px] mb-[2px]">
-                                            Hasan sent an attachment.{" "}
-                                          </span>
+                            <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
+                              <div className="flex items-stretch justify-between relative w-full p-[6px]">
+                                <div className="pb-[3px] w-full">
+                                  <div className="flex flex-col mb-[-5px] mt-[-5px]">
+                                    <div className="mb-[3px] mt-[3px]">
+                                      <span
+                                        className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
+                                        dir="auto"
+                                      >
+                                        <span className="flex relative overflow-hidden textClass">
+                                          <div
+                                            className="absolute"
+                                            style={{
+                                              clip: "rect(0,0,0,0",
+                                              clipPath:
+                                                "polygon(0 0,0 0,0 0,0 0)",
+                                            }}
+                                          >
+                                            Unread
+                                          </div>
+                                          <strong style={{ fontWeight: "600" }}>
+                                            Hasan Rizvi{" "}
+                                          </strong>
                                         </span>
-                                        <span
-                                          className="dot text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
-                                          dir="auto"
-                                        >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
-                                            <span>
-                                              <span
-                                                style={{
-                                                  clip: "rect(0,0,0,0)",
-                                                }}
-                                                className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px]"
-                                              >
-                                                &nbsp;
-                                              </span>
-                                              <span aria-hidden="true">
-                                                {" "}
-                                                ·{" "}
+                                      </span>
+                                    </div>
+                                    <div className="mb-[3px] min-h-[16px]">
+                                      <span
+                                        className="block max-w-full font-medium text-left text-[.75rem] text-[#8A8D91]"
+                                        dir="auto"
+                                      >
+                                        <span className="flex min-w-0 items-center">
+                                          <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
+                                            <span className="block text-[#E4E6EB] overflow-ellipsis min-w-0 overflow-y-hidden [white-space:nowrap] pr-[2px] mb-[2px]">
+                                              Hasan sent an attachment.{" "}
+                                            </span>
+                                          </span>
+                                          <span
+                                            className="dot text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
+                                            dir="auto"
+                                          >
+                                            <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
+                                              <span>
+                                                <span
+                                                  style={{
+                                                    clip: "rect(0,0,0,0)",
+                                                  }}
+                                                  className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px]"
+                                                >
+                                                  &nbsp;
+                                                </span>
+                                                <span aria-hidden="true">
+                                                  {" "}
+                                                  ·{" "}
+                                                </span>
                                               </span>
                                             </span>
                                           </span>
-                                        </span>
 
-                                        <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
-                                          <span>12h</span>
+                                          <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
+                                            <span>12h</span>
+                                          </span>
                                         </span>
                                       </span>
-                                    </span>
+                                    </div>
                                   </div>
                                 </div>
+                                <div className="flex flex-col -mx-[12px]">
+                                  <div className="max-w-full"></div>
+                                </div>
                               </div>
-                              <div className="flex flex-col -mx-[12px]">
-                                <div className="max-w-full"></div>
+                            </div>
+                            <div className="flex items-center">
+                              <div className="inline-flex ">
+                                <span className="w-[12px] h-[12px] bg-[#0866FF] rounded-full"></span>
                               </div>
                             </div>
                           </div>
-                          <div className="flex items-center">
-                            <div className="inline-flex ">
-                              <span className="w-[12px] h-[12px] bg-[#0866FF] rounded-full"></span>
-                            </div>
-                          </div>
+                          <div
+                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
+                            data-visualcompletion="ignore"
+                          ></div>
                         </div>
-                        <div
-                          className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                          data-visualcompletion="ignore"
-                        ></div>
                       </div>
                     </a>
                     <div
@@ -1934,162 +1939,166 @@ function Header() {
                       className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
-                      <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
-                        <div className="flex justify-between items-center">
-                          <div className="flex flex-col self-start relative p-[6px]">
-                            <div className="relative inline-block align-bottom">
-                              <div>
-                                <svg
-                                  aria-hidden="true"
-                                  className="align-bottom"
-                                  data-visualcompletion="ignore-dynamic"
-                                  role="none"
-                                  style={{ height: "56px", width: "56px" }}
-                                >
-                                  {/* Define a circular mask */}
-                                  <mask id="circleMask">
-                                    <circle
-                                      cx="28"
-                                      cy="28"
-                                      r="28"
-                                      fill="white"
-                                    />
-                                  </mask>
+                      <div className="flex flex-col">
+                        <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
+                          <div className="flex justify-between items-center">
+                            <div className="flex flex-col self-start relative p-[6px]">
+                              <div className="relative inline-block align-bottom">
+                                <div>
+                                  <svg
+                                    aria-hidden="true"
+                                    className="align-bottom"
+                                    data-visualcompletion="ignore-dynamic"
+                                    role="none"
+                                    style={{ height: "56px", width: "56px" }}
+                                  >
+                                    {/* Define a circular mask */}
+                                    <mask id="circleMask">
+                                      <circle
+                                        cx="28"
+                                        cy="28"
+                                        r="28"
+                                        fill="white"
+                                      />
+                                    </mask>
 
-                                  {/* Apply the mask to the image */}
-                                  <g mask="url(#circleMask)">
-                                    <image
-                                      x="0"
-                                      y="0"
-                                      height="100%"
-                                      preserveAspectRatio="xMidYMid slice"
-                                      width="100%"
-                                      xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/432444540_7390380054360948_1272875945481127857_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=HM8KTXEQh7cQ7kNvgHazwjD&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDSB1BBolae7EfJfsSW12hPFNKcsW_mnUEgBX8FWrZ21A&oe=6631897D"
-                                      style={{ height: "56px", width: "56px" }}
-                                    ></image>
-                                  </g>
-                                </svg>
-                              </div>
+                                    {/* Apply the mask to the image */}
+                                    <g mask="url(#circleMask)">
+                                      <image
+                                        x="0"
+                                        y="0"
+                                        height="100%"
+                                        preserveAspectRatio="xMidYMid slice"
+                                        width="100%"
+                                        xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/432444540_7390380054360948_1272875945481127857_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=HM8KTXEQh7cQ7kNvgHazwjD&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDSB1BBolae7EfJfsSW12hPFNKcsW_mnUEgBX8FWrZ21A&oe=6631897D"
+                                        style={{
+                                          height: "56px",
+                                          width: "56px",
+                                        }}
+                                      ></image>
+                                    </g>
+                                  </svg>
+                                </div>
 
-                              <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
-                                <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                                  <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
-                            <div className="flex items-stretch justify-between relative w-full p-[6px]">
-                              <div className="pb-[3px] w-full">
-                                <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                                  <div className="mb-[3px] mt-[3px]">
-                                    <span
-                                      className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                      dir="auto"
-                                    >
-                                      <span className="flex relative overflow-hidden textClass">
-                                        <div
-                                          className="absolute"
-                                          style={{
-                                            clip: "rect(0,0,0,0",
-                                            clipPath:
-                                              "polygon(0 0,0 0,0 0,0 0)",
-                                          }}
-                                        >
-                                          Unread
-                                        </div>
-                                        <strong style={{ fontWeight: "600" }}>
-                                          Muhammad Salar{" "}
-                                        </strong>
-                                      </span>
-                                    </span>
-                                  </div>
-                                  <div className="mb-[3px] min-h-[16px]">
-                                    <span
-                                      className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                      dir="auto"
-                                    >
-                                      <span className="flex min-w-0 items-center">
-                                        <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
-                                          <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap] mb-[2px]">
-                                            Messages and calls are secured with
-                                            end-to-end encryption.
-                                          </span>
+                            <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
+                              <div className="flex items-stretch justify-between relative w-full p-[6px]">
+                                <div className="pb-[3px] w-full">
+                                  <div className="flex flex-col mb-[-5px] mt-[-5px]">
+                                    <div className="mb-[3px] mt-[3px]">
+                                      <span
+                                        className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
+                                        dir="auto"
+                                      >
+                                        <span className="flex relative overflow-hidden textClass">
+                                          <div
+                                            className="absolute"
+                                            style={{
+                                              clip: "rect(0,0,0,0",
+                                              clipPath:
+                                                "polygon(0 0,0 0,0 0,0 0)",
+                                            }}
+                                          >
+                                            Unread
+                                          </div>
+                                          <strong style={{ fontWeight: "600" }}>
+                                            Muhammad Salar{" "}
+                                          </strong>
                                         </span>
-                                        <span
-                                          className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308] leading-[1.2308]"
-                                          dir="auto"
-                                        >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
-                                            <span>
-                                              <span
-                                                style={{
-                                                  clip: "rect(0,0,0,0)",
-                                                }}
-                                                className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px]"
-                                              >
-                                                &nbsp;
-                                              </span>
-                                              <span aria-hidden="true">
-                                                {" "}
-                                                ·{" "}
+                                      </span>
+                                    </div>
+                                    <div className="mb-[3px] min-h-[16px]">
+                                      <span
+                                        className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
+                                        dir="auto"
+                                      >
+                                        <span className="flex min-w-0 items-center">
+                                          <span className="block min-w-0 [word-wrap:break-word] [word-break:break-word] text-[.75rem] leading-[1.3333]">
+                                            <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap] mb-[2px]">
+                                              Messages and calls are secured
+                                              with end-to-end encryption.
+                                            </span>
+                                          </span>
+                                          <span
+                                            className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308] leading-[1.2308]"
+                                            dir="auto"
+                                          >
+                                            <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
+                                              <span>
+                                                <span
+                                                  style={{
+                                                    clip: "rect(0,0,0,0)",
+                                                  }}
+                                                  className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px]"
+                                                >
+                                                  &nbsp;
+                                                </span>
+                                                <span aria-hidden="true">
+                                                  {" "}
+                                                  ·{" "}
+                                                </span>
                                               </span>
                                             </span>
                                           </span>
-                                        </span>
 
-                                        <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
-                                          <span>4d</span>
+                                          <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
+                                            <span>4d</span>
+                                          </span>
                                         </span>
                                       </span>
-                                    </span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div className="flex flex-col -mx-[12px]">
-                                <div className="max-w-full"></div>
+                                <div className="flex flex-col -mx-[12px]">
+                                  <div className="max-w-full"></div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div className="flex flex-col shrink-0 min-w-0 max-w-full ">
-                            <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
-                              <div className="flex items-center">
-                                <div
-                                  aria-label="Seen by Muhammad Salar"
-                                  className="flex items-center justify-start"
-                                  role="img"
-                                >
-                                  <div aria-hidden="true" className="">
-                                    <div
-                                      className="relative flex flex-wrap overflow-hidden rounded-full"
-                                      role="row"
-                                      data-visualcompletion="ignore-dynamic"
-                                      style={{ height: "16px" }}
-                                    >
+                            <div className="flex flex-col shrink-0 min-w-0 max-w-full ">
+                              <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
+                                <div className="flex items-center">
+                                  <div
+                                    aria-label="Seen by Muhammad Salar"
+                                    className="flex items-center justify-start"
+                                    role="img"
+                                  >
+                                    <div aria-hidden="true" className="">
                                       <div
-                                        className="relative shrink-0"
-                                        style={{
-                                          maxWidth: "100%",
-                                          minWidth: "0px",
-                                          width: "calc(-999900% + 158984px)",
-                                        }}
-                                      ></div>
-                                      <div
-                                        className="relative mb-[20px]"
-                                        role="cell"
+                                        className="relative flex flex-wrap overflow-hidden rounded-full"
+                                        role="row"
+                                        data-visualcompletion="ignore-dynamic"
+                                        style={{ height: "16px" }}
                                       >
-                                        <div className="relative inline-block">
-                                          <img
-                                            height="100%"
-                                            width="100%"
-                                            src="/salar.jpg"
-                                            style={{
-                                              height: "19px",
-                                              width: "16px",
-                                            }}
-                                          ></img>
+                                        <div
+                                          className="relative shrink-0"
+                                          style={{
+                                            maxWidth: "100%",
+                                            minWidth: "0px",
+                                            width: "calc(-999900% + 158984px)",
+                                          }}
+                                        ></div>
+                                        <div
+                                          className="relative mb-[20px]"
+                                          role="cell"
+                                        >
+                                          <div className="relative inline-block">
+                                            <img
+                                              height="100%"
+                                              width="100%"
+                                              src="/salar.jpg"
+                                              style={{
+                                                height: "19px",
+                                                width: "16px",
+                                              }}
+                                            ></img>
+                                          </div>
                                         </div>
-                                      </div>
-                                      {/* <div className="flex absolute inset-0">
+                                        {/* <div className="flex absolute inset-0">
                                       <div
                                         className="relative flex-shrink-0"
                                         style={{
@@ -2157,18 +2166,19 @@ function Header() {
                                         </div>
                                       </div>
                                     </div> */}
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div
-                          className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                          data-visualcompletion="ignore"
-                        ></div>
+                          <div
+                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
+                            data-visualcompletion="ignore"
+                          ></div>
+                        </div>
                       </div>
                     </a>
                     <div
@@ -2235,146 +2245,151 @@ function Header() {
                       className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
-                      <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
-                        <div className="flex justify-between items-center">
-                          <div className="flex flex-col self-start relative p-[6px]">
-                            <div className="relative inline-block align-bottom">
-                              <div>
-                                <svg
-                                  aria-hidden="true"
-                                  className="align-bottom"
-                                  data-visualcompletion="ignore-dynamic"
-                                  role="none"
-                                  style={{ height: "56px", width: "56px" }}
-                                >
-                                  {/* Define a circular mask */}
-                                  <mask id="circleMask">
-                                    <circle
-                                      cx="28"
-                                      cy="28"
-                                      r="28"
-                                      fill="white"
-                                    />
-                                  </mask>
+                      <div className="flex flex-col">
+                        <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
+                          <div className="flex justify-between items-center">
+                            <div className="flex flex-col self-start relative p-[6px]">
+                              <div className="relative inline-block align-bottom">
+                                <div>
+                                  <svg
+                                    aria-hidden="true"
+                                    className="align-bottom"
+                                    data-visualcompletion="ignore-dynamic"
+                                    role="none"
+                                    style={{ height: "56px", width: "56px" }}
+                                  >
+                                    {/* Define a circular mask */}
+                                    <mask id="circleMask">
+                                      <circle
+                                        cx="28"
+                                        cy="28"
+                                        r="28"
+                                        fill="white"
+                                      />
+                                    </mask>
 
-                                  {/* Apply the mask to the image */}
-                                  <g mask="url(#circleMask)">
-                                    <image
-                                      x="0"
-                                      y="0"
-                                      height="100%"
-                                      preserveAspectRatio="xMidYMid slice"
-                                      width="100%"
-                                      xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G48kx52L4AAQ7kNvgGV-69p&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCTZ0oZpSss96VciuSCyrUk3pLDyQO51gw8sUK1_5mBcA&oe=66353B53"
-                                      style={{ height: "56px", width: "56px" }}
-                                    ></image>
-                                  </g>
-                                </svg>
-                              </div>
-                              <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
-                                <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                    {/* Apply the mask to the image */}
+                                    <g mask="url(#circleMask)">
+                                      <image
+                                        x="0"
+                                        y="0"
+                                        height="100%"
+                                        preserveAspectRatio="xMidYMid slice"
+                                        width="100%"
+                                        xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G48kx52L4AAQ7kNvgGV-69p&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCTZ0oZpSss96VciuSCyrUk3pLDyQO51gw8sUK1_5mBcA&oe=66353B53"
+                                        style={{
+                                          height: "56px",
+                                          width: "56px",
+                                        }}
+                                      ></image>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                                  <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
-                            <div className="flex items-stretch justify-between relative w-full p-[6px]">
-                              <div className="pb-[3px] w-full">
-                                <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                                  <div className="mb-[3px] mt-[3px]">
-                                    <span
-                                      className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                      dir="auto"
-                                    >
-                                      <strong style={{ fontWeight: "600" }}>
-                                        Syed Khurram Abbas{" "}
-                                      </strong>
-                                    </span>
-                                  </div>
-                                  <div className="mb-[3px] min-h-[16px]">
-                                    <span
-                                      className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                      dir="auto"
-                                    >
-                                      <span className="flex min-w-0 items-center">
-                                        <span className="block min-w-0 [word-wrap:break-word] text-[.75rem] leading-[1.3333]">
-                                          <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap] mb-[2px]">
-                                            Messages and calls are secured with
-                                            end-to-end encryption.
+                            <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
+                              <div className="flex items-stretch justify-between relative w-full p-[6px]">
+                                <div className="pb-[3px] w-full">
+                                  <div className="flex flex-col mb-[-5px] mt-[-5px]">
+                                    <div className="mb-[3px] mt-[3px]">
+                                      <span
+                                        className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
+                                        dir="auto"
+                                      >
+                                        <strong style={{ fontWeight: "600" }}>
+                                          Syed Khurram Abbas{" "}
+                                        </strong>
+                                      </span>
+                                    </div>
+                                    <div className="mb-[3px] min-h-[16px]">
+                                      <span
+                                        className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
+                                        dir="auto"
+                                      >
+                                        <span className="flex min-w-0 items-center">
+                                          <span className="block min-w-0 [word-wrap:break-word] text-[.75rem] leading-[1.3333]">
+                                            <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap] mb-[2px]">
+                                              Messages and calls are secured
+                                              with end-to-end encryption.
+                                            </span>
                                           </span>
-                                        </span>
-                                        <span
-                                          className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308] leading-[1.2308]"
-                                          dir="auto"
-                                        >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
-                                            <span>
-                                              <span
-                                                style={{
-                                                  clip: "rect(0,0,0,0)",
-                                                }}
-                                                className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px] "
-                                              >
-                                                &nbsp;
-                                              </span>
-                                              <span aria-hidden="true">
-                                                {" "}
-                                                ·{" "}
+                                          <span
+                                            className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308] leading-[1.2308]"
+                                            dir="auto"
+                                          >
+                                            <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
+                                              <span>
+                                                <span
+                                                  style={{
+                                                    clip: "rect(0,0,0,0)",
+                                                  }}
+                                                  className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px] "
+                                                >
+                                                  &nbsp;
+                                                </span>
+                                                <span aria-hidden="true">
+                                                  {" "}
+                                                  ·{" "}
+                                                </span>
                                               </span>
                                             </span>
                                           </span>
-                                        </span>
 
-                                        <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
-                                          <span>6d</span>
+                                          <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
+                                            <span>6d</span>
+                                          </span>
                                         </span>
                                       </span>
-                                    </span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div className="flex flex-col -mx-[12px]">
-                                <div className="max-w-full"></div>
+                                <div className="flex flex-col -mx-[12px]">
+                                  <div className="max-w-full"></div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div className="flex flex-col shrink-0 min-w-0 max-w-full ">
-                            <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
-                              <div className="flex items-center">
-                                <div
-                                  aria-label="Seen by Muhammad Salar"
-                                  className="flex items-center justify-start"
-                                  role="img"
-                                >
-                                  <div aria-hidden="true" className="">
-                                    <div
-                                      className="relative flex flex-wrap overflow-hidden rounded-full"
-                                      role="row"
-                                      data-visualcompletion="ignore-dynamic"
-                                      style={{ height: "16px" }}
-                                    >
+                            <div className="flex flex-col shrink-0 min-w-0 max-w-full ">
+                              <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
+                                <div className="flex items-center">
+                                  <div
+                                    aria-label="Seen by Muhammad Salar"
+                                    className="flex items-center justify-start"
+                                    role="img"
+                                  >
+                                    <div aria-hidden="true" className="">
                                       <div
-                                        className="relative shrink-0"
-                                        style={{
-                                          maxWidth: "100%",
-                                          minWidth: "0px",
-                                          width: "calc(-999900% + 158984px)",
-                                        }}
-                                      ></div>
-                                      <div
-                                        className="relative mb-[20px]"
-                                        role="cell"
+                                        className="relative flex flex-wrap overflow-hidden rounded-full"
+                                        role="row"
+                                        data-visualcompletion="ignore-dynamic"
+                                        style={{ height: "16px" }}
                                       >
-                                        <div className="relative inline-block">
-                                          <img
-                                            height="100%"
-                                            width="100%"
-                                            src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G48kx52L4AAQ7kNvgGV-69p&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCTZ0oZpSss96VciuSCyrUk3pLDyQO51gw8sUK1_5mBcA&oe=66353B53"
-                                            style={{
-                                              height: "19px",
-                                              width: "16px",
-                                            }}
-                                          ></img>
+                                        <div
+                                          className="relative shrink-0"
+                                          style={{
+                                            maxWidth: "100%",
+                                            minWidth: "0px",
+                                            width: "calc(-999900% + 158984px)",
+                                          }}
+                                        ></div>
+                                        <div
+                                          className="relative mb-[20px]"
+                                          role="cell"
+                                        >
+                                          <div className="relative inline-block">
+                                            <img
+                                              height="100%"
+                                              width="100%"
+                                              src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G48kx52L4AAQ7kNvgGV-69p&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCTZ0oZpSss96VciuSCyrUk3pLDyQO51gw8sUK1_5mBcA&oe=66353B53"
+                                              style={{
+                                                height: "19px",
+                                                width: "16px",
+                                              }}
+                                            ></img>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -2383,11 +2398,11 @@ function Header() {
                               </div>
                             </div>
                           </div>
+                          <div
+                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
+                            data-visualcompletion="ignore"
+                          ></div>
                         </div>
-                        <div
-                          className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                          data-visualcompletion="ignore"
-                        ></div>
                       </div>
                     </a>
                     <div
@@ -2454,146 +2469,151 @@ function Header() {
                       className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
-                      <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
-                        <div className="flex justify-between items-center">
-                          <div className="flex flex-col self-start relative p-[6px]">
-                            <div className="relative inline-block align-bottom">
-                              <div>
-                                <svg
-                                  aria-hidden="true"
-                                  className="align-bottom"
-                                  data-visualcompletion="ignore-dynamic"
-                                  role="none"
-                                  style={{ height: "56px", width: "56px" }}
-                                >
-                                  {/* Define a circular mask */}
-                                  <mask id="circleMask">
-                                    <circle
-                                      cx="28"
-                                      cy="28"
-                                      r="28"
-                                      fill="white"
-                                    />
-                                  </mask>
+                      <div className="flex flex-col">
+                        <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
+                          <div className="flex justify-between items-center">
+                            <div className="flex flex-col self-start relative p-[6px]">
+                              <div className="relative inline-block align-bottom">
+                                <div>
+                                  <svg
+                                    aria-hidden="true"
+                                    className="align-bottom"
+                                    data-visualcompletion="ignore-dynamic"
+                                    role="none"
+                                    style={{ height: "56px", width: "56px" }}
+                                  >
+                                    {/* Define a circular mask */}
+                                    <mask id="circleMask">
+                                      <circle
+                                        cx="28"
+                                        cy="28"
+                                        r="28"
+                                        fill="white"
+                                      />
+                                    </mask>
 
-                                  {/* Apply the mask to the image */}
-                                  <g mask="url(#circleMask)">
-                                    <image
-                                      x="0"
-                                      y="0"
-                                      height="100%"
-                                      preserveAspectRatio="xMidYMid slice"
-                                      width="100%"
-                                      xlinkHref="/notifIcons/notif_image_2.jpg"
-                                      style={{ height: "56px", width: "56px" }}
-                                    ></image>
-                                  </g>
-                                </svg>
-                              </div>
-                              <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
-                                <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                    {/* Apply the mask to the image */}
+                                    <g mask="url(#circleMask)">
+                                      <image
+                                        x="0"
+                                        y="0"
+                                        height="100%"
+                                        preserveAspectRatio="xMidYMid slice"
+                                        width="100%"
+                                        xlinkHref="/notifIcons/notif_image_2.jpg"
+                                        style={{
+                                          height: "56px",
+                                          width: "56px",
+                                        }}
+                                      ></image>
+                                    </g>
+                                  </svg>
+                                </div>
+                                <div className="flex flex-col items-end inset-0 justify-end absolute z-0 pointer-events-none">
+                                  <span className="w-[18px] h-[18px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
-                            <div className="flex items-stretch justify-between relative w-full p-[6px]">
-                              <div className="pb-[3px] w-full">
-                                <div className="flex flex-col mb-[-5px] mt-[-5px]">
-                                  <div className="mb-[3px] mt-[3px]">
-                                    <span
-                                      className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
-                                      dir="auto"
-                                    >
-                                      <strong style={{ fontWeight: "600" }}>
-                                        Sajid Hussain Khan{" "}
-                                      </strong>
-                                    </span>
-                                  </div>
-                                  <div className="mb-[3px] min-h-[16px]">
-                                    <span
-                                      className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
-                                      dir="auto"
-                                    >
-                                      <span className="flex min-w-0 items-center">
-                                        <span className="block min-w-0 [word-wrap:break-word] text-[.75rem] leading-[1.3333]">
-                                          <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap] mb-[2px]">
-                                            Messages and calls are secured with
-                                            end-to-end encryption.
+                            <div className="notif-text flex justify-between relative items-center min-w-0 flex-grow">
+                              <div className="flex items-stretch justify-between relative w-full p-[6px]">
+                                <div className="pb-[3px] w-full">
+                                  <div className="flex flex-col mb-[-5px] mt-[-5px]">
+                                    <div className="mb-[3px] mt-[3px]">
+                                      <span
+                                        className="text-[#E4E6EB] font-normal block text-left text-[.875rem] leading-[1.3333]"
+                                        dir="auto"
+                                      >
+                                        <strong style={{ fontWeight: "600" }}>
+                                          Sajid Hussain Khan{" "}
+                                        </strong>
+                                      </span>
+                                    </div>
+                                    <div className="mb-[3px] min-h-[16px]">
+                                      <span
+                                        className="block max-w-full font-normal text-left text-[.75rem] text-[#8A8D91]"
+                                        dir="auto"
+                                      >
+                                        <span className="flex min-w-0 items-center">
+                                          <span className="block min-w-0 [word-wrap:break-word] text-[.75rem] leading-[1.3333]">
+                                            <span className="block text-[#B0B3B8] min-w-0 overflow-y-hidden [text-overflow:ellipsis] [white-space:nowrap] mb-[2px]">
+                                              Messages and calls are secured
+                                              with end-to-end encryption.
+                                            </span>
                                           </span>
-                                        </span>
-                                        <span
-                                          className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308]"
-                                          dir="auto"
-                                        >
-                                          <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
-                                            <span>
-                                              <span
-                                                style={{
-                                                  clip: "rect(0,0,0,0)",
-                                                }}
-                                                className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px]"
-                                              >
-                                                &nbsp;
-                                              </span>
-                                              <span aria-hidden="true">
-                                                {" "}
-                                                ·{" "}
+                                          <span
+                                            className="ba text-[#385898] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full leading-[1.2308]"
+                                            dir="auto"
+                                          >
+                                            <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
+                                              <span>
+                                                <span
+                                                  style={{
+                                                    clip: "rect(0,0,0,0)",
+                                                  }}
+                                                  className="absolute h-[1px] w-[1px] overflow-x-hidden pb-[3px]"
+                                                >
+                                                  &nbsp;
+                                                </span>
+                                                <span aria-hidden="true">
+                                                  {" "}
+                                                  ·{" "}
+                                                </span>
                                               </span>
                                             </span>
                                           </span>
-                                        </span>
 
-                                        <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
-                                          <span>12h</span>
+                                          <span className="ba flex flex-col max-w-full items-center font-normal text-[#B0B3B8] text-[.75rem] pl-[2px] pb-[2px]">
+                                            <span>12h</span>
+                                          </span>
                                         </span>
                                       </span>
-                                    </span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div className="flex flex-col -mx-[12px]">
-                                <div className="max-w-full"></div>
+                                <div className="flex flex-col -mx-[12px]">
+                                  <div className="max-w-full"></div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div className="flex flex-col shrink-0 min-w-0 max-w-full ">
-                            <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
-                              <div className="flex items-center">
-                                <div
-                                  aria-label="Seen by Muhammad Salar"
-                                  className="flex items-center justify-start"
-                                  role="img"
-                                >
-                                  <div aria-hidden="true" className="">
-                                    <div
-                                      className="relative flex flex-wrap overflow-hidden rounded-full"
-                                      role="row"
-                                      data-visualcompletion="ignore-dynamic"
-                                      style={{ height: "16px" }}
-                                    >
+                            <div className="flex flex-col shrink-0 min-w-0 max-w-full ">
+                              <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
+                                <div className="flex items-center">
+                                  <div
+                                    aria-label="Seen by Muhammad Salar"
+                                    className="flex items-center justify-start"
+                                    role="img"
+                                  >
+                                    <div aria-hidden="true" className="">
                                       <div
-                                        className="relative shrink-0"
-                                        style={{
-                                          maxWidth: "100%",
-                                          minWidth: "0px",
-                                          width: "calc(-999900% + 158984px)",
-                                        }}
-                                      ></div>
-                                      <div
-                                        className="relative mb-[20px]"
-                                        role="cell"
+                                        className="relative flex flex-wrap overflow-hidden rounded-full"
+                                        role="row"
+                                        data-visualcompletion="ignore-dynamic"
+                                        style={{ height: "16px" }}
                                       >
-                                        <div className="relative inline-block">
-                                          <img
-                                            height="100%"
-                                            width="100%"
-                                            src="/notifIcons/notif_image_2.jpg"
-                                            style={{
-                                              height: "19px",
-                                              width: "16px",
-                                            }}
-                                          ></img>
+                                        <div
+                                          className="relative shrink-0"
+                                          style={{
+                                            maxWidth: "100%",
+                                            minWidth: "0px",
+                                            width: "calc(-999900% + 158984px)",
+                                          }}
+                                        ></div>
+                                        <div
+                                          className="relative mb-[20px]"
+                                          role="cell"
+                                        >
+                                          <div className="relative inline-block">
+                                            <img
+                                              height="100%"
+                                              width="100%"
+                                              src="/notifIcons/notif_image_2.jpg"
+                                              style={{
+                                                height: "19px",
+                                                width: "16px",
+                                              }}
+                                            ></img>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -2602,11 +2622,11 @@ function Header() {
                               </div>
                             </div>
                           </div>
+                          <div
+                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
+                            data-visualcompletion="ignore"
+                          ></div>
                         </div>
-                        <div
-                          className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                          data-visualcompletion="ignore"
-                        ></div>
                       </div>
                     </a>
                     <div
