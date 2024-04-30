@@ -35,7 +35,7 @@ body {
   margin-bottom: -4px;
 }
 .ba::before {
-  margin-top: -5px;
+  margin-top: -4px;
   display: block;
   content: "";
 }
