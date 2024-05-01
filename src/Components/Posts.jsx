@@ -146,7 +146,7 @@ function Posts() {
               <div className={` flex flex-col h-fit overflow-x-hidden
  overscroll-contain flex-grow`}>
                 <div className={`relative flex flex-col flex-grow pb-[40px]`}>
-                  <div className={` pl-4  ${content.length >= 131 ? 'pr-8' : 'pr-4'}`}>
+                  <div className={` pl-4 ${content.length >= 131 ? 'pr-8' : 'pr-4'}`}>
                     <div className="flex cursor-text flex-col">
                       <div
                         ref={editableDivRef}
@@ -323,8 +323,8 @@ function Posts() {
             <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
           </div>
           <div className="ml-2 flex-grow">
-            <div onClick={handlePostContainer} className='flex items-center h-[40px] bg-[#3A3B3C] hover:bg-[#4E4F50] px-[11px] rounded-full cursor-pointer '>
-              <span className={`text-lg md:text-[1.07rem] ${!writePost && content.length > 0 ? 'text-white' : 'text-[#B0B3B8]'} `}>{writePost ? defaultText : content.length === 0 ? defaultText : content.length > 50 ? content.substring(0, 60) + '...' : content}</span>
+            <div onClick={handlePostContainer} className='flex items-center h-[40px] bg-[#3A3B3C] hover:bg-[#4E4F50] px-[12px] rounded-full cursor-pointer '>
+              <span className={`text-lg md:text-[1.0625rem] ${!writePost && content.length > 0 ? 'text-white' : 'text-[#B0B3B8]'} `}>{writePost ? defaultText : content.length === 0 ? defaultText : content.length > 50 ? content.substring(0, 60) + '...' : content}</span>
             </div>
           </div>
         </div>
@@ -534,7 +534,7 @@ function Posts() {
             <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
           </div>
           <div className="block w-full h-[35px] ml-1 mt-2">
-            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[2px] cursor-text '>
+            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[3px] cursor-text '>
               <div className="flex ">
                 <div className="flex ml-2 items-center">
                   <span className='text-xs sm:text-[1rem] text-[#B0B3B8]'>Comment as Syed Muhammad Jon</span>
@@ -825,7 +825,7 @@ function Posts() {
             <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
           </div>
           <div className="block w-full h-[35px] ml-1 mt-2">
-            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[2px] cursor-text '>
+            <div className='bg-[#3A3B3C] rounded-full px-[2px] py-[3px] cursor-text '>
               <div className="flex ">
                 <div className="flex ml-2 items-center">
                   <span className='text-xs sm:text-[1rem] text-[#B0B3B8]'>Comment as Syed Muhammad Jon</span>

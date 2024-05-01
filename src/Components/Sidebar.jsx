@@ -104,39 +104,39 @@ function Sidebar() {
 
         <div ref={containerRef} className={`content-item sidebar p-[0.6rem] text-[#E4E6EB] w-[360px] cursor-pointer  ${seeMore ? 'overflow-y-scroll overflow-x-hidden ' : 'overflow-hidden'}`}>
 
-          <div className={`sidebar flex flex-col cursor-pointer mt-[0.4rem]`}>
-            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+          <div className={`sidebar flex flex-col cursor-pointer mt-[0.35rem]`}>
+            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
               <div className="img-wrapper w-9 h-9 rounded-full">
                 <img className='object-cover w-full h-full rounded-full' src="/me.jpg" alt="" />
               </div>
-              <span className='text-sm my-2 ml-3'>Syed Muhammad Jon</span>
+              <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Syed Muhammad Jon</span>
             </div>
-            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
               <i
                 data-visualcompletion="css-img"
                 style={{
                   backgroundImage: "url(/iconBar.png)",
-                  backgroundPosition: '0 -296px',
+                  backgroundPosition: '0 -297px',
                   backgroundSize: 'auto',
                   width: '36px',
-                  height: '36px',
+                  height: '34px',
                   backgroundRepeat: 'no-repeat',
                   display: 'inline-block',
                 }}
 
               />
-              <span className='text-sm my-2 ml-3'>Friends</span>
+              <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Friends</span>
             </div>
-            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
               <img src="/adsManager.png" alt="" />
 
 
-              <span className='text-sm my-2 ml-3'>Ads Manager</span>
+              <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Ads Manager</span>
 
             </div>
-            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
               <i
                 data-visualcompletion="css-img"
@@ -145,16 +145,16 @@ function Sidebar() {
                   backgroundPosition: '0 -444px',
                   backgroundSize: 'auto',
                   width: '36px',
-                  height: '36px',
+                  height: '34px',
                   backgroundRepeat: 'no-repeat',
                   display: 'inline-block',
                 }}
 
               />
-              <span className='text-sm my-2 ml-3'>Memories</span>
+              <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Memories</span>
 
             </div>
-            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
               <i
                 data-visualcompletion="css-img"
@@ -163,14 +163,14 @@ function Sidebar() {
                   backgroundPosition: '0 -185px',
                   backgroundSize: 'auto',
                   width: '36px',
-                  height: '36px',
+                  height: '34px',
                   backgroundRepeat: 'no-repeat',
                   display: 'inline-block',
                 }}
               />
-              <span className='text-sm my-2 ml-3'>Saved</span>
+              <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Saved</span>
             </div>
-            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+            <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
               <i
                 data-visualcompletion="css-img"
@@ -179,20 +179,20 @@ function Sidebar() {
                   backgroundPosition: '0 -37px',
                   backgroundSize: 'auto',
                   width: '36px',
-                  height: '36px',
+                  height: '34px',
                   backgroundRepeat: 'no-repeat',
                   display: 'inline-block',
                 }}
 
               />
-              <span className='text-sm my-2 ml-3'>Groups</span>
+              <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Groups</span>
 
             </div>
 
             {!seeMore && (
               <div
                 onClick={() => clickHandler()}
-                className="flex flex-wrap ml-[0.1rem] p-[0.35rem] hover:bg-[#303031] rounded-lg group"
+                className="flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.5rem] hover:bg-[#303031] rounded-lg group"
               >
                 <div className='rounded-full bg-[#313233] px-2 py-2 relative'>
                   <svg
@@ -212,13 +212,13 @@ function Sidebar() {
 
                   <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10"></div>
                 </div>
-                <span className='text-sm ml-3 mt-[0.4rem]'>See more</span>
+                <span className='text-sm ml-3 mt-[0.4rem] font-[500]'>See more</span>
               </div>
             )}
             {seeMore && (
               <div>
 
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <i
                     data-visualcompletion="css-img"
@@ -227,22 +227,22 @@ function Sidebar() {
                       backgroundPosition: '-722px -175px',
                       backgroundSize: 'auto',
                       width: '36px',
-                      height: '36px',
+                      height: '34px',
                       backgroundRepeat: 'no-repeat',
                       display: 'inline-block',
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Blood Donations</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Blood Donations</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <img src="/climate.png" alt="" />
-                  <span className='text-sm my-2 ml-3'>Climate Science Center</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Climate Science Center</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <i
                     data-visualcompletion="css-img"
@@ -251,24 +251,24 @@ function Sidebar() {
                       backgroundPosition: '0 -37px',
                       backgroundSize: 'auto',
                       width: '36px',
-                      height: '36px',
+                      height: '34px',
                       backgroundRepeat: 'no-repeat',
                       display: 'inline-block',
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Events</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Events</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <img src="/feeds.png" alt="" />
 
 
-                  <span className='text-sm my-2 ml-3'>Feeds</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Feeds</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <i
                     data-visualcompletion="css-img"
@@ -277,21 +277,21 @@ function Sidebar() {
                       backgroundPosition: '0 -333px',
                       backgroundSize: 'auto',
                       width: '36px',
-                      height: '36px',
+                      height: '34px',
                       backgroundRepeat: 'no-repeat',
                       display: 'inline-block',
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Fundraisers</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Fundraisers</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <img src="/gaming.png" alt="" />
 
 
-                  <span className='text-sm my-2 ml-3'>Gaming Video</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Gaming Video</span>
 
                 </div>
                 <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031 rounded-lg '>
@@ -303,16 +303,16 @@ function Sidebar() {
                       backgroundPosition: '0 -407px',
                       backgroundSize: 'auto',
                       width: '36px',
-                      height: '36px',
+                      height: '34px',
                       backgroundRepeat: 'no-repeat',
                       display: 'inline-block',
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Marketplace</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Marketplace</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <i
                     data-visualcompletion="css-img"
@@ -321,32 +321,32 @@ function Sidebar() {
                       backgroundPosition: '0 0',
                       backgroundSize: 'auto',
                       width: '36px',
-                      height: '36px',
+                      height: '34px',
                       backgroundRepeat: 'no-repeat',
                       display: 'inline-block',
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Messenger</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Messenger</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <img src="/mkids.png" alt="" />
 
 
-                  <span className='text-sm my-2 ml-3'>Messenger Kids</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Messenger Kids</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <img src="/orders.png" alt="" />
 
 
-                  <span className='text-sm my-2 ml-3'>Orders and payments</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Orders and payments</span>
 
                 </div>
-                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg '>
+                <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] rounded-lg items-center'>
 
                   <i
                     data-visualcompletion="css-img"
@@ -355,13 +355,13 @@ function Sidebar() {
                       backgroundPosition: '0 -111px',
                       backgroundSize: 'auto',
                       width: '36px',
-                      height: '36px',
+                      height: '34px',
                       backgroundRepeat: 'no-repeat',
                       display: 'inline-block',
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Pages</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Pages</span>
 
                 </div>
                 <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] max-w-[350px] rounded-lg '>
@@ -379,7 +379,7 @@ function Sidebar() {
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Play games</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Play games</span>
 
                 </div>
                 <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031] max-w-[350px] rounded-lg '>
@@ -387,7 +387,7 @@ function Sidebar() {
                   <img src="/activity.png" alt="" />
 
 
-                  <span className='text-sm my-2 ml-3'>Recent ad activity</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Recent ad activity</span>
 
                 </div>
                 <div className='flex flex-wrap p-[5px] m-[0.1rem] hover:bg-[#303031]  rounded-lg '>
@@ -405,7 +405,7 @@ function Sidebar() {
                     }}
 
                   />
-                  <span className='text-sm my-2 ml-3'>Video</span>
+                  <span className='ba_1 text-sm ml-[0.74rem] font-[500]'>Video</span>
 
                 </div>
               </div>
@@ -413,7 +413,7 @@ function Sidebar() {
 
             {seeMore && (<div
               onClick={() => clickHandler()}
-              className="flex flex-wrap ml-[0.1rem] p-[0.35rem] hover:bg-[#303031] rounded-lg group"
+              className="flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.5rem] hover:bg-[#303031] rounded-lg group"
             >
               <div className='rounded-full bg-[#313233] px-2 py-2 relative'>
                 <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor"><path d="M15.47 12.2 10 6.727 4.53 12.2a.75.75 0 0 1-1.06-1.061l6-6a.751.751 0 0 1 1.06 0l6 6a.75.75 0 0 1-1.06 1.061z"></path>
@@ -421,64 +421,76 @@ function Sidebar() {
                 {/* Glow effect using pseudo-element */}
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10"></div>
               </div>
-              <span className='text-sm ml-3 mt-[0.4rem]'>See less</span>
+              <span className='text-sm ml-3 mt-[0.4rem] font-[500]'>See less</span>
             </div>)}
 
 
 
           </div >
-          <div className='relative top-[-1px] ml-[0.5rem] mt-2 border-b-[0.05rem] border-[#3A3B3C] w-[21rem]' role='separator'></div>
+          <div className='relative top-[-2px] left-[-2px] ml-[0.5rem] mt-2 border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]' role='separator'></div>
           <div className={`sidebar flex flex-col text-white cursor-pointer w-[350px]`}>
-            <h3 className=' mt-1 text-[#B0B3B8] font-semibold p-2 cursor-text'>
+            <h3 className=' mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text'>
               Your shortcuts
 
 
             </h3>
-            <div className='flex flex-wrap  hover:bg-[#303031] p-[0.35rem] rounded-lg '>
-
+            <ul className='mt-[0.15rem]'>
+            <li>
+            <div className='flex flex-wrap items-center hover:bg-[#303031] px-[0.4rem] rounded-lg '>
+<div className="relative flex flex-col self-center my-[6px] mr-[12px]">
               <img src="/anti.jpg" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
+              </div>
 
-
-              <span className='text-sm my-2 ml-3 text-white'>Anti Babarsons Community 3.0™</span>
+              <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>PPG - Pakistani PC Gamers</span>
 
             </div>
-            <div className='flex flex-wrap   hover:bg-[#303031] p-[0.35rem] rounded-lg '>
-
+            </li>
+            <li>
+            <div className='flex flex-wrap items-center hover:bg-[#303031] px-[0.4rem] rounded-lg'>
+            <div className="relative flex flex-col self-center my-[6px] mr-[12px]">
               <img src="/anti2.jpg" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
+              </div>
 
-
-              <span className='text-sm my-2 ml-3 text-white'>Anti Babarsons Community 3.0™</span>
+              <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>..SiR IsHaQuE BaRbEr..</span>
 
             </div>
-            <div className='flex flex-wrap   hover:bg-[#303031] p-[0.35rem] rounded-lg '>
-
+            </li>
+            <li>
+            <div className='flex flex-wrap items-center hover:bg-[#303031] px-[0.4rem] rounded-lg'>
+            <div className="relative flex flex-col self-center my-[6px] mr-[12px]">
               <img src="/cs.jpg" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
+              </div>
 
-
-              <span className='text-sm my-2 ml-3 text-white'>Communications Systems Lab</span>
+              <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>Communications Systems Lab</span>
 
             </div>
-            <div className='flex flex-wrap    hover:bg-[#303031] p-[0.35rem] rounded-lg '>
-
+       
+            </li>
+            <li>
+            <div className='flex flex-wrap items-center hover:bg-[#303031] px-[0.4rem] rounded-lg'>
+            <div className="relative flex flex-col self-center my-[6px] mr-[12px]">
               <img src="/death.png" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
+              </div>
 
-
-              <span className='text-sm my-2 ml-3 text-white'>Death Never Knocks</span>
+              <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>Death Never Knocks</span>
 
             </div>
-            <div className='flex flex-wrap   hover:bg-[#303031] p-[0.35rem] rounded-lg '>
-
+            </li>
+            <li>
+            <div className='flex flex-wrap items-center hover:bg-[#303031] px-[0.4rem] rounded-lg '>
+            <div className="relative flex flex-col self-center my-[6px] mr-[12px]">
               <img src="/jk.jpg" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
 
-
-              <span className='text-sm my-2 ml-3 text-white'>JK Developers</span>
+</div>
+              <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>JK Developers</span>
 
             </div>
-
+            </li>
+            </ul>
             {!seeMore2 && (
               <div
                 onClick={() => clickHandler2()}
-                className="flex flex-wrap p-[0.35rem] hover:bg-[#303031] rounded-lg group"
+                className="flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.5rem] hover:bg-[#303031] rounded-lg group"
               >
                 <div className='rounded-full bg-[#313233] px-2 py-2 relative'>
                   <svg
@@ -498,19 +510,19 @@ function Sidebar() {
                   {/* Glow effect using pseudo-element */}
                   <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10"></div>
                 </div>
-                <span className='text-sm ml-3 mt-[0.4rem]'>See more</span>
+                <span className='text-sm ml-3 mt-[0.4rem] font-[500]'>See more</span>
               </div>
             )}
 
 
             {seeMore2 && (
               <div >
-                <div className='flex flex-wrap  hover:bg-[#303031] p-[0.35rem] rounded-lg '>
+                <div className='flex flex-wrap items-center hover:bg-[#303031] px-[0.4rem] rounded-lg '>
 
                   <img src="/jp.png" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
 
 
-                  <span className='text-sm my-2 ml-3 text-white'>JoN - Productions</span>
+                  <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>JoN - Productions</span>
 
                 </div>
                 <div className='flex flex-wrap   hover:bg-[#303031] rounded-lg p-[0.35rem]'>
@@ -518,7 +530,7 @@ function Sidebar() {
                   <img src="/max.jpg" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
 
 
-                  <span className='text-sm my-2 ml-3 text-white'>Max Sweet</span>
+                  <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>Max Sweet</span>
 
                 </div>
 
@@ -527,7 +539,7 @@ function Sidebar() {
                   <img src="/toast.jpg" style={{ width: '36px', height: '36px', borderRadius: '50px' }} alt="" />
 
 
-                  <span className='text-sm my-2 ml-3 text-white'>Toast Sweet</span>
+                  <span className='ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]'>Toast Sweet</span>
 
                 </div>
               </div>
@@ -541,7 +553,7 @@ function Sidebar() {
                 </svg>
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10"></div>
               </div>
-              <span className='text-sm ml-3 mt-[0.4rem]'>See less</span>
+              <span className='text-sm ml-3 mt-[0.4rem] font-[500]'>See less</span>
             </div>)}
 
           </div>

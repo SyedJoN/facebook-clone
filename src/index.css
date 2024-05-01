@@ -37,9 +37,22 @@ body {
 .ba::before {
   margin-top: -4px;
   display: block;
+  height: 0;
   content: "";
 }
 .ba::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -4px;
+}
+.ba_1::before {
+  margin-top: -5px;
+  display: block;
+  height: 0;
+  content: "";
+}
+.ba_1::after {
   display: block;
   content: "";
   height: 0;
@@ -213,18 +226,13 @@ scrollbar-color: #7B7B7B #424242;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  flex-basis: 140.625px;
 }
 
-.owl-item,
-.owl-item[active] {
-
-  width: 140.633px !important;
-}
 
 .owl-stage {
   display: flex;
   flex-grow: 1;
-
 }
 
 

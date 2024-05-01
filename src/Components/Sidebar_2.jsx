@@ -231,13 +231,13 @@ function Sidebar_2() {
             </div>
 
             <div
-              className="ml-[0.55rem] mt-2 border-b-[0.05rem] border-[#3A3B3C] w-[21rem]"
+              className="ml-[0.55rem] mt-2 border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
               role="separator"
             ></div>
 
             <div className="flex items-center cursor-default">
               <div className="flex flex-wrap">
-                <span className=" mt-1 text-[#B0B3B8] font-semibold p-2 cursor-text ">
+                <span className=" mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text ">
                   Your Pages & profiles
                 </span>
               </div>
@@ -311,12 +311,12 @@ function Sidebar_2() {
             </div>
           </div>
           <div
-            className="ml-[1rem] mt-1 border-b-[0.05rem] border-[#3A3B3C] w-[21rem]"
+            className="ml-[1rem] mt-1 border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
             role="separator"
           ></div>
           <div className="flex items-center">
             <div className="flex flex-wrap">
-              <span className="ml-2 mt-1 text-[#B0B3B8] font-semibold p-2 cursor-text">
+              <span className="ml-2 mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
                 Birthdays
               </span>
             </div>
@@ -346,13 +346,13 @@ function Sidebar_2() {
           </div>
           <div className={`sidebar flex flex-col text-white cursor-default`}>
             <div
-              className="ml-[1rem] mt-1 border-b-[0.05rem] border-[#3A3B3C] w-[21rem]"
+              className="ml-[1rem] mt-1 border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
               role="separator"
             ></div>
 
             <div className="flex items-center">
               <div className="flex flex-wrap">
-                <span className="ml-2 mt-1 text-[#B0B3B8] font-semibold p-2 cursor-text">
+                <span className="ml-2 mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
                   Contacts
                 </span>
               </div>

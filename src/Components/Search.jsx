@@ -16,7 +16,7 @@ function Search({ onChangeVal, className = '' }) {
         <div className={`search ${className} w-[40px] relative flex justify-center left-[25px] items-center xl:w-[240px]`}>
 
             <input
-                className='flex justify-center text-left flex-grow pt-[7px] pb-[9px] items-center flex-shrink w-full xl:placeholder-[#7A7C7F] bg-[#3A3B3C] h-10 pl-[12px] rounded-full md:text-[.9375rem] placeholder-transparent  '
+                className='flex justify-center text-left flex-grow pt-[7px] pb-[9px] items-center flex-shrink w-full xl:placeholder-[#B0B3B8] bg-[#3A3B3C] h-10 pl-[11px] rounded-full md:text-[.9375rem] outline-none'
                 type="text"
                 onChange={handleInputVal}
                 value={inputVal}
