@@ -383,6 +383,16 @@ scrollbar-color: #7B7B7B #424242;
   -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     display: -webkit-box;
+  
+}.textClass_1 {
+  -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+  
+}
+.textProps {
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .customShadow {

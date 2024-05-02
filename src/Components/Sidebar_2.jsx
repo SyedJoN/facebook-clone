@@ -100,28 +100,78 @@ function Sidebar_2() {
       <div ref={contentRef} className="content">
         <div
           ref={containerRef}
-          className={`content-item sidebar_2 text-white cursor-pointer overflow-y-scroll overflow-x-hidden`}
+          className={`content-item sidebar_2 text-white cursor-pointer overflow-y-scroll overflow-x-hidden pt-[13px]`}
         >
-          <div className={`sidebar text-white p-2 mt-[0.2rem] `}>
-            <h3 className=" text-[#B0B3B8] font-semibold p-2 cursor-text ">
-              Sponsored
+          <div className={`sidebar text-white`}>
+            <div className="flex flex-col">
+              <div className="flex flex-col">
+                <div className="my-[5px]">
+            <h3 className="font-semibold px-4 pt-2 cursor-text " dir="auto">
+            <span
+                          className="text-left block text-[1rem] leading-[1.1765] textProps ba_1 text-[#B0B3B8] font-[600]"
+                          dir="auto"
+                        >
+             <span className="textClass">Sponsored</span> 
+              </span>
             </h3>
+            </div>
+            </div>
+            </div>
+            <div className="py-2">
             <div
               className="relative"
               onMouseOver={handleShowSettings}
               onMouseLeave={handleHideSettings}
             >
-              <a className="relative flex flex-col rounded-lg overflow-hidden hover:bg-[#303031] ">
-                <div className="flex p-[10px] w-[40%] h-[40%]">
-                  <img className=" rounded-lg" src="/ad.jpg" alt="" />
-
-                  <span className="flex flex-col text-xs md:text-sm my-2 ml-3 justify-center uppercase ">
-                    Your Style Statement
-                    <br />
-                    <span className="text-xs md:text-sm text-gray-500 lowercase ">
-                      svestonwatches.com
-                    </span>
-                  </span>
+              <a
+                aria-labelledby=":r9l:"
+                className="w-full"
+                href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
+                rel="nofollow noreferrer"
+                role="link"
+                tabindex="0"
+                target="_blank"
+              >
+                <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
+                  <div className="">
+                    <div className="flex items-center">
+                      <div className="w-[40%] self-center">
+                        <img
+                          className="block object-fill max-w-full min-h-[1px] rounded-[8px]"
+                          src="/ad3.jpg"
+                          alt=""
+                        />
+                        
+                      </div>
+                      <div className="pl-3">
+                      <div className="flex flex-col">
+                      <div className="my-[5px]">
+                      <span
+                          className="capitalize text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
+                          dir="auto"
+                        >
+                          <span className="relative overflow-hidden textClass ">
+                            free home delivery
+                          </span>
+                        </span>
+                      </div>
+                      <div className="my-[5px]">
+                      <span
+                          className="lowercase text-left block text-[.75rem] leading-[1.2308] textProps ba text-[#B0B3B8] font-[400]"
+                          dir="auto"
+                        >
+                          <span className="pb-[1px] textClass_1 relative overflow-hidden">
+                            <div className="lowercase">
+                            onic.pk
+                            </div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                  
+                  </div>
                 </div>
               </a>
               <div aria-label="Options for this ad" role="gridcell">
@@ -168,22 +218,60 @@ function Sidebar_2() {
               </div>
             </div>
 
-
             <div
-            className="relative"
+              className="relative"
               onMouseOver={handleShowSettings2}
               onMouseLeave={handleHideSettings2}
             >
-              <a className="relative flex flex-col rounded-lg overflow-hidden hover:bg-[#303031]">
-                <div className="flex p-[10px] w-[40%] h-[40%]">
-                  <img className=" rounded-lg" src="/ad_2.jpg" alt="" />
-                  <span className="flex flex-col text-xs md:text-sm my-2 ml-3 justify-center uppercase">
-                    new year sale
-                    <br />
-                    <span className="text-xs md:text-sm text-gray-500 lowercase">
-                      svestonwatches.com
-                    </span>
-                  </span>
+               <a
+                aria-labelledby=":r9l:"
+                className="w-full"
+                href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
+                rel="nofollow noreferrer"
+                role="link"
+                tabindex="0"
+                target="_blank"
+              >
+                <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
+                  <div className="">
+                    <div className="flex items-center">
+                      <div className="w-[40%] shrink-0 self-center">
+                        <img
+                          className="block object-fill max-w-full min-h-[1px] rounded-[8px]"
+                          src="/ad4.jpg"
+                          alt=""
+                        />
+                        
+                      </div>
+                      <div className="pl-3">
+                      <div className="flex flex-col">
+                      <div className="my-[5px]">
+                      <span
+                          className="text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
+                          dir="auto"
+                        >
+                          <span className="relative overflow-hidden textClass ">
+                            Perfect your photography on autopilot
+                          </span>
+                        </span>
+                      </div>
+                      <div className="my-[5px]">
+                      <span
+                          className="lowercase text-left block text-[.75rem] leading-[1.2308] textProps ba text-[#B0B3B8] font-[400]"
+                          dir="auto"
+                        >
+                          <span className="pb-[1px] textClass_1 relative overflow-hidden">
+                            <div className="lowercase">
+                            topazlabs.com
+                            </div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                  
+                  </div>
                 </div>
               </a>
               <div aria-label="Options for this ad" role="gridcell">
@@ -228,6 +316,7 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
 
             <div
