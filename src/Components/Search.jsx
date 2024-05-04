@@ -23,7 +23,7 @@ function Search({ onChangeVal, className = '' }) {
                 placeholder='      Search Facebook'
             />
             <span
-                className='flex absolute left-3 text-[#B0B3B8]'
+                className='flex absoluc:\Users\Muhammad Jon\Desktop\ad3.jpgte left-3 text-[#B0B3B8]'
                 onClick={clearVal}
                 // hidden={!inputVal}
             >

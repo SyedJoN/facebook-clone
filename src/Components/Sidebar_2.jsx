@@ -106,111 +106,209 @@ function Sidebar_2() {
             <div className="flex flex-col">
               <div className="flex flex-col">
                 <div className="my-[5px]">
-            <h3 className="font-semibold px-4 pt-2 cursor-text " dir="auto">
-            <span
-                          className="text-left block text-[1rem] leading-[1.1765] textProps ba_1 text-[#B0B3B8] font-[600]"
-                          dir="auto"
-                        >
-             <span className="textClass">Sponsored</span> 
-              </span>
-            </h3>
-            </div>
-            </div>
+                  <h3
+                    className="font-semibold px-4 pt-2 cursor-text "
+                    dir="auto"
+                  >
+                    <span
+                      className="text-left block text-[1rem] leading-[1.1765] textProps ba_1 text-[#B0B3B8] font-[600]"
+                      dir="auto"
+                    >
+                      <span className="textClass">Sponsored</span>
+                    </span>
+                  </h3>
+                </div>
+              </div>
             </div>
             <div className="py-2">
-            <div
-              className="relative"
-              onMouseOver={handleShowSettings}
-              onMouseLeave={handleHideSettings}
-            >
-              <a
-                aria-labelledby=":r9l:"
-                className="w-full"
-                href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
-                rel="nofollow noreferrer"
-                role="link"
-                tabindex="0"
-                target="_blank"
+              <div
+                className="relative"
+                onMouseOver={handleShowSettings}
+                onMouseLeave={handleHideSettings}
               >
-                <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
-                  <div className="">
-                    <div className="flex items-center">
-                      <div className="w-[40%] self-center">
-                        <img
-                          className="block object-fill max-w-full min-h-[1px] rounded-[8px]"
-                          src="/ad3.jpg"
-                          alt=""
-                        />
-                        
-                      </div>
-                      <div className="pl-3">
-                      <div className="flex flex-col">
-                      <div className="my-[5px]">
-                      <span
-                          className="capitalize text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
-                          dir="auto"
-                        >
-                          <span className="relative overflow-hidden textClass ">
-                            free home delivery
-                          </span>
-                        </span>
-                      </div>
-                      <div className="my-[5px]">
-                      <span
-                          className="lowercase text-left block text-[.75rem] leading-[1.2308] textProps ba text-[#B0B3B8] font-[400]"
-                          dir="auto"
-                        >
-                          <span className="pb-[1px] textClass_1 relative overflow-hidden">
-                            <div className="lowercase">
-                            onic.pk
+                <a
+                  aria-labelledby=":r9l:"
+                  className="w-full"
+                  href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
+                  rel="nofollow noreferrer"
+                  role="link"
+                  tabindex="0"
+                  target="_blank"
+                >
+                  <div className="relative flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
+                    <div className="">
+                      <div className="flex items-center">
+                        <div className="w-[40%] self-center shrink-0">
+                          <img
+                            className="block object-fill max-w-full min-h-[1px] rounded-[8px]"
+                            src="/ad3.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="pl-3">
+                          <div className="flex flex-col">
+                            <div className="my-[5px]">
+                              <span
+                                className="text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
+                                dir="auto"
+                              >
+                                <span className="relative overflow-hidden textClass ">
+                                  What to Look for in an MFA Solution
+                                </span>
+                              </span>
                             </div>
-                          </span>
-                        </span>
+                            <div className="my-[5px]">
+                              <span
+                                className="lowercase text-left block text-[.75rem] leading-[1.2308] textProps ba text-[#B0B3B8] font-[400]"
+                                dir="auto"
+                              >
+                                <span className="pb-[1px] textClass_1 relative overflow-hidden">
+                                  <div className="lowercase">duo.com</div>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <div className="mx-[8px] my-[0px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                </a>
+                <div aria-label="Options for this ad" role="gridcell">
+                  <div
+                    className={`flex absolute top-[4%] ${
+                      showSettings
+                        ? "[clip:unset] right-[15px] "
+                        : "clip-element h-[1px] overflow-hidden w-[1px]"
+                    }`}
+                  >
+                    <div>
+                      <div className="rounded-full customShadow">
+                        <div
+                          aria-label="Manage ad settings"
+                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                          role="button"
+                          tabIndex="0"
+                        >
+                          <i
+                            data-visualcompletion="css-img"
+                            className="align-[-0.25em] text-[#B0B3B8]"
+                            style={{
+                              filter:
+                                "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                              backgroundImage:
+                                'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                              backgroundPosition: "0px -494px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                            }}
+                          ></i>
+                          <div
+                            className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                            role="none"
+                            data-visualcompletion="ignore"
+                          ></div>
+                        </div>
+                      </div>
                     </div>
-                    </div>
-                  
                   </div>
                 </div>
-              </a>
-              <div aria-label="Options for this ad" role="gridcell">
-                <div
-                  className={`flex absolute top-[4%] ${
-                    showSettings
-                      ? "[clip:unset] right-[15px] "
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
+              </div>
+
+              <div
+                className="relative"
+                onMouseOver={handleShowSettings2}
+                onMouseLeave={handleHideSettings2}
+              >
+                <a
+                  aria-labelledby=":r9l:"
+                  className="relative w-full"
+                  href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
+                  rel="nofollow noreferrer"
+                  role="link"
+                  tabindex="0"
+                  target="_blank"
                 >
-                  <div>
-                    <div className="rounded-full customShadow">
-                      <div
-                        aria-label="Manage ad settings"
-                        className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                        role="button"
-                        tabIndex="0"
-                      >
-                        <i
-                          data-visualcompletion="css-img"
-                          className="align-[-0.25em] text-[#B0B3B8]"
-                          style={{
-                            filter:
-                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                            backgroundPosition: "0px -494px",
-                            backgroundSize: "auto",
-                            width: "20px",
-                            height: "20px",
-                            backgroundRepeat: "no-repeat",
-                            display: "inline-block",
-                          }}
-                        ></i>
+                  <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
+                    <div className="">
+                      <div className="flex items-center">
+                        <div className="w-[40%] shrink-0 self-center">
+                          <img
+                            className="block object-fill max-w-full min-h-[1px] rounded-[8px]"
+                            src="/ad4.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="pl-3">
+                          <div className="flex flex-col">
+                            <div className="my-[5px]">
+                              <span
+                                className="text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
+                                dir="auto"
+                              >
+                                <span className="relative overflow-hidden textClass ">
+                                  Your promocode #PLUSFIVE
+                                </span>
+                              </span>
+                            </div>
+                            <div className="my-[5px]">
+                              <span
+                                className="lowercase text-left block text-[.75rem] leading-[1.2308] textProps ba text-[#B0B3B8] font-[400]"
+                                dir="auto"
+                              >
+                                <span className="pb-[1px] textClass_1 relative overflow-hidden">
+                                  <div className="lowercase">app-work.org</div>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mx-[8px] my-[0px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                </a>
+                <div aria-label="Options for this ad" role="gridcell">
+                  <div
+                    className={`flex absolute top-[4%] ${
+                      showSettings2
+                        ? "[clip:unset] right-[15px] "
+                        : "clip-element h-[1px] overflow-hidden w-[1px]"
+                    }`}
+                  >
+                    <div>
+                      <div className="rounded-full customShadow">
                         <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                          role="none"
-                          data-visualcompletion="ignore"
-                        ></div>
+                          aria-label="Manage ad settings"
+                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                          role="button"
+                          tabIndex="0"
+                        >
+                          <i
+                            data-visualcompletion="css-img"
+                            className="align-[-0.25em] text-[#B0B3B8]"
+                            style={{
+                              filter:
+                                "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                              backgroundImage:
+                                'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                              backgroundPosition: "0px -494px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                            }}
+                          ></i>
+                          <div
+                            className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                            role="none"
+                            data-visualcompletion="ignore"
+                          ></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -219,115 +317,14 @@ function Sidebar_2() {
             </div>
 
             <div
-              className="relative"
-              onMouseOver={handleShowSettings2}
-              onMouseLeave={handleHideSettings2}
-            >
-               <a
-                aria-labelledby=":r9l:"
-                className="w-full"
-                href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
-                rel="nofollow noreferrer"
-                role="link"
-                tabindex="0"
-                target="_blank"
-              >
-                <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
-                  <div className="">
-                    <div className="flex items-center">
-                      <div className="w-[40%] shrink-0 self-center">
-                        <img
-                          className="block object-fill max-w-full min-h-[1px] rounded-[8px]"
-                          src="/ad4.jpg"
-                          alt=""
-                        />
-                        
-                      </div>
-                      <div className="pl-3">
-                      <div className="flex flex-col">
-                      <div className="my-[5px]">
-                      <span
-                          className="text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
-                          dir="auto"
-                        >
-                          <span className="relative overflow-hidden textClass ">
-                            Perfect your photography on autopilot
-                          </span>
-                        </span>
-                      </div>
-                      <div className="my-[5px]">
-                      <span
-                          className="lowercase text-left block text-[.75rem] leading-[1.2308] textProps ba text-[#B0B3B8] font-[400]"
-                          dir="auto"
-                        >
-                          <span className="pb-[1px] textClass_1 relative overflow-hidden">
-                            <div className="lowercase">
-                            topazlabs.com
-                            </div>
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                    </div>
-                    </div>
-                  
-                  </div>
-                </div>
-              </a>
-              <div aria-label="Options for this ad" role="gridcell">
-                <div
-                  className={`flex absolute top-[4%] ${
-                    showSettings2
-                      ? "[clip:unset] right-[15px] "
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
-                >
-                  <div>
-                    <div className="rounded-full customShadow">
-                      <div
-                        aria-label="Manage ad settings"
-                        className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                        role="button"
-                        tabIndex="0"
-                      >
-                        <i
-                          data-visualcompletion="css-img"
-                          className="align-[-0.25em] text-[#B0B3B8]"
-                          style={{
-                            filter:
-                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                            backgroundPosition: "0px -494px",
-                            backgroundSize: "auto",
-                            width: "20px",
-                            height: "20px",
-                            backgroundRepeat: "no-repeat",
-                            display: "inline-block",
-                          }}
-                        ></i>
-                        <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                          role="none"
-                          data-visualcompletion="ignore"
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            <div
-              className="ml-[0.55rem] mt-2 border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
+              className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
               role="separator"
             ></div>
 
             <div className="flex items-center cursor-default">
               <div className="flex flex-wrap">
-                <span className=" mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text ">
-                  Your Pages & profiles
+                <span className=" mt-[0.3rem] text-[#B0B3B8] font-semibold px-[1rem] py-[0.35rem] cursor-text ">
+                  Your Pages and profiles
                 </span>
               </div>
               <div className="flex ml-auto">
@@ -345,18 +342,19 @@ function Sidebar_2() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap ml-[0.1rem] hover:bg-[#303031] p-[0.35rem] rounded-lg ">
+            <div className="relative flex flex-wrap ml-[0.6rem] px-[0.4rem] py-[0.55rem] rounded-lg ">
               <img
                 src="/jk.jpg"
                 style={{ width: "36px", height: "36px", borderRadius: "50px" }}
                 alt=""
               />
 
-              <span className="text-sm my-2 ml-3 text-white">
+              <span className="ba_1 text-sm py-3 ml-3 text-[#E4E6EB] font-[500]">
                 JK Developers
               </span>
+               <div className="my-[3px] mr-2 ml-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
-            <div className="flex flex-wrap ml-[1rem] hover:bg-[#303031] p-[0.35rem] rounded-lg ">
+            <div className="relative flex flex-wrap ml-[2rem] rounded-lg ">
               <i
                 data-visualcompletion="css-img"
                 style={{
@@ -373,11 +371,12 @@ function Sidebar_2() {
                 }}
               />
 
-              <span className="text-xs my-[0.4rem] ml-[0.6rem] text-[#B8BBBF]">
-                Switch into Page
+              <span className="text-xs font-[500] my-[0.4rem] ml-[0.75rem] text-[#B8BBBF]">
+                Switch to Page
               </span>
+              <div className="ml-[-16px] mr-[8px] mt-[-3px] mb-[-4px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
-            <div className="flex flex-wrap py-1 ml-[1rem] hover:bg-[#303031] p-[0.35rem] rounded-lg ">
+            <div className="relative flex flex-wrap mt-[0.45rem] ml-[2rem] rounded-lg ">
               <i
                 data-visualcompletion="css-img"
                 style={{
@@ -394,59 +393,66 @@ function Sidebar_2() {
                 }}
               />
 
-              <span className="text-xs my-[0.4rem]  ml-[0.6rem] text-[#B8BBBF]">
+              <span className="text-xs font-[500] my-[0.4rem] ml-[0.75rem] text-[#B8BBBF]">
                 Create promotion
               </span>
+              <div className="ml-[-16px] mr-[8px] mt-[-3px] mb-[-4px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
           </div>
           <div
-            className="ml-[1rem] mt-1 border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
+            className="ml-[1rem] py-[0.4rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
             role="separator"
           ></div>
           <div className="flex items-center">
             <div className="flex flex-wrap">
-              <span className="ml-2 mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
+              <span className="ml-[0.6rem] mt-[0.3rem] text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
                 Birthdays
               </span>
             </div>
           </div>
-          <div className="w-full flex ml-[0.4rem] hover:bg-[#303031] p-[0.5rem] rounded-lg ">
-            <i
-              data-visualcompletion="css-img"
-              style={{
-                backgroundImage: "url(/birthday.png)",
-                backgroundPosition: "0 0",
-                backgroundSize: "auto",
-                width: "36px",
-                height: "36px",
-                backgroundRepeat: "no-repeat",
-                display: "inline-block",
-                marginRight: "2px",
-              }}
-            />
-
-            <span
-              style={{ fontSize: "0.8rem" }}
-              className="p-2 text-[#E4E6EB] font-medium"
-            >
-              <strong className="font-semibold">Muhammad Ahsan Khan's</strong>{" "}
-              birthday is today.
-            </span>
+          <div className="relative w-full flex p-2 rounded-lg">
+            <div className="relative flex flex-col self-start ml-[0.5rem] mr-[12px]">
+              <i
+                data-visualcompletion="css-img"
+                style={{
+                  backgroundImage: "url(/birthday.png)",
+                  backgroundPosition: "0 0",
+                  backgroundSize: "auto",
+                  width: "36px",
+                  height: "36px",
+                  backgroundRepeat: "no-repeat",
+                  display: "inline-block",
+                }}
+              />
+            </div>
+            <div className="flex flex-col justify-center my-[-5px]">
+              <div className="flex flex-col my-[5px]">
+                <span
+                  className="text-[#E4E6EB] max-w-full min-w-0 text-[.875rem] font-[400] leading-[1.3] textProps text-left ba_1 mt-[-1px]"
+                  dir="auto"
+                >
+                  <strong className="font-semibold">Israr Ali Raj</strong>{" "}and{" "}
+                  <strong className="font-semibold">Horricane Csonly</strong>{" "}have birthdays today.
+                </span>
+              </div>
+         
+            </div>
+            <div className="mx-[8px] my-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
           </div>
           <div className={`sidebar flex flex-col text-white cursor-default`}>
             <div
-              className="ml-[1rem] mt-1 border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
+              className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
               role="separator"
             ></div>
 
             <div className="flex items-center">
               <div className="flex flex-wrap">
-                <span className="ml-2 mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
+                <span className="ml-[0.6rem] mt-[0.2rem] text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
                   Contacts
                 </span>
               </div>
-              <div className="flex ml-auto ">
-                <div className="ml-auto rounded-full hover:bg-[#303031] p-2 mt-[0.7rem] cursor-pointer">
+              <div className="flex ml-auto gap-2">
+                <div className="ml-auto rounded-full hover:bg-[#303031] p-2 mt-[0.6rem] cursor-pointer">
                   <svg
                     className="ml-auto w-4 h-4 text-[#B0B3B8]"
                     viewBox="0 0 16 16"
@@ -476,7 +482,7 @@ function Sidebar_2() {
                     </g>
                   </svg>
                 </div>
-                <div className="ml-auto mr-2 rounded-full hover:bg-[#303031] p-2 mt-2 text-[#B0B3B8] cursor-pointer">
+                <div className="ml-auto mr-2 rounded-full hover:bg-[#303031] p-2 mt-[0.4rem] text-[#B0B3B8] cursor-pointer">
                   <svg
                     viewBox="0 0 20 20"
                     width="20"
@@ -491,85 +497,503 @@ function Sidebar_2() {
               </div>
             </div>
 
-            <div className="group relative flex flex-wrap ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg cursor-pointer ">
-              <img
-                src="/muneeb.jpg"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+            <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">Muneeb</span>
-              <div className="absolute inset-8 rounded-full bg-green-600 w-3 h-3 border-black border-[2px]"></div>
-            </div>
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-            <div className="group relative flex flex-wrap ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg cursor-pointer ">
-              <img
-                src="/zeeshan.jpg"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="zeeshan.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Zeeshan Haider</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">
-                Zeeshan Haider
-              </span>
-              <div className="absolute inset-8 rounded-full bg-green-600 w-3 h-3 border-black border-[2px]"></div>
-            </div>
-            <div className="group relative flex flex-wrap ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg cursor-pointer ">
-              <img
-                src="/khurram.jpg"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="khurram.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Syed Khurram Abbas</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">
-                Syed Khurram Abbas
-              </span>
-              <div className="absolute inset-8 rounded-full bg-green-600 w-3 h-3 border-black border-[2px]"></div>
-            </div>
-            <div className="flex flex-wrap  ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg cursor-pointer">
-              <img
-                src="/anti2.jpg"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">
-                Anti Babarsons Community 3.0™
-              </span>
-            </div>
-            <div className="flex flex-wrap ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg ">
-              <img
-                src="/cs.jpg"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">
-                Communications Systems Lab
-              </span>
-            </div>
-            <div className="flex flex-wrap  ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg ">
-              <img
-                src="/death.png"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">
-                Death Never Knocks
-              </span>
-            </div>
-            <div className="flex flex-wrap ml-[0.5rem]  hover:bg-[#303031] p-[0.35rem] rounded-lg ">
-              <img
-                src="/jk.jpg"
-                style={{ width: "36px", height: "36px", borderRadius: "50px" }}
-                alt=""
-              />
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
 
-              <span className="text-sm my-2 ml-3 text-white">
-                JK Developers
-              </span>
-            </div>
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
+            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":mm:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                                <circle
+                                  cx="31"
+                                  cy="31"
+                                  data-visualcompletion="ignore"
+                                  fill="black"
+                                  r="6"
+                                ></circle>
+                              </mask>
+
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:mm:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="muneeb.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            >
+                           
+                            </div>
+                          </div>
+                    
+                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
+                              
+                        </div>
+                      </div>
+                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
+                      </div>
+
+      
           </div>
         </div>
       </div>
