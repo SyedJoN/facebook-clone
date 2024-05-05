@@ -352,7 +352,7 @@ function Sidebar_2() {
               <span className="ba_1 text-sm py-3 ml-3 text-[#E4E6EB] font-[500]">
                 JK Developers
               </span>
-               <div className="my-[3px] mr-2 ml-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="my-[3px] mr-2 ml-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative flex flex-wrap ml-[2rem] rounded-lg ">
               <i
@@ -431,11 +431,11 @@ function Sidebar_2() {
                   className="text-[#E4E6EB] max-w-full min-w-0 text-[.875rem] font-[400] leading-[1.3] textProps text-left ba_1 mt-[-1px]"
                   dir="auto"
                 >
-                  <strong className="font-semibold">Israr Ali Raj</strong>{" "}and{" "}
-                  <strong className="font-semibold">Horricane Csonly</strong>{" "}have birthdays today.
+                  <strong className="font-semibold">Israr Ali Raj</strong> and{" "}
+                  <strong className="font-semibold">Horricane Csonly</strong>{" "}
+                  have birthdays today.
                 </span>
               </div>
-         
             </div>
             <div className="mx-[8px] my-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
           </div>
@@ -497,503 +497,503 @@ function Sidebar_2() {
               </div>
             </div>
 
-            <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_1:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_1:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/425894365_7802761293071447_5971600538339242649_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Sbhl9vH7tw8Q7kNvgF8aqcz&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDeXOCfScLqRRa_Y0vlGfp85ms15WbgZmSkombh_bwWmQ&oe=663D9A17"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="zeeshan.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Zeeshan Haider</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Muhammad Adil
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_2:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="khurram.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Syed Khurram Abbas</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_2:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="zeeshan.jpg"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Zeeshan Haider
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_3:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_3:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=n7BMMGbZFIwQ7kNvgEJYjkL&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCAEpGiaZZhxiVtFx2HIeU2z5QR8VzcOjdAwq7Z1P-BPw&oe=663D94D3"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Syed Khurram Abbas
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_4:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_4:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="/notifIcons/notif_image_2.jpg"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
-   <div className="group flex flex-wrap ml-[0.5rem] hover:bg-[#303031]  rounded-lg cursor-pointer mt-[0.1rem]">
-            <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                        <div className="relative inline-block align-bottom">
-                          <div>
-                            <svg
-                              aria-hidden="true"
-                              className="align-bottom"
-                              data-visualcompletion="ignore-dynamic"
-                              role="none"
-                              style={{ height: "36px", width: "36px" }}
-                            >
-                              {/* Define a circular mask */}
-                              <mask id=":mm:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
-                                <circle
-                                  cx="31"
-                                  cy="31"
-                                  data-visualcompletion="ignore"
-                                  fill="black"
-                                  r="6"
-                                ></circle>
-                              </mask>
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Sajid Hussain Khan
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_5:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
 
-                              {/* Apply the mask to the image */}
-                              <g mask="url(#:mm:)">
-                                <image
-                                  x="0"
-                                  y="0"
-                                  height="100%"
-                                  preserveAspectRatio="xMidYMid slice"
-                                  width="100%"
-                                  xlinkHref="muneeb.jpg"
-                                  style={{ height: "36px", width: "36px" }}
-                                ></image>
-                              </g>
-                            </svg>
-                            <div
-                              className="absolute z-[2] rounded-[50%]"
-                              data-visualcompletion="ignore"
-                              style={{
-                                bottom: "8px",
-                                right: "8px",
-                                transform: "translate(50%, 50%)",
-                              }}
-                            >
-                           
-                            </div>
-                          </div>
-                    
-                                  <span className="absolute right-[-1px] bottom-[-1px] w-[12px] h-[12px] border-2 border-[#242526] bg-[#31A24C] rounded-full"></span>
-                              
-                        </div>
-                      </div>
-                      <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB]">Muneeb Rehman</span>
-                      </div>
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_5:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/268617265_10224430631047182_4317552559651093289_n.jpg?stp=dst-jpg_p100x100&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eFIXV4VitfsQ7kNvgGhJ9_y&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfB9-LeXtSFyZWU3pEytDbbIAakjNilTKpsYZdeK-iereg&oe=66317070"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
 
-      
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Hasan Rizvi
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_6:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
+
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_6:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="muneeb.jpg"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
+
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Muneeb Rehman
+              </span>
+              
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_7:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
+
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_7:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="muneeb.jpg"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
+
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Muneeb Rehman
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_8:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
+
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_8:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="muneeb.jpg"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
+
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Muneeb Rehman
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div>
+                    <svg
+                      aria-hidden="true"
+                      className="align-bottom"
+                      data-visualcompletion="ignore-dynamic"
+                      role="none"
+                      style={{ height: "36px", width: "36px" }}
+                    >
+                      {/* Define a circular mask */}
+                      <mask id=":chat_9:">
+                        <circle cx="18" cy="18" r="18" fill="white" />
+                        <circle
+                          cx="31"
+                          cy="31"
+                          data-visualcompletion="ignore"
+                          fill="black"
+                          r="6"
+                        ></circle>
+                      </mask>
+
+                      {/* Apply the mask to the image */}
+                      <g mask="url(#:chat_9:)">
+                        <image
+                          x="0"
+                          y="0"
+                          height="100%"
+                          preserveAspectRatio="xMidYMid slice"
+                          width="100%"
+                          xlinkHref="muneeb.jpg"
+                          style={{ height: "36px", width: "36px" }}
+                        ></image>
+                      </g>
+                    </svg>
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
+
+                  <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Muneeb Rehman
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
           </div>
         </div>
       </div>
