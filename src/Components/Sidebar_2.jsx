@@ -428,13 +428,18 @@ function Sidebar_2() {
             <div className="flex flex-col justify-center my-[-5px]">
               <div className="flex flex-col my-[5px]">
                 <span
-                  className="text-[#E4E6EB] max-w-full min-w-0 text-[.875rem] font-[400] leading-[1.3] textProps text-left ba_1 mt-[-1px]"
+                  className="block text-[#E4E6EB] max-w-full min-w-0 text-[.875rem] font-[400] leading-[1.3] textProps text-left ba_1 mt-[-1px]"
                   dir="auto"
                 >
-                  <strong className="font-semibold">Israr Ali Raj</strong> and{" "}
-                  <strong className="font-semibold">Horricane Csonly</strong>{" "}
-                  have birthdays today.
-                </span>
+                 
+  <strong className="font-semibold">Zaid Tariq</strong> and{" "}
+  <strong className="inline-flex font-semibold">
+    <span className="inline-flex">
+      <span className="font-semibold text-[#E4E6EB]">3 others</span>
+    </span>
+  </strong>{" "}
+  have birthdays<br/> today.
+</span>
               </div>
             </div>
             <div className="mx-[8px] my-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
@@ -531,6 +536,8 @@ function Sidebar_2() {
                           xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/425894365_7802761293071447_5971600538339242649_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Sbhl9vH7tw8Q7kNvgF8aqcz&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDeXOCfScLqRRa_Y0vlGfp85ms15WbgZmSkombh_bwWmQ&oe=663D9A17"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
+                        <circle class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
+                        <circle className="fill-none stroke-2 stroke-[#0866FF]" cx="18" cy="18" fill="transparent" r="17" stroke-width="2"></circle>
                       </g>
                     </svg>
                     <div
@@ -751,6 +758,8 @@ function Sidebar_2() {
                           xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/268617265_10224430631047182_4317552559651093289_n.jpg?stp=dst-jpg_p100x100&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eFIXV4VitfsQ7kNvgGhJ9_y&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfB9-LeXtSFyZWU3pEytDbbIAakjNilTKpsYZdeK-iereg&oe=66317070"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
+                          <circle class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
+                        <circle className="fill-none stroke-2 stroke-[#0866FF]" cx="18" cy="18" fill="transparent" r="17" stroke-width="2"></circle>
                       </g>
                     </svg>
                     <div
@@ -996,6 +1005,54 @@ function Sidebar_2() {
             </div>
           </div>
         </div>
+        <div
+              className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
+              role="separator"
+            ></div>
+            <div className="flex items-center">
+            <div className="flex flex-wrap">
+              <span className="ml-[0.6rem] mt-[0.3rem] text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
+                Group conversations
+              </span>
+            </div>
+          </div>
+          <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
+              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                <div className="relative inline-block align-bottom">
+                  <div className="inline-flex rounded-full bg-[rgba(255,255,255,0.1)] 
+                  justify-center items-center h-[36px] w-[36px] ">
+                  <i
+                  className="align-[-0.25]"
+                data-visualcompletion="css-img"
+                style={{
+                  filter: "invert(98%) sepia(6%) hue-rotate(185deg)",
+                  backgroundImage: "url(/add_icon.png)",
+                  backgroundPosition: "0 -188px",
+                  backgroundSize: "auto",
+                  width: "20px",
+                  height: "20px",
+                  backgroundRepeat: "no-repeat",
+                  display: "inline-block",
+                }}
+              />
+                    <div
+                      className="absolute z-[2] rounded-[50%]"
+                      data-visualcompletion="ignore"
+                      style={{
+                        bottom: "8px",
+                        right: "8px",
+                        transform: "translate(50%, 50%)",
+                      }}
+                    ></div>
+                  </div>
+
+                </div>
+              </div>
+              <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                Create new group
+              </span>
+              <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
       </div>
 
       <div
