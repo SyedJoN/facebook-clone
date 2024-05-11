@@ -174,16 +174,16 @@ scrollbar-color: #7B7B7B #424242;
 
 .owl-next>svg {
 
-  bottom: 14px;
-  right: 15px;
+  bottom: 12px;
+  right: 12px;
   position: absolute;
 
 }
 
 .owl-prev>svg {
 
-  bottom: 14px;
-  right: 15px;
+  bottom: 12px;
+  right: 12px;
   position: absolute;
 
 }
@@ -340,10 +340,11 @@ scrollbar-color: #7B7B7B #424242;
 
 .owl-prev,
 .owl-next {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) 0 0 0 1px rgba(0,0,0,0.1);
   border-radius: 50px !important;
-  background-color: #464649 !important;
-  width: 50px;
-  height: 50px;
+  background-color: #3E4042 !important;
+  width: 48px;
+  height: 48px;
   position: absolute;
   top: 90px !important;
 
@@ -356,13 +357,13 @@ scrollbar-color: #7B7B7B #424242;
 /* Adjust the position of the navigation arrows if needed */
 .owl-prev {
 
-  transform: translate(calc(-370% - 4px), -0%);
+  transform: translate(calc(-365% - 4px), 40%);
   left: 195px;
 }
 
 .owl-next {
 
-  transform: translate(calc(204% + 4px), -0%);
+  transform: translate(calc(212% + 4px), 40%);
   right: 122px;
 }
 

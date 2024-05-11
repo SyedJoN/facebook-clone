@@ -503,7 +503,7 @@ function Sidebar_2() {
             </div>
 
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -560,7 +560,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -615,7 +615,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -670,7 +670,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -725,7 +725,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -782,7 +782,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -839,7 +839,7 @@ function Sidebar_2() {
             </div>
             
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -894,7 +894,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -949,7 +949,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div>
                     <svg
@@ -1017,7 +1017,7 @@ function Sidebar_2() {
             </div>
           </div>
           <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
-              <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+              <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
                   <div className="inline-flex rounded-full bg-[rgba(255,255,255,0.1)] 
                   justify-center items-center h-[36px] w-[36px] ">
