@@ -132,7 +132,7 @@ function Sidebar_2() {
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
-                  tabindex="0"
+                  tabIndex="0"
                   target="_blank"
                 >
                   <div className="relative flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
@@ -229,7 +229,7 @@ function Sidebar_2() {
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
-                  tabindex="0"
+                  tabIndex="0"
                   target="_blank"
                 >
                   <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
@@ -536,8 +536,8 @@ function Sidebar_2() {
                           xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/425894365_7802761293071447_5971600538339242649_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Sbhl9vH7tw8Q7kNvgF8aqcz&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDeXOCfScLqRRa_Y0vlGfp85ms15WbgZmSkombh_bwWmQ&oe=663D9A17"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
-                        <circle class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
-                        <circle className="fill-none stroke-2 stroke-[#0866FF]" cx="18" cy="18" fill="transparent" r="17" stroke-width="2"></circle>
+                        <circle className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
+                        <circle className="fill-none stroke-2 stroke-[#0866FF]" cx="18" cy="18" fill="transparent" r="17" strokeWidth="2"></circle>
                       </g>
                     </svg>
                     <div
@@ -758,8 +758,8 @@ function Sidebar_2() {
                           xlinkHref="hasan.jpg"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
-                          <circle class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
-                        <circle className="fill-none stroke-2 stroke-[#0866FF]" cx="18" cy="18" fill="transparent" r="17" stroke-width="2"></circle>
+                          <circle className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
+                        <circle className="fill-none stroke-2 stroke-[#0866FF]" cx="18" cy="18" fill="transparent" r="17" strokeWidth="2"></circle>
                       </g>
                     </svg>
                     <div

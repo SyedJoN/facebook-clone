@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Header, Footer } from './Components/index';
+import { Header, Footer, MobileMenu } from './Components/index';
 import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 function App() {
+  const writePost = useSelector(state => state.showMenu.writePost);
+
+
   const [loading, setLoading] = useState(false);
 
   return (
@@ -11,12 +16,11 @@ function App() {
         <div>Loading...</div>
       ) : (
         
-        <div  className='h-min relative mainScroll'>
+        <div className={`${writePost ? 'w-full h-full fixed inset-0' : 'relative h-fit '} mainScroll`}>
           
           <Header />
-          <div className='wrapper relative box-border'>
+          <div className='relative box-border'>
           <main className='bg-[#18191A] flex flex-col '>
-            
             <Outlet />
           </main>
           </div>

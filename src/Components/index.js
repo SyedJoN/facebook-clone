@@ -8,6 +8,8 @@ import Sidebar_2 from "./Sidebar_2";
 import Stories from "./Stories";
 import Posts from "./Posts";
 import CustomScrollbar from "./CustomScrollbar";
+import MobileMenu from "./MobileMenu";
+import WritePostCard from "./WritePostCard";
 
 
 export {
@@ -20,5 +22,7 @@ export {
     Sidebar_2,
     Stories,
     Posts,
-    CustomScrollbar
+    CustomScrollbar,
+    MobileMenu,
+    WritePostCard
 }

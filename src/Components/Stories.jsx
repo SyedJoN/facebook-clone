@@ -6,7 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 function Stories() {
   return (
-    <div className="stories-carousel relative min-h-[200px] block pb-[14px] pt-[8px] ">
+    <div className="stories-carousel relative min-h-[200px] block pb-[14px] pt-[8px] z-0">
       <OwlCarousel
         items={3}
         nav={true}
