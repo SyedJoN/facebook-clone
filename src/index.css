@@ -334,11 +334,6 @@ html {
 
 }
 
-@media (min-width: 768px) {
-  .nav {
-    max-width: 111.6px
-  }
-}
 
 @media (max-width: 1099px) {
   .nav {

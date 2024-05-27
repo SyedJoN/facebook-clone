@@ -210,7 +210,7 @@ function Header() {
             item.active ? (
               <li
                 key={item.name}
-                className={`nav hidden shrink md:block md:min-w-[50px] md:w-full min-w-[50px] ml-2 ${
+                className={`nav hidden shrink md:block md:min-w-[50px] md:w-[111.6px] min-w-[50px] ml-2 ${
                   location.pathname === item.slug
                     ? activeTabClassName
                     : "text-[#B0B3B8]"
