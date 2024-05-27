@@ -7,7 +7,6 @@
 }
 
 
-
 *,
 *::before,
 *::after {
@@ -183,7 +182,6 @@ scrollbar-color: #7B7B7B #424242;
 
 }
 
-
 .owl-stage-outer {
 
   display: flex !important;
@@ -226,103 +224,6 @@ scrollbar-color: #7B7B7B #424242;
   display: none;
 }
 
-
-
-
-@media (min-width: 375px) and (max-width:700px) {
-
-
-
-
-
-
-
-  .owl-prev {
-
-    transform: translate(calc(-370% - 4px), -0%)
-  }
-
-  .owl-next {
-
-    transform: translate(calc(204% + 4px), -0%);
-
-  }
-
-
-
-}
-
-@media (min-width: 375px) and (max-width:700px) {
-
-
-
-  .owl-prev {
-
-    transform: translate(calc(-370% - 4px), -0%)
-  }
-
-  .owl-next {
-
-    transform: translate(calc(204% + 4px), -0%);
-
-  }
-
-
-
-}
-
-/* @media (min-width: 700px) {
-
-  .owl-item,
-  .owl-item[active] {
-    width: 146px !important;
-
-
-  } */
-
-/* .stories {
-    width: 627px;
-  }
-
-  .posts {
-    width: 627px;
-  } */
-
-
-
-
-/* Media query for medium screens */
-/* @media (min-width: 800px) {
-.stories {
-  width: 500px;
-}
-.posts {
-  width: 472px!important;
-}
-}
-@media (min-width: 1500px) {
-.stories {
-  width: 702px;
-}
-.posts {
-  width: 700px!important;
-}
-}
-@media (min-width: 1000px) {
-.stories {
-  width: 500px;
-}
-.posts {
-  width: 500px!important;
-}
-} */
-
-
-@media (min-width: 768px) {
-  .nav {
-    max-width: calc(15vw - 55px);
-  }
-}
 
 .owl-prev,
 .owl-next {
@@ -399,4 +300,56 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
 
 html {
   scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 375px) and (max-width:700px) {
+
+
+  .owl-prev {
+
+    transform: translate(calc(-370% - 4px), -0%)
+  }
+
+  .owl-next {
+
+    transform: translate(calc(204% + 4px), -0%);
+
+  }
+
+}
+
+@media (min-width: 375px) and (max-width:700px) {
+
+
+  .owl-prev {
+
+    transform: translate(calc(-370% - 4px), -0%)
+  }
+
+  .owl-next {
+
+    transform: translate(calc(204% + 4px), -0%);
+
+  }
+
+}
+
+@media (min-width: 768px) {
+  .nav {
+    max-width: 111.6px
+  }
+}
+
+@media (max-width: 1099px) {
+  .nav {
+    max-width: calc(15vw - 55px);
+  }
+  .sidebar_1 {
+    display: none;
+  }
+}
+@media (min-width: 1100px) and (max-height: 789px), (min-width: 1100px) and (max-width: 1379px) {
+  .nav {
+    max-width: 111.6px;
+  }
 }

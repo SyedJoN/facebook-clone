@@ -41,9 +41,10 @@ function WritePostCard() {
 
   return (
 
-    <div className="overflow-hidden md:w-[500px] w-[420px] h-fit rounded-lg">
+    <div 
+    className="md:w-[500px] w-[420px] h-fit rounded-lg relative outline-none">
       <div className="w-full max-h-[90vh] min-h-[428px] flex overflow-visible">
-        <div className="relative flex flex-col w-[500px] min-h-[428px]">
+        <div className="relative inset-0 pointer-events-auto flex flex-col w-[500px] min-h-[428px]">
           <div>
      
               <div className="flex justify-center items-center h-[60px] border-[rgba(255,255,255,0.05)] border-b-[1px]">

@@ -488,7 +488,7 @@ function Sidebar() {
                           height="100%"
                           preserveAspectRatio="xMidYMid slice"
                           width="100%"
-                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-6/439839290_7674432612650955_7641392389557855885_n.jpg?stp=c41.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=DOusUMj9s-4Q7kNvgHiS0s-&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfB8ktPVdjK7Kne4E2rVMKNAwrLT4cLeW-SL8aiTghIfsw&oe=663DA35B"
+                          xlinkHref="ppg.jpg"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
                             <rect className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]" cy="18" fill="white" height="36" rx="8" ry="8" width="36" x="0" y="0"></rect>
@@ -540,7 +540,7 @@ function Sidebar() {
                           height="100%"
                           preserveAspectRatio="xMidYMid slice"
                           width="100%"
-                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t1.18169-9/252731_1666266870985_2489456_n.jpg?stp=c9.0.50.50a_cp0_dst-jpg_p50x50&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=GjJ5RCYrb7QQ7kNvgGqPhrl&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfC8Oeu90T5sqsiq0j2o6F2svdRDUdlhMEGuuyKx5b0NfA&oe=665F3E58"
+                          xlinkHref="ned.jpg"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
                             <rect className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]" cy="18" fill="white" height="36" rx="8" ry="8" width="36" x="0" y="0"></rect>
@@ -562,7 +562,7 @@ function Sidebar() {
               </div>
              
               <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
-              ..SiR IsHaQuE BaRbEr..
+              NEDians Meme Posting
                   </span>
                   <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                 </div>

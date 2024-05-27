@@ -197,7 +197,7 @@ function Sidebar_2() {
                               filter:
                                 "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
                               backgroundImage:
-                                'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                                'url(/3dots.png)',
                               backgroundPosition: "0px -494px",
                               backgroundSize: "auto",
                               width: "20px",
@@ -225,7 +225,7 @@ function Sidebar_2() {
               >
                 <a
                   aria-labelledby=":r9l:"
-                  className="relative w-full"
+                  className="w-full"
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
@@ -294,7 +294,7 @@ function Sidebar_2() {
                               filter:
                                 "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
                               backgroundImage:
-                                'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                                'url(/3dots.png)',
                               backgroundPosition: "0px -494px",
                               backgroundSize: "auto",
                               width: "20px",
@@ -323,7 +323,7 @@ function Sidebar_2() {
 
             <div className="flex items-center cursor-default">
               <div className="flex flex-wrap">
-                <span className=" mt-[0.3rem] text-[#B0B3B8] font-semibold px-[1rem] py-[0.35rem] cursor-text ">
+                <span className="mt-[0.3rem] text-[#B0B3B8] font-semibold px-[1rem] py-[0.35rem] cursor-text ">
                   Your Pages and profiles
                 </span>
               </div>
@@ -446,7 +446,7 @@ function Sidebar_2() {
           </div>
           <div className={`sidebar flex flex-col text-white cursor-default`}>
             <div
-              className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
+              className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
               role="separator"
             ></div>
 
@@ -533,7 +533,7 @@ function Sidebar_2() {
                           height="100%"
                           preserveAspectRatio="xMidYMid slice"
                           width="100%"
-                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/425894365_7802761293071447_5971600538339242649_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Sbhl9vH7tw8Q7kNvgF8aqcz&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfDeXOCfScLqRRa_Y0vlGfp85ms15WbgZmSkombh_bwWmQ&oe=663D9A17"
+                          xlinkHref="muneeb.jpg"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
                         <circle className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]" cx="18" cy="18" r="18"></circle>
@@ -645,7 +645,7 @@ function Sidebar_2() {
                           height="100%"
                           preserveAspectRatio="xMidYMid slice"
                           width="100%"
-                          xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=n7BMMGbZFIwQ7kNvgEJYjkL&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCAEpGiaZZhxiVtFx2HIeU2z5QR8VzcOjdAwq7Z1P-BPw&oe=663D94D3"
+                          xlinkHref="khurram.jpg"
                           style={{ height: "36px", width: "36px" }}
                         ></image>
                       </g>
@@ -1006,7 +1006,7 @@ function Sidebar_2() {
           </div>
         </div>
         <div
-              className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[21rem]"
+              className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
               role="separator"
             ></div>
             <div className="flex items-center">

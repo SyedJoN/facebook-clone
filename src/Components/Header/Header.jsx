@@ -73,12 +73,6 @@ function Header() {
     setShowSettingsMenu(false);
   };
 
-  const clickHandler = () => {
-    setSeeMore((prev) => !prev);
-  };
-  const clickHandler2 = () => {
-    setSeeMore2((prev) => !prev);
-  };
 
   const handleShowAll = () => {
     setShowAll(true);
@@ -95,6 +89,7 @@ function Header() {
       containerRef.current.scrollTop = 0;
     }
   }, [seeMore]);
+
   const handleMenuToggle = () => {
     setShowMenuLocally(!showMenu);
     dispatch(setShowMenu(!showMenu));
@@ -103,7 +98,7 @@ function Header() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1022); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 1099); // Adjust breakpoint as needed
     };
 
     handleResize();
@@ -184,7 +179,7 @@ function Header() {
   ];
 
   return (
-    <header className="flex w-full fixed right-0 top-0 bg-[#242526] border-b-[0.5px] border-[#3A3B3C] h-[56px] z-30">
+    <header className="flex w-full fixed right-0 top-0 bg-[#242526] border-b-[0.5px] border-[#3A3B3C] h-[56px] z-[1]">
       <div className="flex top-0 fixed left-0 h-[56px] items-end w-[320px] px-[16px]">
         <div className="relative top-0 left-0 py-2 flex flex-wrap z-3 ml-[16px]">
           <a className="flex-shrink-0 text-xs fixed left-[16px] top-[8px]">
@@ -215,11 +210,11 @@ function Header() {
             item.active ? (
               <li
                 key={item.name}
-                className={`nav hidden md:block lg:max-w-[129.6px] md:min-w-[50px] md:w-full min-w-[50px] ml-2 ${
+                className={`nav hidden shrink md:block md:min-w-[50px] md:w-full min-w-[50px] ml-2 ${
                   location.pathname === item.slug
                     ? activeTabClassName
                     : "text-[#B0B3B8]"
-                } ${item.name === "Games" ? "md:hidden lg:block" : ""} `}
+                } ${item.name === "Games" ? "md:hidden xl:block" : ""} `}
               >
                 <span className="h-[56px]  ">
                   <div

@@ -17,7 +17,7 @@ function Posts() {
   return (
     <>
       <div className="relative flex w-full">
-        <div className="relative lg:w-[680px] overflow-hidden max-w-full">
+        <div className="relative overflow-hidden max-w-full flex-grow">
           <div className=" flex flex-wrap flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[13px] justify-center">
             <div className="flex justify-start w-full">
               <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full cursor-pointer  ">
