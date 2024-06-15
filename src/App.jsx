@@ -11,7 +11,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const handleClosePost = () => {
-    console.log("triggered");
+
     dispatch(setShowPost(false));
   };
 

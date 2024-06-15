@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setContent, setShowPost } from "../store/showMenuSlice";
 
 function WritePostCard() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const writePost = useSelector((state) => state.showMenu.writePost);
   const content = useSelector((state) => state.showMenu.postContent);
-  const [defaultText, setDefaultText] = useState("What's on your mind, Syed?");
+  const defaultText = "What's on your mind, Syed?";
 
   const [postFont, setPostFont] = useState("24px");
   const editableDivRef = useRef(null);
@@ -16,21 +16,23 @@ function WritePostCard() {
     dispatch(setShowPost(false))
   }
   useEffect(() => {
-
+    console.log(content.length)
     if (writePost) {
-      editableDivRef.current.innerText = content;
-      const selection = window.getSelection();
-      const range = document.createRange();
-      range.selectNodeContents(editableDivRef.current);
-      range.collapse(false);
-      selection.removeAllRanges();
-      selection.addRange(range);
+      const editableDiv = editableDivRef.current;
+      if (editableDiv) {
+        editableDiv.innerText = content;
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(editableDiv);
+        range.collapse(false);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
     }
-
-  }, [writePost]);
+  }, [writePost, content]);
 
   const handleContentChange = (e) => {
-    const inputContent = e.target.innerText;
+    const inputContent = e.target.innerText.trim();
     dispatch(setContent(inputContent))
     if (inputContent.trim().length >= 84) {
       setPostFont("15px");
@@ -134,19 +136,17 @@ function WritePostCard() {
           </div>
 
           <div
-            className={`flex flex-col h-fit overflow-hidden
- overscroll-contain flex-grow`}
+            className={`flex flex-col h-fit overflow-hidden overscroll-contain flex-grow`}
           >
             <div className={`relative flex flex-col flex-grow pb-[40px]`}>
               <div
-                className={` pl-4 ${content.length >= 131 ? "pr-8" : "pr-4"}`}
+                className={`pl-4 ${content.length >= 131 ? "pr-8" : "pr-4"}`}
               >
                 <div className="flex cursor-text flex-col">
                   <div
                     ref={editableDivRef}
-                    autoFocus
                     aria-label="What's on your mind, Syed?"
-                    className="text-[#E4E6EB] relative "
+                    className="text-[#E4E6EB] relative"
                     contentEditable
                     role="textbox"
                     tabIndex="0"
@@ -194,7 +194,6 @@ function WritePostCard() {
                         data-visualcompletion="css-img"
                         style={{
                           backgroundImage: "url(/emoji.png)",
-
                           backgroundPosition: "0 -87px",
                           backgroundSize: "auto",
                           width: "24px",
@@ -208,8 +207,8 @@ function WritePostCard() {
                 </div>
               </div>
 
-              {content.length === 0 && (
-                <div className=" text-[24px] pl-4 break-words whitespace-pre-wrap text-[#B0B3B8] text-ellipsis absolute select-none pointer-events-none">
+              {content.length <= 0 && (
+                <div className="text-[24px] pl-4 break-words whitespace-pre-wrap text-[#B0B3B8] text-ellipsis absolute select-none pointer-events-none">
                   {defaultText}
                 </div>
               )}

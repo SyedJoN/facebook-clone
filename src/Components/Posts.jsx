@@ -10,17 +10,18 @@ function Posts() {
   const content = useSelector((state) => state.showMenu.postContent);
 
 
-  const handlePostContainer = () => {
+  const handlePostContainer = () => {         
+                                                                       
     dispatch(setShowPost(true));
   };
 
   return (
     <>
       <div className="relative flex w-full">
-        <div className="relative overflow-hidden max-w-full flex-grow">
-          <div className=" flex flex-wrap flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[13px] justify-center">
+        <div className="relative lg:w-[680px] overflow-hidden max-w-full flex-grow">
+          <div className="flex flex-wrap flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[13px] justify-center">
             <div className="flex justify-start w-full">
-              <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full cursor-pointer  ">
+              <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full cursor-pointer">
                 <img
                   className="object-cover w-full h-full rounded-full"
                   src="/me.jpg"
@@ -35,7 +36,7 @@ function Posts() {
                   }`}
                 >
                   <span
-                    className={`relative textClass_1 leading-[1.35] overflow-hidden text-lg md:text-[1.0625rem] ${
+                    className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden text-lg ${
                       !writePost && content.length > 0
                         ? "text-[#E4E6EB]"
                         : "text-[#B0B3B8]"
@@ -118,7 +119,7 @@ function Posts() {
 
               <div className="ml-2 flex-grow">
                 <div className="">
-                  <span className="relative bottom-[5px] text-xs sm:text-sm text-[#E4E6EB] font-semibold cursor-pointer ">
+                  <span className="relative bottom-[5px] text-xs sm:text-sm text-[#E4E6EB] font-semibold cursor-pointer">
                     Syed Muhammad Jon
                   </span>
                 </div>

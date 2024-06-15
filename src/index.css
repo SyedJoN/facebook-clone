@@ -343,8 +343,16 @@ html {
     display: none;
   }
 }
+@media (max-width: 899px) {
+ 
+  .sidebar_2  {
+    display: none;
+  }
+}
+
 @media (min-width: 1100px) and (max-height: 789px), (min-width: 1100px) and (max-width: 1379px) {
   .nav {
     max-width: 111.6px;
   }
 }
+

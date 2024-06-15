@@ -30,7 +30,7 @@ function Home() {
               <Sidebar />
             </div>
             <div className="flex flex-grow justify-center min-w-0 md:px-[32px] items-stretch md:basis-[900px] basis-[744px]">
-              <div className="min-w-0 max-w-full  shrink-0 flex flex-col stories  ">
+              <div className="min-w-0 max-w-full shrink-0 flex flex-col stories">
                 <div className="flex flex-col mt-[8px] w-full">
                   <div className="w-full">
                     <Stories />
@@ -40,7 +40,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="hidden md:flex md:max-w-[360px] md:min-w-[297px] relative shrink-[9999]  ">
+            <div className="sidebar_2 flex md:max-w-[360px] md:min-w-[297px] relative shrink-[9999]  ">
               <div className="sticky right-0 top-[3.6rem] h-min overflow-visible md:min-w-[297px] md:max-w-[400px]">
                 <Sidebar_2 />
               </div>
