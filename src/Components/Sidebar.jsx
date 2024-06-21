@@ -35,7 +35,6 @@ function Sidebar() {
   useEffect(() => {
     if (containerRef.current && seeMore) {
       // Scroll to the top when seeMore is true
-
       setScrollbarPosition(0);
     }
   }, [seeMore]);

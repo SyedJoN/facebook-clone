@@ -15,6 +15,7 @@
 
 
 html {
+  scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
   box-sizing: border-box;
   overflow-y: scroll!important;
 
@@ -120,9 +121,23 @@ scrollbar-color: #7B7B7B #424242;
   /* Enable vertical scrolling */
 }
 
+
 .custom-scrollbar {
   z-index: 2;
   height: 480px;
+  position: absolute;
+  top: 0;
+  right: 6px;
+  width: 8.5px;
+  /* Width of the custom scrollbar */
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  /* Roundness of the custom scrollbar */
+  /* Show pointer cursor when hovering over scrollbar */
+  
+}.custom-scrollbar-writePost {
+  z-index: 2;
+  height: 62px;
   position: absolute;
   top: 0;
   right: 6px;
@@ -140,7 +155,7 @@ scrollbar-color: #7B7B7B #424242;
   position: absolute;
   height: 100%;
   top: 0;
-  right: 5px;
+  right: 4px;
   width: 13px;
   /* Show pointer cursor when hovering over scrollbar */
 }
@@ -298,9 +313,7 @@ box-shadow: 0 12px 28px 0 rgba(0,0,0,0.2),
 inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-html {
-  scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
-}
+
 
 @media (min-width: 375px) and (max-width:700px) {
 

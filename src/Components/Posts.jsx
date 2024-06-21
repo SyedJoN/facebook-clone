@@ -36,7 +36,7 @@ function Posts() {
                   }`}
                 >
                   <span
-                    className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden text-lg ${
+                    className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden ${
                       !writePost && content.length > 0
                         ? "text-[#E4E6EB]"
                         : "text-[#B0B3B8]"
@@ -52,7 +52,7 @@ function Posts() {
               </div>
             </div>
             <div className="flex w-full border-t-[1px] border-[#3A3B3C] mt-[12px] h-[46px] pt-[9px] justify-around ">
-              <div className="flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow hover:bg-[#3A3B3C] rounded-lg cursor-pointer ">
+              <div className="relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex  items-center">
                   <span className="inline-flex mt-[2px]">
                     <img
@@ -67,9 +67,10 @@ function Posts() {
                     Live video
                   </span>
                 </div>
+                <div className="absolute inset-0 p-[20px] hover:bg-[rgba(255,255,255,0.1)] opacity-0 hover:opacity-100 rounded-lg top-[-1px]"></div>
               </div>
 
-              <div className="flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow hover:bg-[#3A3B3C] rounded-lg cursor-pointer ">
+              <div className="relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center ">
                   <span className="inline-flex mt-[2px]">
                     <img
@@ -85,9 +86,10 @@ function Posts() {
                     Photo/video
                   </span>
                 </div>
+                <div className="absolute inset-0 p-[20px] hover:bg-[rgba(255,255,255,0.1)] opacity-0 hover:opacity-100 rounded-lg top-[-1px]"></div>
               </div>
 
-              <div className="flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow hover:bg-[#3A3B3C] rounded-lg cursor-pointer ">
+              <div className="relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center">
                   <span className="inline-flex mt-[2px]">
                     <img
@@ -103,6 +105,7 @@ function Posts() {
                     Feeling/activity
                   </span>
                 </div>
+                <div className="absolute inset-0 p-[20px] hover:bg-[rgba(255,255,255,0.1)] opacity-0 hover:opacity-100 rounded-lg top-[-1px]"></div>
               </div>
             </div>
           </div>
