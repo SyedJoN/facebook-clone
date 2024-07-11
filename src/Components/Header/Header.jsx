@@ -5,8 +5,6 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../store/showMenuSlice";
 
-
-
 function Header() {
   const activeTabClassName = "text-[#0866FF]";
   const dispatch = useDispatch();
@@ -51,7 +49,7 @@ function Header() {
     setShowNotif((prev) => !prev);
     setShowMessenger(false);
     setShowUser(false);
-    setShowSettings(false);
+    setShowSettingsMenu(false);
   };
   const handleMessenger = () => {
     setShowMessenger((prev) => !prev);
@@ -62,8 +60,8 @@ function Header() {
 
   const handleSettings = () => {
     setShowSettingsMenu((prev) => !prev);
-    setShowMessenger(false);
     setShowNotif(false);
+    setShowMessenger(false);
     setShowUser(false);
   };
   const handleUser = () => {
@@ -72,7 +70,6 @@ function Header() {
     setShowNotif(false);
     setShowSettingsMenu(false);
   };
-
 
   const handleShowAll = () => {
     setShowAll(true);
@@ -204,7 +201,6 @@ function Header() {
       </div>
 
       <nav className="flex justify-center h-[56px] w-full">
-       
         <ul className="flex justify-center flex-grow w-full px-[110px] items-end">
           {navItems.map((item) =>
             item.active ? (
@@ -275,9 +271,7 @@ function Header() {
             </li>
           )}
         </ul>
-      
-   
-     
+
         <div className="flex fixed right-0 text-white pl-[4px] h-[56px] w-[204px]">
           <div className="relative py-2 flex flex-wrap">
             <div className="settings relative mr-[8px]">
@@ -2200,6 +2194,128 @@ function Header() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSettingsMenu && (
+        <div
+          className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414]"
+          style={{ transform: "translate(-16px, 45px)" }}
+        >
+          <div className="flex flex-col w-[603px] h-[600px] bg-[#323436] rounded-lg">
+            <div>
+              <h1 className="text-[#E4E6EB] text-2xl pl-[16px] py-[7px] font-bold">
+                Menu
+              </h1>
+            </div>
+            <div className="flex overflow-hidden">
+              <div className="ml-4 mt-[3px] flex flex-col w-[355px] h-[600px] bg-[#242526] rounded-lg">
+                <div className="search-container flex flex-col">
+                  <div className="flex justify-center items-center py-[0.55rem] mt-[7px]">
+                    <label className="search w-[323px] relative bg-[#3A3B3C] rounded-full flex items-center ">
+                      <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(59%) sepia(11%) saturate(200%) saturate(135%) hue-rotate(175deg) brightness(96%) contrast(94%)",
+                            backgroundImage: "url(/iconBar_2.png)",
+                            backgroundPosition: "0px -689px",
+                            backgroundSize: "auto",
+                            width: "16px",
+                            height: "16px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                      </span>
+                      <input
+                        aria-label="Search menu"
+                        className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#adafb48e] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
+                        type="text"
+                        placeholder="Search menu"
+                      />
+                      <span className="flex absolute left-3 text-[#B0B3B8]"></span>
+                    </label>
+                  </div>
+                </div>
+                <div className="py-2 px-4">
+                  <h1 className="text-md text-[#E4E6EB] font-semibold ">
+                    Social
+                  </h1>
+                </div>
+                <div className="flex flex-col">
+                  <div>
+                    <a className="cursor-pointer relative flex px-4 py-[11px]">
+                      <div className="img shrink-0">
+                        <img
+                          src="/settings_event.png"
+                          alt=""
+                          style={{ width: "36px", height: "36px" }}
+                        />
+                      </div>
+                      <div className="px-3">
+                        <div className="title">
+                          <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                            Events
+                          </span>
+                        </div>
+                        <div
+                          className="desc
+                        "
+                        >
+                          <span className="ba mt-[5px] mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal pb-[6px]">
+                            Organize or find events and other things to do
+                            online and nearby.
+                          </span>
+                        </div>
+                      </div>
+                      <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                    </a>
+                  </div>
+                </div><div className="flex flex-col">
+                  <div>
+                    <a className="cursor-pointer relative flex px-4 py-[11px]">
+                      <div className="img shrink-0">
+                      <i
+                data-visualcompletion="css-img"
+                style={{
+                  backgroundImage: "url(/iconBar.png)",
+                  backgroundPosition: "0 -297px",
+                  backgroundSize: "auto",
+                  width: "36px",
+                  height: "36px",
+                  backgroundRepeat: "no-repeat",
+                  display: "inline-block",
+                }}
+              />
+                      </div>
+                      <div className="px-3">
+                        <div className="title">
+                          <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                            Friends
+                          </span>
+                        </div>
+                        <div
+                          className="desc
+                        "
+                        >
+                          <span className="ba mt-[5px] mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal pb-[6px]">
+                            Search for friends or people
+                            you may know.
+                          </span>
+                        </div>
+                      </div>
+                      <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ml-4 mt-[3px] flex flex-col w-[200px] h-[600px] bg-[#242526] rounded-lg"></div>
             </div>
           </div>
         </div>

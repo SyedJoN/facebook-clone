@@ -358,11 +358,10 @@ const [keyPressed, setKeyPressed] = useState(false);
               <div>
                 <div className="flex flex-col pt-4 mx-4 justify-center ">
                   <button
-                    disabled
                     className={`font-semibold cursor-pointer ${
                       content.length > 0 || keyPressed
                         ? "bg-[#0866FF] text-white"
-                        : "bg-[#505151] text-[rgba(255,255,255,0.3)]"
+                        : "bg-[#505151] text-[rgba(255,255,255,0.3)] cursor-no-drop"
                     }  px-2 py-[0.5rem] rounded-md text-sm`}
                   >
                     Post
