@@ -55,6 +55,7 @@ body {
   height: 0;
   margin-bottom: -4px;
 }
+
 .ba_1::before {
   margin-top: -5px;
   display: block;
@@ -66,6 +67,19 @@ body {
   content: "";
   height: 0;
   margin-bottom: -4px;
+}
+
+.ba_3::before {
+  margin-top: -4px;
+  display: block;
+  height: 0;
+  content: "";
+}
+.ba_3::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -3px;
 }
 
 
