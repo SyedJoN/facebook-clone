@@ -32,12 +32,12 @@ body {
 .full_sidebar_2 {
   margin-bottom: calc(-100vh + 56px);
 }
-.x3x7a5m::before {
+.before_a::before {
   margin-top: -5px;
   display: block;
   content: "";
 }
-.x3x7a5m::after {
+.before_a::after {
   display: block;
   content: "";
   height: 0;

@@ -140,7 +140,7 @@ const [keyPressed, setKeyPressed] = useState(false);
               <div className="flex flex-wrap flex-col w-full">
                 <div className="flex cursor-text">
                   <div className="shrink-0">
-                    <span className="x3x7a5m block text-sm text-[#E4E6EB] font-semibold max-w-full min-w-0">
+                    <span className="before_a block text-sm text-[#E4E6EB] font-semibold max-w-full min-w-0">
                       Syed Muhammad Jon
                     </span>
                   </div>

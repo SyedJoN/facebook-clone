@@ -2204,17 +2204,17 @@ function Header() {
           className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414]"
           style={{ transform: "translate(-16px, 45px)" }}
         >
-          <div className="flex flex-col w-[603px] h-[880px] bg-[#323436] rounded-lg">
+          <div className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg">
             <div>
               <h1 className="text-[#E4E6EB] text-2xl pl-[16px] py-[7px] font-bold">
                 Menu
               </h1>
             </div>
             <div className="flex overflow-hidden h-[890px]">
-              <div className="ml-4 mt-[3px] flex flex-col w-[355px] h-full bg-[#242526] rounded-lg overflow-y-auto pb-[16px]">
+              <div className="ml-4 mt-[3px] flex flex-col w-[360px] h-full bg-[#242526] rounded-lg overflow-y-auto pb-[16px]">
                 <div className="search-container flex flex-col">
                   <div className="flex justify-center items-center py-[0.55rem] mt-[7px]">
-                    <label className="search w-[323px] relative bg-[#3A3B3C] rounded-full flex items-center ">
+                    <label className="search w-[328px] relative bg-[#3A3B3C] rounded-full flex items-center ">
                       <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
                         <i
                           data-visualcompletion="css-img"
@@ -2234,7 +2234,7 @@ function Header() {
                       </span>
                       <input
                         aria-label="Search menu"
-                        className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#adafb48e] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
+                        className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#dedfe1b8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
                         type="text"
                         placeholder="Search menu"
                       />
@@ -2242,12 +2242,13 @@ function Header() {
                     </label>
                   </div>
                 </div>
-                <div className="py-2 px-4">
+                <div className="py-3 px-4">
                   <h1 className="text-md text-[#E4E6EB] font-semibold">
-                    Social
+                    <span className="pb-[1px] before_a">Social</span>
                   </h1>
                 </div>
                 <div>
+                  <div className="pb-4">
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
@@ -2265,7 +2266,7 @@ function Header() {
                                 Events
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Organize or find events and other things to do
                                 online and nearby.
@@ -2279,7 +2280,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <i
                             data-visualcompletion="css-img"
                             style={{
@@ -2300,7 +2301,7 @@ function Header() {
                                 Friends
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Search for friends or people you may know.
                               </span>
@@ -2313,7 +2314,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="settings_group.png"
                             alt=""
@@ -2327,7 +2328,7 @@ function Header() {
                                 Groups
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Connect with people who share your interests.
                               </span>
@@ -2339,7 +2340,7 @@ function Header() {
                     </a>
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_news.png"
                             alt=""
@@ -2349,12 +2350,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_3 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
                                 News Feed
                               </span>
                             </div>
                             <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left">
                                 See relevant posts from people and Pages you
                                 follow.
                               </span>
@@ -2366,22 +2367,22 @@ function Header() {
                     </a>
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
                           <img
                             src="/settings_feed.png"
                             alt=""
                             style={{ width: "36px", height: "36px" }}
                           />
                         </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[4px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_3 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
                                 Feeds
                               </span>
                             </div>
                             <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 See the most recent posts from your friends,
                                 groups, Pages and more.
                               </span>
@@ -2393,7 +2394,7 @@ function Header() {
                     </a>
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[3px]">
                           <img
                             src="/settings_pages.png"
                             alt=""
@@ -2402,13 +2403,13 @@ function Header() {
                         </div>
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_3 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                            <div className="title py-[2px]">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
                                 Pages
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                            <div className="desc py-[7px] pr-[2px]">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left">
                                 Discover and connect with businesses on
                                 Facebook.
                               </span>
@@ -2419,19 +2420,21 @@ function Header() {
                       </div>
                     </a>
                   </ul>
+                  </div>
                   <div
                     className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                     role="separator"
                   ></div>
-                  <div className="py-2 px-4">
+                  <div className="pt-[11px] pb-2 px-4">
                     <h1 className="text-md text-[#E4E6EB] font-semibold">
                       Entertainment
                     </h1>
                   </div>
+                  <div className="pb-[18px]">
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_gamingvideo.png"
                             alt=""
@@ -2446,7 +2449,7 @@ function Header() {
                               </span>
                             </div>
                             <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.3333] text-[#E4E6EB] text-xs font-normal text-left">
                                 Watch and connect with your favorite games and
                                 streamers.
                               </span>
@@ -2459,7 +2462,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
                           <img
                             src="/settings_playgames.png"
                             alt=""
@@ -2469,12 +2472,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold">
                                 Play games
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                            <div className="desc py-[7px] pr-[2px]">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left">
                                 Play your favorite games.
                               </span>
                             </div>
@@ -2486,7 +2489,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
                           <img
                             src="/settings_video.png"
                             alt=""
@@ -2496,12 +2499,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold">
                                 Video
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                            <div className="desc py-[7px] pr-[2px]">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left">
                                 A video destination personalized to your
                                 interests and connections.
                               </span>
@@ -2512,19 +2515,21 @@ function Header() {
                       </div>
                     </a>
                   </ul>
+                  </div>
                   <div
                     className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                     role="separator"
                   ></div>
-                  <div className="py-2 px-4">
+                  <div className="pt-[11px] pb-[7px] px-4">
                     <h1 className="text-md text-[#E4E6EB] font-semibold">
                       Shopping
                     </h1>
                   </div>
+                  <div className="pb-[19px]">
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_payments.png"
                             alt=""
@@ -2538,7 +2543,7 @@ function Header() {
                                 Orders and payments
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 A seamless, secure way to pay on the apps you
                                 already use.
@@ -2552,7 +2557,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative">
                           <img
                             src="/settings_marketplace.png"
                             alt=""
@@ -2566,8 +2571,8 @@ function Header() {
                                 Marketplace
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                            <div className="desc py-[7px] pr-[2px]">
+                              <span className="ba_3 mb-[-3px] block leading-[1] text-[#E4E6EB] text-xs font-normal text-left">
                                 Buy and sell in your community.
                               </span>
                             </div>
@@ -2577,11 +2582,12 @@ function Header() {
                       </div>
                     </a>
                   </ul>
+                  </div>
                   <div
                     className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                     role="separator"
                   ></div>
-                  <div className="py-2 px-4">
+                  <div className="pt-[11px] pb-2 px-4">
                     <h1 className="text-md text-[#E4E6EB] font-semibold">
                       Personal
                     </h1>
@@ -2589,7 +2595,7 @@ function Header() {
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_ad.png"
                             alt=""
@@ -2603,7 +2609,7 @@ function Header() {
                                 Recent ad activity
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 See all the ads you interacted with on Facebook.
                               </span>
@@ -2616,7 +2622,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_memories.png"
                             alt=""
@@ -2630,7 +2636,7 @@ function Header() {
                                 Memories
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Browse your old photos, vidoes and posts on
                                 Facebook.
@@ -2643,7 +2649,7 @@ function Header() {
                     </a>
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_saved.png"
                             alt=""
@@ -2657,7 +2663,7 @@ function Header() {
                                 Saved
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Find posts, photos and videos that you saved for
                                 later.
@@ -2681,7 +2687,7 @@ function Header() {
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_admanager.png"
                             alt=""
@@ -2695,7 +2701,7 @@ function Header() {
                                 Ads Manager
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Create, manage and track the performance of your
                                 ads.
@@ -2713,13 +2719,13 @@ function Header() {
                   ></div>
                   <div className="py-2 px-4">
                     <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      Community<br></br>Resources
+                      Community Resources
                     </h1>
                   </div>
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_climate.png"
                             alt=""
@@ -2730,10 +2736,10 @@ function Header() {
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
                               <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
-                                Climate<br></br>Science Center
+                                Climate Science Center
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Learn about climate change and its effects.
                               </span>
@@ -2746,7 +2752,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_funds.png"
                             alt=""
@@ -2760,7 +2766,7 @@ function Header() {
                                 Fundraisers
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Donate and raise money for nonprofits and
                                 personal causes.
@@ -2784,7 +2790,7 @@ function Header() {
                   <ul className="flex flex-col flex-1">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_messenger.png"
                             alt=""
@@ -2795,10 +2801,10 @@ function Header() {
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
                               <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
-                                Messenger<br></br>Kids
+                                Messenger Kids
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Let kids message with close friends and family.
                               </span>
@@ -2811,7 +2817,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
                           <img
                             src="/settings_whatsapp.png"
                             alt=""
@@ -2825,7 +2831,7 @@ function Header() {
                                 WhatsApp
                               </span>
                             </div>
-                            <div className="desc py-[6px] pr-[2px]">
+                            <div className="desc py-[7px] pr-[2px]">
                               <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
                                 Message and call people privately on your
                                 computer.
@@ -2841,12 +2847,12 @@ function Header() {
               </div>
 
               <div className="ml-4 mt-[3px] flex flex-col w-[200px] h-max bg-[#242526] rounded-lg">
-                <div className="py-4 px-4">
+                <div className="py-2 px-3">
                   <h1 className="text-xl text-[#E4E6EB] font-bold">Create</h1>
                 </div>
-                <div className="settings-menu py-[4px]">
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                <div className="settings-menu py-[6px]">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2861,13 +2867,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Post
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>  
-                   <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                   <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2882,13 +2888,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Story
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2903,13 +2909,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Reel
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div> 
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2924,8 +2930,8 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
-                      Live event
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                      Life event
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                    
@@ -2934,8 +2940,8 @@ function Header() {
                     className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
                     role="separator"
                   ></div>
-                      <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                      <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2950,13 +2956,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Page
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2971,13 +2977,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Ad
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2992,13 +2998,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Group
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -3013,13 +3019,13 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Event
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-2 cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-2 rounded-full ">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer bottom-[2px]">
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -3034,8 +3040,8 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="font-normal text-[#E4E6EB] text-sm title">
-                      Marketplace<br></br>listing
+                    <div className="title relative text-[#E4E6EB] text-sm font-medium">
+                      Marketplace listing
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
