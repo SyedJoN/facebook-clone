@@ -2204,16 +2204,24 @@ function Header() {
           className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414]"
           style={{ transform: "translate(-16px, 45px)" }}
         >
-          <div className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg">
-            <div>
-              <h1 className="text-[#E4E6EB] text-2xl pl-[16px] py-[7px] font-bold">
-                Menu
-              </h1>
+          <div className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg"
+          style={{ maxWidth: 'calc(100vw - 24px)', maxHeight: 'calc(100vh - 56px - 16px)'}}>
+            <div className="flex flex-col justify-center">
+              <div className="flex flex-col text-[#E4E6EB] text-2xl py-[17px] font-bold">
+                <div className="flex flex-col -my-[2px] min-h-0 px-4">
+                <span className="relative bottom-[1px] ba_1 block max-w-full leading-[1.1667]">Menu</span>
+                </div>
+              </div>
             </div>
-            <div className="flex overflow-hidden h-[890px]">
-              <div className="ml-4 mt-[3px] flex flex-col w-[360px] h-full bg-[#242526] rounded-lg overflow-y-auto pb-[16px]">
-                <div className="search-container flex flex-col">
-                  <div className="flex justify-center items-center py-[0.55rem] mt-[7px]">
+            <div className="flex flex-col min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-[100%]">
+              <div className="flex flex-col">
+            <div className="relative flex -m-2">
+              <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden">
+              <div className="flex flex-col basis-0 bg-[#242526] rounded-lg pb-[16px] customShadow-3"
+              style={{minHeight: 'calc(100vh - 118px)'}}>
+                <div className="relative flex flex-col w-[360px]">
+                <div className="search-container flex flex-col px-4">
+                  <div className="flex py-[0.55rem] mt-[7px]">
                     <label className="search w-[328px] relative bg-[#3A3B3C] rounded-full flex items-center ">
                       <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
                         <i
@@ -2249,7 +2257,7 @@ function Header() {
                 </div>
                 <div>
                   <div className="pb-4">
-                  <ul className="flex flex-col flex-1">
+                  <ul className="flex flex-col">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
                         <div className="img shrink-0 p-[8px] flex mt-[-4px]">
@@ -2259,19 +2267,21 @@ function Header() {
                             style={{ width: "36px", height: "36px" }}
                           />
                         </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px] min-w-0 max-w-full">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Events
                               </span>
                             </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                      
+                            <div className="desc py-[7px] pr-[2px] min-w-0 max-w-full">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Organize or find events and other things to do
                                 online and nearby.
                               </span>
                             </div>
+                          
                           </div>
                         </div>
                         <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
@@ -2297,12 +2307,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Friends
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Search for friends or people you may know.
                               </span>
                             </div>
@@ -2324,12 +2334,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Groups
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Connect with people who share your interests.
                               </span>
                             </div>
@@ -2350,12 +2360,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 News Feed
                               </span>
                             </div>
                             <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words ">
                                 See relevant posts from people and Pages you
                                 follow.
                               </span>
@@ -2377,12 +2387,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[4px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words" >
                                 Feeds
                               </span>
                             </div>
                             <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 See the most recent posts from your friends,
                                 groups, Pages and more.
                               </span>
@@ -2404,12 +2414,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[2px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Pages
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Discover and connect with businesses on
                                 Facebook.
                               </span>
@@ -2444,12 +2454,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Gaming Video
                               </span>
                             </div>
                             <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.3333] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.3333] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Watch and connect with your favorite games and
                                 streamers.
                               </span>
@@ -2472,12 +2482,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Play games
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Play your favorite games.
                               </span>
                             </div>
@@ -2499,12 +2509,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Video
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 A video destination personalized to your
                                 interests and connections.
                               </span>
@@ -2539,12 +2549,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words ">
                                 Orders and payments
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 A seamless, secure way to pay on the apps you
                                 already use.
                               </span>
@@ -2567,12 +2577,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Marketplace
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Buy and sell in your community.
                               </span>
                             </div>
@@ -2593,6 +2603,7 @@ function Header() {
                     </h1>
                   </div>
                   <ul className="flex flex-col flex-1">
+                    <div className="pb-[18px]">
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
                         <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
@@ -2605,12 +2616,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Recent ad activity
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 See all the ads you interacted with on Facebook.
                               </span>
                             </div>
@@ -2622,7 +2633,7 @@ function Header() {
 
                     <a className="flex flex-col cursor-pointer relative">
                       <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
+                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
                           <img
                             src="/settings_memories.png"
                             alt=""
@@ -2632,12 +2643,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Memories
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Browse your old photos, vidoes and posts on
                                 Facebook.
                               </span>
@@ -2659,12 +2670,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Saved
                               </span>
                             </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                            <div className="desc py-[5px] pr-[2px]">
+                              <span className="ba_3 mb-[-3px] block leading-[1.3] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Find posts, photos and videos that you saved for
                                 later.
                               </span>
@@ -2674,12 +2685,13 @@ function Header() {
                         <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                       </div>
                     </a>
+                  </div>
                   </ul>
                   <div
                     className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                     role="separator"
                   ></div>
-                  <div className="py-2 px-4">
+                  <div className="pb-2 pt-[0.3rem] px-4">
                     <h1 className="text-md text-[#E4E6EB] font-semibold">
                       Professional
                     </h1>
@@ -2697,12 +2709,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full">
                                 Ads Manager
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Create, manage and track the performance of your
                                 ads.
                               </span>
@@ -2735,12 +2747,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Climate Science Center
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Learn about climate change and its effects.
                               </span>
                             </div>
@@ -2762,12 +2774,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Fundraisers
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Donate and raise money for nonprofits and
                                 personal causes.
                               </span>
@@ -2800,12 +2812,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 Messenger Kids
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Let kids message with close friends and family.
                               </span>
                             </div>
@@ -2827,12 +2839,12 @@ function Header() {
                         <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
                           <div className="flex flex-col">
                             <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold">
+                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
                                 WhatsApp
                               </span>
                             </div>
                             <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left">
+                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
                                 Message and call people privately on your
                                 computer.
                               </span>
@@ -2845,13 +2857,16 @@ function Header() {
                   </ul>
                 </div>
               </div>
-
-              <div className="ml-4 mt-[3px] flex flex-col w-[200px] h-max bg-[#242526] rounded-lg">
+              </div>
+              </div>
+<div className="min-w-0 shrink flex-grow basis-0 m-2 max-w-[200px] [overflow-anchor:none]">
+  <div className="sticky top-0 flex flex-col ">
+              <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
                 <div className="py-2 px-3">
                   <h1 className="text-xl text-[#E4E6EB] font-bold">Create</h1>
                 </div>
                 <div className="settings-menu py-[6px]">
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -2867,12 +2882,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Post
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>  
-                   <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                   <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -2888,12 +2903,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <span className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Story
-                    </div>
+                    </span>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -2909,12 +2924,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Reel
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div> 
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -2930,7 +2945,7 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Life event
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
@@ -2940,8 +2955,9 @@ function Header() {
                     className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
                     role="separator"
                   ></div>
-                      <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
+                      <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                      
+                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full">
                       <i
                         data-visualcompletion="css-img"
                         style={{
@@ -2956,12 +2972,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Page
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -2977,12 +2993,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Ad
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -2998,12 +3014,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Group
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -3019,12 +3035,12 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
                       Event
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer bottom-[2px]">
+                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px] bottom-[2px]">
                     <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
                       <i
                         data-visualcompletion="css-img"
@@ -3040,16 +3056,24 @@ function Header() {
                         }}
                       />
                     </div>
-                    <div className="title relative text-[#E4E6EB] text-sm font-medium">
-                      Marketplace listing
+                    <div className="flex flex-col">
+                    <div className="flex flex-col title relative text-[#E4E6EB] text-sm font-medium leading-[1.3333]">
+                      
+                      <span className="ba">Marketplace listing</span>
+                    </div>
                     </div>
                     <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                   </div>
                 </div>
+                </div>
+              </div>
+              </div>
               </div>
             </div>
+            </div>
+            </div>
           </div>
-        </div>
+       
       )}
     </header>
   );
