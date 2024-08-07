@@ -6,6 +6,11 @@ import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../store/showMenuSlice";
 
 function Header() {
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+  const scrollbarRef = useRef(null);
+  const [scrollbarPosition, setScrollbarPosition] = useState(0);
+  const [scrollOpacity, setScrollOpacity] = useState(0);
   const activeTabClassName = "text-[#0866FF]";
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,10 +26,60 @@ function Header() {
   const [showUser, setShowUser] = useState(false);
   const [showAll, setShowAll] = useState(true);
   const [showUnread, setShowUnread] = useState(false);
-  const containerRef = useRef(null);
   const [showSettings, setShowSettings] = useState(false);
   const [showSettings2, setShowSettings2] = useState(false);
   const [showSettings3, setShowSettings3] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercentage =
+        contentRef?.current?.scrollTop /
+        (contentRef?.current?.scrollHeight - contentRef?.current?.clientHeight);
+      const scrollbarPosition =
+        scrollPercentage *
+        (contentRef?.current?.clientHeight -
+          scrollbarRef?.current?.clientHeight);
+      setScrollbarPosition(scrollbarPosition);
+    };
+
+    contentRef?.current?.addEventListener("scroll", handleScroll);
+    return () => {
+      contentRef?.current?.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleMouseDown = (e) => {
+    e.preventDefault(); // Prevent text selection while dragging
+    const startY = e.clientY;
+    const startScrollOffset = contentRef?.current?.scrollTop;
+    const onMouseMove = (e) => {
+      const deltaY = e.clientY - startY;
+      const scrollY =
+        startScrollOffset +
+        deltaY *
+          (contentRef?.current?.scrollHeight /
+            contentRef?.current?.clientHeight);
+
+      contentRef.current.scrollTop = scrollY;
+      setScrollOpacity(30);
+    };
+    const onMouseUp = () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+      setTimeout(() => {
+        setScrollOpacity(0);
+      }, 1000);
+    };
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  };
+
+  const scrollHandler = () => {
+    setScrollOpacity(1);
+  };
+  const LeaveHandler = () => {
+    setScrollOpacity(0);
+  };
 
   const handleShowSettings = () => {
     setShowSettings(true);
@@ -2204,876 +2259,1037 @@ function Header() {
           className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414]"
           style={{ transform: "translate(-16px, 45px)" }}
         >
-          <div className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg"
-          style={{ maxWidth: 'calc(100vw - 24px)', maxHeight: 'calc(100vh - 56px - 16px)'}}>
+          <div
+            className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg"
+            style={{
+              maxWidth: "calc(100vw - 24px)",
+              maxHeight: "calc(100vh - 56px - 16px)",
+            }}
+          >
             <div className="flex flex-col justify-center">
               <div className="flex flex-col text-[#E4E6EB] text-2xl py-[17px] font-bold">
                 <div className="flex flex-col -my-[2px] min-h-0 px-4">
-                <span className="relative bottom-[1px] ba_1 block max-w-full leading-[1.1667]">Menu</span>
+                  <span className="relative bottom-[1px] ba_1 block max-w-full leading-[1.1667]">
+                    Menu
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-[100%]">
-              <div className="flex flex-col">
-            <div className="relative flex -m-2">
-              <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden">
-              <div className="flex flex-col basis-0 bg-[#242526] rounded-lg pb-[16px] customShadow-3"
-              style={{minHeight: 'calc(100vh - 118px)'}}>
-                <div className="relative flex flex-col w-[360px]">
-                <div className="search-container flex flex-col px-4">
-                  <div className="flex py-[0.55rem] mt-[7px]">
-                    <label className="search w-[328px] relative bg-[#3A3B3C] rounded-full flex items-center ">
-                      <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
-                        <i
-                          data-visualcompletion="css-img"
-                          className="align-[-0.25em] text-[#B0B3B8]"
-                          style={{
-                            filter:
-                              "invert(59%) sepia(11%) saturate(200%) saturate(135%) hue-rotate(175deg) brightness(96%) contrast(94%)",
-                            backgroundImage: "url(/iconBar_2.png)",
-                            backgroundPosition: "0px -689px",
-                            backgroundSize: "auto",
-                            width: "16px",
-                            height: "16px",
-                            backgroundRepeat: "no-repeat",
-                            display: "inline-block",
-                          }}
-                        ></i>
-                      </span>
-                      <input
-                        aria-label="Search menu"
-                        className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#dedfe1b8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
-                        type="text"
-                        placeholder="Search menu"
-                      />
-                      <span className="flex absolute left-3 text-[#B0B3B8]"></span>
-                    </label>
+
+            <div
+            ref={containerRef} 
+              onMouseEnter={scrollHandler}
+              onMouseLeave={LeaveHandler}
+              className="relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-scroll px-4 basis-[100%]"
+            >
+              <div  ref={contentRef} className="content flex flex-col">
+                <div className="relative flex -m-2">
+                  <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden pb-2">
+                    <div
+                      className="flex flex-col basis-0 bg-[#242526] rounded-lg customShadow-3"
+                      style={{ minHeight: "calc(100vh - 118px)" }}
+                    >
+                      <div className="relative flex flex-col w-[360px]">
+                        <div className="search-container flex flex-col px-4">
+                          <div className="flex py-[0.55rem] mt-[7px]">
+                            <label className="search w-[328px] relative bg-[#3A3B3C] rounded-full flex items-center ">
+                              <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
+                                <i
+                                  data-visualcompletion="css-img"
+                                  className="align-[-0.25em] text-[#B0B3B8]"
+                                  style={{
+                                    filter:
+                                      "invert(59%) sepia(11%) saturate(200%) saturate(135%) hue-rotate(175deg) brightness(96%) contrast(94%)",
+                                    backgroundImage: "url(/iconBar_2.png)",
+                                    backgroundPosition: "0px -689px",
+                                    backgroundSize: "auto",
+                                    width: "16px",
+                                    height: "16px",
+                                    backgroundRepeat: "no-repeat",
+                                    display: "inline-block",
+                                  }}
+                                ></i>
+                              </span>
+                              <input
+                                aria-label="Search menu"
+                                className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#dedfe1b8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
+                                type="text"
+                                placeholder="Search menu"
+                              />
+                              <span className="flex absolute left-3 text-[#B0B3B8]"></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div className="py-3 px-4">
+                          <h1 className="text-md text-[#E4E6EB] font-semibold">
+                            <span className="pb-[1px] before_a">Social</span>
+                          </h1>
+                        </div>
+                        <div>
+                          <div className="pb-4">
+                            <ul className="flex flex-col">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                                    <img
+                                      src="/settings_event.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px] min-w-0 max-w-full">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Events
+                                        </span>
+                                      </div>
+
+                                      <div className="desc py-[7px] pr-[2px] min-w-0 max-w-full">
+                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Organize or find events and other
+                                          things to do online and nearby.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <i
+                                      data-visualcompletion="css-img"
+                                      style={{
+                                        backgroundImage: "url(/iconBar.png)",
+                                        backgroundPosition: "0 -296px",
+                                        backgroundSize: "auto",
+                                        width: "36px",
+                                        height: "36px",
+                                        backgroundRepeat: "no-repeat",
+                                        display: "inline-block",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Friends
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Search for friends or people you may
+                                          know.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="settings_group.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Groups
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Connect with people who share your
+                                          interests.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_news.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          News Feed
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[6px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words ">
+                                          See relevant posts from people and
+                                          Pages you follow.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                                    <img
+                                      src="/settings_feed.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[4px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Feeds
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[6px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          See the most recent posts from your
+                                          friends, groups, Pages and more.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[3px]">
+                                    <img
+                                      src="/settings_pages.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[2px]">
+                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Pages
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Discover and connect with businesses
+                                          on Facebook.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </ul>
+                          </div>
+                          <div
+                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                          <div className="pt-[11px] pb-2 px-4">
+                            <h1 className="text-md text-[#E4E6EB] font-semibold">
+                              Entertainment
+                            </h1>
+                          </div>
+                          <div className="pb-[18px]">
+                            <ul className="flex flex-col flex-1">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_gamingvideo.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Gaming Video
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[6px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.3333] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Watch and connect with your favorite
+                                          games and streamers.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                                    <img
+                                      src="/settings_playgames.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Play games
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Play your favorite games.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                                    <img
+                                      src="/settings_video.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Video
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          A video destination personalized to
+                                          your interests and connections.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </ul>
+                          </div>
+                          <div
+                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                          <div className="pt-[11px] pb-[7px] px-4">
+                            <h1 className="text-md text-[#E4E6EB] font-semibold">
+                              Shopping
+                            </h1>
+                          </div>
+                          <div className="pb-[19px]">
+                            <ul className="flex flex-col flex-1">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_payments.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words ">
+                                          Orders and payments
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          A seamless, secure way to pay on the
+                                          apps you already use.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative">
+                                    <img
+                                      src="/settings_marketplace.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Marketplace
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Buy and sell in your community.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </ul>
+                          </div>
+                          <div
+                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                          <div className="pt-[11px] pb-2 px-4">
+                            <h1 className="text-md text-[#E4E6EB] font-semibold">
+                              Personal
+                            </h1>
+                          </div>
+                          <ul className="flex flex-col flex-1">
+                            <div className="pb-[18px]">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_ad.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Recent ad activity
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          See all the ads you interacted with on
+                                          Facebook.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                                    <img
+                                      src="/settings_memories.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Memories
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Browse your old photos, vidoes and
+                                          posts on Facebook.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_saved.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Saved
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[5px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.3] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Find posts, photos and videos that you
+                                          saved for later.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </div>
+                          </ul>
+                          <div
+                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                          <div className="pb-2 pt-[0.7rem] px-4">
+                            <h1 className="text-md text-[#E4E6EB] font-semibold">
+                              Professional
+                            </h1>
+                          </div>
+                          <ul className="flex flex-col flex-1">
+                            <div className="pb-[18px]">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_admanager.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full">
+                                          Ads Manager
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Create, manage and track the
+                                          performance of your ads.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </div>
+                          </ul>
+                          <div
+                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                          <div className="pt-[0.65rem] pb-[0.55rem] px-4">
+                            <h1 className="text-md text-[#E4E6EB] font-semibold">
+                              Community Resources
+                            </h1>
+                          </div>
+                          <ul className="flex flex-col flex-1">
+                            <div className="pb-[18px]">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_climate.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Climate Science Center
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Learn about climate change and its
+                                          effects.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>{" "}
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_crises.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] before_a block leading-[1.21] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Crisis response
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.25] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Find the latest updates for recent
+                                          crises happening around the world.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="relative flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_funds.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Fundraisers
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.18] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Donate and raise money for nonprofits
+                                          and personal causes.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </div>
+                          </ul>
+                          <div
+                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                          <div className="pt-[0.7rem] pb-[0.55rem] px-4">
+                            <h1 className="text-md text-[#E4E6EB] font-semibold">
+                              More from Meta
+                            </h1>
+                          </div>
+                          <ul className="flex flex-col flex-1">
+                            <div className="pb-[16px]">
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_messenger.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="relative top-[1px] ba_1 block leading-[1.3] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          Messenger Kids
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[2px]">
+                                        <span className="ba_3 mb-[-3px] block leading-[1.333] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Let kids message with close friends
+                                          and family.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+
+                              <a className="flex flex-col cursor-pointer relative">
+                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
+                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[2px] min-w-0 max-w-full">
+                                    <img
+                                      src="/settings_whatsapp.png"
+                                      alt=""
+                                      style={{
+                                        width: "36px",
+                                        height: "36px",
+                                      }}
+                                    />
+                                  </div>
+                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
+                                    <div className="flex flex-col">
+                                      <div className="title py-[4px]">
+                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                          WhatsApp
+                                        </span>
+                                      </div>
+                                      <div className="desc py-[7px] pr-[5px]">
+                                        <span className="ba_3 relative bottom-[1px] mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                          Message and call people privately on
+                                          your computer.
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </div>
+                              </a>
+                            </div>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="min-w-0 shrink flex-grow basis-0 m-2 max-w-[200px] [overflow-anchor:none]">
+                    <div className="sticky top-0 flex flex-col ">
+                      <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
+                        <div className="py-2 px-3">
+                          <h1 className="text-xl text-[#E4E6EB] font-bold">
+                            Create
+                          </h1>
+                        </div>
+                        <div className="settings-menu py-[6px]">
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist.png)",
+                                  backgroundPosition: "0 -222px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Post
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist2.png)",
+                                  backgroundPosition: "0 -275px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Story
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist.png)",
+                                  backgroundPosition: "0 -96px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Reel
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist2.png)",
+                                  backgroundPosition: "0 -191px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Life event
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div
+                            className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
+                            role="separator"
+                          ></div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist3.png)",
+                                  backgroundPosition: "0 -192px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Page
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist2.png)",
+                                  backgroundPosition: "0 -212px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Ad{" "}
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist3.png)",
+                                  backgroundPosition: "0 -171px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Group{" "}
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist4.png)",
+                                  backgroundPosition: "0 -79px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Event{" "}
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px] bottom-[2px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start relative top-[2px]">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist.png)",
+                                  backgroundPosition: "0 -348px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium">
+                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                  Marketplace listing{" "}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="py-3 px-4">
-                  <h1 className="text-md text-[#E4E6EB] font-semibold">
-                    <span className="pb-[1px] before_a">Social</span>
-                  </h1>
-                </div>
-                <div>
-                  <div className="pb-4">
-                  <ul className="flex flex-col">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px]">
-                          <img
-                            src="/settings_event.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px] min-w-0 max-w-full">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Events
-                              </span>
-                            </div>
-                      
-                            <div className="desc py-[7px] pr-[2px] min-w-0 max-w-full">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Organize or find events and other things to do
-                                online and nearby.
-                              </span>
-                            </div>
-                          
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <i
-                            data-visualcompletion="css-img"
-                            style={{
-                              backgroundImage: "url(/iconBar.png)",
-                              backgroundPosition: "0 -296px",
-                              backgroundSize: "auto",
-                              width: "36px",
-                              height: "36px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                            }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Friends
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Search for friends or people you may know.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="settings_group.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Groups
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Connect with people who share your interests.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_news.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                News Feed
-                              </span>
-                            </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words ">
-                                See relevant posts from people and Pages you
-                                follow.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
-                          <img
-                            src="/settings_feed.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[4px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words" >
-                                Feeds
-                              </span>
-                            </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                See the most recent posts from your friends,
-                                groups, Pages and more.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[3px]">
-                          <img
-                            src="/settings_pages.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[2px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Pages
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Discover and connect with businesses on
-                                Facebook.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </ul>
-                  </div>
-                  <div
-                    className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                    role="separator"
-                  ></div>
-                  <div className="pt-[11px] pb-2 px-4">
-                    <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      Entertainment
-                    </h1>
-                  </div>
-                  <div className="pb-[18px]">
-                  <ul className="flex flex-col flex-1">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_gamingvideo.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Gaming Video
-                              </span>
-                            </div>
-                            <div className="desc py-[6px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.3333] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Watch and connect with your favorite games and
-                                streamers.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
-                          <img
-                            src="/settings_playgames.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Play games
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Play your favorite games.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
-                          <img
-                            src="/settings_video.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Video
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                A video destination personalized to your
-                                interests and connections.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </ul>
-                  </div>
-                  <div
-                    className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                    role="separator"
-                  ></div>
-                  <div className="pt-[11px] pb-[7px] px-4">
-                    <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      Shopping
-                    </h1>
-                  </div>
-                  <div className="pb-[19px]">
-                  <ul className="flex flex-col flex-1">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_payments.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words ">
-                                Orders and payments
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                A seamless, secure way to pay on the apps you
-                                already use.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative">
-                          <img
-                            src="/settings_marketplace.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Marketplace
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Buy and sell in your community.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </ul>
-                  </div>
-                  <div
-                    className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                    role="separator"
-                  ></div>
-                  <div className="pt-[11px] pb-2 px-4">
-                    <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      Personal
-                    </h1>
-                  </div>
-                  <ul className="flex flex-col flex-1">
-                    <div className="pb-[18px]">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_ad.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Recent ad activity
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                See all the ads you interacted with on Facebook.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
-                          <img
-                            src="/settings_memories.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Memories
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Browse your old photos, vidoes and posts on
-                                Facebook.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_saved.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Saved
-                              </span>
-                            </div>
-                            <div className="desc py-[5px] pr-[2px]">
-                              <span className="ba_3 mb-[-3px] block leading-[1.3] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Find posts, photos and videos that you saved for
-                                later.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </div>
-                  </ul>
-                  <div
-                    className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                    role="separator"
-                  ></div>
-                  <div className="pb-2 pt-[0.3rem] px-4">
-                    <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      Professional
-                    </h1>
-                  </div>
-                  <ul className="flex flex-col flex-1">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_admanager.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full">
-                                Ads Manager
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Create, manage and track the performance of your
-                                ads.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </ul>
-                  <div
-                    className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                    role="separator"
-                  ></div>
-                  <div className="py-2 px-4">
-                    <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      Community Resources
-                    </h1>
-                  </div>
-                  <ul className="flex flex-col flex-1">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_climate.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Climate Science Center
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Learn about climate change and its effects.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_funds.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Fundraisers
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Donate and raise money for nonprofits and
-                                personal causes.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </ul>
-                  <div
-                    className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                    role="separator"
-                  ></div>
-                  <div className="py-2 px-4">
-                    <h1 className="text-md text-[#E4E6EB] font-semibold">
-                      More from Meta
-                    </h1>
-                  </div>
-                  <ul className="flex flex-col flex-1">
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_messenger.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                Messenger Kids
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Let kids message with close friends and family.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-
-                    <a className="flex flex-col cursor-pointer relative">
-                      <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                        <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[1px]">
-                          <img
-                            src="/settings_whatsapp.png"
-                            alt=""
-                            style={{ width: "36px", height: "36px" }}
-                          />
-                        </div>
-                        <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                          <div className="flex flex-col">
-                            <div className="title py-[4px]">
-                              <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
-                                WhatsApp
-                              </span>
-                            </div>
-                            <div className="desc py-[7px] pr-[2px]">
-                              <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
-                                Message and call people privately on your
-                                computer.
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                      </div>
-                    </a>
-                  </ul>
-                </div>
               </div>
+         
+              <div
+                className="bg-[#323436] w-4 top-0 ease-in duration-500 transition-opacity h-full"
+                data-visualcompletion="ignore"
+                data-thumb="1"
+                style={{
+                  display: "block",
+                  height: "1754px",
+                  right: "0px",
+                  position: "absolute",
+                }}
+              ></div>
+              <div
+                ref={scrollbarRef}
+                className="absolute w-4 origin-top-right ease-in duration-300 transition-opacity px-[4px] py-0 m-0"
+                data-visualcompletion="ignore"
+                data-thumb="1"
+                style={{
+                  display: "block",
+                  height: "363.058px",
+                  right: "0px",
+                  top: `${scrollbarPosition}px`,
+                  opacity: scrollOpacity,
+                }}
+                onMouseDown={handleMouseDown}
+              >
+                <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
               </div>
-              </div>
-<div className="min-w-0 shrink flex-grow basis-0 m-2 max-w-[200px] [overflow-anchor:none]">
-  <div className="sticky top-0 flex flex-col ">
-              <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
-                <div className="py-2 px-3">
-                  <h1 className="text-xl text-[#E4E6EB] font-bold">Create</h1>
-                </div>
-                <div className="settings-menu py-[6px]">
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist.png)",
-                          backgroundPosition: "0 -222px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Post
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>  
-                   <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist2.png)",
-                          backgroundPosition: "0 -275px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <span className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Story
-                    </span>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist.png)",
-                          backgroundPosition: "0 -96px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Reel
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div> 
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist2.png)",
-                          backgroundPosition: "0 -191px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Life event
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                   
-                  </div>
-                  <div
-                    className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
-                    role="separator"
-                  ></div>
-                      <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                      
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist3.png)",
-                          backgroundPosition: "0 -192px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Page
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist2.png)",
-                          backgroundPosition: "0 -212px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Ad
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist3.png)",
-                          backgroundPosition: "0 -171px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Group
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist4.png)",
-                          backgroundPosition: "0 -79px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                      Event
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>
-                  <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px] bottom-[2px]">
-                    <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full ">
-                      <i
-                        data-visualcompletion="css-img"
-                        style={{
-                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
-                          backgroundImage: "url(/settings_iconlist.png)",
-                          backgroundPosition: "0 -348px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                    <div className="flex flex-col title relative text-[#E4E6EB] text-sm font-medium leading-[1.3333]">
-                      
-                      <span className="ba">Marketplace listing</span>
-                    </div>
-                    </div>
-                    <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                  </div>
-                </div>
-                </div>
-              </div>
-              </div>
-              </div>
-            </div>
-            </div>
             </div>
           </div>
-       
+        </div>
       )}
     </header>
   );
