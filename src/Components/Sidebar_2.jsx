@@ -2,21 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar_2() {
   const contentRef = useRef(null);
-  const scrollbarRef = useRef(null);
-  const [scrollbarPosition, setScrollbarPosition] = useState(0);
-  const containerRef = useRef(null);
-  const [seeMore, setSeeMore] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showSettings2, setShowSettings2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
-  const [trackOpacity, setTrackOpacity] = useState(0);
 
-  const handleMouseOver = () => {
-    setTrackOpacity(1);
-  };
-  const handleMouseOut = () => {
-    setTrackOpacity(0);
-  };
 
   const handleShowSettings = () => {
     setShowSettings(true);
@@ -31,30 +20,6 @@ function Sidebar_2() {
     setShowSettings2(false);
   };
 
-  useEffect(() => {
-    if (containerRef.current && !seeMore) {
-      // Scroll to the top when seeMore is false
-      containerRef.current.scrollTop = 0;
-    }
-  }, [seeMore]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercentage =
-        contentRef?.current?.scrollTop /
-        (contentRef?.current?.scrollHeight - contentRef?.current?.clientHeight);
-      const scrollbarPosition =
-        scrollPercentage *
-        (contentRef?.current?.clientHeight -
-          scrollbarRef?.current?.clientHeight);
-      setScrollbarPosition(scrollbarPosition);
-    };
-
-    contentRef?.current?.addEventListener("scroll", handleScroll);
-    return () => {
-      contentRef?.current?.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleMouseDown = (e) => {
     e.preventDefault(); // Prevent text selection while dragging
@@ -93,14 +58,14 @@ function Sidebar_2() {
 
   return (
     <div
-      className="scroll-container"
+      className="overscroll-contain scroll-container origin-top-right overflow-y-scroll overflow-x-hidden"
+      style={{willChange: 'transform, scroll-position', perspective: '1px'}}
+      ref={contentRef}
       onMouseEnter={scrollHandler}
       onMouseLeave={LeaveHandler}
     >
-      <div ref={contentRef} className="content">
         <div
-          ref={containerRef}
-          className={`content-item sidebar_2 text-white cursor-pointer overflow-y-scroll overflow-x-hidden pt-[13px]`}
+          className={`text-white cursor-pointer pt-[13px]`}
         >
           <div className={`sidebar text-white`}>
             <div className="flex flex-col">
@@ -1004,6 +969,7 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
           </div>
+          
         </div>
         <div
               className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
@@ -1053,22 +1019,37 @@ function Sidebar_2() {
               </span>
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
-      </div>
+    
 
       <div
-        ref={scrollbarRef}
-        className="custom-scrollbar transition-opacity duration-300 ease-in-out"
-        style={{ top: `${scrollbarPosition}px`, opacity: scrollOpacity }}
-        onMouseDown={handleMouseDown}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      ></div>
+                className="bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 transition-opacity h-full hover:opacity-30 opacity-0"
+                data-visualcompletion="ignore"
+                data-thumb="1"
+                onMouseDown={handleMouseDown}
+                style={{
+                  display: "block",
+                  height: "1291px",
+                  right: "0px"
+                }}
+              ></div>
+              <div
 
-      <div
-        className={`custom-scrollbar-track-2 ${
-          trackOpacity ? "opacity-30" : "opacity-0"
-        } bg-[#3E4042] opacity-0 transition-opacity duration-500 ease-in-out`}
-      ></div>
+                className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-[4px] py-0 m-0
+                pointer-events-none"
+                data-visualcompletion="ignore"
+                data-thumb="1"
+                style={{
+                  display: "block",
+                  opacity: `${scrollOpacity}`,
+                  height: "576.893px",
+                  right: "0px",
+                  transitionProperty: "opacity",
+                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, -180, 430, 1, 0, 0, 0, 0, -1) scale(1.49594) translateZ(-0.495944px) translateZ(-2px)"
+                }}
+
+              >
+                <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
+    </div>
     </div>
   );
 }

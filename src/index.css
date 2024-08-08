@@ -22,6 +22,8 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   direction: ltr;
 
 }
@@ -296,6 +298,7 @@ scrollbar-color: #7B7B7B #424242;
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: circle(1px at 0% 0%);
 }
+
 .textClass {
   -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;

@@ -6,10 +6,8 @@ import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../store/showMenuSlice";
 
 function Header() {
-  const containerRef = useRef(null);
   const contentRef = useRef(null);
   const scrollbarRef = useRef(null);
-  const [scrollbarPosition, setScrollbarPosition] = useState(0);
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const activeTabClassName = "text-[#0866FF]";
   const dispatch = useDispatch();
@@ -30,23 +28,7 @@ function Header() {
   const [showSettings2, setShowSettings2] = useState(false);
   const [showSettings3, setShowSettings3] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercentage =
-        contentRef?.current?.scrollTop /
-        (contentRef?.current?.scrollHeight - contentRef?.current?.clientHeight);
-      const scrollbarPosition =
-        scrollPercentage *
-        (contentRef?.current?.clientHeight -
-          scrollbarRef?.current?.clientHeight);
-      setScrollbarPosition(scrollbarPosition);
-    };
-
-    contentRef?.current?.addEventListener("scroll", handleScroll);
-    return () => {
-      contentRef?.current?.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  
 
   const handleMouseDown = (e) => {
     e.preventDefault(); // Prevent text selection while dragging
@@ -66,7 +48,7 @@ function Header() {
     const onMouseUp = () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseup", onMouseUp);
-      setTimeout(() => {
+      setTimeout(() =>{
         setScrollOpacity(0);
       }, 1000);
     };
@@ -135,12 +117,6 @@ function Header() {
     setShowAll(false);
   };
 
-  useEffect(() => {
-    if (containerRef.current && !seeMore) {
-      // Scroll to the top when seeMore is false
-      containerRef.current.scrollTop = 0;
-    }
-  }, [seeMore]);
 
   const handleMenuToggle = () => {
     setShowMenuLocally(!showMenu);
@@ -1216,7 +1192,8 @@ function Header() {
                           width="16"
                           height="16"
                           fill="currentColor"
-                          className="block text-[#B0B3B8] ease-in transition-all duration-200"
+                          className="block text-[#B0B3B8] ease-linear duration-200"
+                          style={{transitionProperty: "all"}}
                         >
                           <g
                             fillRule="evenodd"
@@ -2277,12 +2254,13 @@ function Header() {
             </div>
 
             <div
-            ref={containerRef} 
               onMouseEnter={scrollHandler}
               onMouseLeave={LeaveHandler}
-              className="relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-scroll px-4 basis-[100%]"
+              ref={contentRef}
+              className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 origin-top-right basis-[100%]"
+              style={{willChange: 'transform, scroll-position', perspective: '1px'}}
             >
-              <div  ref={contentRef} className="content flex flex-col">
+              <div className="flex flex-col">
                 <div className="relative flex -m-2">
                   <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden pb-2">
                     <div
@@ -2939,8 +2917,9 @@ function Header() {
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                               
                                 </div>
+                                <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
                             </div>
                           </ul>
@@ -3259,31 +3238,31 @@ function Header() {
                   </div>
                 </div>
               </div>
-         
               <div
-                className="bg-[#323436] w-4 top-0 ease-in duration-500 transition-opacity h-full"
+                className="bg-[#323436] w-4 absolute top-0 ease-linear duration-500 h-full opacity-0"
                 data-visualcompletion="ignore"
                 data-thumb="1"
+                onMouseDown={handleMouseDown}
                 style={{
                   display: "block",
                   height: "1754px",
                   right: "0px",
-                  position: "absolute",
+                  transitionProperty: "opacity"
                 }}
               ></div>
               <div
-                ref={scrollbarRef}
-                className="absolute w-4 origin-top-right ease-in duration-300 transition-opacity px-[4px] py-0 m-0"
+                className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-[4px] py-0 m-0 pointer-events-none"
                 data-visualcompletion="ignore"
                 data-thumb="1"
                 style={{
                   display: "block",
+                  opacity: `${scrollOpacity}`,
                   height: "363.058px",
                   right: "0px",
-                  top: `${scrollbarPosition}px`,
-                  opacity: scrollOpacity,
+                  transitionProperty: "opacity",
+                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 399, 1, 0, 972, 0, 0, -1) scale(2.19799) translateZ(-1.19799px) translateZ(-2px)"
                 }}
-                onMouseDown={handleMouseDown}
+
               >
                 <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
               </div>
