@@ -57,9 +57,11 @@ function Sidebar_2() {
   };
 
   return (
+<div className="relative z-0 flex flex-col">
+
     <div
-      className="overscroll-contain scroll-container origin-top-right overflow-y-scroll overflow-x-hidden"
-      style={{willChange: 'transform, scroll-position', perspective: '1px'}}
+      className="flex flex-col relative min-h-0 overscroll-contain scroll-container overflow-y-scroll overflow-x-hidden shrink flex-grow"
+      style={{willChange: 'transform, scroll-position', perspective: '1px', transformStyle: 'preserve-3d', perspectiveOrigin: 'top right'}}  
       ref={contentRef}
       onMouseEnter={scrollHandler}
       onMouseLeave={LeaveHandler}
@@ -1029,7 +1031,8 @@ function Sidebar_2() {
                 style={{
                   display: "block",
                   height: "1291px",
-                  right: "0px"
+                  right: "0px",
+                  transitionProperty: 'opacity'
                 }}
               ></div>
               <div
@@ -1044,11 +1047,12 @@ function Sidebar_2() {
                   height: "576.893px",
                   right: "0px",
                   transitionProperty: "opacity",
-                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, -180, 430, 1, 0, 0, 0, 0, -1) scale(1.49594) translateZ(-0.495944px) translateZ(-2px)"
+                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(1.6095) translateZ(-0.609502px) translateZ(-2px)"
                 }}
 
               >
                 <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
+    </div>
     </div>
     </div>
   );

@@ -2,60 +2,37 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar() {
   const contentRef = useRef(null);
-  const scrollbarRef = useRef(null);
-  const [scrollbarPosition, setScrollbarPosition] = useState(0);
-  const containerRef = useRef(null);
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
 
   const [scrollOpacity, setScrollOpacity] = useState(0);
 
-  const [trackOpacity, setTrackOpacity] = useState(0);
 
-  const handleMouseOver = () => {
-    if (seeMore) setTrackOpacity(1);
-  };
-  const handleMouseOut = () => {
-    setTrackOpacity(0);
-  };
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
-    if (scrollOpacity === 0) {
-      setScrollOpacity(1);
-    } else {
+    if (seeMore) {
       setScrollOpacity(0);
-      setTrackOpacity(0);
+    } else {
+      setScrollOpacity(1);
     }
   };
   const clickHandler2 = () => {
     setSeeMore2((prev) => !prev);
+    if (seeMore2) {
+      setScrollOpacity(0);
+    } else {
+      setScrollOpacity(1);
+    }
   };
 
-  useEffect(() => {
-    if (containerRef.current && seeMore) {
-      // Scroll to the top when seeMore is true
-      setScrollbarPosition(0);
-    }
-  }, [seeMore]);
+  // useEffect(() => {
+  //   if (containerRef.current && seeMore) {
+  //     // Scroll to the top when seeMore is true
+  //     setScrollbarPosition(0);
+  //   }
+  // }, [seeMore]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercentage =
-        contentRef?.current?.scrollTop /
-        (contentRef?.current?.scrollHeight - contentRef?.current?.clientHeight);
-      const scrollbarPosition =
-        scrollPercentage *
-        (contentRef?.current?.clientHeight -
-          scrollbarRef?.current?.clientHeight);
-      setScrollbarPosition(scrollbarPosition);
-    };
-
-    contentRef?.current?.addEventListener("scroll", handleScroll);
-    return () => {
-      contentRef?.current?.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleMouseDown = (e) => {
     e.preventDefault(); // Prevent text selection while dragging
@@ -70,10 +47,10 @@ function Sidebar() {
           (contentRef?.current?.scrollHeight /
             contentRef?.current?.clientHeight);
       contentRef.current.scrollTop = scrollY;
-    };
-    if (seeMore) {
+      if (seeMore || seeMore2)
       setScrollOpacity(30);
-    }
+    };
+   
     const onMouseUp = () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseup", onMouseUp);
@@ -94,17 +71,16 @@ function Sidebar() {
   };
 
   return (
+    <div className="relative flex flex-col min-h-[inherit] max-h-[inherit] z-0">
     <div
-      className="scroll-container hidden lg:flex lg:flex-col relative"
-      onMouseEnter={seeMore ? scrollHandler : null}
-      onMouseLeave={seeMore ? LeaveHandler : null}
+      style={{willChange: 'transform, scroll-position', perspective: '1px', transformStyle: 'preserve-3d', perspectiveOrigin: 'top right'}}   
+      className={`${seeMore || seeMore2 ? "overflow-y-scroll" : "overflow-y-hidden"} overflow-x-hidden relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-[100%]`}
+      onMouseEnter={seeMore || seeMore2 ? scrollHandler : null}
+      onMouseLeave={seeMore || seeMore2 ? LeaveHandler : null}
+      ref={contentRef}
     >
-      <div ref={contentRef} className="content">
         <div
-          ref={containerRef}
-          className={`content-item sidebar p-[0.6rem] text-[#E4E6EB] w-[360px] cursor-pointer  ${
-            seeMore ? "overflow-y-scroll overflow-x-hidden " : "overflow-hidden"
-          }`}
+          className={`content-item sidebar flex-grow p-[0.6rem] text-[#E4E6EB] w-[360px] cursor-pointer`}
         >
           <div className={`sidebar flex flex-col cursor-pointer mt-[0.35rem]`}>
             <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center">
@@ -888,22 +864,38 @@ function Sidebar() {
             
           </div>
         </div>
-      </div>
+      
+        <div
+                className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full ${seeMore || seeMore2 ? "hover:opacity-30" : "pointer-events-none"} opacity-0 `}
+                data-visualcompletion="ignore"
+                data-thumb="1"
+                onMouseDown={handleMouseDown}
+                style={{
+                  display: "block",
+                  height: "1291px",
+                  right: "0px",
+                  transitionProperty: 'opacity'
+                }}
+              ></div>
+              <div
 
-      <div
-        ref={scrollbarRef}
-        className="custom-scrollbar duration-300 transition-opacity"
-        style={{ top: `${scrollbarPosition}px`, opacity: scrollOpacity }}
-        onMouseDown={handleMouseDown}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      ></div>
+                className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-[4px] py-0 m-0
+                pointer-events-none"
+                data-visualcompletion="ignore"
+                data-thumb="1"
+                style={{
+                  display: "block",
+                  opacity: `${scrollOpacity}`,
+                  height: "576.893px",
+                  right: "0px",
+                  transitionProperty: "opacity",
+                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(1.6095) translateZ(-0.609502px) translateZ(-2px)"
+                }}
 
-      <div
-        className={`custom-scrollbar-track-1 ${
-          trackOpacity ? "opacity-30" : "opacity-0"
-        } bg-[#3E4042] opacity-0 transition-opacity duration-500 ease-in-out`}
-      ></div>
+              >
+                <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
+    </div>
+    </div>
     </div>
   );
 }

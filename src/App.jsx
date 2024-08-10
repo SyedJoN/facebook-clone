@@ -22,7 +22,7 @@ function App() {
       ) : (
         <div
           className={`${
-            writePost ? "fixed w-full h-full" : "relative z-0"
+            writePost ? "fixed inset-0" : "relative z-0"
           } mainScroll`}
         >
           <Header />

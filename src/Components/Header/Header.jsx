@@ -2252,13 +2252,14 @@ function Header() {
                 </div>
               </div>
             </div>
-
+<div>
+</div>
             <div
               onMouseEnter={scrollHandler}
               onMouseLeave={LeaveHandler}
               ref={contentRef}
-              className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 origin-top-right basis-[100%]"
-              style={{willChange: 'transform, scroll-position', perspective: '1px'}}
+              className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-[100%]"
+              style={{willChange: 'transform, scroll-position', perspective: '1px', transformStyle: 'preserve-3d', perspectiveOrigin: 'top right'}}  
             >
               <div className="flex flex-col">
                 <div className="relative flex -m-2">
@@ -3260,7 +3261,7 @@ function Header() {
                   height: "363.058px",
                   right: "0px",
                   transitionProperty: "opacity",
-                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 399, 1, 0, 972, 0, 0, -1) scale(2.19799) translateZ(-1.19799px) translateZ(-2px)"
+                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(2.19799) translateZ(-1.19799px) translateZ(-2px)"
                 }}
 
               >

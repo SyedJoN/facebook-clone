@@ -10,23 +10,27 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 function Home() {
-  const dispatch = useDispatch();
-  const showMenu = useSelector((state) => state.showMenu.showMenu);
-  const writePost = useSelector((state) => state.showMenu.writePost);
 
+  const showMenu = useSelector((state) => state.showMenu.showMenu);
 
 
   return (
-    <div className={`flex flex-col relative h-min mt-[56px]`}>
-      <div className="flex flex-col relative">
+    <div 
+    className={`flex flex-col relative top-[56px]`}
+    style={{minHeight:"calc(100vh - 56px)"}}
+    >
+      <div className="relative z-0 flex flex-col flex-grow min-h-[inherit]"
+      style={{marginBottom:"calc(-100vh + 56px"}}>
         <div>{showMenu && <MobileMenu />}</div>
         <div
           className={`${
             showMenu ? "hidden" : "flex"
-          } flex-col relative items-stretch justify-center shrink-0 flex-nowrap`}
+          } relative z-0 items-start justify-between flex-grow shrink basis-0 min-h-[inherit] max-w-none`}
         >
-          <div className="flex max-w-[1464px] basis-0 md:max-w-none min-w-0 shrink items-stretch justify-between relative flex-grow ">
-            <div className="sidebar_1 sticky left-0 h-fit top-[56px] lg:max-w-[360px] lg:min-w-[270px] overflow-hidden basis-[360px] shrink-[9999] min-h-0">
+          <div className="relative flex basis-0 min-w-0 shrink items-start justify-between flex-grow min-h-[inherit]">
+            <div 
+            style={{overflowAnchor:"none"}}
+            className="sidebar_1 sticky z-0 left-0 top-[56px] lg:max-w-[360px] lg:min-w-[270px] overflow-hidden basis-[360px] shrink-[9999] min-h-[inherit] max-h-0">
               <Sidebar />
             </div>
             <div className="flex flex-grow justify-center min-w-0 md:px-[32px] items-stretch md:basis-[900px] basis-[744px]">
@@ -40,11 +44,12 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="sidebar_2 flex md:max-w-[360px] md:min-w-[297px] relative shrink-[9999]  ">
-              <div className="sticky right-0 top-[3.6rem] basis-[360px] h-min overflow-visible md:min-w-[297px] md:max-w-[400px]">
+           
+              <div className="sidebar_2 sticky right-0 top-[56px] basis-[360px] max-w-[360px] min-w-[280px] max-h-0 overflow-hidden min-h-[inherit]">
                 <Sidebar_2 />
+    
               </div>
-            </div>
+           
         
           </div>
      
