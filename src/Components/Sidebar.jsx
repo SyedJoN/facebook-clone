@@ -26,12 +26,12 @@ function Sidebar() {
     }
   };
 
-  // useEffect(() => {
-  //   if (containerRef.current && seeMore) {
-  //     // Scroll to the top when seeMore is true
-  //     setScrollbarPosition(0);
-  //   }
-  // }, [seeMore]);
+  useEffect(() => {
+    if (contentRef.current && !seeMore || !seeMore2 && !seeMore) {
+      // Scroll to the top when seeMore is true
+      contentRef.current.scrollTop = 0;
+    }
+  }, [seeMore, seeMore2]);
 
 
   const handleMouseDown = (e) => {
