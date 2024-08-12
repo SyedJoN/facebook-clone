@@ -2,14 +2,19 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar() {
   const contentRef = useRef(null);
-  const scrollThumbRef= useRef(null)
+  const scrollThumbRef = useRef(null);
+  const trackRef = useRef(null);
+
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
-  const [leaveHandlerFn, setLeaveHandlerFn] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [trackClick, setTrackClick] = useState(false);
-  const [mouseUp, setMouseUp] = useState(false);
-  const [mouseMove, setMouseMove] = useState(false);
+
+
+  const mouseMoveRef = useRef(false);
+  const mouseUpRef = useRef(false);
+  const leaveHandlerFnRef = useRef(false);
+
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
@@ -22,40 +27,19 @@ function Sidebar() {
     if (seeMore2) {
       setScrollOpacity(0);
     }
-  
   };
 
   useEffect(() => {
     if ((contentRef.current && !seeMore) || (!seeMore2 && !seeMore)) {
       contentRef.current.scrollTop = 0;
-    } 
-if(!seeMore && !seeMore2) {
-  setTrackClick(false);
-}
+    }
+    if (!seeMore && !seeMore2) {
+      setTrackClick(false);
+    }
   }, [seeMore, seeMore2]);
-
-  useEffect(() => {
-
-    console.log('Mouse Up: ', mouseUp)
-  },[mouseUp])
-
-  useEffect(() => {
-
-    console.log('TrackClick: ', trackClick)
-  },[trackClick]) 
-
-   useEffect(() => {
-    console.log('LeaveHandler: ', leaveHandlerFn)
-  },[leaveHandlerFn])
-
-  useEffect(() => {
-
-    console.log('MouseMove: ', mouseMove)
-  },[mouseMove])
 
   const handleTrackClick = (e) => {
     e.preventDefault();
-   
     const track = e.currentTarget; // The scrollbar track element
     const thumb = scrollThumbRef.current;
     const trackRect = track.getBoundingClientRect();
@@ -64,14 +48,11 @@ if(!seeMore && !seeMore2) {
     const clickY = e.clientY - trackRect.top; // Position within the track
 
     if (thumbRect.top <= e.clientY && e.clientY <= thumbRect.bottom) {
-      console.log('error')
       return;
-  }
+    }
 
-
-  setTrackClick(true);
-  setMouseUp(false);
-  console.log('click');
+    setTrackClick(true);
+    mouseUpRef.current = false
     // Calculate the scroll position based on the click position
     const clickPercentage = clickY / trackRect.height;
     const maxScrollTop =
@@ -79,60 +60,77 @@ if(!seeMore && !seeMore2) {
     const newScrollTop = clickPercentage * maxScrollTop;
 
     contentRef.current.scrollTop = newScrollTop;
-
   };
 
-  const handleMouseDown = (e) => {
-    e.preventDefault(); // Prevent text selection while dragging
-    console.log('onMouseDown')
-    const startY = e.clientY;
-    const startScrollOffset = contentRef.current.scrollTop;
+  useEffect(() => {
+    const trackElement = trackRef.current;
 
-    const onMouseMove = (e) => {
-      e.preventDefault();
-      setMouseMove(true);
-      setTrackClick(false);
-      console.log('onMouseMove')
-      const deltaY = e.clientY - startY;
-      const scrollY =
-        startScrollOffset +
-        deltaY *
-          (contentRef?.current?.scrollHeight /
-            contentRef?.current?.clientHeight);
-      contentRef.current.scrollTop = scrollY;
-      setScrollOpacity(1);
-   
-    };
+    // Define event handlers
+    const onMouseDown = (e) => {
+      e.preventDefault(); // Prevent text selection while dragging
+      const startY = e.clientY;
+      const startScrollOffset = contentRef.current.scrollTop;
 
-    const onMouseUp = () => {
-      e.preventDefault();
-      setMouseUp(true);
-      console.log('onMouseMove, leaveHandlerFn', mouseMove, leaveHandlerFn)
-      if (mouseUp && mouseMove && leaveHandlerFn) {
+      const onMouseMove = (e) => {
+        e.preventDefault();
+        mouseMoveRef.current = true;
+        setTrackClick(false);
+        const deltaY = e.clientY - startY;
+        const scrollY =
+          startScrollOffset +
+          deltaY *
+            (contentRef.current.scrollHeight / contentRef.current.clientHeight);
+        contentRef.current.scrollTop = scrollY;
+        setScrollOpacity(1);
+      };
+
+      const onMouseUp = (e) => {
+        e.preventDefault();
+        mouseUpRef.current = true;
         setTimeout(() => {
-          setScrollOpacity(0);
+          if (
+            mouseUpRef.current &&
+            mouseMoveRef.current &&
+            leaveHandlerFnRef.current
+          ) {
+            setScrollOpacity(0);
+          }
         }, 1000);
-      }
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
+
+        // Cleanup event listeners
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      // Attach event listeners
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+      setScrollOpacity(1);
     };
 
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-    setScrollOpacity(1)
-  };
+    // Attach mousedown event listener to trackElement
+    if (trackElement) {
+      trackElement.addEventListener("mousedown", onMouseDown);
+    }
+
+    // Cleanup function
+    return () => {
+      if (trackElement) {
+        trackElement.removeEventListener("mousedown", onMouseDown);
+      }
+    
+     
+    };
+  }, []);
 
   const scrollHandler = () => {
-    setLeaveHandlerFn(false);
-    console.log('scrollHandler')
+    leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
   };
 
   const LeaveHandler = () => {
-    console.log('LeaveHandler')
-    setLeaveHandlerFn(true);
+    leaveHandlerFnRef.current = true;
     !trackClick && setScrollOpacity(0);
-  
   };
 
   return (
@@ -956,8 +954,8 @@ if(!seeMore && !seeMore2) {
                    opacity-0 `}
           data-visualcompletion="ignore"
           data-thumb="1"
+          ref={trackRef}
           onClick={handleTrackClick}
-          onMouseDown={handleMouseDown}
           style={{
             display: "block",
             height: "1291px",
