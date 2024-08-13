@@ -27,7 +27,7 @@ function Home() {
             showMenu ? "hidden" : "flex"
           } relative z-0 items-start justify-between flex-grow shrink basis-0 min-h-[inherit] max-w-none`}
         >
-          <div className="relative flex basis-0 min-w-0 shrink items-start justify-between flex-grow min-h-[inherit]">
+          <div className="relative flex basis-0 min-w-0 shrink items-stretch justify-between flex-grow min-h-[inherit]">
             <div 
             style={{overflowAnchor:"none"}}
             className="sidebar_1 sticky z-0 left-0 top-[56px] lg:max-w-[360px] lg:min-w-[270px] overflow-hidden basis-[360px] shrink-[9999] min-h-[inherit] max-h-0">

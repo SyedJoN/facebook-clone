@@ -4,17 +4,27 @@ function Sidebar() {
   const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
+  const scrollIntervalRef = useRef(null);
+  const startScrollOffsetRef = useRef(null);
 
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
-  const [trackClick, setTrackClick] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
 
+
+  const scrollRef = useRef(false);
+  const trackClickRef = useRef(false);
   const mouseMoveRef = useRef(false);
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
 
+
+ 
+  useEffect(()=> {
+    console.log('mouseMoveRef: ', mouseMoveRef.current)
+     }, [scrollRef.current])
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
@@ -34,11 +44,44 @@ function Sidebar() {
       contentRef.current.scrollTop = 0;
     }
     if (!seeMore && !seeMore2) {
-      setTrackClick(false);
+      trackClickRef.current = false;
     }
   }, [seeMore, seeMore2]);
 
+
+  const startScroll = (direction) => {
+    const scrollAmount = 2; // Amount to scroll each frame
+    const scrollSpeed = 5; // Speed of scrolling in pixels per frame
+
+    const scroll = () => {
+      if (!contentRef.current) return;
+    
+      if (direction === 'up') {
+        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
+      } else if (direction === 'down') {
+        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
+      }
+      scrollIntervalRef.current = requestAnimationFrame(scroll);
+      
+    };
+
+    scrollIntervalRef.current = requestAnimationFrame(scroll);
+    scrollRef.current = true;
+    console.log(contentRef.current.scrollTop);
+
+  };
+
+  const stopScroll = () => {
+    if (scrollIntervalRef.current) {
+      cancelAnimationFrame(scrollIntervalRef.current);
+      scrollIntervalRef.current = null;
+
+    }
+    
+  };
+
   const handleTrackClick = (e) => {
+    console.log('clicked')
     e.preventDefault();
     const track = e.currentTarget; // The scrollbar track element
     const thumb = scrollThumbRef.current;
@@ -47,19 +90,19 @@ function Sidebar() {
 
     const clickY = e.clientY - trackRect.top; // Position within the track
 
-    if (thumbRect.top <= e.clientY && e.clientY <= thumbRect.bottom) {
+    if (thumbRect.top <= e.clientY && e.clientY <= thumbRect.bottom || mouseMoveRef.current ) {
+      console.log('errro')
       return;
     }
 
-    setTrackClick(true);
-    mouseUpRef.current = false
-    // Calculate the scroll position based on the click position
     const clickPercentage = clickY / trackRect.height;
     const maxScrollTop =
       contentRef.current.scrollHeight - contentRef.current.clientHeight;
     const newScrollTop = clickPercentage * maxScrollTop;
 
     contentRef.current.scrollTop = newScrollTop;
+    trackClickRef.current = true;
+    mouseMoveRef.current = false;
   };
 
   useEffect(() => {
@@ -67,31 +110,67 @@ function Sidebar() {
 
     // Define event handlers
     const onMouseDown = (e) => {
+
+    console.log('onMouseDown')
+
       e.preventDefault(); // Prevent text selection while dragging
       const startY = e.clientY;
-      const startScrollOffset = contentRef.current.scrollTop;
+      const clickY = e.clientY;
+    const startScrollOffset = contentRef?.current?.scrollTop;
+
+      const thumb = scrollThumbRef.current;
+      const thumbRect = thumb.getBoundingClientRect();
+
+      if (clickY <= thumbRect.top) {
+        // Clicked above the thumb
+        startScroll('up');
+      startScrollOffsetRef.current = contentRef.current.scrollTop;
+
+
+      } else if (clickY >= thumbRect.bottom) {
+        // Clicked below the thumb
+
+        startScroll('down');
+      startScrollOffsetRef.current = contentRef.current.scrollTop;
+      }
+  
+      setIsDragging(true);
+  
 
       const onMouseMove = (e) => {
+        stopScroll();
+    console.log('onMouseMove')
+    setIsDragging(false);
         e.preventDefault();
         mouseMoveRef.current = true;
-        setTrackClick(false);
+        trackClickRef.current = false;
         const deltaY = e.clientY - startY;
-        const scrollY =
-          startScrollOffset +
-          deltaY *
-            (contentRef.current.scrollHeight / contentRef.current.clientHeight);
-        contentRef.current.scrollTop = scrollY;
-        setScrollOpacity(1);
-      };
+      const scrollY =
+        startScrollOffset+
+        deltaY *
+          (contentRef?.current?.scrollHeight /
+            contentRef?.current?.clientHeight);
 
+      contentRef.current.scrollTop = scrollY;
+      setScrollOpacity(1);
+     
+          setScrollOpacity(1)
+
+          }
+          setScrollOpacity(1)
+          mouseMoveRef.current = false;
       const onMouseUp = (e) => {
+        stopScroll();
+        setIsDragging(false);
+    console.log('onMouseUp')
         e.preventDefault();
         mouseUpRef.current = true;
         setTimeout(() => {
           if (
             mouseUpRef.current &&
             mouseMoveRef.current &&
-            leaveHandlerFnRef.current
+            leaveHandlerFnRef.current &&
+            scrollRef.current 
           ) {
             setScrollOpacity(0);
           }
@@ -118,7 +197,7 @@ function Sidebar() {
       if (trackElement) {
         trackElement.removeEventListener("mousedown", onMouseDown);
       }
-    
+      stopScroll();
      
     };
   }, []);
@@ -126,11 +205,12 @@ function Sidebar() {
   const scrollHandler = () => {
     leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
+    scrollRef.current = false;
   };
 
   const LeaveHandler = () => {
     leaveHandlerFnRef.current = true;
-    !trackClick && setScrollOpacity(0);
+    !trackClickRef.current && setScrollOpacity(0);
   };
 
   return (
@@ -150,7 +230,7 @@ function Sidebar() {
         ref={contentRef}
       >
         <div
-          className={`content-item sidebar flex-grow p-[0.6rem] text-[#E4E6EB] w-[360px] cursor-pointer`}
+          className={`content-item sidebar flex-grow p-[0.6rem] text-[#E4E6EB] w-full cursor-pointer`}
         >
           <div className={`sidebar flex flex-col cursor-pointer mt-[0.35rem]`}>
             <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
@@ -493,11 +573,11 @@ function Sidebar() {
             )}
           </div>
           <div
-            className="relative top-[-2px] left-[-2px] ml-[0.5rem] mt-2 border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+            className="relative top-[-2px] left-[-2px] ml-[0.5rem] mt-2 border-b-[0.1rem] border-[#3A3B3C] w-full"
             role="separator"
           ></div>
           <div
-            className={`sidebar flex flex-col text-white cursor-pointer w-[350px]`}
+            className={`sidebar flex flex-col text-white cursor-pointer w-full`}
           >
             <h3 className=" mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
               Your shortcuts
@@ -569,7 +649,7 @@ function Sidebar() {
                   <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
                     PPG - Pakistani PC Gamers
                   </span>
-                  <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                 </div>
               </li>
               <li>
@@ -639,7 +719,7 @@ function Sidebar() {
                   <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
                     NEDians Meme Posting
                   </span>
-                  <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                 </div>
               </li>
 
@@ -688,7 +768,7 @@ function Sidebar() {
                   <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
                     Death Never Knocks
                   </span>
-                  <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                 </div>
               </li>
               <li>
@@ -736,7 +816,7 @@ function Sidebar() {
                   <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                     JK Developers
                   </span>
-                  <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                 </div>
               </li>
               <li>
@@ -784,7 +864,7 @@ function Sidebar() {
                   <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                     JoN - Productions
                   </span>
-                  <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                 </div>
               </li>
             </ul>
@@ -812,7 +892,7 @@ function Sidebar() {
                 <span className="text-[#E4E6EB] text-sm ml-3 mt-[0.4rem] font-[500]">
                   See more
                 </span>
-                <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
               </div>
             )}
 
@@ -864,7 +944,7 @@ function Sidebar() {
                       <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                         Max Sweet
                       </span>
-                      <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                      <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                     </div>
                   </li>
 
@@ -913,7 +993,7 @@ function Sidebar() {
                       <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                         Toast Sweet
                       </span>
-                      <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                      <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                     </div>
                   </li>
                 </ul>
@@ -937,7 +1017,7 @@ function Sidebar() {
                 <span className="text-[#E4E6EB] text-sm ml-3 mt-[0.4rem] font-[500]">
                   See less
                 </span>
-                <div className="ml-[-2px] mr-2 absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
               </div>
             )}
           </div>
