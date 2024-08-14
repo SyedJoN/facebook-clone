@@ -5,14 +5,10 @@ function Sidebar() {
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
-  const startScrollOffsetRef = useRef(null);
 
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-
-
 
   const scrollRef = useRef(false);
   const trackClickRef = useRef(false);
@@ -20,11 +16,9 @@ function Sidebar() {
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
 
-
- 
-  useEffect(()=> {
-    console.log('mouseMoveRef: ', mouseMoveRef.current)
-     }, [scrollRef.current])
+  useEffect(() => {
+    console.log("ScrollRef: ", scrollRef.current);
+  }, [mouseMoveRef.current]);
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
@@ -48,129 +42,130 @@ function Sidebar() {
     }
   }, [seeMore, seeMore2]);
 
-
   const startScroll = (direction) => {
     const scrollAmount = 2; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
 
-    const scroll = () => {
-      if (!contentRef.current) return;
-    
-      if (direction === 'up') {
-        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
-      } else if (direction === 'down') {
-        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
-      }
-      scrollIntervalRef.current = requestAnimationFrame(scroll);
-      
-    };
 
+    const scroll = () => {
+
+
+      if (!contentRef.current) return;
+
+      const maxScrollTop =
+      contentRef.current.scrollHeight - contentRef.current.clientHeight;
+
+      if (direction === "up" && contentRef.current.scrollTop > 0) {
+        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else if (
+        direction === "down" &&
+        contentRef.current.scrollTop < maxScrollTop
+      ) {
+        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else {
+        console.log("hogiya return");
+        return;
+      }
+    };
     scrollIntervalRef.current = requestAnimationFrame(scroll);
     scrollRef.current = true;
-    console.log(contentRef.current.scrollTop);
+    console.log('hogiya me true')
 
+    return() => {
+      stopScroll();
+    }
   };
 
   const stopScroll = () => {
     if (scrollIntervalRef.current) {
       cancelAnimationFrame(scrollIntervalRef.current);
       scrollIntervalRef.current = null;
-
     }
-    
   };
 
-  const handleTrackClick = (e) => {
-    console.log('clicked')
-    e.preventDefault();
-    const track = e.currentTarget; // The scrollbar track element
-    const thumb = scrollThumbRef.current;
-    const trackRect = track.getBoundingClientRect();
-    const thumbRect = thumb.getBoundingClientRect();
+  // const handleTrackClick = (e) => {
+  //   console.log("clicked");
+  //   e.preventDefault();
+  //   const track = e.currentTarget; // The scrollbar track element
+  //   const thumb = scrollThumbRef.current;
+  //   const trackRect = track.getBoundingClientRect();
+  //   const thumbRect = thumb.getBoundingClientRect();
 
-    const clickY = e.clientY - trackRect.top; // Position within the track
+  //   const clickY = e.clientY - trackRect.top; // Position within the track
 
-    if (thumbRect.top <= e.clientY && e.clientY <= thumbRect.bottom || mouseMoveRef.current ) {
-      console.log('errro')
-      return;
-    }
+  //   if (
+  //     (thumbRect.top <= e.clientY && e.clientY <= thumbRect.bottom) ||
+  //     mouseMoveRef.current
+  //   ) {
+  //     console.log("error");
+  //     return;
+  //   }
 
-    const clickPercentage = clickY / trackRect.height;
-    const maxScrollTop =
-      contentRef.current.scrollHeight - contentRef.current.clientHeight;
-    const newScrollTop = clickPercentage * maxScrollTop;
-
-    contentRef.current.scrollTop = newScrollTop;
-    trackClickRef.current = true;
-    mouseMoveRef.current = false;
-  };
+  //   const clickPercentage = clickY / trackRect.height;
+  //   const maxScrollTop =
+  //     contentRef.current.scrollHeight - contentRef.current.clientHeight;
+  //   const newScrollTop = clickPercentage * maxScrollTop;
+  //   contentRef.current.scrollTop = newScrollTop;
+  //   trackClickRef.current = true;
+  //   mouseMoveRef.current = false;
+  // };
 
   useEffect(() => {
     const trackElement = trackRef.current;
 
     // Define event handlers
     const onMouseDown = (e) => {
-
-    console.log('onMouseDown')
+      console.log("onMouseDown");
 
       e.preventDefault(); // Prevent text selection while dragging
-      const startY = e.clientY;
       const clickY = e.clientY;
-    const startScrollOffset = contentRef?.current?.scrollTop;
-
+      const startScrollOffset = contentRef.current.scrollTop;
       const thumb = scrollThumbRef.current;
       const thumbRect = thumb.getBoundingClientRect();
 
-      if (clickY <= thumbRect.top) {
-        // Clicked above the thumb
-        startScroll('up');
-      startScrollOffsetRef.current = contentRef.current.scrollTop;
-
-
-      } else if (clickY >= thumbRect.bottom) {
-        // Clicked below the thumb
-
-        startScroll('down');
-      startScrollOffsetRef.current = contentRef.current.scrollTop;
+      if (clickY < thumbRect.top) {
+        startScroll("up");
+      } else if (clickY > thumbRect.bottom) {
+        startScroll("down");
       }
-  
-      setIsDragging(true);
-  
 
       const onMouseMove = (e) => {
         stopScroll();
-    console.log('onMouseMove')
-    setIsDragging(false);
+        console.log("onMouseMove");
         e.preventDefault();
+
+        if (clickY < thumbRect.top) {
+          startScroll("up");
+          return;
+        } else if (clickY > thumbRect.bottom) {
+          startScroll("down");
+          return;
+        }
         mouseMoveRef.current = true;
         trackClickRef.current = false;
-        const deltaY = e.clientY - startY;
-      const scrollY =
-        startScrollOffset+
-        deltaY *
-          (contentRef?.current?.scrollHeight /
-            contentRef?.current?.clientHeight);
+        const deltaY = e.clientY - clickY;
+        const scrollY =
+          startScrollOffset +
+          deltaY *
+            (contentRef.current.scrollHeight / contentRef.current.clientHeight);
 
-      contentRef.current.scrollTop = scrollY;
+        contentRef.current.scrollTop = scrollY;
+        setScrollOpacity(1);
+      };
       setScrollOpacity(1);
-     
-          setScrollOpacity(1)
-
-          }
-          setScrollOpacity(1)
-          mouseMoveRef.current = false;
+      mouseMoveRef.current = false;
       const onMouseUp = (e) => {
         stopScroll();
-        setIsDragging(false);
-    console.log('onMouseUp')
+        console.log("onMouseUp");
         e.preventDefault();
         mouseUpRef.current = true;
         setTimeout(() => {
           if (
             mouseUpRef.current &&
             mouseMoveRef.current &&
-            leaveHandlerFnRef.current &&
-            scrollRef.current 
+            leaveHandlerFnRef.current
           ) {
             setScrollOpacity(0);
           }
@@ -198,7 +193,6 @@ function Sidebar() {
         trackElement.removeEventListener("mousedown", onMouseDown);
       }
       stopScroll();
-     
     };
   }, []);
 
@@ -210,7 +204,7 @@ function Sidebar() {
 
   const LeaveHandler = () => {
     leaveHandlerFnRef.current = true;
-    !trackClickRef.current && setScrollOpacity(0);
+    !scrollRef.current && setScrollOpacity(0);
   };
 
   return (
@@ -1035,10 +1029,9 @@ function Sidebar() {
           data-visualcompletion="ignore"
           data-thumb="1"
           ref={trackRef}
-          onClick={handleTrackClick}
           style={{
             display: "block",
-            height: "1291px",
+            height: "1455px",
             right: "0px",
             transitionProperty: "opacity",
           }}
