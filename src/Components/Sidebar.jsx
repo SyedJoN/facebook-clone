@@ -11,7 +11,6 @@ function Sidebar() {
   const [scrollOpacity, setScrollOpacity] = useState(0);
 
   const scrollRef = useRef(false);
-  const trackClickRef = useRef(false);
   const mouseMoveRef = useRef(false);
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
@@ -38,7 +37,7 @@ function Sidebar() {
       contentRef.current.scrollTop = 0;
     }
     if (!seeMore && !seeMore2) {
-      trackClickRef.current = false;
+      scrollRef.current = false;
     }
   }, [seeMore, seeMore2]);
 
@@ -85,32 +84,6 @@ function Sidebar() {
     }
   };
 
-  // const handleTrackClick = (e) => {
-  //   console.log("clicked");
-  //   e.preventDefault();
-  //   const track = e.currentTarget; // The scrollbar track element
-  //   const thumb = scrollThumbRef.current;
-  //   const trackRect = track.getBoundingClientRect();
-  //   const thumbRect = thumb.getBoundingClientRect();
-
-  //   const clickY = e.clientY - trackRect.top; // Position within the track
-
-  //   if (
-  //     (thumbRect.top <= e.clientY && e.clientY <= thumbRect.bottom) ||
-  //     mouseMoveRef.current
-  //   ) {
-  //     console.log("error");
-  //     return;
-  //   }
-
-  //   const clickPercentage = clickY / trackRect.height;
-  //   const maxScrollTop =
-  //     contentRef.current.scrollHeight - contentRef.current.clientHeight;
-  //   const newScrollTop = clickPercentage * maxScrollTop;
-  //   contentRef.current.scrollTop = newScrollTop;
-  //   trackClickRef.current = true;
-  //   mouseMoveRef.current = false;
-  // };
 
   useEffect(() => {
     const trackElement = trackRef.current;
@@ -144,7 +117,7 @@ function Sidebar() {
           return;
         }
         mouseMoveRef.current = true;
-        trackClickRef.current = false;
+        scrollRef.current = false;
         const deltaY = e.clientY - clickY;
         const scrollY =
           startScrollOffset +
