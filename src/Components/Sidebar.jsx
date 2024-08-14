@@ -172,7 +172,6 @@ function Sidebar() {
   const scrollHandler = () => {
     leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
-    scrollRef.current = false;
   };
 
   const LeaveHandler = () => {
