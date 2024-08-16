@@ -2,6 +2,15 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar_2() {
   const contentRef = useRef(null);
+  const scrollThumbRef = useRef(null);
+  const trackRef = useRef(null);
+  const scrollIntervalRef = useRef(null);
+
+  const scrollRef = useRef(false);
+  const mouseMoveRef = useRef(false);
+  const mouseUpRef = useRef(false);
+  const leaveHandlerFnRef = useRef(false);
+
   const [showSettings, setShowSettings] = useState(false);
   const [showSettings2, setShowSettings2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
@@ -19,54 +28,147 @@ function Sidebar_2() {
     setShowSettings2(false);
   };
 
-  const handleTrackClick = (e) => {
-    const track = e.currentTarget; // The scrollbar track element
-    const trackRect = track.getBoundingClientRect();
-    const clickY = e.clientY - trackRect.top; // Position within the track
+  const startScroll = (direction) => {
+    const scrollAmount = 2; // Amount to scroll each frame
+    const scrollSpeed = 5; // Speed of scrolling in pixels per frame
 
-    // Calculate the scroll position based on the click position
-    const clickPercentage = clickY / trackRect.height;
-    const maxScrollTop = contentRef.current.scrollHeight - contentRef.current.clientHeight;
-    const newScrollTop = clickPercentage * maxScrollTop;
 
-    contentRef.current.scrollTop = newScrollTop;
-   
+    const scroll = () => {
+
+      if (!contentRef.current) return;
+
+      const maxScrollTop =
+      contentRef.current.scrollHeight - contentRef.current.clientHeight;
+
+      if (direction === "up" && contentRef.current.scrollTop > 0 && !leaveHandlerFnRef.current ) {
+        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else if (
+        direction === "down" &&
+        contentRef.current.scrollTop < maxScrollTop && !leaveHandlerFnRef.current
+      ) {
+        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else {
+        console.log("hogiya return");
+        return;
+      }
+    };
+    scrollIntervalRef.current = requestAnimationFrame(scroll);
+    scrollRef.current = true;
+    console.log('hogiya me true')
+
+    return() => {
+      stopScroll();
+    }
   };
 
+  const stopScroll = () => {
+    if (scrollIntervalRef.current) {
+      cancelAnimationFrame(scrollIntervalRef.current);
+      scrollIntervalRef.current = null;
+    }
+  };
 
-  const handleMouseDown = (e) => {
-    e.preventDefault(); // Prevent text selection while dragging
-    const startY = e.clientY;
-    const startScrollOffset = contentRef?.current?.scrollTop;
-    const onMouseMove = (e) => {
-      const deltaY = e.clientY - startY;
-      const scrollY =
-        startScrollOffset +
-        deltaY *
-          (contentRef?.current?.scrollHeight /
-            contentRef?.current?.clientHeight);
+  useEffect(() => {
+    const trackElement = trackRef.current;
 
-      contentRef.current.scrollTop = scrollY;
+    // Define event handlers
+    const onMouseDown = (e) => {
+      console.log("onMouseDown");
+
+      e.preventDefault(); // Prevent text selection while dragging
+      const clickY = e.clientY;
+      const startScrollOffset = contentRef.current.scrollTop;
+      const thumb = scrollThumbRef.current;
+      const thumbRect = thumb.getBoundingClientRect();
+
+      if (clickY < thumbRect.top) {
+        startScroll("up");
+      } else if (clickY > thumbRect.bottom) {
+        startScroll("down");
+      }
+
+      const onMouseMove = (e) => {
+        stopScroll();
+        console.log("onMouseMove");
+
+        if(thumbRect.top <= clickY && clickY <= thumbRect.bottom)
+        {
+          console.log(contentRef.current.scrollTop);
+          
+        const deltaY = e.clientY - clickY;
+        const scrollY =
+          startScrollOffset +
+          deltaY *
+            (contentRef.current.scrollHeight / contentRef.current.clientHeight);
+
+        contentRef.current.scrollTop = scrollY;
+        setScrollOpacity(1);
+
+        } else {
+          if (clickY < thumbRect.top ) {
+            startScroll("up");
+      
+          } else if (clickY > thumbRect.bottom ) {
+            startScroll("down");
+          }    
+          return;
+        }
+        mouseMoveRef.current = true;
+        scrollRef.current = false;
+  
+      };
       setScrollOpacity(1);
+      mouseMoveRef.current = false;
+      const onMouseUp = (e) => {
+        stopScroll();
+        console.log("onMouseUp");
+        e.preventDefault();
+        mouseUpRef.current = true;
+        setTimeout(() => {
+          if (
+            mouseUpRef.current &&
+            mouseMoveRef.current &&
+            leaveHandlerFnRef.current
+          ) {
+            setScrollOpacity(0);
+          }
+        }, 1000);
+
+        // Cleanup event listeners
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      // Attach event listeners
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
     };
 
-    const onMouseUp = () => {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
-      setTimeout(() => {
-        setScrollOpacity(0);
-      }, 1000);
+    // Attach mousedown event listener to trackElement
+    if (trackElement) {
+      trackElement.addEventListener("mousedown", onMouseDown);
+    }
+
+    // Cleanup function
+    return () => {
+      if (trackElement) {
+        trackElement.removeEventListener("mousedown", onMouseDown);
+      }
+      stopScroll();
     };
+  }, []);
 
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-  };
 
-  const scrollHandler = () => {
+
+  const enterHandler = () => {
+    leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
   };
   const LeaveHandler = () => {
-    setScrollOpacity(0);
+    leaveHandlerFnRef.current = true;
+    !scrollRef.current && setScrollOpacity(0);
   };
 
   return (
@@ -80,7 +182,7 @@ function Sidebar_2() {
           perspectiveOrigin: "top right",
         }}
         ref={contentRef}
-        onMouseEnter={scrollHandler}
+        onMouseEnter={enterHandler}
         onMouseLeave={LeaveHandler}
       >
         <div className={`text-white cursor-pointer pt-[13px]`}>
@@ -1067,8 +1169,7 @@ function Sidebar_2() {
           } opacity-0`}
           data-visualcompletion="ignore"
           data-thumb="1"
-          onMouseDown={handleMouseDown}
-          onClick={handleTrackClick}
+          ref={trackRef}
           style={{
             display: "block",
             height: "1291px",
@@ -1081,6 +1182,7 @@ function Sidebar_2() {
                 pointer-events-none"
           data-visualcompletion="ignore"
           data-thumb="1"
+          ref={scrollThumbRef}
           style={{
             display: "block",
             opacity: `${scrollOpacity}`,

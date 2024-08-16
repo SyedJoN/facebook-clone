@@ -7,7 +7,10 @@ import { setShowMenu } from "../../store/showMenuSlice";
 
 function Header() {
   const contentRef = useRef(null);
-  const scrollbarRef = useRef(null);
+  const scrollThumbRef = useRef(null);
+  const trackRef = useRef(null);
+  const scrollIntervalRef = useRef(null);
+
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const activeTabClassName = "text-[#0866FF]";
   const dispatch = useDispatch();
@@ -16,8 +19,6 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMenu, setShowMenuLocally] = useState(false);
-  const [seeMore, setSeeMore] = useState(false);
-  const [seeMore2, setSeeMore2] = useState(false);
   const [showMessenger, setShowMessenger] = useState(false);
   const [showSettingsMenu, setShowSettingsMenu] = useState(false);
   const [showNotif, setShowNotif] = useState(false);
@@ -28,39 +29,152 @@ function Header() {
   const [showSettings2, setShowSettings2] = useState(false);
   const [showSettings3, setShowSettings3] = useState(false);
 
-  
+  const scrollRef = useRef(false);
+  const mouseMoveRef = useRef(false);
+  const mouseUpRef = useRef(false);
+  const leaveHandlerFnRef = useRef(false);
 
-  const handleMouseDown = (e) => {
-    e.preventDefault(); // Prevent text selection while dragging
-    const startY = e.clientY;
-    const startScrollOffset = contentRef?.current?.scrollTop;
-    const onMouseMove = (e) => {
-      const deltaY = e.clientY - startY;
-      const scrollY =
-        startScrollOffset +
-        deltaY *
-          (contentRef?.current?.scrollHeight /
-            contentRef?.current?.clientHeight);
+  const startScroll = (direction) => {
+    const scrollAmount = 2; // Amount to scroll each frame
+    const scrollSpeed = 5; // Speed of scrolling in pixels per frame
 
-      contentRef.current.scrollTop = scrollY;
-      setScrollOpacity(30);
+    const scroll = () => {
+      if (!contentRef.current) return;
+
+      const maxScrollTop =
+        contentRef.current.scrollHeight - contentRef.current.clientHeight;
+
+      if (
+        direction === "up" &&
+        contentRef.current.scrollTop > 0 &&
+        !leaveHandlerFnRef.current
+      ) {
+        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else if (
+        direction === "down" &&
+        contentRef.current.scrollTop < maxScrollTop &&
+        !leaveHandlerFnRef.current
+      ) {
+        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else {
+        console.log("hogiya return");
+        return;
+      }
     };
-    const onMouseUp = () => {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseup", onMouseUp);
-      setTimeout(() =>{
-        setScrollOpacity(0);
-      }, 1000);
+    scrollIntervalRef.current = requestAnimationFrame(scroll);
+    scrollRef.current = true;
+
+    return () => {
+      stopScroll();
     };
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
   };
 
-  const scrollHandler = () => {
+  const stopScroll = () => {
+    if (scrollIntervalRef.current) {
+      cancelAnimationFrame(scrollIntervalRef.current);
+      scrollIntervalRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    const trackElement = trackRef.current;
+
+    // Define event handlers
+    const onMouseDown = (e) => {
+      console.log("onMouseDown");
+
+      e.preventDefault(); // Prevent text selection while dragging
+      const clickY = e.clientY;
+      const startScrollOffset = contentRef.current.scrollTop;
+      const thumb = scrollThumbRef.current;
+      const thumbRect = thumb.getBoundingClientRect();
+
+      if (clickY < thumbRect.top) {
+        startScroll("up");
+      } else if (clickY > thumbRect.bottom) {
+        startScroll("down");
+      }
+
+      const onMouseMove = (e) => {
+        stopScroll();
+        console.log("onMouseMove");
+
+        if (thumbRect.top <= clickY && clickY <= thumbRect.bottom) {
+
+
+          const deltaY = e.clientY - clickY;
+          const scrollY =
+            startScrollOffset +
+            deltaY *
+              (contentRef.current.scrollHeight /
+                contentRef.current.clientHeight);
+
+          contentRef.current.scrollTop = scrollY;
+          setScrollOpacity(1);
+        } else {
+          if (clickY < thumbRect.top) {
+            startScroll("up");
+          } else if (clickY > thumbRect.bottom) {
+            startScroll("down");
+          }
+          return;
+        }
+        mouseMoveRef.current = true;
+        scrollRef.current = false;
+      };
+
+      setScrollOpacity(1);
+      mouseMoveRef.current = false;
+
+      const onMouseUp = (e) => {
+        stopScroll();
+        console.log("onMouseUp");
+        e.preventDefault();
+        mouseUpRef.current = true;
+        setTimeout(() => {
+          if (
+            mouseUpRef.current &&
+            mouseMoveRef.current &&
+            leaveHandlerFnRef.current
+          ) {
+            setScrollOpacity(0);
+          }
+        }, 1000);
+
+        // Cleanup event listeners
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      // Attach event listeners
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    };
+
+    // Attach mousedown event listener to trackElement
+    if (trackElement) {
+      trackElement.addEventListener("mousedown", onMouseDown);
+    }
+
+    // Cleanup function
+    return () => {
+      if (trackElement) {
+        trackElement.removeEventListener("mousedown", onMouseDown);
+      }
+      stopScroll();
+    };
+  }, []);
+
+  const enterHandler = () => {
+    leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
   };
+
   const LeaveHandler = () => {
-    setScrollOpacity(0);
+    leaveHandlerFnRef.current = true;
+    !scrollRef.current && setScrollOpacity(0);
   };
 
   const handleShowSettings = () => {
@@ -116,7 +230,6 @@ function Header() {
     setShowUnread(true);
     setShowAll(false);
   };
-
 
   const handleMenuToggle = () => {
     setShowMenuLocally(!showMenu);
@@ -1193,7 +1306,7 @@ function Header() {
                           height="16"
                           fill="currentColor"
                           className="block text-[#B0B3B8] ease-linear duration-200"
-                          style={{transitionProperty: "all"}}
+                          style={{ transitionProperty: "all" }}
                         >
                           <g
                             fillRule="evenodd"
@@ -2252,14 +2365,18 @@ function Header() {
                 </div>
               </div>
             </div>
-<div>
-</div>
+            <div></div>
             <div
-              onMouseEnter={scrollHandler}
+              onMouseEnter={enterHandler}
               onMouseLeave={LeaveHandler}
               ref={contentRef}
               className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-[100%]"
-              style={{willChange: 'transform, scroll-position', perspective: '1px', transformStyle: 'preserve-3d', perspectiveOrigin: 'top right'}}  
+              style={{
+                willChange: "transform, scroll-position",
+                perspective: "1px",
+                transformStyle: "preserve-3d",
+                perspectiveOrigin: "top right",
+              }}
             >
               <div className="flex flex-col">
                 <div className="relative flex -m-2">
@@ -2918,7 +3035,6 @@ function Header() {
                                       </div>
                                     </div>
                                   </div>
-                               
                                 </div>
                                 <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
@@ -3240,30 +3356,36 @@ function Header() {
                 </div>
               </div>
               <div
-                className="bg-[#323436] w-4 absolute top-0 ease-linear duration-500 h-full opacity-0"
+                className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full opacity-0
+                  ${
+                    scrollOpacity 
+                    ? "hover:opacity-30" 
+                    : "pointer-events-none"
+                  }`}
                 data-visualcompletion="ignore"
                 data-thumb="1"
-                onMouseDown={handleMouseDown}
+                ref={trackRef}
                 style={{
                   display: "block",
                   height: "1754px",
                   right: "0px",
-                  transitionProperty: "opacity"
+                  transitionProperty: "opacity",
                 }}
               ></div>
               <div
                 className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-[4px] py-0 m-0 pointer-events-none"
                 data-visualcompletion="ignore"
                 data-thumb="1"
+                ref={scrollThumbRef}
                 style={{
                   display: "block",
                   opacity: `${scrollOpacity}`,
                   height: "363.058px",
                   right: "0px",
                   transitionProperty: "opacity",
-                  transform: "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(2.19799) translateZ(-1.19799px) translateZ(-2px)"
+                  transform:
+                    "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(2.19799) translateZ(-1.19799px) translateZ(-2px)",
                 }}
-
               >
                 <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
               </div>

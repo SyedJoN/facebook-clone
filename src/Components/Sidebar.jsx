@@ -5,6 +5,7 @@ function Sidebar() {
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
+  const prevYref = useRef(null);
 
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
@@ -14,10 +15,6 @@ function Sidebar() {
   const mouseMoveRef = useRef(false);
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
-
-  useEffect(() => {
-    console.log("ScrollRef: ", scrollRef.current);
-  }, [mouseMoveRef.current]);
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
@@ -42,24 +39,26 @@ function Sidebar() {
   }, [seeMore, seeMore2]);
 
   const startScroll = (direction) => {
-    const scrollAmount = 2; // Amount to scroll each frame
+    const scrollAmount = 1; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
 
-
     const scroll = () => {
-
-
       if (!contentRef.current) return;
 
-      const maxScrollTop =
-      contentRef.current.scrollHeight - contentRef.current.clientHeight;
+      const maxScrollHeight =
+        contentRef.current.scrollHeight - contentRef.current.clientHeight;
 
-      if (direction === "up" && contentRef.current.scrollTop > 0) {
+      if (
+        direction === "up" &&
+        contentRef.current.scrollTop > 0 &&
+        !leaveHandlerFnRef.current
+      ) {
         contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else if (
         direction === "down" &&
-        contentRef.current.scrollTop < maxScrollTop
+        contentRef.current.scrollTop < maxScrollHeight &&
+        !leaveHandlerFnRef.current
       ) {
         contentRef.current.scrollTop += scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
@@ -70,11 +69,10 @@ function Sidebar() {
     };
     scrollIntervalRef.current = requestAnimationFrame(scroll);
     scrollRef.current = true;
-    console.log('hogiya me true')
 
-    return() => {
+    return () => {
       stopScroll();
-    }
+    };
   };
 
   const stopScroll = () => {
@@ -84,12 +82,14 @@ function Sidebar() {
     }
   };
 
-
   useEffect(() => {
     const trackElement = trackRef.current;
 
     // Define event handlers
     const onMouseDown = (e) => {
+      console.log(
+        contentRef.current.scrollHeight - contentRef.current.clientHeight
+      );
       console.log("onMouseDown");
 
       e.preventDefault(); // Prevent text selection while dragging
@@ -106,30 +106,66 @@ function Sidebar() {
 
       const onMouseMove = (e) => {
         stopScroll();
-        console.log("onMouseMove");
-        e.preventDefault();
+        const clientY = e.clientY;
 
-        if (clickY < thumbRect.top) {
-          startScroll("up");
-          return;
-        } else if (clickY > thumbRect.bottom) {
-          startScroll("down");
+        const maxScrollHeight =
+          contentRef.current.scrollHeight - contentRef.current.clientHeight;
+
+        if (
+          (contentRef.current.scrollTop === 0 && clientY < prevYref.current) ||
+          (contentRef.current.scrollTop === maxScrollHeight &&
+            clientY > prevYref.current)
+        ) {
+          prevYref.current = clientY;
           return;
         }
+
+
+        if (thumbRect.top <= clickY && clickY <= thumbRect.bottom) {
+          const deltaY = e.clientY - clickY;
+          const scrollY =
+            startScrollOffset +
+            deltaY *
+              (contentRef.current.scrollHeight /
+                contentRef.current.clientHeight);
+
+          contentRef.current.scrollTop = scrollY;
+          setScrollOpacity(1);
+          prevYref.current = clientY;
+        } else {
+          if (clickY < thumbRect.top) {
+            startScroll("up");
+            return;
+          } else if (clickY > thumbRect.bottom) {
+            startScroll("down");
+            return;
+          }
+          
+          prevYref.current = clientY;
+          return;
+        }
+
         mouseMoveRef.current = true;
         scrollRef.current = false;
-        const deltaY = e.clientY - clickY;
-        const scrollY =
-          startScrollOffset +
-          deltaY *
-            (contentRef.current.scrollHeight / contentRef.current.clientHeight);
 
-        contentRef.current.scrollTop = scrollY;
-        setScrollOpacity(1);
+        return;
       };
+
       setScrollOpacity(1);
       mouseMoveRef.current = false;
+
       const onMouseUp = (e) => {
+        if (contentRef.current.scrollTop === 0)
+          console.log("prevYref: ", prevYref.current);
+        console.log(
+          "contentRef.current.scrollTop: ",
+          contentRef.current.scrollTop
+        );
+        console.log(
+          "maxScrollHeight: ",
+          contentRef.current.scrollHeight - contentRef.current.clientHeight
+        );
+
         stopScroll();
         console.log("onMouseUp");
         e.preventDefault();
@@ -152,7 +188,6 @@ function Sidebar() {
       // Attach event listeners
       document.addEventListener("mousemove", onMouseMove);
       document.addEventListener("mouseup", onMouseUp);
-      setScrollOpacity(1);
     };
 
     // Attach mousedown event listener to trackElement
@@ -169,7 +204,7 @@ function Sidebar() {
     };
   }, []);
 
-  const scrollHandler = () => {
+  const enterHandler = () => {
     leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
   };
@@ -191,7 +226,7 @@ function Sidebar() {
         className={`${
           seeMore || seeMore2 ? "overflow-y-scroll" : "overflow-y-hidden"
         } overflow-x-hidden relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-[100%]`}
-        onMouseEnter={seeMore || seeMore2 ? scrollHandler : null}
+        onMouseEnter={seeMore || seeMore2 ? enterHandler : null}
         onMouseLeave={seeMore || seeMore2 ? LeaveHandler : null}
         ref={contentRef}
       >
