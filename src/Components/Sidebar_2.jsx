@@ -5,6 +5,9 @@ function Sidebar_2() {
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
+  const prevYref = useRef(null);
+  const clientXref = useRef(null);
+
 
   const scrollRef = useRef(false);
   const mouseMoveRef = useRef(false);
@@ -29,23 +32,28 @@ function Sidebar_2() {
   };
 
   const startScroll = (direction) => {
-    const scrollAmount = 2; // Amount to scroll each frame
+    const scrollAmount = 1; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
-
+    const track = trackRef.current;
+    const trackRect = track.getBoundingClientRect();
 
     const scroll = () => {
-
       if (!contentRef.current) return;
+     
+      const maxScrollHeight =
+        contentRef.current.scrollHeight - contentRef.current.clientHeight;
 
-      const maxScrollTop =
-      contentRef.current.scrollHeight - contentRef.current.clientHeight;
-
-      if (direction === "up" && contentRef.current.scrollTop > 0 && !leaveHandlerFnRef.current ) {
+      if (
+        direction === "up" &&
+        contentRef.current.scrollTop > 0 && 
+        clientXref.current > trackRect.left && trackRect.right > clientXref.current
+      ) {
         contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else if (
         direction === "down" &&
-        contentRef.current.scrollTop < maxScrollTop && !leaveHandlerFnRef.current
+        contentRef.current.scrollTop < maxScrollHeight && 
+        clientXref.current > trackRect.left && trackRect.right > clientXref.current
       ) {
         contentRef.current.scrollTop += scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
@@ -56,12 +64,12 @@ function Sidebar_2() {
     };
     scrollIntervalRef.current = requestAnimationFrame(scroll);
     scrollRef.current = true;
-    console.log('hogiya me true')
 
-    return() => {
+    return () => {
       stopScroll();
-    }
+    };
   };
+
 
   const stopScroll = () => {
     if (scrollIntervalRef.current) {
@@ -75,6 +83,14 @@ function Sidebar_2() {
 
     // Define event handlers
     const onMouseDown = (e) => {
+      clientXref.current = e.clientX;
+
+      const computedStyle = window.getComputedStyle(trackRef.current);
+      const trackOpacity = Number(computedStyle.opacity).toFixed(1)
+      console.log(trackOpacity);
+      console.log(
+        contentRef.current.scrollHeight - contentRef.current.clientHeight
+      );
       console.log("onMouseDown");
 
       e.preventDefault(); // Prevent text selection while dragging
@@ -90,38 +106,59 @@ function Sidebar_2() {
       }
 
       const onMouseMove = (e) => {
+
         stopScroll();
-        console.log("onMouseMove");
+        const clientY = e.clientY;
+        clientXref.current = e.clientX;
 
-        if(thumbRect.top <= clickY && clickY <= thumbRect.bottom)
-        {
-          console.log(contentRef.current.scrollTop);
-          
-        const deltaY = e.clientY - clickY;
-        const scrollY =
-          startScrollOffset +
-          deltaY *
-            (contentRef.current.scrollHeight / contentRef.current.clientHeight);
+        const maxScrollHeight =
+          contentRef.current.scrollHeight - contentRef.current.clientHeight;
 
-        contentRef.current.scrollTop = scrollY;
-        setScrollOpacity(1);
-
-        } else {
-          if (clickY < thumbRect.top ) {
-            startScroll("up");
-      
-          } else if (clickY > thumbRect.bottom ) {
-            startScroll("down");
-          }    
+        if (
+          (contentRef.current.scrollTop === 0 && clientY < prevYref.current) ||
+          (contentRef.current.scrollTop === maxScrollHeight &&
+            clientY > prevYref.current)
+        ) {
+          prevYref.current = clientY;
           return;
         }
+
+        if (thumbRect.top <= clickY && clickY <= thumbRect.bottom) {
+          const deltaY = e.clientY - clickY;
+          const scrollY =
+            startScrollOffset +
+            deltaY *
+              (contentRef.current.scrollHeight /
+                contentRef.current.clientHeight);
+
+          contentRef.current.scrollTop = scrollY;
+          setScrollOpacity(1);
+          prevYref.current = clientY;
+        } else {
+          if (clickY < thumbRect.top) {
+            startScroll("up");
+            return;
+          } else if (clickY > thumbRect.bottom) {
+            startScroll("down");
+            return;
+          }
+
+          prevYref.current = clientY;
+          return;
+        }
+
         mouseMoveRef.current = true;
         scrollRef.current = false;
-  
+
+        return;
       };
+
       setScrollOpacity(1);
       mouseMoveRef.current = false;
+
       const onMouseUp = (e) => {
+        clientXref.current = null;
+    prevYref.current = null;
         stopScroll();
         console.log("onMouseUp");
         e.preventDefault();
@@ -160,12 +197,11 @@ function Sidebar_2() {
     };
   }, []);
 
-
-
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
     setScrollOpacity(1);
   };
+
   const LeaveHandler = () => {
     leaveHandlerFnRef.current = true;
     !scrollRef.current && setScrollOpacity(0);

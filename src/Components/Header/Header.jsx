@@ -10,6 +10,9 @@ function Header() {
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
+  const prevYref = useRef(null);
+  const clientXref = useRef(null);
+
 
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const activeTabClassName = "text-[#0866FF]";
@@ -35,26 +38,28 @@ function Header() {
   const leaveHandlerFnRef = useRef(false);
 
   const startScroll = (direction) => {
-    const scrollAmount = 2; // Amount to scroll each frame
+    const scrollAmount = 1; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
+    const track = trackRef.current;
+    const trackRect = track.getBoundingClientRect();
 
     const scroll = () => {
       if (!contentRef.current) return;
-
-      const maxScrollTop =
+     
+      const maxScrollHeight =
         contentRef.current.scrollHeight - contentRef.current.clientHeight;
 
       if (
         direction === "up" &&
-        contentRef.current.scrollTop > 0 &&
-        !leaveHandlerFnRef.current
+        contentRef.current.scrollTop > 0 && 
+        clientXref.current > trackRect.left && trackRect.right > clientXref.current
       ) {
         contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else if (
         direction === "down" &&
-        contentRef.current.scrollTop < maxScrollTop &&
-        !leaveHandlerFnRef.current
+        contentRef.current.scrollTop < maxScrollHeight && 
+        clientXref.current > trackRect.left && trackRect.right > clientXref.current
       ) {
         contentRef.current.scrollTop += scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
@@ -83,6 +88,14 @@ function Header() {
 
     // Define event handlers
     const onMouseDown = (e) => {
+      clientXref.current = e.clientX;
+
+      const computedStyle = window.getComputedStyle(trackRef.current);
+      const trackOpacity = Number(computedStyle.opacity).toFixed(1)
+      console.log(trackOpacity);
+      console.log(
+        contentRef.current.scrollHeight - contentRef.current.clientHeight
+      );
       console.log("onMouseDown");
 
       e.preventDefault(); // Prevent text selection while dragging
@@ -98,12 +111,24 @@ function Header() {
       }
 
       const onMouseMove = (e) => {
+
         stopScroll();
-        console.log("onMouseMove");
+        const clientY = e.clientY;
+        clientXref.current = e.clientX;
+
+        const maxScrollHeight =
+          contentRef.current.scrollHeight - contentRef.current.clientHeight;
+
+        if (
+          (contentRef.current.scrollTop === 0 && clientY < prevYref.current) ||
+          (contentRef.current.scrollTop === maxScrollHeight &&
+            clientY > prevYref.current)
+        ) {
+          prevYref.current = clientY;
+          return;
+        }
 
         if (thumbRect.top <= clickY && clickY <= thumbRect.bottom) {
-
-
           const deltaY = e.clientY - clickY;
           const scrollY =
             startScrollOffset +
@@ -113,22 +138,32 @@ function Header() {
 
           contentRef.current.scrollTop = scrollY;
           setScrollOpacity(1);
+          prevYref.current = clientY;
         } else {
           if (clickY < thumbRect.top) {
             startScroll("up");
+            return;
           } else if (clickY > thumbRect.bottom) {
             startScroll("down");
+            return;
           }
+
+          prevYref.current = clientY;
           return;
         }
+
         mouseMoveRef.current = true;
         scrollRef.current = false;
+
+        return;
       };
 
       setScrollOpacity(1);
       mouseMoveRef.current = false;
 
       const onMouseUp = (e) => {
+        clientXref.current = null;
+    prevYref.current = null;
         stopScroll();
         console.log("onMouseUp");
         e.preventDefault();

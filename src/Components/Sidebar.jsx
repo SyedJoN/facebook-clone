@@ -6,6 +6,7 @@ function Sidebar() {
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const prevYref = useRef(null);
+  const clientXref = useRef(null);
 
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
@@ -41,24 +42,26 @@ function Sidebar() {
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
+    const track = trackRef.current;
+    const trackRect = track.getBoundingClientRect();
 
     const scroll = () => {
       if (!contentRef.current) return;
-
+     
       const maxScrollHeight =
         contentRef.current.scrollHeight - contentRef.current.clientHeight;
 
       if (
         direction === "up" &&
-        contentRef.current.scrollTop > 0 &&
-        !leaveHandlerFnRef.current
+        contentRef.current.scrollTop > 0 && 
+        clientXref.current > trackRect.left && trackRect.right > clientXref.current
       ) {
         contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else if (
         direction === "down" &&
-        contentRef.current.scrollTop < maxScrollHeight &&
-        !leaveHandlerFnRef.current
+        contentRef.current.scrollTop < maxScrollHeight && 
+        clientXref.current > trackRect.left && trackRect.right > clientXref.current
       ) {
         contentRef.current.scrollTop += scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
@@ -75,6 +78,7 @@ function Sidebar() {
     };
   };
 
+
   const stopScroll = () => {
     if (scrollIntervalRef.current) {
       cancelAnimationFrame(scrollIntervalRef.current);
@@ -87,6 +91,11 @@ function Sidebar() {
 
     // Define event handlers
     const onMouseDown = (e) => {
+      clientXref.current = e.clientX;
+
+      const computedStyle = window.getComputedStyle(trackRef.current);
+      const trackOpacity = Number(computedStyle.opacity).toFixed(1)
+      console.log(trackOpacity);
       console.log(
         contentRef.current.scrollHeight - contentRef.current.clientHeight
       );
@@ -105,8 +114,10 @@ function Sidebar() {
       }
 
       const onMouseMove = (e) => {
+
         stopScroll();
         const clientY = e.clientY;
+        clientXref.current = e.clientX;
 
         const maxScrollHeight =
           contentRef.current.scrollHeight - contentRef.current.clientHeight;
@@ -119,7 +130,6 @@ function Sidebar() {
           prevYref.current = clientY;
           return;
         }
-
 
         if (thumbRect.top <= clickY && clickY <= thumbRect.bottom) {
           const deltaY = e.clientY - clickY;
@@ -140,7 +150,7 @@ function Sidebar() {
             startScroll("down");
             return;
           }
-          
+
           prevYref.current = clientY;
           return;
         }
@@ -155,17 +165,8 @@ function Sidebar() {
       mouseMoveRef.current = false;
 
       const onMouseUp = (e) => {
-        if (contentRef.current.scrollTop === 0)
-          console.log("prevYref: ", prevYref.current);
-        console.log(
-          "contentRef.current.scrollTop: ",
-          contentRef.current.scrollTop
-        );
-        console.log(
-          "maxScrollHeight: ",
-          contentRef.current.scrollHeight - contentRef.current.clientHeight
-        );
-
+        clientXref.current = null;
+    prevYref.current = null;
         stopScroll();
         console.log("onMouseUp");
         e.preventDefault();
@@ -224,8 +225,8 @@ function Sidebar() {
           perspectiveOrigin: "top right",
         }}
         className={`${
-          seeMore || seeMore2 ? "overflow-y-scroll" : "overflow-y-hidden"
-        } overflow-x-hidden relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-[100%]`}
+          seeMore || seeMore2 ? "overflow-y-auto" : "overflow-y-hidden"
+        } overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-[100%]`}
         onMouseEnter={seeMore || seeMore2 ? enterHandler : null}
         onMouseLeave={seeMore || seeMore2 ? LeaveHandler : null}
         ref={contentRef}
@@ -1026,11 +1027,11 @@ function Sidebar() {
         </div>
 
         <div
-          className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full 
-                ${
+          className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full  
+                 ${
                   (seeMore && scrollOpacity) || (seeMore2 && scrollOpacity)
-                    ? "hover:opacity-30 "
-                    : "pointer-events-none"
+                    ? "hover:opacity-30"
+                    : ""
                 }
                    opacity-0 `}
           data-visualcompletion="ignore"
