@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar_2() {
+  const containerRef = useRef(null);
   const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const prevYref = useRef(null);
   const clientXref = useRef(null);
-
 
   const scrollRef = useRef(false);
   const mouseMoveRef = useRef(false);
@@ -17,6 +17,8 @@ function Sidebar_2() {
   const [showSettings, setShowSettings] = useState(false);
   const [showSettings2, setShowSettings2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
+  const [thumbHeight, setThumbHeight] = useState(40);
+
 
   const handleShowSettings = () => {
     setShowSettings(true);
@@ -31,6 +33,35 @@ function Sidebar_2() {
     setShowSettings2(false);
   };
 
+  useEffect(() => {
+    const updateScrollbar = () => {
+      if (!containerRef.current || !scrollThumbRef.current) return;
+
+      const containerHeight = containerRef.current.clientHeight;
+      const contentHeight = contentRef.current.scrollHeight;
+
+      const newThumbHeight = (containerHeight / contentHeight) * containerHeight;
+      if(thumbHeight === containerRef.current.scrollHeight) {
+        setScrollOpacity(0);
+      }
+      setThumbHeight(Math.max(newThumbHeight, 40));
+     
+    };
+
+    const handleResize = () => updateScrollbar();
+
+    // Update scrollbar on initial render and window resize
+    updateScrollbar();
+    window.addEventListener("resize", handleResize);
+
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    
+    };
+  }, []);
+
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
@@ -38,24 +69,26 @@ function Sidebar_2() {
     const trackRect = track.getBoundingClientRect();
 
     const scroll = () => {
-      if (!contentRef.current) return;
-     
+      if (!containerRef.current) return;
+
       const maxScrollHeight =
-        contentRef.current.scrollHeight - contentRef.current.clientHeight;
+        containerRef.current.scrollHeight - containerRef.current.clientHeight;
 
       if (
         direction === "up" &&
-        contentRef.current.scrollTop > 0 && 
-        clientXref.current > trackRect.left && trackRect.right > clientXref.current
+        containerRef.current.scrollTop > 0 &&
+        clientXref.current > trackRect.left &&
+        trackRect.right > clientXref.current
       ) {
-        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
+        containerRef.current.scrollTop -= scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else if (
         direction === "down" &&
-        contentRef.current.scrollTop < maxScrollHeight && 
-        clientXref.current > trackRect.left && trackRect.right > clientXref.current
+        containerRef.current.scrollTop < maxScrollHeight &&
+        clientXref.current > trackRect.left &&
+        trackRect.right > clientXref.current
       ) {
-        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
+        containerRef.current.scrollTop += scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else {
         console.log("hogiya return");
@@ -69,7 +102,6 @@ function Sidebar_2() {
       stopScroll();
     };
   };
-
 
   const stopScroll = () => {
     if (scrollIntervalRef.current) {
@@ -85,17 +117,11 @@ function Sidebar_2() {
     const onMouseDown = (e) => {
       clientXref.current = e.clientX;
 
-      const computedStyle = window.getComputedStyle(trackRef.current);
-      const trackOpacity = Number(computedStyle.opacity).toFixed(1)
-      console.log(trackOpacity);
-      console.log(
-        contentRef.current.scrollHeight - contentRef.current.clientHeight
-      );
       console.log("onMouseDown");
 
       e.preventDefault(); // Prevent text selection while dragging
       const clickY = e.clientY;
-      const startScrollOffset = contentRef.current.scrollTop;
+      const startScrollOffset = containerRef.current.scrollTop;
       const thumb = scrollThumbRef.current;
       const thumbRect = thumb.getBoundingClientRect();
 
@@ -106,17 +132,16 @@ function Sidebar_2() {
       }
 
       const onMouseMove = (e) => {
-
         stopScroll();
         const clientY = e.clientY;
         clientXref.current = e.clientX;
 
         const maxScrollHeight =
-          contentRef.current.scrollHeight - contentRef.current.clientHeight;
+          containerRef.current.scrollHeight - containerRef.current.clientHeight;
 
         if (
-          (contentRef.current.scrollTop === 0 && clientY < prevYref.current) ||
-          (contentRef.current.scrollTop === maxScrollHeight &&
+          (containerRef.current.scrollTop === 0 && clientY < prevYref.current) ||
+          (containerRef.current.scrollTop === maxScrollHeight &&
             clientY > prevYref.current)
         ) {
           prevYref.current = clientY;
@@ -128,10 +153,10 @@ function Sidebar_2() {
           const scrollY =
             startScrollOffset +
             deltaY *
-              (contentRef.current.scrollHeight /
-                contentRef.current.clientHeight);
+              (containerRef.current.scrollHeight /
+                containerRef.current.clientHeight);
 
-          contentRef.current.scrollTop = scrollY;
+          containerRef.current.scrollTop = scrollY;
           setScrollOpacity(1);
           prevYref.current = clientY;
         } else {
@@ -158,7 +183,7 @@ function Sidebar_2() {
 
       const onMouseUp = (e) => {
         clientXref.current = null;
-    prevYref.current = null;
+        prevYref.current = null;
         stopScroll();
         console.log("onMouseUp");
         e.preventDefault();
@@ -199,7 +224,8 @@ function Sidebar_2() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    setScrollOpacity(1);
+    if(thumbHeight !== containerRef.current.scrollHeight)
+      setScrollOpacity(1);
   };
 
   const LeaveHandler = () => {
@@ -208,21 +234,21 @@ function Sidebar_2() {
   };
 
   return (
-    <div className="relative z-0 flex flex-col">
+    <div className="relative flex flex-col min-h-[inherit] max-h-[inherit] z-0">
       <div
-        className="flex flex-col relative min-h-0 overscroll-contain scroll-container overflow-y-scroll overflow-x-hidden shrink flex-grow"
+        className="flex flex-col relative min-h-0 overscroll-y-contain overflow-y-scroll overflow-x-hidden shrink flex-grow"
         style={{
           willChange: "transform, scroll-position",
           perspective: "1px",
           transformStyle: "preserve-3d",
           perspectiveOrigin: "top right",
         }}
-        ref={contentRef}
+        ref={containerRef}
         onMouseEnter={enterHandler}
         onMouseLeave={LeaveHandler}
       >
-        <div className={`text-white cursor-pointer pt-[13px]`}>
-          <div className={`sidebar text-white`}>
+        <div ref={contentRef} className={`sidebar text-white cursor-pointer pt-[13px] flex-grow`}>
+          <div className={`text-white`}>
             <div className="flex flex-col">
               <div className="flex flex-col">
                 <div className="my-[5px]">
@@ -691,6 +717,7 @@ function Sidebar_2() {
               </span>
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
+            </div>
             <div className="relative group flex flex-wrap ml-4 rounded-lg cursor-pointer">
               <div className="flex flex-col mb-[6px] mt-[7px] mr-[12px] self-start relative">
                 <div className="relative inline-block align-bottom">
@@ -1148,7 +1175,6 @@ function Sidebar_2() {
               <div className="ml-[-8px] mr-[8px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
             </div>
           </div>
-        </div>
         <div
           className="ml-[1rem] mt-[0.35rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
           role="separator"
@@ -1201,14 +1227,13 @@ function Sidebar_2() {
 
         <div
           className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 transition-opacity h-full ${
-            scrollOpacity && "hover:opacity-30"
+            scrollOpacity ? "hover:opacity-30 block" : 'hidden'
           } opacity-0`}
           data-visualcompletion="ignore"
           data-thumb="1"
           ref={trackRef}
           style={{
-            display: "block",
-            height: "1291px",
+            height: `${contentRef.current?.scrollHeight}px`,
             right: "0px",
             transitionProperty: "opacity",
           }}
@@ -1222,7 +1247,7 @@ function Sidebar_2() {
           style={{
             display: "block",
             opacity: `${scrollOpacity}`,
-            height: "576.893px",
+            height: `${thumbHeight}px`,
             right: "0px",
             transitionProperty: "opacity",
             transform:
@@ -1232,7 +1257,9 @@ function Sidebar_2() {
           <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
         </div>
       </div>
-    </div>
+      </div>
+
+
   );
 }
 

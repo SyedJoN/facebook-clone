@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setShowMenu } from "../../store/showMenuSlice";
 
 function Header() {
+  const containerRef = useRef(null);
   const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
@@ -13,8 +14,9 @@ function Header() {
   const prevYref = useRef(null);
   const clientXref = useRef(null);
 
-
   const [scrollOpacity, setScrollOpacity] = useState(0);
+  const [thumbHeight, setThumbHeight] = useState(40);
+
   const activeTabClassName = "text-[#0866FF]";
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,6 +39,38 @@ function Header() {
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
 
+  useEffect(() => {
+    const updateScrollbar = () => {
+      if (!containerRef.current || !scrollThumbRef.current) return;
+
+      const containerHeight = containerRef.current.clientHeight;
+      const contentHeight = contentRef.current.scrollHeight;
+      console.log('containerHeight', containerHeight)
+      console.log('contentHeight', contentHeight)
+
+      const newThumbHeight =
+        (containerHeight / contentHeight) * containerHeight;
+
+      setThumbHeight(Math.max(newThumbHeight, 40));
+      if (thumbHeight === containerRef.current.scrollHeight) {
+        setScrollOpacity(0);
+      }
+    };
+
+    const handleResize = () => updateScrollbar();
+
+    // Update scrollbar on initial render and window resize
+    updateScrollbar();
+    window.addEventListener("resize", handleResize);
+
+    // Attach scroll listener
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [showSettingsMenu]);
+
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
     const scrollSpeed = 5; // Speed of scrolling in pixels per frame
@@ -44,24 +78,26 @@ function Header() {
     const trackRect = track.getBoundingClientRect();
 
     const scroll = () => {
-      if (!contentRef.current) return;
-     
+      if (!containerRef.current) return;
+
       const maxScrollHeight =
-        contentRef.current.scrollHeight - contentRef.current.clientHeight;
+        containerRef.current.scrollHeight - containerRef.current.clientHeight;
 
       if (
         direction === "up" &&
-        contentRef.current.scrollTop > 0 && 
-        clientXref.current > trackRect.left && trackRect.right > clientXref.current
+        containerRef.current.scrollTop > 0 &&
+        clientXref.current > trackRect.left &&
+        trackRect.right > clientXref.current
       ) {
-        contentRef.current.scrollTop -= scrollAmount * scrollSpeed;
+        containerRef.current.scrollTop -= scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else if (
         direction === "down" &&
-        contentRef.current.scrollTop < maxScrollHeight && 
-        clientXref.current > trackRect.left && trackRect.right > clientXref.current
+        containerRef.current.scrollTop < maxScrollHeight &&
+        clientXref.current > trackRect.left &&
+        trackRect.right > clientXref.current
       ) {
-        contentRef.current.scrollTop += scrollAmount * scrollSpeed;
+        containerRef.current.scrollTop += scrollAmount * scrollSpeed;
         scrollIntervalRef.current = requestAnimationFrame(scroll);
       } else {
         console.log("hogiya return");
@@ -90,17 +126,11 @@ function Header() {
     const onMouseDown = (e) => {
       clientXref.current = e.clientX;
 
-      const computedStyle = window.getComputedStyle(trackRef.current);
-      const trackOpacity = Number(computedStyle.opacity).toFixed(1)
-      console.log(trackOpacity);
-      console.log(
-        contentRef.current.scrollHeight - contentRef.current.clientHeight
-      );
       console.log("onMouseDown");
 
       e.preventDefault(); // Prevent text selection while dragging
       const clickY = e.clientY;
-      const startScrollOffset = contentRef.current.scrollTop;
+      const startScrollOffset = containerRef.current.scrollTop;
       const thumb = scrollThumbRef.current;
       const thumbRect = thumb.getBoundingClientRect();
 
@@ -111,17 +141,17 @@ function Header() {
       }
 
       const onMouseMove = (e) => {
-
         stopScroll();
         const clientY = e.clientY;
         clientXref.current = e.clientX;
 
         const maxScrollHeight =
-          contentRef.current.scrollHeight - contentRef.current.clientHeight;
+          containerRef.current.scrollHeight - containerRef.current.clientHeight;
 
         if (
-          (contentRef.current.scrollTop === 0 && clientY < prevYref.current) ||
-          (contentRef.current.scrollTop === maxScrollHeight &&
+          (containerRef.current.scrollTop === 0 &&
+            clientY < prevYref.current) ||
+          (containerRef.current.scrollTop === maxScrollHeight &&
             clientY > prevYref.current)
         ) {
           prevYref.current = clientY;
@@ -133,10 +163,10 @@ function Header() {
           const scrollY =
             startScrollOffset +
             deltaY *
-              (contentRef.current.scrollHeight /
-                contentRef.current.clientHeight);
+              (containerRef.current.scrollHeight /
+                containerRef.current.clientHeight);
 
-          contentRef.current.scrollTop = scrollY;
+          containerRef.current.scrollTop = scrollY;
           setScrollOpacity(1);
           prevYref.current = clientY;
         } else {
@@ -163,7 +193,7 @@ function Header() {
 
       const onMouseUp = (e) => {
         clientXref.current = null;
-    prevYref.current = null;
+        prevYref.current = null;
         stopScroll();
         console.log("onMouseUp");
         e.preventDefault();
@@ -200,11 +230,11 @@ function Header() {
       }
       stopScroll();
     };
-  }, []);
+  }, [showSettingsMenu]);
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    setScrollOpacity(1);
+    if (thumbHeight !== containerRef.current.scrollHeight) setScrollOpacity(1);
   };
 
   const LeaveHandler = () => {
@@ -2385,7 +2415,7 @@ function Header() {
           style={{ transform: "translate(-16px, 45px)" }}
         >
           <div
-            className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg"
+            className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg select-none"
             style={{
               maxWidth: "calc(100vw - 24px)",
               maxHeight: "calc(100vh - 56px - 16px)",
@@ -2404,7 +2434,7 @@ function Header() {
             <div
               onMouseEnter={enterHandler}
               onMouseLeave={LeaveHandler}
-              ref={contentRef}
+              ref={containerRef}
               className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-[100%]"
               style={{
                 willChange: "transform, scroll-position",
@@ -2413,7 +2443,7 @@ function Header() {
                 perspectiveOrigin: "top right",
               }}
             >
-              <div className="flex flex-col">
+              <div ref={contentRef} className="flex flex-col">
                 <div className="relative flex -m-2">
                   <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden pb-2">
                     <div
@@ -3393,16 +3423,14 @@ function Header() {
               <div
                 className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full opacity-0
                   ${
-                    scrollOpacity 
-                    ? "hover:opacity-30" 
-                    : "pointer-events-none"
+                    scrollOpacity ? "hover:opacity-30" : "pointer-events-none"
                   }`}
                 data-visualcompletion="ignore"
                 data-thumb="1"
                 ref={trackRef}
                 style={{
                   display: "block",
-                  height: "1754px",
+                  height: `${contentRef.current?.scrollHeight}px`,
                   right: "0px",
                   transitionProperty: "opacity",
                 }}
@@ -3415,7 +3443,7 @@ function Header() {
                 style={{
                   display: "block",
                   opacity: `${scrollOpacity}`,
-                  height: "363.058px",
+                  height: `${thumbHeight}px`,
                   right: "0px",
                   transitionProperty: "opacity",
                   transform:
