@@ -36,7 +36,7 @@ function Home() {
             <div className="flex flex-grow justify-center min-w-0 md:px-[32px] items-stretch md:basis-[900px] basis-[744px]">
               <div className="min-w-0 max-w-full shrink-0 flex flex-col stories">
                 <div className="flex flex-col mt-[8px] w-full">
-                  <div className="w-full">
+                  <div className="">
                     <Stories />
                   </div>
 

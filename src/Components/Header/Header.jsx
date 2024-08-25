@@ -450,35 +450,7 @@ function Header() {
               </li>
             ) : null
           )}
-          {isMobile && (
-            <li
-              aria-label="More"
-              role="link"
-              className={`relative bottom-[4px] left-[8px] md:block mr-auto md:mr-0 lg:max-w-[129.5px] lg:min-w-[7.75%] w-[calc(15vw - 55px)] min-w-[50px] ml-0 lg:ml-2 transition-opacity duration-100  ${
-                !showMenu ? "hover:bg-white hover:bg-opacity-10 " : ""
-              } text-white  p-3 rounded-lg`}
-              onClick={handleMenuToggle}
-            >
-              <span className="h-[56px]">
-                <a className="flex flex-col outline-none h-full justify-center items-center w-full">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    fill={`${showMenu ? "#0866FF" : "#B0B3B8"} `}
-                  >
-                    <path d="M3.25 2.75a1.25 1.25 0 1 0 0 2.5h17.5a1.25 1.25 0 1 0 0-2.5H3.25zM2 12c0-.69.56-1.25 1.25-1.25h17.5a1.25 1.25 0 1 1 0 2.5H3.25C2.56 13.25 2 12.69 2 12zm0 8c0-.69.56-1.25 1.25-1.25h17.5a1.25 1.25 0 1 1 0 2.5H3.25C2.56 21.25 2 20.69 2 20z"></path>
-                  </svg>
-                </a>
-              </span>
-
-              {showMenu && (
-                <div
-                  className={`absolute left-[2px] right-[2px] top-[49px] h-[3px] bg-[#0866FF]`}
-                ></div>
-              )}
-            </li>
-          )}
+        
         </ul>
 
         <div className="flex fixed right-0 text-white pl-[4px] h-[56px] w-[204px]">
@@ -2415,7 +2387,7 @@ function Header() {
           style={{ transform: "translate(-16px, 45px)" }}
         >
           <div
-            className="flex flex-col w-[608px] h-[847px] bg-[#323436] rounded-lg select-none"
+            className="flex flex-col bg-[#323436] rounded-lg select-none"
             style={{
               maxWidth: "calc(100vw - 24px)",
               maxHeight: "calc(100vh - 56px - 16px)",
@@ -3181,9 +3153,654 @@ function Header() {
                           </ul>
                         </div>
                       </div>
+                      
+                    </div>
+                    <div className="settings_post_mobile pt-4">
+                    <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
+                    <div className="sticky top-0 flex flex-col ">
+                      <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
+                        <div className="py-2 px-3">
+                          <h1 className="text-xl text-[#E4E6EB] font-bold">
+                            Create
+                          </h1>
+                        </div>
+                        <div className="settings-menu py-[6px]">
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist.png)",
+                                  backgroundPosition: "0 -222px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Post
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist2.png)",
+                                  backgroundPosition: "0 -275px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Story
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist.png)",
+                                  backgroundPosition: "0 -96px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Reel
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist2.png)",
+                                  backgroundPosition: "0 -191px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Life event
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div
+                            className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
+                            role="separator"
+                          ></div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist3.png)",
+                                  backgroundPosition: "0 -192px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Page
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist2.png)",
+                                  backgroundPosition: "0 -212px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Ad{" "}
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist3.png)",
+                                  backgroundPosition: "0 -171px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Group{" "}
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist4.png)",
+                                  backgroundPosition: "0 -79px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                Event{" "}
+                              </span>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px] bottom-[2px]">
+                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start relative top-[2px]">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage:
+                                    "url(/settings_iconlist.png)",
+                                  backgroundPosition: "0 -348px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                }}
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium">
+                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                  Marketplace listing{" "}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="min-w-0 shrink flex-grow basis-0 m-2 max-w-[200px] [overflow-anchor:none]">
+                  </div>
+                    <div className="settingsMenu pt-4">
+                    <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
+                    <div className="sticky top-0 flex flex-col ">
+                      <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
+                        <div className="py-2 px-3">
+                          <h1 className="text-xl text-[#E4E6EB] font-bold">
+                            Your shortcuts
+                          </h1>
+                        </div>
+                        <div className="settings-menu flex flex-col py-[6px]">
+                          <div className="relative flex flex-col px-2 cursor-pointer min-h-[44px]">
+                          <ul className="flex flex-col">
+                <li>
+                  <div className="relative flex flex-wrap items-center rounded-lg ">
+                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                      <div className="relative inline-block align-bottom">
+                        <div>
+                          <svg
+                            aria-hidden="true"
+                            className="align-bottom"
+                            data-visualcompletion="ignore-dynamic"
+                            role="none"
+                            style={{ height: "36px", width: "36px" }}
+                          >
+                            {/* Define a circular mask */}
+                            <mask id=":ss_1:">
+                              <rect
+                                cy="18"
+                                fill="white"
+                                height="36"
+                                rx="8"
+                                ry="8"
+                                width="36"
+                                x="0"
+                                y="0"
+                              ></rect>
+                              <circle cx="18" cy="18" r="18" fill="white" />
+                            </mask>
+
+                            {/* Apply the mask to the image */}
+                            <g mask="url(#:ss_1:)">
+                              <image
+                                x="0"
+                                y="0"
+                                height="100%"
+                                preserveAspectRatio="xMidYMid slice"
+                                width="100%"
+                                xlinkHref="ppg.jpg"
+                                style={{ height: "36px", width: "36px" }}
+                              ></image>
+                              <rect
+                                className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                                cy="18"
+                                fill="white"
+                                height="36"
+                                rx="8"
+                                ry="8"
+                                width="36"
+                                x="0"
+                                y="0"
+                              ></rect>
+                            </g>
+                          </svg>
+                          <div
+                            className="absolute z-[2] rounded-[50%]"
+                            data-visualcompletion="ignore"
+                            style={{
+                              bottom: "8px",
+                              right: "8px",
+                              transform: "translate(50%, 50%)",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                      PPG - Pakistani PC Gamers
+                    </span>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex flex-col justify-center max-w-full min-w-0 items-stretch min-h-[56px] px-2 -m-[6px] py-[12px]">
+                  <div className="relative flex flex-wrap items-center rounded-lg">
+                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                      <div className="relative inline-block align-bottom">
+                        <div>
+                          <svg
+                            aria-hidden="true"
+                            className="align-bottom"
+                            data-visualcompletion="ignore-dynamic"
+                            role="none"
+                            style={{ height: "36px", width: "36px" }}
+                          >
+                            {/* Define a circular mask */}
+                            <mask id=":ss_2:">
+                              <rect
+                                cy="18"
+                                fill="white"
+                                height="36"
+                                rx="8"
+                                ry="8"
+                                width="36"
+                                x="0"
+                                y="0"
+                              ></rect>
+                              <circle cx="18" cy="18" r="18" fill="white" />
+                            </mask>
+
+                            {/* Apply the mask to the image */}
+                            <g mask="url(#:ss_2:)">
+                              <image
+                                x="0"
+                                y="0"
+                                height="100%"
+                                preserveAspectRatio="xMidYMid slice"
+                                width="100%"
+                                xlinkHref="ned.jpg"
+                                style={{ height: "36px", width: "36px" }}
+                              ></image>
+                              <rect
+                                className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                                cy="18"
+                                fill="white"
+                                height="36"
+                                rx="8"
+                                ry="8"
+                                width="36"
+                                x="0"
+                                y="0"
+                              ></rect>
+                            </g>
+                          </svg>
+                          <div
+                            className="absolute z-[2] rounded-[50%]"
+                            data-visualcompletion="ignore"
+                            style={{
+                              bottom: "8px",
+                              right: "8px",
+                              transform: "translate(50%, 50%)",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                      NEDians Meme Posting
+                    </span>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                  </div>
+                </li>
+
+                <li>
+                  <div className="relative flex flex-wrap items-center rounded-lg">
+                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                      <div className="relative inline-block align-bottom">
+                        <div>
+                          <svg
+                            aria-hidden="true"
+                            className="align-bottom"
+                            data-visualcompletion="ignore-dynamic"
+                            role="none"
+                            style={{ height: "36px", width: "36px" }}
+                          >
+                            {/* Define a circular mask */}
+                            <mask id=":ss_3:">
+                              <circle cx="18" cy="18" r="18" fill="white" />
+                            </mask>
+
+                            {/* Apply the mask to the image */}
+                            <g mask="url(#:ss_3:)">
+                              <image
+                                x="0"
+                                y="0"
+                                height="100%"
+                                preserveAspectRatio="xMidYMid slice"
+                                width="100%"
+                                xlinkHref="death.png"
+                                style={{ height: "36px", width: "36px" }}
+                              ></image>
+                            </g>
+                          </svg>
+                          <div
+                            className="absolute z-[2] rounded-[50%]"
+                            data-visualcompletion="ignore"
+                            style={{
+                              bottom: "8px",
+                              right: "8px",
+                              transform: "translate(50%, 50%)",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                      Death Never Knocks
+                    </span>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                </li>
+                <li>
+                  <div className="relative flex flex-wrap items-center rounded-lg">
+                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                      <div className="relative inline-block align-bottom">
+                        <div>
+                          <svg
+                            aria-hidden="true"
+                            className="align-bottom"
+                            data-visualcompletion="ignore-dynamic"
+                            role="none"
+                            style={{ height: "36px", width: "36px" }}
+                          >
+                            {/* Define a circular mask */}
+                            <mask id=":ss_4:">
+                              <circle cx="18" cy="18" r="18" fill="white" />
+                            </mask>
+
+                            {/* Apply the mask to the image */}
+                            <g mask="url(#:ss_4:)">
+                              <image
+                                x="0"
+                                y="0"
+                                height="100%"
+                                preserveAspectRatio="xMidYMid slice"
+                                width="100%"
+                                xlinkHref="jk.jpg"
+                                style={{ height: "36px", width: "36px" }}
+                              ></image>
+                            </g>
+                          </svg>
+                          <div
+                            className="absolute z-[2] rounded-[50%]"
+                            data-visualcompletion="ignore"
+                            style={{
+                              bottom: "8px",
+                              right: "8px",
+                              transform: "translate(50%, 50%)",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                      JK Developers
+                    </span>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                </li>
+                <li>
+                  <div className="relative flex flex-wrap items-center rounded-lg">
+                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                      <div className="relative inline-block align-bottom">
+                        <div>
+                          <svg
+                            aria-hidden="true"
+                            className="align-bottom"
+                            data-visualcompletion="ignore-dynamic"
+                            role="none"
+                            style={{ height: "36px", width: "36px" }}
+                          >
+                            {/* Define a circular mask */}
+                            <mask id=":ss_5:">
+                              <circle cx="18" cy="18" r="18" fill="white" />
+                            </mask>
+
+                            {/* Apply the mask to the image */}
+                            <g mask="url(#:ss_5:)">
+                              <image
+                                x="0"
+                                y="0"
+                                height="100%"
+                                preserveAspectRatio="xMidYMid slice"
+                                width="100%"
+                                xlinkHref="jp.png"
+                                style={{ height: "36px", width: "36px" }}
+                              ></image>
+                            </g>
+                          </svg>
+                          <div
+                            className="absolute z-[2] rounded-[50%]"
+                            data-visualcompletion="ignore"
+                            style={{
+                              bottom: "8px",
+                              right: "8px",
+                              transform: "translate(50%, 50%)",
+                            }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                      JoN - Productions
+                    </span>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  </div>
+                </li>
+                <li>
+                      <div className="relative flex flex-wrap items-center rounded-lg">
+                        <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                          <div className="relative inline-block align-bottom">
+                            <div>
+                              <svg
+                                aria-hidden="true"
+                                className="align-bottom"
+                                data-visualcompletion="ignore-dynamic"
+                                role="none"
+                                style={{ height: "36px", width: "36px" }}
+                              >
+                                {/* Define a circular mask */}
+                                <mask id=":ss_5:">
+                                  <circle cx="18" cy="18" r="18" fill="white" />
+                                </mask>
+
+                                {/* Apply the mask to the image */}
+                                <g mask="url(#:ss_5:)">
+                                  <image
+                                    x="0"
+                                    y="0"
+                                    height="100%"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    width="100%"
+                                    xlinkHref="max.jpg"
+                                    style={{ height: "36px", width: "36px" }}
+                                  ></image>
+                                </g>
+                              </svg>
+                              <div
+                                className="absolute z-[2] rounded-[50%]"
+                                data-visualcompletion="ignore"
+                                style={{
+                                  bottom: "8px",
+                                  right: "8px",
+                                  transform: "translate(50%, 50%)",
+                                }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                        <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                          Max Sweet
+                        </span>
+                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                      </div>
+                    </li>
+
+                    <li>
+                      <div className="relative flex flex-wrap items-center rounded-lg">
+                        <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                          <div className="relative inline-block align-bottom">
+                            <div>
+                              <svg
+                                aria-hidden="true"
+                                className="align-bottom"
+                                data-visualcompletion="ignore-dynamic"
+                                role="none"
+                                style={{ height: "36px", width: "36px" }}
+                              >
+                                {/* Define a circular mask */}
+                                <mask id=":ss_5:">
+                                  <circle cx="18" cy="18" r="18" fill="white" />
+                                </mask>
+
+                                {/* Apply the mask to the image */}
+                                <g mask="url(#:ss_5:)">
+                                  <image
+                                    x="0"
+                                    y="0"
+                                    height="100%"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    width="100%"
+                                    xlinkHref="toast.jpg"
+                                    style={{ height: "36px", width: "36px" }}
+                                  ></image>
+                                </g>
+                              </svg>
+                              <div
+                                className="absolute z-[2] rounded-[50%]"
+                                data-visualcompletion="ignore"
+                                style={{
+                                  bottom: "8px",
+                                  right: "8px",
+                                  transform: "translate(50%, 50%)",
+                                }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                        <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                          Toast Sweet
+                        </span>
+                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                      </div>
+                    </li>
+              </ul>
+                   
+                          </div>
+                    
+                        
+                          </div>
+                
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                  
+                  <div className="settings_post min-w-0 shrink flex-grow basis-0 m-2 max-w-[200px] [overflow-anchor:none]">
                     <div className="sticky top-0 flex flex-col ">
                       <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
                         <div className="py-2 px-3">
