@@ -45,8 +45,8 @@ function Stories() {
 
                 <div className="absolute inset-0 [background-image:linear-gradient(0deg,rgba(0,0,0,0.4),transparent)]"></div>
 
-                <div className="relative flex justify-center items-center px-4 pt-[20px] pb-[12px] bg-[#242526]">
-                  <div className="absolute flex justify-center items-center rounded-full bg-[#242526] top-[-20px] w-[40px] h-[40px] z-50">
+                <div className="relative flex justify-center items-center px-4 pt-[28px] pb-[12px] bg-[#242526]">
+                  <div className="absolute flex justify-center items-center rounded-full bg-[#242526] top-[-20px] w-[40px] h-[40px]">
                     <div className="absolute flex justify-center items-center rounded-full bg-[#0866FF] w-[32px] h-[32px]">
                       <svg
                         style={{
@@ -74,10 +74,13 @@ function Stories() {
                       </svg>
                     </div>
                   </div>
-
-                  <span className="ba flex min-w-0 max-w-full text-[#E4E6EB] bg-[#242526] font-[600] text-[.75rem] leading-[1.2308] justify-center items-end h-full ml-[0.04rem]">
+<div className="pointer-events-none">
+                  <div className="ba block min-w-0 max-w-full text-[#E4E6EB] bg-[#242526] font-[600] text-[.75rem] leading-[1.2308] justify-center items-end h-full textProps">
+                    <span className="relative overflow-hidden text-center cursor-pointer pb-[1px] font-[600] text-[.75rem] leading-[1.2308] flex textProps ">
                     Create story
-                  </span>
+                    </span>
+                  </div>
+                  </div>
 
                   {/* <div className="fixed inset-0 rounded-b-xl bg-black/90 opacity-0 hover:opacity-[0.15] z-50"></div> */}
                 </div>
@@ -111,7 +114,7 @@ function Stories() {
                     alt=""
                   />
                 </div>
-                <div className="p-[9px] absolute bottom-0 left-1 text-xs font-semibold text-[#ffffff] pointer-events-none">
+                <div className="p-[9px] absolute bottom-0 text-xs font-semibold text-[#ffffff] pointer-events-none">
                   Shahveer Jaffery
                 </div>
               </div>
@@ -144,7 +147,7 @@ function Stories() {
                     alt=""
                   />
                 </div>
-                <div className="p-[9px] absolute bottom-0 left-1 text-xs font-semibold text-[#ffffff] pointer-events-none">
+                <div className="p-[9px] absolute bottom-0 text-xs font-semibold text-[#ffffff] pointer-events-none">
                   Sheikh Haasin Ahmed
                 </div>
               </div>
@@ -177,7 +180,7 @@ function Stories() {
                     alt=""
                   />
                 </div>
-                <div className="p-[9px] absolute bottom-0 left-1 text-xs font-semibold text-[#ffffff] pointer-events-none">
+                <div className="p-[9px] absolute bottom-0 text-xs font-semibold text-[#ffffff] pointer-events-none">
                   UsaMa Saif
                 </div>
               </div>
@@ -210,7 +213,7 @@ function Stories() {
                     alt=""
                   />
                 </div>
-                <div className="p-[9px] absolute bottom-0 left-1 text-xs font-semibold text-[#ffffff] pointer-events-none">
+                <div className="p-[9px] absolute bottom-0 text-xs font-semibold text-[#ffffff] pointer-events-none">
                   Husain Khokar
                 </div>
               </div>
@@ -243,7 +246,7 @@ function Stories() {
                     alt=""
                   />
                 </div>
-                <div className="p-[9px] absolute bottom-0 left-1 text-xs font-semibold text-[#ffffff] pointer-events-none">
+                <div className="p-[9px] absolute bottom-0 text-xs font-semibold text-[#ffffff] pointer-events-none">
                   Shahveer Jaffery
                 </div>
               </div>
@@ -276,7 +279,7 @@ function Stories() {
                     alt=""
                   />
                 </div>
-                <div className="p-[9px] absolute bottom-0 left-1 text-xs font-semibold text-[#ffffff] pointer-events-none">
+                <div className="p-[9px] absolute bottom-0 text-xs font-semibold text-[#ffffff] pointer-events-none">
                   Shahveer Jaffery
                 </div>
               </div>

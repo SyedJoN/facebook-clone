@@ -463,7 +463,7 @@ function Header() {
                 } bg-opacity-10 rounded-full `}
                 onClick={() => navigate(item.slug)}
               >
-                {!isMobile ? (
+           
                   <svg
                     viewBox="0 0 24 24"
                     width="20"
@@ -472,16 +472,8 @@ function Header() {
                   >
                     <path d="M12 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 17a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
                   </svg>
-                ) : (
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#E4E6EB"
-                  >
-                    <path d="M11 19a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6z"></path>
-                  </svg>
-                )}
+                
+             
               </div>
               <div
                 onMouseDown={() => handleSettings()}
@@ -768,7 +760,7 @@ function Header() {
                                   dir="auto"
                                 >
                                   <span className="pb-[1px] overflow-ellipsis relative block overflow-hidden whitespace-nowrap">
-                                    <span className="max-w-full font-normal text-[#8A8D91] text-[.75rem] break-words">
+                                    <span className="max-w-full font-normal text-[#8A8D91] text-[.75rem] textProps">
                                       <span className="">
                                         about an hour ago
                                       </span>
@@ -972,7 +964,7 @@ function Header() {
                                   dir="auto"
                                 >
                                   <span className="pb-[1px] overflow-ellipsis relative block overflow-hidden whitespace-nowrap">
-                                    <span className="max-w-full font-normal text-[#0866FF] text-[.75rem] break-words">
+                                    <span className="max-w-full font-normal text-[#0866FF] text-[.75rem] textProps">
                                       <span className="">8 hours ago</span>
                                     </span>
                                   </span>
@@ -1178,7 +1170,7 @@ function Header() {
                                   dir="auto"
                                 >
                                   <span className="pb-[1px] overflow-ellipsis relative block overflow-hidden whitespace-nowrap">
-                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] break-words">
+                                    <span className="max-w-full font-normal text-[#B0B3B8] text-[.75rem] textProps">
                                       <span className="">
                                         a few seconds ago
                                       </span>
@@ -2453,17 +2445,19 @@ function Header() {
                             </label>
                           </div>
                         </div>
-                        <div className="py-3 px-4">
-                          <h1 className="text-md text-[#E4E6EB] font-semibold">
-                            <span className="pb-[1px] before_a">Social</span>
-                          </h1>
-                        </div>
+                        <div className="flex flex-col max-w-full min-w-0 flex flex-col pb-[20px]">
+                        <div className="relative flex flex-col flex-grow min-h-0">
+                          <div className="relative flex flex-col px-2 py-2 max-w-full z-0">
+                            <span className="block text-md text-[#E4E6EB] font-semibold px-2">Social</span>
+                          </div>
+                      
                         <div>
-                          <div className="pb-4">
+                          <div className="relative flex flex-col shrink-0 pb-4 px-2">
                             <ul className="flex flex-col">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px]">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer ">
+                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_event.png"
                                       alt=""
@@ -2473,29 +2467,30 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px] min-w-0 max-w-full">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Events
                                         </span>
                                       </div>
 
-                                      <div className="desc py-[7px] pr-[2px] min-w-0 max-w-full">
-                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Organize or find events and other
                                           things to do online and nearby.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                             
                                 </div>
-                              </a>
-
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                              </div>
+                              <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                              
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <i
                                       data-visualcompletion="css-img"
                                       style={{
@@ -2509,28 +2504,29 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Friends
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Search for friends or people you may
                                           know.
                                         </span>
                                       </div>
                                     </div>
-                                  </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </div> 
                                 </div>
+                              </div>
+                              <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
 
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="settings_group.png"
                                       alt=""
@@ -2540,27 +2536,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Groups
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Connect with people who share your
                                           interests.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                           
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_news.png"
                                       alt=""
@@ -2570,27 +2567,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           News Feed
                                         </span>
                                       </div>
-                                      <div className="desc py-[6px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words ">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           See relevant posts from people and
                                           Pages you follow.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                          
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_feed.png"
                                       alt=""
@@ -2600,27 +2598,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[4px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                  <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Feeds
                                         </span>
                                       </div>
-                                      <div className="desc py-[6px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           See the most recent posts from your
                                           friends, groups, Pages and more.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[3px]">
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                             
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_pages.png"
                                       alt=""
@@ -2630,40 +2629,44 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
                                       <div className="title py-[2px]">
-                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Pages
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Discover and connect with businesses
                                           on Facebook.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                            
                             </ul>
+                          </div>
+                          </div>
                           </div>
                           <div
                             className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                             role="separator"
                           ></div>
+                   
+                          <div className="flex flex-col pb-[20px]">
                           <div className="pt-[11px] pb-2 px-4">
                             <h1 className="text-md text-[#E4E6EB] font-semibold">
                               Entertainment
                             </h1>
                           </div>
-                          <div className="pb-[18px]">
                             <ul className="flex flex-col flex-1">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_gamingvideo.png"
                                       alt=""
@@ -2673,28 +2676,29 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Gaming Video
                                         </span>
                                       </div>
-                                      <div className="desc py-[6px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.3333] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Watch and connect with your favorite
                                           games and streamers.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                             
 
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_playgames.png"
                                       alt=""
@@ -2704,27 +2708,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Play games
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Play your favorite games.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                            
 
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_video.png"
                                       alt=""
@@ -2734,40 +2739,42 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Video
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           A video destination personalized to
                                           your interests and connections.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                              
                             </ul>
                           </div>
                           <div
                             className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                             role="separator"
                           ></div>
+                        
+                          <div className="flex flex-col pb-[20px]">
                           <div className="pt-[11px] pb-[7px] px-4">
                             <h1 className="text-md text-[#E4E6EB] font-semibold">
                               Shopping
                             </h1>
                           </div>
-                          <div className="pb-[19px]">
-                            <ul className="flex flex-col flex-1">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                            <ul className="">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_payments.png"
                                       alt=""
@@ -2777,28 +2784,29 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words ">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps ">
                                           Orders and payments
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           A seamless, secure way to pay on the
                                           apps you already use.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                            
 
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_marketplace.png"
                                       alt=""
@@ -2808,39 +2816,41 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Marketplace
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Buy and sell in your community.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                            
                             </ul>
                           </div>
                           <div
                             className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                             role="separator"
                           ></div>
-                          <div className="pt-[11px] pb-2 px-4">
+                     
+                          <ul className="flex flex-col flex-1">
+                            <div className="flex flex-col pb-[20px]">
+                            <div className="pt-[11px] pb-2 px-4">
                             <h1 className="text-md text-[#E4E6EB] font-semibold">
                               Personal
                             </h1>
                           </div>
-                          <ul className="flex flex-col flex-1">
-                            <div className="pb-[18px]">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_ad.png"
                                       alt=""
@@ -2850,28 +2860,29 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Recent ad activity
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           See all the ads you interacted with on
                                           Facebook.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                         
 
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex mt-[-4px] relative bottom-[2px]">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_memories.png"
                                       alt=""
@@ -2881,27 +2892,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Memories
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_1 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Browse your old photos, vidoes and
                                           posts on Facebook.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                              
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_saved.png"
                                       alt=""
@@ -2911,40 +2923,43 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="before_a block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Saved
                                         </span>
                                       </div>
-                                      <div className="desc py-[5px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.3] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Find posts, photos and videos that you
                                           saved for later.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                            
                             </div>
                           </ul>
                           <div
                             className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                             role="separator"
                           ></div>
-                          <div className="pb-2 pt-[0.7rem] px-4">
+                         
+                          <ul className="flex flex-col flex-1">
+                            <div className="flex flex-col pb-[20px]">
+                            <div className="pb-2 pt-[0.7rem] px-4">
                             <h1 className="text-md text-[#E4E6EB] font-semibold">
                               Professional
                             </h1>
                           </div>
-                          <ul className="flex flex-col flex-1">
-                            <div className="pb-[18px]">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_admanager.png"
                                       alt=""
@@ -2954,40 +2969,43 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                      <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Ads Manager
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Create, manage and track the
                                           performance of your ads.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                              
                             </div>
                           </ul>
                           <div
                             className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                             role="separator"
                           ></div>
-                          <div className="pt-[0.65rem] pb-[0.55rem] px-4">
+                       
+                          <ul className="flex flex-col flex-1">
+                            <div className="flex flex-col pb-[20px]">
+                            <div className="pt-[0.65rem] pb-[0.55rem] px-4">
                             <h1 className="text-md text-[#E4E6EB] font-semibold">
                               Community Resources
                             </h1>
                           </div>
-                          <ul className="flex flex-col flex-1">
-                            <div className="pb-[18px]">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer ">
+                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_climate.png"
                                       alt=""
@@ -2997,27 +3015,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Climate Science Center
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Learn about climate change and its
                                           effects.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>{" "}
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                             {" "}
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_crises.png"
                                       alt=""
@@ -3027,27 +3046,28 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] before_a block leading-[1.21] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                      <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Crisis response
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.25] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Find the latest updates for recent
                                           crises happening around the world.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="relative flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer ">
+                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="relative flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_funds.png"
                                       alt=""
@@ -3057,15 +3077,15 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.2] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Fundraisers
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.18] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Donate and raise money for nonprofits
                                           and personal causes.
                                         </span>
@@ -3073,24 +3093,31 @@ function Header() {
                                     </div>
                                   </div>
                                 </div>
-                                <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                              </a>
+                      
                             </div>
+                            
+                                <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
+                           </div>
+                           
+                       
+                          
                           </ul>
                           <div
                             className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
                             role="separator"
                           ></div>
-                          <div className="pt-[0.7rem] pb-[0.55rem] px-4">
+                       
+                          <ul className="flex flex-col flex-1">
+                            <div className="flex flex-col pb-[20px]">
+                            <div className="pt-[0.7rem] pb-[0.55rem] px-4">
                             <h1 className="text-md text-[#E4E6EB] font-semibold">
                               More from Meta
                             </h1>
                           </div>
-                          <ul className="flex flex-col flex-1">
-                            <div className="pb-[16px]">
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[1px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_messenger.png"
                                       alt=""
@@ -3100,28 +3127,29 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="relative top-[1px] ba_1 block leading-[1.3] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                      <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           Messenger Kids
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[2px]">
-                                        <span className="ba_3 mb-[-3px] block leading-[1.333] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Let kids message with close friends
                                           and family.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                            
 
-                              <a className="flex flex-col cursor-pointer relative">
-                                <div className="flex items-center justify-between px-2 pt-[3px] pb-[5px]">
-                                  <div className="img shrink-0 p-[8px] flex flex-col mt-[-4px] relative bottom-[2px] min-w-0 max-w-full">
+                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                <div className="flex items-center justify-between">
+                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
                                     <img
                                       src="/settings_whatsapp.png"
                                       alt=""
@@ -3131,30 +3159,34 @@ function Header() {
                                       }}
                                     />
                                   </div>
-                                  <div className="relative flex flex-col basis-[108px] items-stretch justify-between flex-grow py-[3px] px-[4px]">
-                                    <div className="flex flex-col">
-                                      <div className="title py-[4px]">
-                                        <span className="ba_1 block leading-[1.3333] text-[#E4E6EB] text-sm font-semibold min-w-0 max-w-full break-words">
+                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="title my-[5px]">
+                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
                                           WhatsApp
                                         </span>
                                       </div>
-                                      <div className="desc py-[7px] pr-[5px]">
-                                        <span className="ba_3 relative bottom-[1px] mb-[-3px] block leading-[1.2408] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full break-words">
+                                      <div className="desc my-[5px]">
+                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
                                           Message and call people privately on
                                           your computer.
                                         </span>
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="rounded-lg mx-2 absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </div>
-                              </a>
+                                  </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
+                              
                             </div>
                           </ul>
+                 
                         </div>
                       </div>
+                      </div>
+                
                       
-                    </div>
+         
                     <div className="settings_post_mobile pt-4">
                     <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
                     <div className="sticky top-0 flex flex-col ">
@@ -3183,7 +3215,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Post
                               </span>
                             </div>
@@ -3207,7 +3239,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Story
                               </span>
                             </div>
@@ -3231,7 +3263,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Reel
                               </span>
                             </div>
@@ -3255,7 +3287,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Life event
                               </span>
                             </div>
@@ -3283,7 +3315,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Page
                               </span>
                             </div>
@@ -3307,7 +3339,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Ad{" "}
                               </span>
                             </div>
@@ -3331,7 +3363,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Group{" "}
                               </span>
                             </div>
@@ -3355,7 +3387,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Event{" "}
                               </span>
                             </div>
@@ -3380,7 +3412,7 @@ function Header() {
                             </div>
                             <div className="flex flex-col">
                               <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium">
-                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                   Marketplace listing{" "}
                                 </span>
                               </div>
@@ -3402,10 +3434,10 @@ function Header() {
                           </h1>
                         </div>
                         <div className="settings-menu flex flex-col py-[6px]">
-                          <div className="relative flex flex-col px-2 cursor-pointer min-h-[44px]">
+                          <div className="relative flex flex-col cursor-pointer min-h-[44px]">
                           <ul className="flex flex-col">
                 <li>
-                  <div className="relative flex flex-wrap items-center rounded-lg ">
+                  <div className="relative flex flex-wrap items-center px-4 rounded-lg ">
                     <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                       <div className="relative inline-block align-bottom">
                         <div>
@@ -3455,27 +3487,19 @@ function Header() {
                               ></rect>
                             </g>
                           </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                       
                         </div>
                       </div>
                     </div>
-                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                       PPG - Pakistani PC Gamers
                     </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                   </div>
                 </li>
                 <li>
-                  <div className="flex flex-col justify-center max-w-full min-w-0 items-stretch min-h-[56px] px-2 -m-[6px] py-[12px]">
-                  <div className="relative flex flex-wrap items-center rounded-lg">
+              
+                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
                     <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                       <div className="relative inline-block align-bottom">
                         <div>
@@ -3525,29 +3549,20 @@ function Header() {
                               ></rect>
                             </g>
                           </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                       
                         </div>
                       </div>
                     </div>
 
-                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                       NEDians Meme Posting
                     </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                   </div>
                 </li>
 
                 <li>
-                  <div className="relative flex flex-wrap items-center rounded-lg">
+                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
                     <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                       <div className="relative inline-block align-bottom">
                         <div>
@@ -3576,26 +3591,18 @@ function Header() {
                               ></image>
                             </g>
                           </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                       
                         </div>
                       </div>
                     </div>
-                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                       Death Never Knocks
                     </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                   </div>
                 </li>
                 <li>
-                  <div className="relative flex flex-wrap items-center rounded-lg">
+                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
                     <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                       <div className="relative inline-block align-bottom">
                         <div>
@@ -3624,26 +3631,18 @@ function Header() {
                               ></image>
                             </g>
                           </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                       
                         </div>
                       </div>
                     </div>
-                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                       JK Developers
                     </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                   </div>
                 </li>
                 <li>
-                  <div className="relative flex flex-wrap items-center rounded-lg">
+                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
                     <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                       <div className="relative inline-block align-bottom">
                         <div>
@@ -3672,26 +3671,18 @@ function Header() {
                               ></image>
                             </g>
                           </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                       
                         </div>
                       </div>
                     </div>
-                    <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                       JoN - Productions
                     </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                   </div>
                 </li>
                 <li>
-                      <div className="relative flex flex-wrap items-center rounded-lg">
+                      <div className="relative flex flex-wrap items-center px-4 rounded-lg">
                         <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                           <div className="relative inline-block align-bottom">
                             <div>
@@ -3732,15 +3723,15 @@ function Header() {
                             </div>
                           </div>
                         </div>
-                        <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                        <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                           Max Sweet
                         </span>
-                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                       </div>
                     </li>
 
                     <li>
-                      <div className="relative flex flex-wrap items-center rounded-lg">
+                      <div className="relative flex flex-wrap items-center px-4 rounded-lg">
                         <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
                           <div className="relative inline-block align-bottom">
                             <div>
@@ -3781,10 +3772,10 @@ function Header() {
                             </div>
                           </div>
                         </div>
-                        <span className="before_a flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                        <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
                           Toast Sweet
                         </span>
-                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
                       </div>
                     </li>
               </ul>
@@ -3827,7 +3818,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Post
                               </span>
                             </div>
@@ -3851,7 +3842,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Story
                               </span>
                             </div>
@@ -3875,7 +3866,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Reel
                               </span>
                             </div>
@@ -3899,7 +3890,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Life event
                               </span>
                             </div>
@@ -3927,7 +3918,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Page
                               </span>
                             </div>
@@ -3951,7 +3942,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Ad{" "}
                               </span>
                             </div>
@@ -3975,7 +3966,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Group{" "}
                               </span>
                             </div>
@@ -3999,7 +3990,7 @@ function Header() {
                               />
                             </div>
                             <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                 Event{" "}
                               </span>
                             </div>
@@ -4024,7 +4015,7 @@ function Header() {
                             </div>
                             <div className="flex flex-col">
                               <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium">
-                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium break-words">
+                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
                                   Marketplace listing{" "}
                                 </span>
                               </div>
