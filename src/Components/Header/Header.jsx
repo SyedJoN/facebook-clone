@@ -45,8 +45,8 @@ function Header() {
 
       const containerHeight = containerRef.current.clientHeight;
       const contentHeight = contentRef.current.scrollHeight;
-      console.log('containerHeight', containerHeight)
-      console.log('contentHeight', contentHeight)
+      console.log("containerHeight", containerHeight);
+      console.log("contentHeight", contentHeight);
 
       const newThumbHeight =
         (containerHeight / contentHeight) * containerHeight;
@@ -450,7 +450,6 @@ function Header() {
               </li>
             ) : null
           )}
-        
         </ul>
 
         <div className="flex fixed right-0 text-white pl-[4px] h-[56px] w-[204px]">
@@ -463,17 +462,14 @@ function Header() {
                 } bg-opacity-10 rounded-full `}
                 onClick={() => navigate(item.slug)}
               >
-           
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill={`${showSettingsMenu ? "#0866FF" : "#E4E6EB"}`}
-                  >
-                    <path d="M12 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 17a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
-                  </svg>
-                
-             
+                <svg
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  fill={`${showSettingsMenu ? "#0866FF" : "#E4E6EB"}`}
+                >
+                  <path d="M12 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm8 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 17a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
+                </svg>
               </div>
               <div
                 onMouseDown={() => handleSettings()}
@@ -2415,8 +2411,8 @@ function Header() {
                       style={{ minHeight: "calc(100vh - 118px)" }}
                     >
                       <div className="relative flex flex-col w-[360px]">
-                        <div className="search-container flex flex-col px-4">
-                          <div className="flex py-[0.55rem] mt-[7px]">
+                        <div className="search-container flex flex-col p-4">
+                          <div className="flex flex-col">
                             <label className="search w-[328px] relative bg-[#3A3B3C] rounded-full flex items-center ">
                               <span className="flex pl-[10px] items-center whitespace-nowrap pointer-events-none ">
                                 <i
@@ -2445,1352 +2441,1560 @@ function Header() {
                             </label>
                           </div>
                         </div>
-                        <div className="flex flex-col max-w-full min-w-0 flex flex-col pb-[20px]">
-                        <div className="relative flex flex-col flex-grow min-h-0">
-                          <div className="relative flex flex-col px-2 py-2 max-w-full z-0">
-                            <span className="block text-md text-[#E4E6EB] font-semibold px-2">Social</span>
-                          </div>
-                      
-                        <div>
-                          <div className="relative flex flex-col shrink-0 pb-4 px-2">
-                            <ul className="flex flex-col">
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer ">
-                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_event.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Events
-                                        </span>
-                                      </div>
-
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Organize or find events and other
-                                          things to do online and nearby.
-                                        </span>
+                        <div className="flex flex-col max-w-full min-w-0">
+                          <div className="pb-[20px]">
+                            <div className="relative flex flex-col flex-grow min-h-0">
+                              <div className="flex flex-col">
+                                <div className="relative flex flex-col px-2 pb-2 max-w-full z-0">
+                                  <div className="flex flex-col min-w-0 max-w-full pt-2 pb-[4px]">
+                                    <div className="flex flex-col flex-grow min-h-0">
+                                      <div className="flex flex-col px-2">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="ba_1 my-[5px]">
+                                            <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                              Social
+                                            </span>
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
-                             
                                 </div>
                               </div>
-                              <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                              
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <i
-                                      data-visualcompletion="css-img"
-                                      style={{
-                                        backgroundImage: "url(/iconBar.png)",
-                                        backgroundPosition: "0 -296px",
-                                        backgroundSize: "auto",
-                                        width: "36px",
-                                        height: "36px",
-                                        backgroundRepeat: "no-repeat",
-                                        display: "inline-block",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Friends
-                                        </span>
+
+                              <div>
+                                <div className="relative flex flex-col shrink-0 px-2">
+                                  <ul className="flex flex-col">
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="/settings_event.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
+                                          </div>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  Events
+                                                </span>
+                                              </div>
+
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  Organize or find events and
+                                                  other things to do online and
+                                                  nearby.
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                       </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Search for friends or people you may
-                                          know.
-                                        </span>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
+
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <i
+                                              data-visualcompletion="css-img"
+                                              style={{
+                                                backgroundImage:
+                                                  "url(/iconBar.png)",
+                                                backgroundPosition: "0 -296px",
+                                                backgroundSize: "auto",
+                                                width: "36px",
+                                                height: "36px",
+                                                backgroundRepeat: "no-repeat",
+                                                display: "inline-block",
+                                              }}
+                                            />
+                                          </div>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  Friends
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  Search for friends or people
+                                                  you may know.
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                       </div>
-                                    </div>
-                                  </div> 
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
+
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="settings_group.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
+                                          </div>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  Groups
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  Connect with people who share
+                                                  your interests.
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
+
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="/settings_news.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
+                                          </div>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  News Feed
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  See relevant posts from people
+                                                  and Pages you follow.
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
+
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="/settings_feed.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
+                                          </div>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  Feeds
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  See the most recent posts from
+                                                  your friends, groups, Pages
+                                                  and more.
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
+
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="/settings_pages.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
+                                          </div>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  Pages
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  Discover and connect with
+                                                  businesses on Facebook.
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
+                                  </ul>
                                 </div>
                               </div>
-                              <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                              </a>
-
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="settings_group.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Groups
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Connect with people who share your
-                                          interests.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                           
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_news.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          News Feed
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          See relevant posts from people and
-                                          Pages you follow.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                          
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_feed.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                  <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Feeds
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          See the most recent posts from your
-                                          friends, groups, Pages and more.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                             
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_pages.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title py-[2px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Pages
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Discover and connect with businesses
-                                          on Facebook.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                            
-                            </ul>
-                          </div>
-                          </div>
+                            </div>
                           </div>
                           <div
-                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
+                            className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
                             role="separator"
                           ></div>
-                   
-                          <div className="flex flex-col pb-[20px]">
-                          <div className="pt-[11px] pb-2 px-4">
-                            <h1 className="text-md text-[#E4E6EB] font-semibold">
-                              Entertainment
-                            </h1>
-                          </div>
-                            <ul className="flex flex-col flex-1">
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_gamingvideo.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Gaming Video
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Watch and connect with your favorite
-                                          games and streamers.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                             
-
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_playgames.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Play games
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Play your favorite games.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                            
-
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_video.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Video
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          A video destination personalized to
-                                          your interests and connections.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                              
-                            </ul>
-                          </div>
-                          <div
-                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                            role="separator"
-                          ></div>
-                        
-                          <div className="flex flex-col pb-[20px]">
-                          <div className="pt-[11px] pb-[7px] px-4">
-                            <h1 className="text-md text-[#E4E6EB] font-semibold">
-                              Shopping
-                            </h1>
-                          </div>
-                            <ul className="">
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_payments.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps ">
-                                          Orders and payments
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          A seamless, secure way to pay on the
-                                          apps you already use.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                            
-
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_marketplace.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Marketplace
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Buy and sell in your community.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                            
-                            </ul>
-                          </div>
-                          <div
-                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                            role="separator"
-                          ></div>
-                     
-                          <ul className="flex flex-col flex-1">
-                            <div className="flex flex-col pb-[20px]">
-                            <div className="pt-[11px] pb-2 px-4">
-                            <h1 className="text-md text-[#E4E6EB] font-semibold">
-                              Personal
-                            </h1>
-                          </div>
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_ad.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Recent ad activity
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          See all the ads you interacted with on
-                                          Facebook.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                         
-
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_memories.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Memories
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Browse your old photos, vidoes and
-                                          posts on Facebook.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                              
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_saved.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Saved
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Find posts, photos and videos that you
-                                          saved for later.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                            
-                            </div>
-                          </ul>
-                          <div
-                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                            role="separator"
-                          ></div>
-                         
-                          <ul className="flex flex-col flex-1">
-                            <div className="flex flex-col pb-[20px]">
-                            <div className="pb-2 pt-[0.7rem] px-4">
-                            <h1 className="text-md text-[#E4E6EB] font-semibold">
-                              Professional
-                            </h1>
-                          </div>
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_admanager.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                      <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Ads Manager
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Create, manage and track the
-                                          performance of your ads.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                              
-                            </div>
-                          </ul>
-                          <div
-                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                            role="separator"
-                          ></div>
-                       
-                          <ul className="flex flex-col flex-1">
-                            <div className="flex flex-col pb-[20px]">
-                            <div className="pt-[0.65rem] pb-[0.55rem] px-4">
-                            <h1 className="text-md text-[#E4E6EB] font-semibold">
-                              Community Resources
-                            </h1>
-                          </div>
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer ">
-                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_climate.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Climate Science Center
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Learn about climate change and its
-                                          effects.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                             {" "}
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_crises.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                      <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Crisis response
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Find the latest updates for recent
-                                          crises happening around the world.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer ">
-                          <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="relative flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_funds.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Fundraisers
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Donate and raise money for nonprofits
-                                          and personal causes.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                      
-                            </div>
-                            
-                                <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </a>
-                           </div>
-                           
-                       
-                          
-                          </ul>
-                          <div
-                            className="ml-[1rem] border-b-[0.1rem] border-[#3A3B3C] w-[20.5rem]"
-                            role="separator"
-                          ></div>
-                       
-                          <ul className="flex flex-col flex-1">
-                            <div className="flex flex-col pb-[20px]">
-                            <div className="pt-[0.7rem] pb-[0.55rem] px-4">
-                            <h1 className="text-md text-[#E4E6EB] font-semibold">
-                              More from Meta
-                            </h1>
-                          </div>
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_messenger.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                      <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          Messenger Kids
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Let kids message with close friends
-                                          and family.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                            
-
-                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer "><div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                <div className="flex items-center justify-between">
-                                  <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4] p-[6px]">
-                                    <img
-                                      src="/settings_whatsapp.png"
-                                      alt=""
-                                      style={{
-                                        width: "36px",
-                                        height: "36px",
-                                      }}
-                                    />
-                                  </div>
-                                  <div className="relative flex flex-col justify-between flex-grow p-[6px]">
-                                    <div className="flex flex-col -my-[5px]">
-                                      <div className="title my-[5px]">
-                                        <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                          WhatsApp
-                                        </span>
-                                      </div>
-                                      <div className="desc my-[5px]">
-                                        <span className="ba mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-left min-w-0 max-w-full textProps">
-                                          Message and call people privately on
-                                          your computer.
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div></a>
-                              
-                            </div>
-                          </ul>
-                 
-                        </div>
-                      </div>
-                      </div>
-                
-                      
-         
-                    <div className="settings_post_mobile pt-4">
-                    <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
-                    <div className="sticky top-0 flex flex-col ">
-                      <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
-                        <div className="py-2 px-3">
-                          <h1 className="text-xl text-[#E4E6EB] font-bold">
-                            Create
-                          </h1>
-                        </div>
-                        <div className="settings-menu py-[6px]">
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist.png)",
-                                  backgroundPosition: "0 -222px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Post
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist2.png)",
-                                  backgroundPosition: "0 -275px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Story
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist.png)",
-                                  backgroundPosition: "0 -96px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Reel
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist2.png)",
-                                  backgroundPosition: "0 -191px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Life event
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div
-                            className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
-                            role="separator"
-                          ></div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist3.png)",
-                                  backgroundPosition: "0 -192px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Page
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist2.png)",
-                                  backgroundPosition: "0 -212px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Ad{" "}
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist3.png)",
-                                  backgroundPosition: "0 -171px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Group{" "}
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist4.png)",
-                                  backgroundPosition: "0 -79px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
-                            <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
-                              <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                Event{" "}
-                              </span>
-                            </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
-                          </div>
-                          <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px] bottom-[2px]">
-                            <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start relative top-[2px]">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage:
-                                    "url(/settings_iconlist.png)",
-                                  backgroundPosition: "0 -348px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                }}
-                              />
-                            </div>
+                          <div className="pb-[20px]">
                             <div className="flex flex-col">
-                              <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium">
-                                <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
-                                  Marketplace listing{" "}
-                                </span>
+                              <div className="flex flex-col px-2 pb-2 pt-0">
+                                <div className="relative flex flex-col max-w-full z-0">
+                                  <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
+                                    <div className="flex flex-col flex-grow min-h-0 px-2">
+                                      <div className="flex flex-col">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="ba_1 my-[5px]">
+                                            <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                              Entertainment
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="px-2">
+                                <ul className="flex flex-col flex-1">
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_gamingvideo.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Gaming Video
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Watch and connect with your
+                                                favorite games and streamers.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_playgames.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Play games
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Play your favorite games.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_video.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Video
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                A video destination personalized
+                                                to your interests and
+                                                connections.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+                                </ul>
                               </div>
                             </div>
-                            <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                    <div className="settingsMenu pt-4">
-                    <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
-                    <div className="sticky top-0 flex flex-col ">
-                      <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
-                        <div className="py-2 px-3">
-                          <h1 className="text-xl text-[#E4E6EB] font-bold">
-                            Your shortcuts
-                          </h1>
-                        </div>
-                        <div className="settings-menu flex flex-col py-[6px]">
-                          <div className="relative flex flex-col cursor-pointer min-h-[44px]">
-                          <ul className="flex flex-col">
-                <li>
-                  <div className="relative flex flex-wrap items-center px-4 rounded-lg ">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_1:">
-                              <rect
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
+                          <div
+                            className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
+                            role="separator"
+                          ></div>
 
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_1:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="ppg.jpg"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                              <rect
-                                className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                            </g>
-                          </svg>
-                       
-                        </div>
-                      </div>
-                    </div>
-                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      PPG - Pakistani PC Gamers
-                    </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                  </div>
-                </li>
-                <li>
-              
-                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_2:">
-                              <rect
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
+                          <div className="pb-[20px]">
+                            <div className="flex flex-col px-2 pb-2 pt-0">
+                              <div className="relative flex flex-col max-w-full z-0">
+                                <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
+                                  <div className="flex flex-col flex-grow min-h-0 px-2">
+                                    <div className="flex flex-col">
+                                      <div className="flex flex-col -my-[5px]">
+                                        <div className="ba_1 my-[5px]">
+                                          <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                            Shopping
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="px-2">
+                              <ul className="flex flex-col flex-1">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_payments.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps ">
+                                              Orders and payments
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              A seamless, secure way to pay on
+                                              the apps you already use.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
 
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_2:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="ned.jpg"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                              <rect
-                                className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                            </g>
-                          </svg>
-                       
-                        </div>
-                      </div>
-                    </div>
-
-                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      NEDians Meme Posting
-                    </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                  </div>
-                </li>
-
-                <li>
-                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_3:">
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
-
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_3:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="death.png"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                            </g>
-                          </svg>
-                       
-                        </div>
-                      </div>
-                    </div>
-                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      Death Never Knocks
-                    </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                  </div>
-                </li>
-                <li>
-                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_4:">
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
-
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_4:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="jk.jpg"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                            </g>
-                          </svg>
-                       
-                        </div>
-                      </div>
-                    </div>
-                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      JK Developers
-                    </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                  </div>
-                </li>
-                <li>
-                  <div className="relative flex flex-wrap items-center px-4 rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_5:">
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
-
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_5:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="jp.png"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                            </g>
-                          </svg>
-                       
-                        </div>
-                      </div>
-                    </div>
-                    <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      JoN - Productions
-                    </span>
-                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                  </div>
-                </li>
-                <li>
-                      <div className="relative flex flex-wrap items-center px-4 rounded-lg">
-                        <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                          <div className="relative inline-block align-bottom">
-                            <div>
-                              <svg
-                                aria-hidden="true"
-                                className="align-bottom"
-                                data-visualcompletion="ignore-dynamic"
-                                role="none"
-                                style={{ height: "36px", width: "36px" }}
-                              >
-                                {/* Define a circular mask */}
-                                <mask id=":ss_5:">
-                                  <circle cx="18" cy="18" r="18" fill="white" />
-                                </mask>
-
-                                {/* Apply the mask to the image */}
-                                <g mask="url(#:ss_5:)">
-                                  <image
-                                    x="0"
-                                    y="0"
-                                    height="100%"
-                                    preserveAspectRatio="xMidYMid slice"
-                                    width="100%"
-                                    xlinkHref="max.jpg"
-                                    style={{ height: "36px", width: "36px" }}
-                                  ></image>
-                                </g>
-                              </svg>
-                              <div
-                                className="absolute z-[2] rounded-[50%]"
-                                data-visualcompletion="ignore"
-                                style={{
-                                  bottom: "8px",
-                                  right: "8px",
-                                  transform: "translate(50%, 50%)",
-                                }}
-                              ></div>
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_marketplace.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              Marketplace
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Buy and sell in your community.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
+                              </ul>
                             </div>
                           </div>
-                        </div>
-                        <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                          Max Sweet
-                        </span>
-                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                      </div>
-                    </li>
+                          <div
+                            className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
+                            role="separator"
+                          ></div>
 
-                    <li>
-                      <div className="relative flex flex-wrap items-center px-4 rounded-lg">
-                        <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                          <div className="relative inline-block align-bottom">
-                            <div>
-                              <svg
-                                aria-hidden="true"
-                                className="align-bottom"
-                                data-visualcompletion="ignore-dynamic"
-                                role="none"
-                                style={{ height: "36px", width: "36px" }}
-                              >
-                                {/* Define a circular mask */}
-                                <mask id=":ss_5:">
-                                  <circle cx="18" cy="18" r="18" fill="white" />
-                                </mask>
+                          <div className="pb-[20px]">
+                            <div className="flex flex-col">
+                              <div className="flex flex-col px-2 pb-2 pt-0">
+                                <div className="relative flex flex-col max-w-full z-0">
+                                  <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
+                                    <div className="flex flex-col flex-grow min-h-0 px-2">
+                                      <div className="flex flex-col">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="ba_1 my-[5px]">
+                                            <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                              Personal
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="px-2">
+                                <ul className="flex flex-col flex-1">
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_ad.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Recent ad activity
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                See all the ads you interacted
+                                                with on Facebook.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
 
-                                {/* Apply the mask to the image */}
-                                <g mask="url(#:ss_5:)">
-                                  <image
-                                    x="0"
-                                    y="0"
-                                    height="100%"
-                                    preserveAspectRatio="xMidYMid slice"
-                                    width="100%"
-                                    xlinkHref="toast.jpg"
-                                    style={{ height: "36px", width: "36px" }}
-                                  ></image>
-                                </g>
-                              </svg>
-                              <div
-                                className="absolute z-[2] rounded-[50%]"
-                                data-visualcompletion="ignore"
-                                style={{
-                                  bottom: "8px",
-                                  right: "8px",
-                                  transform: "translate(50%, 50%)",
-                                }}
-                              ></div>
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_memories.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Memories
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Browse your old photos, vidoes
+                                                and posts on Facebook.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_saved.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Saved
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Find posts, photos and videos
+                                                that you saved for later.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+                                </ul>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                          Toast Sweet
-                        </span>
-                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
-                      </div>
-                    </li>
-              </ul>
+
+                          <div
+                            className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                              <div className="pb-[20px]">
+                            <div className="flex flex-col">
+                              <div className="flex flex-col px-2 pb-2 pt-0">
+                                <div className="relative flex flex-col max-w-full z-0">
+                                  <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
+                                    <div className="flex flex-col flex-grow min-h-0 px-2">
+                                      <div className="flex flex-col">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="ba_1 my-[5px]">
+                                            <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                              Professional
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          <div className="px-2">
+                            <ul className="flex flex-col flex-1">
                    
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_admanager.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              Ads Manager
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Create, manage and track the
+                                              performance of your ads.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
+                       
+                            </ul>
                           </div>
+                          </div>
+                          </div>
+                          <div
+                            className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                                <div className="pb-[20px]">
+                                <div className="flex flex-col">
+                            <div className="flex flex-col px-2 pb-2 pt-0">
+                                <div className="relative flex flex-col max-w-full z-0">
+                                  <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
+                                    <div className="flex flex-col flex-grow min-h-0 px-2">
+                                      <div className="flex flex-col">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="ba_1 my-[5px]">
+                                            <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                              Community Resources
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          <div className="px-2">
+                            <ul className="flex flex-col flex-1">
+                  
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_climate.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              Climate Science Center
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Learn about climate change and its
+                                              effects.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>{" "}
+
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_crises.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              Crisis response
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Find the latest updates for recent
+                                              crises happening around the world.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
+                                
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="relative flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_funds.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              Fundraisers
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Donate and raise money for
+                                              nonprofits and personal causes.
+                                            </span>
+                                          </div>
+                                        </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                             
+
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+                       
+                       </ul>
+                     </div>
+                     </div>
+                     </div>
                     
-                        
-                          </div>
                 
+
+                          <div
+                            className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
+                            role="separator"
+                          ></div>
+                              <div className="pb-[20px]">
+                                <div className="flex flex-col">
+                            <div className="flex flex-col px-2 pb-2 pt-0">
+                                <div className="relative flex flex-col max-w-full z-0">
+                                  <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
+                                    <div className="flex flex-col flex-grow min-h-0 px-2">
+                                      <div className="flex flex-col">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="ba_1 my-[5px]">
+                                            <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
+                                            More from Meta
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          <div className="px-2">
+                            <ul className="flex flex-col flex-1">
+                              <div className="flex flex-col">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_messenger.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              Messenger Kids
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Let kids message with close
+                                              friends and family.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
+
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                    <div className="flex items-center justify-between">
+                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                        <img
+                                          src="/settings_whatsapp.png"
+                                          alt=""
+                                          style={{
+                                            width: "36px",
+                                            height: "36px",
+                                          }}
+                                        />
+                                      </div>
+                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                        <div className="flex flex-col -my-[5px]">
+                                          <div className="title my-[5px]">
+                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                              WhatsApp
+                                            </span>
+                                          </div>
+                                          <div className="desc my-[5px]">
+                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                              Message and call people privately
+                                              on your computer.
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                </a>
+                              </div>
+                            </ul>
+                          </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="settings_post_mobile pt-4">
+                      <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
+                        <div className="sticky top-0 flex flex-col ">
+                          <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
+                            <div className="py-2 px-3">
+                              <h1 className="text-xl text-[#E4E6EB] font-bold">
+                                Create
+                              </h1>
+                            </div>
+                            <div className="settings-menu py-[6px]">
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist.png)",
+                                      backgroundPosition: "0 -222px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Post
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist2.png)",
+                                      backgroundPosition: "0 -275px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Story
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist.png)",
+                                      backgroundPosition: "0 -96px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Reel
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist2.png)",
+                                      backgroundPosition: "0 -191px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Life event
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div
+                                className="mx-4 my-2 border-b-[0.1rem] border-[#3E4042]"
+                                role="separator"
+                              ></div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist3.png)",
+                                      backgroundPosition: "0 -192px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Page
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist2.png)",
+                                      backgroundPosition: "0 -212px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Ad{" "}
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist3.png)",
+                                      backgroundPosition: "0 -171px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Group{" "}
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist4.png)",
+                                      backgroundPosition: "0 -79px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium bottom-[1px]">
+                                  <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                    Event{" "}
+                                  </span>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                              <div className="relative flex items-center px-4 py-[6px] cursor-pointer min-h-[44px] bottom-[2px]">
+                                <div className="icon bg-[rgba(255,255,255,0.1)] inline-flex justify-center items-center h-[36px] w-[36px] mr-3 rounded-full self-start relative top-[2px]">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter:
+                                        "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                      backgroundImage:
+                                        "url(/settings_iconlist.png)",
+                                      backgroundPosition: "0 -348px",
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                    }}
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <div className="py-1 heading relative text-[#E4E6EB] text-sm font-medium">
+                                    <span className="max-w-full min-w-0 ba heading relative block text-[#E4E6EB] text-sm -mb-[3px] leading-[1.36] font-medium textProps">
+                                      Marketplace listing{" "}
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="absolute inset-0 rounded-lg mx-2 opacity-0 hover:opacity-100 bg-[rgba(255,255,255,0.1)]"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="settingsMenu pt-4 hidden">
+                      <div className="min-w-0 shrink flex-grow basis-0 max-w-full [overflow-anchor:none]">
+                        <div className="sticky top-0 flex flex-col ">
+                          <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
+                            <div className="py-2 px-3">
+                              <h1 className="text-xl text-[#E4E6EB] font-bold">
+                                Your shortcuts
+                              </h1>
+                            </div>
+                            <div className="settings-menu flex flex-col py-[6px]">
+                              <div className="relative flex flex-col cursor-pointer min-h-[44px]">
+                                <ul className="flex flex-col">
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg ">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_1:">
+                                                <rect
+                                                  cy="18"
+                                                  fill="white"
+                                                  height="36"
+                                                  rx="8"
+                                                  ry="8"
+                                                  width="36"
+                                                  x="0"
+                                                  y="0"
+                                                ></rect>
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_1:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="ppg.jpg"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                                <rect
+                                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                                                  cy="18"
+                                                  fill="white"
+                                                  height="36"
+                                                  rx="8"
+                                                  ry="8"
+                                                  width="36"
+                                                  x="0"
+                                                  y="0"
+                                                ></rect>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        PPG - Pakistani PC Gamers
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_2:">
+                                                <rect
+                                                  cy="18"
+                                                  fill="white"
+                                                  height="36"
+                                                  rx="8"
+                                                  ry="8"
+                                                  width="36"
+                                                  x="0"
+                                                  y="0"
+                                                ></rect>
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_2:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="ned.jpg"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                                <rect
+                                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                                                  cy="18"
+                                                  fill="white"
+                                                  height="36"
+                                                  rx="8"
+                                                  ry="8"
+                                                  width="36"
+                                                  x="0"
+                                                  y="0"
+                                                ></rect>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        NEDians Meme Posting
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_3:">
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_3:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="death.png"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        Death Never Knocks
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_4:">
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_4:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="jk.jpg"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        JK Developers
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_5:">
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_5:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="jp.png"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        JoN - Productions
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_5:">
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_5:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="max.jpg"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                              </g>
+                                            </svg>
+                                            <div
+                                              className="absolute z-[2] rounded-[50%]"
+                                              data-visualcompletion="ignore"
+                                              style={{
+                                                bottom: "8px",
+                                                right: "8px",
+                                                transform:
+                                                  "translate(50%, 50%)",
+                                              }}
+                                            ></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        Max Sweet
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+
+                                  <li>
+                                    <div className="relative flex flex-wrap items-center px-4 rounded-lg">
+                                      <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
+                                        <div className="relative inline-block align-bottom">
+                                          <div>
+                                            <svg
+                                              aria-hidden="true"
+                                              className="align-bottom"
+                                              data-visualcompletion="ignore-dynamic"
+                                              role="none"
+                                              style={{
+                                                height: "36px",
+                                                width: "36px",
+                                              }}
+                                            >
+                                              {/* Define a circular mask */}
+                                              <mask id=":ss_5:">
+                                                <circle
+                                                  cx="18"
+                                                  cy="18"
+                                                  r="18"
+                                                  fill="white"
+                                                />
+                                              </mask>
+
+                                              {/* Apply the mask to the image */}
+                                              <g mask="url(#:ss_5:)">
+                                                <image
+                                                  x="0"
+                                                  y="0"
+                                                  height="100%"
+                                                  preserveAspectRatio="xMidYMid slice"
+                                                  width="100%"
+                                                  xlinkHref="toast.jpg"
+                                                  style={{
+                                                    height: "36px",
+                                                    width: "36px",
+                                                  }}
+                                                ></image>
+                                              </g>
+                                            </svg>
+                                            <div
+                                              className="absolute z-[2] rounded-[50%]"
+                                              data-visualcompletion="ignore"
+                                              style={{
+                                                bottom: "8px",
+                                                right: "8px",
+                                                transform:
+                                                  "translate(50%, 50%)",
+                                              }}
+                                            ></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <span className="before_a flex flex-grow items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
+                                        Toast Sweet
+                                      </span>
+                                      <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] mx-2"></div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  </div>
-                  </div>
-                  
+
                   <div className="settings_post min-w-0 shrink flex-grow basis-0 m-2 max-w-[200px] [overflow-anchor:none]">
                     <div className="sticky top-0 flex flex-col ">
                       <div className="basis-0 flex flex-col w-full shrink bg-[#242526] rounded-lg customShadow-3">
