@@ -13,6 +13,8 @@ function Header() {
   const scrollIntervalRef = useRef(null);
   const prevYref = useRef(null);
   const clientXref = useRef(null);
+  const scaleRef = useRef(null);
+  const translateZRef = useRef(null);
 
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(40);
@@ -39,12 +41,20 @@ function Header() {
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
 
+
   useEffect(() => {
     const updateScrollbar = () => {
+      const contentHeight = containerRef.current?.scrollHeight;
+      const containerHeight = containerRef.current?.clientHeight;
+
+      const scaleValue = contentHeight / containerHeight;
+      scaleRef.current = scaleValue;
+
+      const translateZValue = scaleValue - 1;
+      translateZRef.current = translateZValue;
+
       if (!containerRef.current || !scrollThumbRef.current) return;
 
-      const containerHeight = containerRef.current.clientHeight;
-      const contentHeight = contentRef.current.scrollHeight;
       console.log("containerHeight", containerHeight);
       console.log("contentHeight", contentHeight);
 
@@ -1258,65 +1268,81 @@ function Header() {
       )}
       {showMessenger && (
         <div
-          className="msg-container messenger flex flex-col fixed right-0 shadow-xl shadow-[#141414]"
-          style={{ transform: "translate(-16px, 53px)" }}
+          className="msg-container messenger flex flex-col absolute right-0 customShadow-2"
+          style={{ transform: "translate(-16px, 52px)" }}
         >
           <div className="flex messenger flex-col w-[360px] h-[478px] bg-[#242526] rounded-lg overflow-x-hidden">
             <div className="">
-              <div className="flex relative mt-[0.7rem] mx-4 flex-1 ">
-                <div className="flex flex-1">
+              <div className="flex relative justify-between items-center pt-[12px] pb-[4px] px-4 min-h-[32px]">
+                <div className="flex">
                   <span className="text-[#E4E6EB] text-2xl font-bold">
                     Chats
                   </span>
                 </div>
-                <div className="flex pb-[4px]">
-                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 rounded-full pl-[24px] pr-[16px] pt-[7px] pb-[6px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer w-[32px] h-[32px] bg-transparent">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/3dots.png)",
-                        filter:
-                          "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                        backgroundPosition: "0 -494px",
-                        backgroundSize: "auto",
-                        width: "20px",
-                        height: "20px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
+                <div className="relative top-[1px] flex justify-between items-stretch -my-[6px] -mx-[4px]">
+                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 text-[#B0B3B8] cursor-pointer bg-transparent px-[4px] py-[6px]">
+                    <span>
+                      <div className="relative flex items-center justify-center min-h-0 w-[32px] h-[32px] rounded-full hover:bg-[#393939]">
+                        <i
+                          className="align-[-0.25em]"
+                          data-visualcompletion="css-img"
+                          style={{
+                            backgroundImage: "url(/3dots.png)",
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundPosition: "0 -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        />
+                      </div>
+                    </span>
                   </div>
-                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 rounded-full pl-[24px] pr-[16px] pt-[7px] pb-[6px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer w-[32px] h-[32px] bg-transparent">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(messengerIcons/icons.png)",
-                        filter:
-                          "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                        backgroundPosition: "0 -481px",
-                        backgroundSize: "auto",
-                        width: "20px",
-                        height: "20px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
+
+                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 text-[#B0B3B8] cursor-pointer bg-transparent px-[4px] py-[6px]">
+                    <span>
+                      <div className="relative flex items-center justify-center min-h-0 w-[32px] h-[32px] rounded-full hover:bg-[#393939]">
+                        <i
+                          className="align-[-0.25em]"
+                          data-visualcompletion="css-img"
+                          style={{
+                            backgroundImage: "url(messengerIcons/icons.png)",
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundPosition: "0 -481px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        />
+                      </div>
+                    </span>
                   </div>
-                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 rounded-full pl-[24px] pr-[16px] pt-[7px] pb-[6px] hover:bg-[#393939] text-[#B0B3B8] cursor-pointer w-[32px] h-[32px] bg-transparent">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(messengerIcons/icons.png)",
-                        filter:
-                          "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                        backgroundPosition: "-17px -523px",
-                        backgroundSize: "auto",
-                        width: "16px",
-                        height: "16px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
+                  <div className="flex flex-col justify-center items-center max-w-full min-w-0 text-[#B0B3B8] cursor-pointer bg-transparent px-[4px] py-[6px]">
+                    <span>
+                      <div className="relative flex items-center justify-center min-h-0 w-[32px] h-[32px] rounded-full hover:bg-[#393939]">
+                        <i
+                          className="align-[-0.25em]"
+                          data-visualcompletion="css-img"
+                          style={{
+                            backgroundImage: "url(messengerIcons/icons.png)",
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundPosition: "-17px -523px",
+                            backgroundSize: "auto",
+                            width: "16px",
+                            height: "16px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        />
+                      </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1414,7 +1440,7 @@ function Header() {
               </div>
             </div>
 
-            <div className="chats">
+            <div className="chats flex-grow">
               <div
                 onMouseOver={handleShowSettings}
                 onMouseLeave={handleHideSettings}
@@ -2371,7 +2397,7 @@ function Header() {
 
       {showSettingsMenu && (
         <div
-          className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414]"
+          className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414] max-w-[650px]"
           style={{ transform: "translate(-16px, 45px)" }}
         >
           <div
@@ -2403,7 +2429,7 @@ function Header() {
                 perspectiveOrigin: "top right",
               }}
             >
-              <div ref={contentRef} className="flex flex-col">
+              <div ref={contentRef} className="flex flex-col min-h-0 flex-grow">
                 <div className="relative flex -m-2">
                   <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden pb-2">
                     <div
@@ -3028,7 +3054,7 @@ function Header() {
                             className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
                             role="separator"
                           ></div>
-                              <div className="pb-[20px]">
+                          <div className="pb-[20px]">
                             <div className="flex flex-col">
                               <div className="flex flex-col px-2 pb-2 pt-0">
                                 <div className="relative flex flex-col max-w-full z-0">
@@ -3047,53 +3073,51 @@ function Header() {
                                   </div>
                                 </div>
                               </div>
-                          <div className="px-2">
-                            <ul className="flex flex-col flex-1">
-                   
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                    <div className="flex items-center justify-between">
-                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
-                                        <img
-                                          src="/settings_admanager.png"
-                                          alt=""
-                                          style={{
-                                            width: "36px",
-                                            height: "36px",
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
-                                        <div className="flex flex-col -my-[5px]">
-                                          <div className="title my-[5px]">
-                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                              Ads Manager
-                                            </span>
-                                          </div>
-                                          <div className="desc my-[5px]">
-                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
-                                              Create, manage and track the
-                                              performance of your ads.
-                                            </span>
+                              <div className="px-2">
+                                <ul className="flex flex-col flex-1">
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_admanager.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Ads Manager
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Create, manage and track the
+                                                performance of your ads.
+                                              </span>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </a>
-                       
-                            </ul>
-                          </div>
-                          </div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+                                </ul>
+                              </div>
+                            </div>
                           </div>
                           <div
                             className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
                             role="separator"
                           ></div>
-                                <div className="pb-[20px]">
-                                <div className="flex flex-col">
-                            <div className="flex flex-col px-2 pb-2 pt-0">
+                          <div className="pb-[20px]">
+                            <div className="flex flex-col">
+                              <div className="flex flex-col px-2 pb-2 pt-0">
                                 <div className="relative flex flex-col max-w-full z-0">
                                   <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
                                     <div className="flex flex-col flex-grow min-h-0 px-2">
@@ -3110,125 +3134,119 @@ function Header() {
                                   </div>
                                 </div>
                               </div>
-                          <div className="px-2">
-                            <ul className="flex flex-col flex-1">
-                  
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                    <div className="flex items-center justify-between">
-                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
-                                        <img
-                                          src="/settings_climate.png"
-                                          alt=""
-                                          style={{
-                                            width: "36px",
-                                            height: "36px",
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
-                                        <div className="flex flex-col -my-[5px]">
-                                          <div className="title my-[5px]">
-                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                              Climate Science Center
-                                            </span>
-                                          </div>
-                                          <div className="desc my-[5px]">
-                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
-                                              Learn about climate change and its
-                                              effects.
-                                            </span>
+                              <div className="px-2">
+                                <ul className="flex flex-col flex-1">
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_climate.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Climate Science Center
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Learn about climate change and
+                                                its effects.
+                                              </span>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
 
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </a>{" "}
-
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                    <div className="flex items-center justify-between">
-                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
-                                        <img
-                                          src="/settings_crises.png"
-                                          alt=""
-                                          style={{
-                                            width: "36px",
-                                            height: "36px",
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
-                                        <div className="flex flex-col -my-[5px]">
-                                          <div className="title my-[5px]">
-                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                              Crisis response
-                                            </span>
-                                          </div>
-                                          <div className="desc my-[5px]">
-                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
-                                              Find the latest updates for recent
-                                              crises happening around the world.
-                                            </span>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>{" "}
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_crises.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Crisis response
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Find the latest updates for
+                                                recent crises happening around
+                                                the world.
+                                              </span>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </a>
-                                
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                    <div className="relative flex items-center justify-between">
-                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
-                                        <img
-                                          src="/settings_funds.png"
-                                          alt=""
-                                          style={{
-                                            width: "36px",
-                                            height: "36px",
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
-                                        <div className="flex flex-col -my-[5px]">
-                                          <div className="title my-[5px]">
-                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                              Fundraisers
-                                            </span>
-                                          </div>
-                                          <div className="desc my-[5px]">
-                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
-                                              Donate and raise money for
-                                              nonprofits and personal causes.
-                                            </span>
-                                          </div>
-                                        </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                             
-
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                   </a>
-                       
-                       </ul>
-                     </div>
-                     </div>
-                     </div>
-                    
-                
+                                  <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                    <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                      <div className="relative flex items-center justify-between">
+                                        <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                          <img
+                                            src="/settings_funds.png"
+                                            alt=""
+                                            style={{
+                                              width: "36px",
+                                              height: "36px",
+                                            }}
+                                          />
+                                        </div>
+                                        <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                          <div className="flex flex-col -my-[5px]">
+                                            <div className="title my-[5px]">
+                                              <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                Fundraisers
+                                              </span>
+                                            </div>
+                                            <div className="desc my-[5px]">
+                                              <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                Donate and raise money for
+                                                nonprofits and personal causes.
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                  </a>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
 
                           <div
                             className="ml-[1rem] -mb-[1px] border-b-[0.1rem] border-[#3e4042] w-[20.5rem]"
                             role="separator"
                           ></div>
-                              <div className="pb-[20px]">
-                                <div className="flex flex-col">
-                            <div className="flex flex-col px-2 pb-2 pt-0">
+                          <div className="pb-[20px]">
+                            <div className="flex flex-col">
+                              <div className="flex flex-col px-2 pb-2 pt-0">
                                 <div className="relative flex flex-col max-w-full z-0">
                                   <div className="flex flex-col min-w-0 max-w-full pt-[20px] pb-[4px]">
                                     <div className="flex flex-col flex-grow min-h-0 px-2">
@@ -3236,7 +3254,7 @@ function Header() {
                                         <div className="flex flex-col -my-[5px]">
                                           <div className="ba_1 my-[5px]">
                                             <span className="block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden">
-                                            More from Meta
+                                              More from Meta
                                             </span>
                                           </div>
                                         </div>
@@ -3245,78 +3263,78 @@ function Header() {
                                   </div>
                                 </div>
                               </div>
-                          <div className="px-2">
-                            <ul className="flex flex-col flex-1">
-                              <div className="flex flex-col">
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                    <div className="flex items-center justify-between">
-                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
-                                        <img
-                                          src="/settings_messenger.png"
-                                          alt=""
-                                          style={{
-                                            width: "36px",
-                                            height: "36px",
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
-                                        <div className="flex flex-col -my-[5px]">
-                                          <div className="title my-[5px]">
-                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                              Messenger Kids
-                                            </span>
+                              <div className="px-2">
+                                <ul className="flex flex-col flex-1">
+                                  <div className="flex flex-col">
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="/settings_messenger.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
                                           </div>
-                                          <div className="desc my-[5px]">
-                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
-                                              Let kids message with close
-                                              friends and family.
-                                            </span>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  Messenger Kids
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  Let kids message with close
+                                                  friends and family.
+                                                </span>
+                                              </div>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
-                                  </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </a>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
-                                  <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
-                                    <div className="flex items-center justify-between">
-                                      <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
-                                        <img
-                                          src="/settings_whatsapp.png"
-                                          alt=""
-                                          style={{
-                                            width: "36px",
-                                            height: "36px",
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
-                                        <div className="flex flex-col -my-[5px]">
-                                          <div className="title my-[5px]">
-                                            <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
-                                              WhatsApp
-                                            </span>
+                                    <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                      <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
+                                        <div className="flex items-center justify-between">
+                                          <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
+                                            <img
+                                              src="/settings_whatsapp.png"
+                                              alt=""
+                                              style={{
+                                                width: "36px",
+                                                height: "36px",
+                                              }}
+                                            />
                                           </div>
-                                          <div className="desc my-[5px]">
-                                            <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
-                                              Message and call people privately
-                                              on your computer.
-                                            </span>
+                                          <div className="relative flex flex-col justify-between flex-grow basis-auto p-[6px]">
+                                            <div className="flex flex-col -my-[5px]">
+                                              <div className="title my-[5px]">
+                                                <span className="relative ba_1 block leading-[1.3333] text-[#E4E6EB] text-[.875rem] font-semibold min-w-0 max-w-full textProps">
+                                                  WhatsApp
+                                                </span>
+                                              </div>
+                                              <div className="desc my-[5px]">
+                                                <span className="ba_3 mb-[-3px] block leading-[1.2308] text-[#E4E6EB] text-xs font-normal text-start min-w-0 max-w-full textProps">
+                                                  Message and call people
+                                                  privately on your computer.
+                                                </span>
+                                              </div>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
+                                      <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
+                                    </a>
                                   </div>
-                                  <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
-                                </a>
+                                </ul>
                               </div>
-                            </ul>
-                          </div>
-                          </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -4258,8 +4276,9 @@ function Header() {
                   height: `${thumbHeight}px`,
                   right: "0px",
                   transitionProperty: "opacity",
-                  transform:
-                    "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(2.19799) translateZ(-1.19799px) translateZ(-2px)",
+                  transform: `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(${
+                    scaleRef.current
+                  }) translateZ(${-translateZRef.current}px) translateZ(-2px)`,
                 }}
               >
                 <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>

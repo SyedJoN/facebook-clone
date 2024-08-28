@@ -8,6 +8,8 @@ function Sidebar() {
   const scrollIntervalRef = useRef(null);
   const prevYref = useRef(null);
   const clientXref = useRef(null);
+  const scaleRef= useRef(null);
+  const translateZRef = useRef(null);
 
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
@@ -18,7 +20,6 @@ function Sidebar() {
   const mouseMoveRef = useRef(false);
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
-
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
@@ -40,34 +41,33 @@ function Sidebar() {
     if (!seeMore && !seeMore2) {
       scrollRef.current = false;
     }
- 
   }, [seeMore, seeMore2]);
 
-
-
   useEffect(() => {
-
     const updateScrollbar = () => {
+      const contentHeight = containerRef.current?.scrollHeight;
+      const containerHeight = containerRef.current?.clientHeight;
+
+      const scaleValue = contentHeight / containerHeight;
+      scaleRef.current = scaleValue;
+
+      const translateZValue = scaleValue - 1;
+      translateZRef.current = translateZValue;
+
       if (!containerRef.current || !scrollThumbRef.current) return;
 
-      const containerHeight = containerRef.current.clientHeight;
-      const contentHeight = contentRef.current.scrollHeight;
+      const newThumbHeight =
+        (containerHeight / contentHeight) * containerHeight;
 
-      const newThumbHeight = (containerHeight / contentHeight) * containerHeight;
-
-if ((seeMore || seeMore2) && (containerRef.current.clientHeight !== contentRef.current.scrollHeight)) {
- 
-  setThumbHeight(Math.max(newThumbHeight, 40));
-
-} 
-  
- else {
-  setScrollOpacity(0);
-  setThumbHeight(0);
-}
-
-  
-     
+      if (
+        (seeMore || seeMore2) &&
+        containerRef.current.clientHeight !== contentRef.current.scrollHeight
+      ) {
+        setThumbHeight(Math.max(newThumbHeight, 40));
+      } else {
+        setScrollOpacity(0);
+        setThumbHeight(0);
+      }
     };
 
     const handleResize = () => updateScrollbar();
@@ -76,15 +76,11 @@ if ((seeMore || seeMore2) && (containerRef.current.clientHeight !== contentRef.c
     updateScrollbar();
     window.addEventListener("resize", handleResize);
 
-
     // Cleanup function
     return () => {
       window.removeEventListener("resize", handleResize);
-    
     };
   }, [seeMore, seeMore2]);
-
- 
 
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
@@ -164,7 +160,8 @@ if ((seeMore || seeMore2) && (containerRef.current.clientHeight !== contentRef.c
           containerRef.current.scrollHeight - containerRef.current.clientHeight;
 
         if (
-          (containerRef.current.scrollTop === 0 && clientY < prevYref.current) ||
+          (containerRef.current.scrollTop === 0 &&
+            clientY < prevYref.current) ||
           (containerRef.current.scrollTop === maxScrollHeight &&
             clientY > prevYref.current)
         ) {
@@ -248,8 +245,8 @@ if ((seeMore || seeMore2) && (containerRef.current.clientHeight !== contentRef.c
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if(containerRef.current.clientHeight !== contentRef.current.scrollHeight)
-    setScrollOpacity(1);
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)
+      setScrollOpacity(1);
   };
 
   const LeaveHandler = () => {
@@ -258,8 +255,7 @@ if ((seeMore || seeMore2) && (containerRef.current.clientHeight !== contentRef.c
   };
 
   return (
-    <div 
-    className="relative flex flex-col min-h-[inherit] max-h-[inherit] z-0">
+    <div className="relative flex flex-col min-h-[inherit] max-h-[inherit] z-0">
       <div
         style={{
           willChange: "transform, scroll-position",
@@ -1105,8 +1101,9 @@ if ((seeMore || seeMore2) && (containerRef.current.clientHeight !== contentRef.c
             height: `${thumbHeight}px`,
             right: "0px",
             transitionProperty: "opacity",
-            transform:
-              "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(1.6095) translateZ(-0.609502px) translateZ(-2px)",
+            transform: `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(${
+              scaleRef.current
+            }) translateZ(${-translateZRef.current}px) translateZ(-2px)`,
           }}
         >
           <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
