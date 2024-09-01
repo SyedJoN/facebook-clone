@@ -7,7 +7,6 @@ import { setShowMenu } from "../../store/showMenuSlice";
 
 function Header() {
   const containerRef = useRef(null);
-  const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
@@ -61,7 +60,7 @@ function Header() {
       const newThumbHeight =
         (containerHeight / contentHeight) * containerHeight;
 
-      setThumbHeight(Math.max(newThumbHeight, 40));
+      setThumbHeight(newThumbHeight);
       if (thumbHeight === containerRef.current.scrollHeight) {
         setScrollOpacity(0);
       }
@@ -334,7 +333,6 @@ function Header() {
           viewBox="0 0 24 24"
           width="24"
           height="24"
-          className="mr-[1px]"
           fill="currentColor"
         >
           <path d="M9.464 1.286C10.294.803 11.092.5 12 .5c.908 0 1.707.303 2.537.786.795.462 1.7 1.142 2.815 1.977l2.232 1.675c1.391 1.042 2.359 1.766 2.888 2.826.53 1.059.53 2.268.528 4.006v4.3c0 1.355 0 2.471-.119 3.355-.124.928-.396 1.747-1.052 2.403-.657.657-1.476.928-2.404 1.053-.884.119-2 .119-3.354.119H7.93c-1.354 0-2.471 0-3.355-.119-.928-.125-1.747-.396-2.403-1.053-.656-.656-.928-1.475-1.053-2.403C1 18.541 1 17.425 1 16.07v-4.3c0-1.738-.002-2.947.528-4.006.53-1.06 1.497-1.784 2.888-2.826L6.65 3.263c1.114-.835 2.02-1.515 2.815-1.977zM10.5 13A1.5 1.5 0 0 0 9 14.5V21h6v-6.5a1.5 1.5 0 0 0-1.5-1.5h-3z"></path>
@@ -395,43 +393,38 @@ function Header() {
   ];
 
   return (
-    <header className="flex w-full fixed right-0 top-0 bg-[#242526] border-b-[0.5px] border-[#3A3B3C] h-[56px] z-[1]">
-      <div className="flex top-0 fixed left-0 h-[56px] items-end w-[320px] px-[16px]">
-        <div className="relative top-0 left-0 py-2 flex flex-wrap z-3 ml-[16px]">
-          <a className="flex-shrink-0 text-xs fixed left-[16px] top-[8px]">
-            <svg
-              viewBox="0 0 36 36"
-              style={{ color: "#0866FF" }}
-              className="block"
-              fill="currentColor"
-              height="40"
-              width="40"
-            >
-              <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z"></path>
-              <path
-                fill="white"
-                d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z"
-              ></path>
-            </svg>
-          </a>
-          <div className="w-[7px]"></div>
+    
+    <header className="flex flex-col w-full h-[56px] fixed right-0 top-0 bg-[#242526] border-b-[0.5px] border-[#3A3B3C] z-[1]">
+ 
+
+      <div className="flex top-0 left-0 h-[56px] items-center xl:w-[320px] w-[112px] max-w-[100vw]">
+        <div className="relative flex px-[16px] w-full">
+        <div className="relative flex z-3 w-full">
+       <div className="flex items-center w-[36px] shrink-0">
+          </div>
+  
+
+          <div className="flex shrink-0 w-[12px] h-[56px]">
+            &nbsp;
+          </div>
           <Search className="" />
         </div>
       </div>
+      </div>
 
-      <nav className="flex justify-center h-[56px] w-full">
+      <nav className="fixed top-0 left-0 right-0 flex justify-center h-[56px] w-full">
         <ul className="flex justify-center flex-grow w-full px-[110px] items-end">
           {navItems.map((item) =>
             item.active ? (
               <li
                 key={item.name}
-                className={`nav hidden shrink md:block md:w-[111.6px] lg:w-[129.6px] min-w-[50px] ml-2 ${
+                className={`nav hidden shrink md:flex md:w-[111.6px] lg:w-[129.6px] min-w-[50px] ml-2 ${
                   location.pathname === item.slug
                     ? activeTabClassName
                     : "text-[#B0B3B8]"
-                } ${item.name === "Games" ? "md:hidden xl:block" : ""} `}
+                } ${item.name === "Games" ? "hidden md:block" : ""} `}
               >
-                <span className="h-[56px]  ">
+                <span className="h-[56px] flex-grow">
                   <div
                     className={`group rounded-xl flex flex-wrap relative h-[56px] right-1 cursor-pointer`}
                   >
@@ -447,14 +440,16 @@ function Header() {
                       <span className="relative flex justify-center items-center z-50">
                         {item.icon}
                       </span>
-                    </a>
-                    <div
+                      <div
+                    style={{inset: '2px 0px'}}
                       className={`absolute ${
                         location.pathname !== item.slug
                           ? "group-hover:bg-[#3A3B3C]"
                           : ""
-                      } inset-0 rounded-xl h-[50px] mt-[0.2rem]`}
+                      } rounded-lg h-[50px]`}
                     ></div>
+                    </a>
+             
                   </div>
                 </span>
               </li>
@@ -2421,7 +2416,7 @@ function Header() {
               onMouseEnter={enterHandler}
               onMouseLeave={LeaveHandler}
               ref={containerRef}
-              className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-[100%]"
+              className="overscroll-y-contain relative flex flex-col flex-grow shrink min-h-0 overflow-x-hidden overflow-y-auto px-4 basis-full"
               style={{
                 willChange: "transform, scroll-position",
                 perspective: "1px",
@@ -2429,9 +2424,9 @@ function Header() {
                 perspectiveOrigin: "top right",
               }}
             >
-              <div ref={contentRef} className="flex flex-col min-h-0 flex-grow">
+              <div className="flex flex-col min-h-0 flex-grow">
                 <div className="relative flex -m-2">
-                  <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden pb-2">
+                  <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden">
                     <div
                       className="flex flex-col basis-0 bg-[#242526] rounded-lg customShadow-3"
                       style={{ minHeight: "calc(100vh - 118px)" }}
@@ -4260,7 +4255,7 @@ function Header() {
                 ref={trackRef}
                 style={{
                   display: "block",
-                  height: `${contentRef.current?.scrollHeight}px`,
+                  height: `${containerRef.current?.scrollHeight}px`,
                   right: "0px",
                   transitionProperty: "opacity",
                 }}

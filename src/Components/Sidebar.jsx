@@ -2,13 +2,12 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar() {
   const containerRef = useRef(null);
-  const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const prevYref = useRef(null);
   const clientXref = useRef(null);
-  const scaleRef= useRef(null);
+  const scaleRef = useRef(null);
   const translateZRef = useRef(null);
 
   const [seeMore, setSeeMore] = useState(false);
@@ -23,15 +22,9 @@ function Sidebar() {
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
-    if (seeMore) {
-      setScrollOpacity(0);
-    }
   };
   const clickHandler2 = () => {
     setSeeMore2((prev) => !prev);
-    if (seeMore2) {
-      setScrollOpacity(0);
-    }
   };
 
   useEffect(() => {
@@ -61,9 +54,9 @@ function Sidebar() {
 
       if (
         (seeMore || seeMore2) &&
-        containerRef.current.clientHeight !== contentRef.current.scrollHeight
+        containerRef.current.clientHeight !== containerRef.current.scrollHeight
       ) {
-        setThumbHeight(Math.max(newThumbHeight, 40));
+        setThumbHeight(newThumbHeight);
       } else {
         setScrollOpacity(0);
         setThumbHeight(0);
@@ -245,7 +238,7 @@ function Sidebar() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)
+    if (containerRef.current.clientHeight !== containerRef.current.scrollHeight)
       setScrollOpacity(1);
   };
 
@@ -263,122 +256,223 @@ function Sidebar() {
           transformStyle: "preserve-3d",
           perspectiveOrigin: "top right",
         }}
-        className={`${
-          seeMore || seeMore2 ? "overflow-y-auto" : "overflow-y-hidden"
-        } overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-[100%]`}
+        className={`overflow-y-auto
+        overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-full`}
         onMouseEnter={seeMore || seeMore2 ? enterHandler : null}
         onMouseLeave={seeMore || seeMore2 ? LeaveHandler : null}
         ref={containerRef}
       >
         <div
-          ref={contentRef}
-          className={`content-item sidebar flex-grow p-[0.6rem] text-[#E4E6EB] w-full cursor-pointer`}
+          className={`content-item sidebar flex-grow mt-4 text-[#E4E6EB] w-full cursor-pointer`}
         >
           <div>
-            <div
-              className={`sidebar flex flex-col cursor-pointer mt-[0.35rem]`}
-            >
-              <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                <div className="img-wrapper w-9 h-9 rounded-full">
+            <div className="px-2">
+              <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
                   <img
                     className="object-cover w-full h-full rounded-full"
                     src="/me.jpg"
                     alt=""
                   />
                 </div>
-                <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                  Syed Muhammad Jon
-                </span>
-                <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                  <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Syed Muhammad Jon
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
               </div>
-              <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                <i
-                  data-visualcompletion="css-img"
-                  style={{
-                    backgroundImage: "url(/iconBar.png)",
-                    backgroundPosition: "0 -297px",
-                    backgroundSize: "auto",
-                    width: "36px",
-                    height: "34px",
-                    backgroundRepeat: "no-repeat",
-                    display: "inline-block",
-                  }}
-                />
-                <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                  Friends
-                </span>
-                <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+            </div>
+            <div className="px-2">
+              <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <i
+                    data-visualcompletion="css-img"
+                    style={{
+                      backgroundImage: "url(/iconBar.png)",
+                      backgroundPosition: "0 -296px",
+                      backgroundSize: "auto",
+                      width: "36px",
+                      height: "36px",
+                      backgroundRepeat: "no-repeat",
+                      display: "inline-block",
+                    }}
+                  />
+                </div>
+                <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                  <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Friends
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
               </div>
-              <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                <img src="/adsManager.png" alt="" />
+            </div>
+            <div className="px-2">
+              <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <img src="/adsManager.png" alt="" />
+                </div>
 
-                <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                  Ads Manager
-                </span>
-                <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                  <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Ads Manager
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
               </div>
-              <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                <i
-                  data-visualcompletion="css-img"
-                  style={{
-                    backgroundImage: "url(/iconBar.png)",
-                    backgroundPosition: "0 -444px",
-                    backgroundSize: "auto",
-                    width: "36px",
-                    height: "34px",
-                    backgroundRepeat: "no-repeat",
-                    display: "inline-block",
-                  }}
-                />
-                <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                  Memories
-                </span>
-                <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-              </div>
+            </div>
+            <div className="px-2">
+              <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <i
+                    data-visualcompletion="css-img"
+                    style={{
+                      backgroundImage: "url(/iconBar.png)",
+                      backgroundPosition: "0 -444px",
+                      backgroundSize: "auto",
+                      width: "36px",
+                      height: "34px",
+                      backgroundRepeat: "no-repeat",
+                      display: "inline-block",
+                    }}
+                  />
+                </div>
 
-              <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                <i
-                  data-visualcompletion="css-img"
-                  style={{
-                    backgroundImage: "url(/iconBar.png)",
-                    backgroundPosition: "0 -185px",
-                    backgroundSize: "auto",
-                    width: "36px",
-                    height: "34px",
-                    backgroundRepeat: "no-repeat",
-                    display: "inline-block",
-                  }}
-                />
-                <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                  Saved
-                </span>
-                <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                  <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Memories
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
               </div>
-              <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                <i
-                  data-visualcompletion="css-img"
-                  style={{
-                    backgroundImage: "url(/iconBar.png)",
-                    backgroundPosition: "0 -37px",
-                    backgroundSize: "auto",
-                    width: "36px",
-                    height: "34px",
-                    backgroundRepeat: "no-repeat",
-                    display: "inline-block",
-                  }}
-                />
-                <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                  Groups
-                </span>
-                <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-              </div>
+            </div>
+            <div className="px-2">
+              <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <i
+                    data-visualcompletion="css-img"
+                    style={{
+                      backgroundImage: "url(/iconBar.png)",
+                      backgroundPosition: "0 -185px",
+                      backgroundSize: "auto",
+                      width: "36px",
+                      height: "34px",
+                      backgroundRepeat: "no-repeat",
+                      display: "inline-block",
+                    }}
+                  />
+                </div>
 
-              {!seeMore && (
-                <div
-                  onClick={() => clickHandler()}
-                  className="relative flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.5rem] rounded-lg"
-                >
-                  <div className="rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2 relative">
+                <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                  <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Saved
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+              </div>
+            </div>
+            <div className="px-2">
+              <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <i
+                    data-visualcompletion="css-img"
+                    style={{
+                      backgroundImage: "url(/iconBar.png)",
+                      backgroundPosition: "0 -37px",
+                      backgroundSize: "auto",
+                      width: "36px",
+                      height: "34px",
+                      backgroundRepeat: "no-repeat",
+                      display: "inline-block",
+                    }}
+                  />
+                </div>
+
+                <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                  <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Groups
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+              </div>
+            </div>
+
+            {!seeMore && (
+              <div onClick={() => clickHandler()} className="px-2">
+                <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
                     <svg
                       viewBox="0 0 16 16"
                       width="20"
@@ -393,214 +487,500 @@ function Sidebar() {
                       </g>
                     </svg>
                   </div>
-                  <span className="text-sm ml-3 mt-[0.4rem] text-[#E4E6EB] font-[500]">
-                    See more
-                  </span>
-                  <div className="ml-[-3px] mr-[-2px] my-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                    <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                      <div className="flex flex-col min-w-0 max-w-full py-2">
+                        <div className="flex flex-col flex-grow min-h-0">
+                          <div className="flex flex-col ">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="ba_1 my-[5px]">
+                                <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                  See more
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
                 </div>
-              )}
-              {seeMore && (
-                <div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/blood.png)",
-                        backgroundPosition: "-722px -175px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "34px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Blood Donations
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <img src="/climate.png" alt="" />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Climate Science Center
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/events.png)",
-                        backgroundPosition: "0 -37px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "34px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Events
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <img src="/feeds.png" alt="" />
+              </div>
+            )}
+            {seeMore && (
+              <div>
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/blood.png)",
+                          backgroundPosition: "-722px -175px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "34px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
 
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Feeds
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/iconBar.png)",
-                        backgroundPosition: "0 -333px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "34px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Fundraisers
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <img src="/gaming.png" alt="" />
-
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Gaming Video
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/iconBar.png)",
-                        backgroundPosition: "0 -407px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "34px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Marketplace
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/messenger.png)",
-                        backgroundPosition: "0 0",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "34px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Messenger
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <img src="/mkids.png" alt="" />
-
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Messenger Kids
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <img src="/orders.png" alt="" />
-
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Orders and payments
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/iconBar.png)",
-                        backgroundPosition: "0 -111px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "34px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Pages
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/iconBar.png)",
-                        backgroundPosition: "0 -74px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "36px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Play games
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <img src="/activity.png" alt="" />
-
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Recent ad activity
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                  <div className="relative flex flex-wrap p-[5px] m-[0.1rem] rounded-lg items-center select-none">
-                    <i
-                      data-visualcompletion="css-img"
-                      style={{
-                        backgroundImage: "url(/iconBar.png)",
-                        backgroundPosition: "0 -518px",
-                        backgroundSize: "auto",
-                        width: "36px",
-                        height: "36px",
-                        backgroundRepeat: "no-repeat",
-                        display: "inline-block",
-                      }}
-                    />
-                    <span className="ba_1 text-sm ml-[0.74rem] font-[500]">
-                      Video
-                    </span>
-                    <div className="mx-[-3px] my-[-2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Blood Donations
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
                   </div>
                 </div>
-              )}
 
-              {seeMore && (
-                <div
-                  onClick={() => clickHandler()}
-                  className="relative flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.5rem] rounded-lg"
-                >
-                  <div className="rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2 relative">
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <img src="/climate.png" alt="" />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Climate Science Center
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/events.png)",
+                          backgroundPosition: "0 -37px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "34px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Events
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <img src="/feeds.png" alt="" />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Feeds
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/iconBar.png)",
+                          backgroundPosition: "0 -333px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "34px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Friends
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <img src="/gaming.png" alt="" />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Friends
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/iconBar.png)",
+                          backgroundPosition: "0 -407px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "34px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Marketplace
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/messenger.png)",
+                          backgroundPosition: "0 0",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "34px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Messenger
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <img src="/mkids.png" alt="" />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Messenger Kids
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <img src="/orders.png" alt="" />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Orders and payments
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/iconBar.png)",
+                          backgroundPosition: "0 -111px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "34px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Pages
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/iconBar.png)",
+                          backgroundPosition: "0 -74px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "36px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Play games
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <img src="/activity.png" alt="" />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Recent ad activity
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+
+                <div className="px-2">
+                  <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          backgroundImage: "url(/iconBar.png)",
+                          backgroundPosition: "0 -518px",
+                          backgroundSize: "auto",
+                          width: "36px",
+                          height: "36px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                        }}
+                      />
+                    </div>
+
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col ">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    Video
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {seeMore && (
+              <div onClick={() => clickHandler()} className="px-2">
+                <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
                     <svg
                       viewBox="0 0 20 20"
                       width="20"
@@ -610,323 +990,422 @@ function Sidebar() {
                       <path d="M15.47 12.2 10 6.727 4.53 12.2a.75.75 0 0 1-1.06-1.061l6-6a.751.751 0 0 1 1.06 0l6 6a.75.75 0 0 1-1.06 1.061z"></path>
                     </svg>
                   </div>
-                  <span className="text-[#E4E6EB] text-sm ml-3 mt-[0.4rem] font-[500]">
-                    See less
-                  </span>
-                  <div className="ml-[-3px] mr-[-2px] my-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                    <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                      <div className="flex flex-col min-w-0 max-w-full py-2">
+                        <div className="flex flex-col flex-grow min-h-0">
+                          <div className="flex flex-col ">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="ba_1 my-[5px]">
+                                <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                  See less
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
                 </div>
-              )}
-            </div>
-          </div>
-          <div
-            className="relative top-[-2px] left-[-2px] ml-[0.5rem] mt-2 border-b-[0.1rem] border-[#3A3B3C] w-full"
-            role="separator"
-          ></div>
-          <div>
+              </div>
+            )}
+
             <div
-              className={`sidebar flex flex-col text-white cursor-pointer w-full`}
-            >
-              <h3 className=" mt-1 text-[#B0B3B8] font-semibold px-[0.4rem] py-[0.35rem] cursor-text">
-                Your shortcuts
-              </h3>
-              <ul className="mt-[0.15rem]">
-                <li>
-                  <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg ">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_1:">
-                              <rect
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
+              className="relative mx-4 mt-2 border-b-[1px] border-[#3A3B3C]"
+              role="separator"
+            ></div>
+          </div>
 
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_1:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="ppg.jpg"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                              <rect
-                                className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                            </g>
-                          </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+          <div className="group">
+            <div className="pb-2">
+              <div className="relative flex flex-col max-w-full z-0 flex-grow min-h-0 pt-[20px] pb-[4px]">
+                <div className="flex flex-col min-w-0 max-w-full">
+                  <div className="flex flex-col flex-grow min-h-0 max-w-full px-4 -my-[5px]">
+                    <div className="flex flex-col">
+                      <div className="ba_4 flex min-w-0 max-w-full">
+                        <h3 className="flex-grow">
+                          <span className="block text-[1rem] text-[#B0B3B8] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden cursor-text">
+                            Your shortcuts
+                          </span>
+                        </h3>
+                        <div className="relative flex max-w-full z-0 justify-center items-center self-start ml-2">
+                          <div className="flex flex-col min-w-0 max-w-full">
+                            <div className="flex flex-col self-start flex-grow min-h-0 min-w-0 max-w-full">
+                              <div className="flex flex-col">
+                                <div className="flex flex-col">
+                                  <div className="flex flex-col">
+                                    <span className="block text-[.875rem] text-[#5AA7FF] leading-[1.3333] text-start font-normal overflow-hidden group-hover:opacity-100 opacity-0">
+                                      Edit
+                                    </span>
+                                  </div>
+                                  <div
+                                    style={{
+                                      transitionProperty: "opacity",
+                                      transitionDuration:
+                                        "cubic-bezier(0,0,1,1",
+                                    }}
+                                    className="absolute inset-[-8px] duration-100 rounded-[4px] hover:opacity-100 opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer"
+                                  ></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
-                      PPG - Pakistani PC Gamers
-                    </span>
-                    <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                   </div>
-                </li>
-                <li>
-                  <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_2:">
-                              <rect
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
+                </div>
+              </div>
+            </div>
 
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_2:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="ned.jpg"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                              <rect
-                                className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
-                                cy="18"
-                                fill="white"
-                                height="36"
-                                rx="8"
-                                ry="8"
-                                width="36"
-                                x="0"
-                                y="0"
-                              ></rect>
-                            </g>
-                          </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+            <ul className="">
+              <li>
+                <div className="px-2">
+                  <a className="group relative no-underline cursor-pointer">
+                    <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                      <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":chat_1:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                              </mask>
+
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:chat_1:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="ppg.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                                <circle
+                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                  cx="18"
+                                  cy="18"
+                                  r="18"
+                                ></circle>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                        <div className="relative flex flex-col max-w-full flex-grow z-0">
+                          <div className="flex flex-col min-w-0 max-w-full py-2">
+                            <div className="flex flex-col flex-grow min-h-0">
+                              <div className="flex flex-col ">
+                                <div className="flex flex-col -my-[5px]">
+                                  <div className="ba_1 my-[5px]">
+                                    <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                      PPG - Pakistani PC Gamers
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div
+                     className="absolute opacity-0 hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] group-hover:pointer-events-none select-none"></div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div className="px-2">
+                  <a className="relative no-underline cursor-pointer">
+                    <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                      <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":chat_1:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                              </mask>
 
-                    <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
-                      NEDians Meme Posting
-                    </span>
-                    <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                </li>
-
-                <li>
-                  <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_3:">
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
-
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_3:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="death.png"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                            </g>
-                          </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:chat_1:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="ned.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                                <circle
+                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                  cx="18"
+                                  cy="18"
+                                  r="18"
+                                ></circle>
+                              </g>
+                            </svg>
+                            <div
+                              className="absolute z-[2] rounded-[50%]"
+                              data-visualcompletion="ignore"
+                              style={{
+                                bottom: "8px",
+                                right: "8px",
+                                transform: "translate(50%, 50%)",
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                        <div className="relative flex flex-col max-w-full flex-grow z-0">
+                          <div className="flex flex-col min-w-0 max-w-full py-2">
+                            <div className="flex flex-col flex-grow min-h-0">
+                              <div className="flex flex-col ">
+                                <div className="flex flex-col -my-[5px]">
+                                  <div className="ba_1 my-[5px]">
+                                    <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                      NEDians News Posting
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <span className="ba_1 py-[8px] text-sm font-[500] text-[#E4E6EB]">
-                      Death Never Knocks
-                    </span>
-                    <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                </li>
-                <li>
-                  <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_4:">
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </a>
+                </div>
+              </li>
 
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_4:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="jk.jpg"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                            </g>
-                          </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+              <li>
+                <div className="px-2">
+                  <a className="relative no-underline cursor-pointer">
+                    <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                      <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":chat_1:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                              </mask>
+
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:chat_1:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="death.png"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                                <circle
+                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                  cx="18"
+                                  cy="18"
+                                  r="18"
+                                ></circle>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                        <div className="relative flex flex-col max-w-full flex-grow z-0">
+                          <div className="flex flex-col min-w-0 max-w-full py-2">
+                            <div className="flex flex-col flex-grow min-h-0">
+                              <div className="flex flex-col ">
+                                <div className="flex flex-col -my-[5px]">
+                                  <div className="ba_1 my-[5px]">
+                                    <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                      Death Never Knocks
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      JK Developers
-                    </span>
-                    <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                </li>
-                <li>
-                  <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg">
-                    <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                      <div className="relative inline-block align-bottom">
-                        <div>
-                          <svg
-                            aria-hidden="true"
-                            className="align-bottom"
-                            data-visualcompletion="ignore-dynamic"
-                            role="none"
-                            style={{ height: "36px", width: "36px" }}
-                          >
-                            {/* Define a circular mask */}
-                            <mask id=":ss_5:">
-                              <circle cx="18" cy="18" r="18" fill="white" />
-                            </mask>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div className="px-2">
+                  <a className="relative no-underline cursor-pointer">
+                    <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                      <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":chat_1:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                              </mask>
 
-                            {/* Apply the mask to the image */}
-                            <g mask="url(#:ss_5:)">
-                              <image
-                                x="0"
-                                y="0"
-                                height="100%"
-                                preserveAspectRatio="xMidYMid slice"
-                                width="100%"
-                                xlinkHref="jp.png"
-                                style={{ height: "36px", width: "36px" }}
-                              ></image>
-                            </g>
-                          </svg>
-                          <div
-                            className="absolute z-[2] rounded-[50%]"
-                            data-visualcompletion="ignore"
-                            style={{
-                              bottom: "8px",
-                              right: "8px",
-                              transform: "translate(50%, 50%)",
-                            }}
-                          ></div>
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:chat_1:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="jk.jpg"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                                <circle
+                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                  cx="18"
+                                  cy="18"
+                                  r="18"
+                                ></circle>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                        <div className="relative flex flex-col max-w-full flex-grow z-0">
+                          <div className="flex flex-col min-w-0 max-w-full py-2">
+                            <div className="flex flex-col flex-grow min-h-0">
+                              <div className="flex flex-col ">
+                                <div className="flex flex-col -my-[5px]">
+                                  <div className="ba_1 my-[5px]">
+                                    <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                      JK Developers
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                      JoN - Productions
-                    </span>
-                    <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                  </div>
-                </li>
-              </ul>
-              {!seeMore2 && (
-                <div
-                  onClick={() => clickHandler2()}
-                  className="relative flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.4rem] rounded-lg"
-                >
-                  <div className="rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2 relative">
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div className="px-2">
+                  <a className="relative no-underline cursor-pointer">
+                    <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                      <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                        <div className="relative inline-block align-bottom">
+                          <div>
+                            <svg
+                              aria-hidden="true"
+                              className="align-bottom"
+                              data-visualcompletion="ignore-dynamic"
+                              role="none"
+                              style={{ height: "36px", width: "36px" }}
+                            >
+                              {/* Define a circular mask */}
+                              <mask id=":chat_1:">
+                                <circle cx="18" cy="18" r="18" fill="white" />
+                              </mask>
+
+                              {/* Apply the mask to the image */}
+                              <g mask="url(#:chat_1:)">
+                                <image
+                                  x="0"
+                                  y="0"
+                                  height="100%"
+                                  preserveAspectRatio="xMidYMid slice"
+                                  width="100%"
+                                  xlinkHref="jp.png"
+                                  style={{ height: "36px", width: "36px" }}
+                                ></image>
+                                <circle
+                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                  cx="18"
+                                  cy="18"
+                                  r="18"
+                                ></circle>
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                        <div className="relative flex flex-col max-w-full flex-grow z-0">
+                          <div className="flex flex-col min-w-0 max-w-full py-2">
+                            <div className="flex flex-col flex-grow min-h-0">
+                              <div className="flex flex-col ">
+                                <div className="flex flex-col -my-[5px]">
+                                  <div className="ba_1 my-[5px]">
+                                    <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                      JoN - Productions
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                  </a>
+                </div>
+              </li>
+            </ul>
+            {!seeMore2 && (
+              <div onClick={() => clickHandler2()} className="px-2">
+                <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
                     <svg
                       viewBox="0 0 16 16"
                       width="20"
                       height="20"
                       fill="currentColor"
-                      className="filter drop-shadow-md transition-transform transform hover:scale-105"
                     >
                       <g fillRule="evenodd" transform="translate(-448 -544)">
                         <path
@@ -936,122 +1415,175 @@ function Sidebar() {
                       </g>
                     </svg>
                   </div>
-                  <span className="text-[#E4E6EB] text-sm ml-3 mt-[0.4rem] font-[500]">
-                    See more
-                  </span>
-                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                </div>
-              )}
-
-              {seeMore2 && (
-                <div>
-                  <ul>
-                    <li>
-                      <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg">
-                        <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                          <div className="relative inline-block align-bottom">
-                            <div>
-                              <svg
-                                aria-hidden="true"
-                                className="align-bottom"
-                                data-visualcompletion="ignore-dynamic"
-                                role="none"
-                                style={{ height: "36px", width: "36px" }}
-                              >
-                                {/* Define a circular mask */}
-                                <mask id=":ss_5:">
-                                  <circle cx="18" cy="18" r="18" fill="white" />
-                                </mask>
-
-                                {/* Apply the mask to the image */}
-                                <g mask="url(#:ss_5:)">
-                                  <image
-                                    x="0"
-                                    y="0"
-                                    height="100%"
-                                    preserveAspectRatio="xMidYMid slice"
-                                    width="100%"
-                                    xlinkHref="max.jpg"
-                                    style={{ height: "36px", width: "36px" }}
-                                  ></image>
-                                </g>
-                              </svg>
-                              <div
-                                className="absolute z-[2] rounded-[50%]"
-                                data-visualcompletion="ignore"
-                                style={{
-                                  bottom: "8px",
-                                  right: "8px",
-                                  transform: "translate(50%, 50%)",
-                                }}
-                              ></div>
+                  <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                    <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                      <div className="flex flex-col min-w-0 max-w-full py-2">
+                        <div className="flex flex-col flex-grow min-h-0">
+                          <div className="flex flex-col ">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="ba_1 my-[5px]">
+                                <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                  See more
+                                </span>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                          Max Sweet
-                        </span>
-                        <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
                       </div>
-                    </li>
+                    </div>
+                  </div>
+                  <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                </div>
+              </div>
+            )}
 
-                    <li>
-                      <div className="relative flex flex-wrap items-center px-[0.4rem] rounded-lg">
-                        <div className="flex flex-col mb-[6px] mt-[6px] mr-[12px] self-start relative">
-                          <div className="relative inline-block align-bottom">
-                            <div>
-                              <svg
-                                aria-hidden="true"
-                                className="align-bottom"
-                                data-visualcompletion="ignore-dynamic"
-                                role="none"
-                                style={{ height: "36px", width: "36px" }}
-                              >
-                                {/* Define a circular mask */}
-                                <mask id=":ss_5:">
-                                  <circle cx="18" cy="18" r="18" fill="white" />
-                                </mask>
+            {seeMore2 && (
+              <div>
+                <ul>
+                  <li>
+                    <div className="px-2">
+                      <a className="relative no-underline cursor-pointer">
+                        <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                          <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                            <div className="relative inline-block align-bottom">
+                              <div>
+                                <svg
+                                  aria-hidden="true"
+                                  className="align-bottom"
+                                  data-visualcompletion="ignore-dynamic"
+                                  role="none"
+                                  style={{ height: "36px", width: "36px" }}
+                                >
+                                  {/* Define a circular mask */}
+                                  <mask id=":chat_1:">
+                                    <circle
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                      fill="white"
+                                    />
+                                  </mask>
 
-                                {/* Apply the mask to the image */}
-                                <g mask="url(#:ss_5:)">
-                                  <image
-                                    x="0"
-                                    y="0"
-                                    height="100%"
-                                    preserveAspectRatio="xMidYMid slice"
-                                    width="100%"
-                                    xlinkHref="toast.jpg"
-                                    style={{ height: "36px", width: "36px" }}
-                                  ></image>
-                                </g>
-                              </svg>
-                              <div
-                                className="absolute z-[2] rounded-[50%]"
-                                data-visualcompletion="ignore"
-                                style={{
-                                  bottom: "8px",
-                                  right: "8px",
-                                  transform: "translate(50%, 50%)",
-                                }}
-                              ></div>
+                                  {/* Apply the mask to the image */}
+                                  <g mask="url(#:chat_1:)">
+                                    <image
+                                      x="0"
+                                      y="0"
+                                      height="100%"
+                                      preserveAspectRatio="xMidYMid slice"
+                                      width="100%"
+                                      xlinkHref="max.jpg"
+                                      style={{ height: "36px", width: "36px" }}
+                                    ></image>
+                                    <circle
+                                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                    ></circle>
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                            <div className="relative flex flex-col max-w-full flex-grow z-0">
+                              <div className="flex flex-col min-w-0 max-w-full py-2">
+                                <div className="flex flex-col flex-grow min-h-0">
+                                  <div className="flex flex-col ">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="ba_1 my-[5px]">
+                                        <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                          Max Sweet
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <span className="flex items-center text-sm my-[0.4rem] font-[500] text-[#E4E6EB] pb-[0.1rem]">
-                          Toast Sweet
-                        </span>
-                        <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              )}
-              {seeMore2 && (
-                <div
-                  onClick={() => clickHandler2()}
-                  className="relative flex flex-wrap ml-[0.1rem] pl-[0.3rem] py-[0.4rem] rounded-lg group"
-                >
-                  <div className="rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2 relative">
+                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                      </a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div className="px-2">
+                      <a className="relative no-underline cursor-pointer">
+                        <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                          <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                            <div className="relative inline-block align-bottom">
+                              <div>
+                                <svg
+                                  aria-hidden="true"
+                                  className="align-bottom"
+                                  data-visualcompletion="ignore-dynamic"
+                                  role="none"
+                                  style={{ height: "36px", width: "36px" }}
+                                >
+                                  {/* Define a circular mask */}
+                                  <mask id=":chat_1:">
+                                    <circle
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                      fill="white"
+                                    />
+                                  </mask>
+
+                                  {/* Apply the mask to the image */}
+                                  <g mask="url(#:chat_1:)">
+                                    <image
+                                      x="0"
+                                      y="0"
+                                      height="100%"
+                                      preserveAspectRatio="xMidYMid slice"
+                                      width="100%"
+                                      xlinkHref="toast.jpg"
+                                      style={{ height: "36px", width: "36px" }}
+                                    ></image>
+                                    <circle
+                                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                    ></circle>
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                            <div className="relative flex flex-col max-w-full flex-grow z-0">
+                              <div className="flex flex-col min-w-0 max-w-full py-2">
+                                <div className="flex flex-col flex-grow min-h-0">
+                                  <div className="flex flex-col ">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="ba_1 my-[5px]">
+                                        <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                          Toast Sweet
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            )}
+            {seeMore2 && (
+              <div onClick={() => clickHandler2()} className="px-2">
+                <div className="relative flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
                     <svg
                       viewBox="0 0 20 20"
                       width="20"
@@ -1061,30 +1593,40 @@ function Sidebar() {
                       <path d="M15.47 12.2 10 6.727 4.53 12.2a.75.75 0 0 1-1.06-1.061l6-6a.751.751 0 0 1 1.06 0l6 6a.75.75 0 0 1-1.06 1.061z"></path>
                     </svg>
                   </div>
-                  <span className="text-[#E4E6EB] text-sm ml-3 mt-[0.4rem] font-[500]">
-                    See less
-                  </span>
-                  <div className="-mx-[2px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                  <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                    <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                      <div className="flex flex-col min-w-0 max-w-full py-2">
+                        <div className="flex flex-col flex-grow min-h-0">
+                          <div className="flex flex-col ">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="ba_1 my-[5px]">
+                                <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                  See less
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none"></div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
-          <div></div>
         </div>
+        <div></div>
 
         <div
           className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full
-    ${
-      (seeMore || seeMore2) && scrollOpacity
-        ? "hover:opacity-30 block"
-        : "hidden"
-    }  
+    ${scrollOpacity ? "hover:opacity-30 block" : "hidden"}  
                   opacity-0 `}
           data-visualcompletion="ignore"
           data-thumb="1"
           ref={trackRef}
           style={{
-            height: `${contentRef.current?.scrollHeight}px`,
+            height: `${containerRef.current?.scrollHeight}px`,
             right: "0px",
             transitionProperty: "opacity",
           }}

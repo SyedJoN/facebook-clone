@@ -4,6 +4,9 @@
 
 :root {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
+  box-sizing: border-box;
+  overflow-y: scroll!important;
 }
 
 
@@ -13,6 +16,10 @@
   box-sizing: inherit;
 }
 
+/* * * * * * {
+  /* background-color: hsl(50 100% 70% / 0.1); */
+  /* outline: 1px solid orangered; */
+/* } */ */
 
 html {
   scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
@@ -27,6 +34,7 @@ body {
   padding: 0;
   direction: ltr;
   line-height: 1.34;
+  background-color: #18191A;
 
 }
 
@@ -74,6 +82,18 @@ body {
   content: "";
 }
 .ba_3::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -3px;
+}
+.ba_4::before {
+  margin-top: -5px;
+  display: block;
+  height: 0;
+  content: "";
+}
+.ba_4::after {
   display: block;
   content: "";
   height: 0;
@@ -325,6 +345,39 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
 
+@media (max-width: 1920px) {
+  .main-section-container  {
+    max-width: none;
+  }
+}
+@media (min-height: 700px) and (max-height: 789px) {
+  .main-section {
+    width: 590px;
+   }
+}
+
+@media (min-height: 790px) {
+  .main-section {
+   width: 680px;
+  }
+  .stories {
+    width: 680px;
+  }
+}
+
+@media (max-width: 1259px) {
+  .search-input {
+    padding-left: 24px;
+  }
+}
+
+
+@media (max-height: 700px) {
+  .img-wrapper-icons {
+    transform: scale(.77777777);
+    margin: 4px 6px 4px -4px;
+  }
+}
 
 @media (max-width:700px) {
   .settings_post {
@@ -344,7 +397,12 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
 }
  
 }
-
+@media (max-width: 1099px) {
+  .search {
+   min-width: 320px
+  }
+  
+}
 
 @media (max-width: 1099px) {
   .nav {
