@@ -282,7 +282,7 @@ function Sidebar_2() {
               >
                 <a
                   aria-labelledby=":r9l:"
-                  className="w-full"
+                  className="group relative w-full"
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
@@ -325,8 +325,9 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
-                    <div className="mx-[8px] my-[0px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              
                   </div>
+                  <div className="mx-[8px] my-[0px] absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </a>
                 <div aria-label="Options for this ad" role="gridcell">
                   <div
@@ -378,7 +379,7 @@ function Sidebar_2() {
               >
                 <a
                   aria-labelledby=":r9l:"
-                  className="w-full"
+                  className="group relative w-full"
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
@@ -421,8 +422,9 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
-                    <div className="mx-[8px] my-[0px] absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+                   
                   </div>
+                  <div className="mx-[8px] my-[0px] absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </a>
                 <div aria-label="Options for this ad" role="gridcell">
                   <div
@@ -535,7 +537,7 @@ function Sidebar_2() {
        
             <div className="py-2">
               <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <img
@@ -567,11 +569,13 @@ function Sidebar_2() {
                 </div>
                
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-4">
-  <div className="inline-block w-full p-0 m-0">
+
+  
+  <a className="group relative inline-block w-full p-0 m-0 cursor-pointer">
   <div className="flex flex-col">
     <div className="flex flex-col py-2">
               <div className="relative flex rounded-lg px-4 -m-1.5">
@@ -604,12 +608,15 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
-                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+          
               </div>
               </div>
               </div>
-              </div>
-              <div className="inline-block w-full p-0 m-0">
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+              </a>
+           
+
+              <a className="group relative inline-block w-full p-0 m-0 cursor-pointer">
   <div className="flex flex-col">
     <div className="flex flex-col py-2">
               <div className="relative flex rounded-lg px-4 -m-1.5">
@@ -642,14 +649,16 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
-                <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+          
               </div>
               </div>
               </div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+              </a>
+              
               </div>
-            </div>
-            </div>
-
+              </div>
+          
             <div
               className="absolute left-4 right-4 -bottom-[1px] h-[1px] bg-[#3e4042]"
               role="separator"
@@ -671,7 +680,7 @@ function Sidebar_2() {
 
 <div className="py-2">
 <div className="px-2">
-            <a className="relative block min-w-0 max-w-full rounded-lg margin-0 cursor-pointer">
+            <a className="group relative block min-w-0 max-w-full rounded-lg margin-0 cursor-pointer">
               <div className="relative py-2 w-full flex rounded-lg">
                 <div className="img-wrapper-icons relative flex flex-col self-start ml-[0.5rem] mr-[12px]">
                   <i
@@ -708,7 +717,7 @@ function Sidebar_2() {
 
            
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
             </a>
         
           
@@ -811,7 +820,7 @@ function Sidebar_2() {
 
 <div className="py-2">
                 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -895,12 +904,12 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -977,11 +986,11 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1058,11 +1067,11 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1139,11 +1148,11 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1220,11 +1229,11 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1301,12 +1310,12 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1383,11 +1392,11 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1464,11 +1473,11 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div className="relative inline-block align-bottom">
@@ -1545,7 +1554,7 @@ function Sidebar_2() {
                   </div>
                 </div>
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 </div>
@@ -1575,7 +1584,7 @@ function Sidebar_2() {
                 </div>
                 <div className="py-2">
                 <div className="px-2">
-              <a className="relative no-underline cursor-pointer">
+              <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                 <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                 <div
@@ -1619,7 +1628,7 @@ function Sidebar_2() {
                 </div>
              
               </div>
-              <div className="absolute opacity-0 hover:opacity-100 inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-[8px]"></div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
 </div>
