@@ -40,7 +40,6 @@ function Header() {
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
 
-
   useEffect(() => {
     const updateScrollbar = () => {
       const contentHeight = containerRef.current?.scrollHeight;
@@ -329,12 +328,7 @@ function Header() {
       slug: "/",
       active: true,
       icon: (
-        <svg
-          viewBox="0 0 24 24"
-          width="24"
-          height="24"
-          fill="currentColor"
-        >
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
           <path d="M9.464 1.286C10.294.803 11.092.5 12 .5c.908 0 1.707.303 2.537.786.795.462 1.7 1.142 2.815 1.977l2.232 1.675c1.391 1.042 2.359 1.766 2.888 2.826.53 1.059.53 2.268.528 4.006v4.3c0 1.355 0 2.471-.119 3.355-.124.928-.396 1.747-1.052 2.403-.657.657-1.476.928-2.404 1.053-.884.119-2 .119-3.354.119H7.93c-1.354 0-2.471 0-3.355-.119-.928-.125-1.747-.396-2.403-1.053-.656-.656-.928-1.475-1.053-2.403C1 18.541 1 17.425 1 16.07v-4.3c0-1.738-.002-2.947.528-4.006.53-1.06 1.497-1.784 2.888-2.826L6.65 3.263c1.114-.835 2.02-1.515 2.815-1.977zM10.5 13A1.5 1.5 0 0 0 9 14.5V21h6v-6.5a1.5 1.5 0 0 0-1.5-1.5h-3z"></path>
         </svg>
       ),
@@ -393,23 +387,16 @@ function Header() {
   ];
 
   return (
-    
     <header className="flex flex-col w-full h-[56px] fixed right-0 top-0 bg-[#242526] border-b-[0.5px] border-[#3A3B3C] z-[1]">
- 
-
       <div className="flex top-0 left-0 h-[56px] items-center xl:w-[320px] w-[112px] max-w-[100vw]">
         <div className="relative flex px-[16px] w-full">
-        <div className="relative flex z-3 w-full">
-       <div className="flex items-center w-[36px] shrink-0">
-          </div>
-  
+          <div className="relative flex z-3 w-full">
+            <div className="flex items-center w-[36px] shrink-0"></div>
 
-          <div className="flex shrink-0 w-[12px] h-[56px]">
-            &nbsp;
+            <div className="flex shrink-0 w-[12px] h-[56px]">&nbsp;</div>
+            <Search className="" />
           </div>
-          <Search className="" />
         </div>
-      </div>
       </div>
 
       <nav className="fixed top-0 left-0 right-0 flex justify-center h-[56px] w-full">
@@ -441,15 +428,14 @@ function Header() {
                         {item.icon}
                       </span>
                       <div
-                    style={{inset: '2px 0px'}}
-                      className={`absolute ${
-                        location.pathname !== item.slug
-                          ? "group-hover:bg-[#3A3B3C]"
-                          : ""
-                      } rounded-lg h-[50px]`}
-                    ></div>
+                        style={{ inset: "2px 0px" }}
+                        className={`absolute ${
+                          location.pathname !== item.slug
+                            ? "group-hover:bg-[#3A3B3C]"
+                            : ""
+                        } rounded-lg h-[50px]`}
+                      ></div>
                     </a>
-             
                   </div>
                 </span>
               </li>
@@ -1439,17 +1425,17 @@ function Header() {
               <div
                 onMouseOver={handleShowSettings}
                 onMouseLeave={handleHideSettings}
-                className="relative flex flex-col px-[8px]"
+                className="group relative flex flex-col px-[8px]"
                 role="row"
               >
                 <div
                   data-visualcompletion="ignore-dynamic"
                   role="none"
-                  className="flex flex-col justify-center items-stretch "
+                  className="groupflex flex-col justify-center items-stretch "
                 >
                   <div role="grid-cell">
                     <a
-                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      className="group block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -1571,28 +1557,25 @@ function Header() {
                               </div>
                             </div>
                             <div className="flex items-center">
-                              <div className="inline-flex ">
+                              <div className="inline-flex p-1.5">
                                 <span className="w-[12px] h-[12px] bg-[#0866FF] rounded-full"></span>
                               </div>
                             </div>
                           </div>
-                          <div
-                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                            data-visualcompletion="ignore"
-                          ></div>
+                      
                         </div>
+                 
                       </div>
-                    </a>
-                    <div
+                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div
                       aria-label="Options for this notification"
                       role="gridcell"
                     >
                       <div
-                        className={`flex absolute top-[28%] ${
-                          showSettings
-                            ? "[clip:unset] right-[36px]"
-                            : "clip-element h-[1px] overflow-hidden w-[1px]"
-                        }`}
+                        className="flex absolute top-[28%] group-hover:[clip:unset] group-hover:right-[36px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                        
                       >
                         <div>
                           <div className="rounded-full customShadow">
@@ -1628,8 +1611,11 @@ function Header() {
                         </div>
                       </div>
                     </div>
+                    </a>
+                 
                   </div>
                 </div>
+          
               </div>{" "}
               <div
                 onMouseOver={handleShowSettings}
@@ -1644,7 +1630,7 @@ function Header() {
                 >
                   <div role="grid-cell">
                     <a
-                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      className="group block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -1775,7 +1761,7 @@ function Header() {
                                     className="flex items-center justify-start"
                                     role="img"
                                   >
-                                    <div aria-hidden="true" className="">
+                                    <div aria-hidden="true">
                                       <div
                                         className="relative flex flex-wrap overflow-hidden rounded-full"
                                         role="row"
@@ -1783,97 +1769,44 @@ function Header() {
                                         style={{ height: "16px" }}
                                       >
                                         <div
-                                          className="relative shrink-0"
-                                          style={{
-                                            maxWidth: "100%",
-                                            minWidth: "0px",
-                                            width: "calc(-999900% + 158984px)",
-                                          }}
-                                        ></div>
-                                        <div
                                           className="relative mb-[20px]"
                                           role="cell"
                                         >
-                                          <div className="relative inline-block">
-                                            <img
-                                              height="100%"
-                                              width="100%"
-                                              src="/salar.jpg"
-                                              style={{
-                                                height: "19px",
-                                                width: "16px",
-                                              }}
-                                            ></img>
-                                          </div>
+                               
+                                          <svg
+                                            aria-label="Muhammad Salar"
+                                            className="align-bottom"
+                                            data-visualcompletion="ignore-dynamic"
+                                            role="img"
+                                            style={{height: '16px', width: '16px'}}
+                                          >
+                                            <mask id=":chat_2:">
+                                              <circle
+                                                cx="8"
+                                                cy="8"
+                                                fill="white"
+                                                r="8"
+                                              ></circle>
+                                            </mask>
+                                            <g mask="url(#:chat_2:)">
+                                              <image
+                                                x="0"
+                                                y="0"
+                                                height="100%"
+                                                preserveAspectRatio="xMidYMid slice"
+                                                width="100%"
+                                                xlinkHref="salar.jpg"
+                                                style={{height: '16px', width: '16px'}}
+                                              ></image>
+                                              <circle
+                                                class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                                                cx="8"
+                                                cy="8"
+                                                r="8"
+                                              ></circle>
+                                            </g>
+                                          </svg>
                                         </div>
-                                        {/* <div className="flex absolute inset-0">
-                                      <div
-                                        className="relative flex-shrink-0"
-                                        style={{
-                                          maxWidth: "100%",
-                                          minWidth: "0",
-                                          width: "calc(-999900% + 158984px)",
-                                        }}
-                                      ></div>
-                                      <div
-                                        aria-label="Link to see everyone"
-                                        className="relative w-[16px] touch-manipulation flex items-center h-[16px] min-h-0 min-w-0 rounded-[50%] bg-transparent basis-auto outline-none"
-                                        role="button"
-                                        tabindex="0"
-                                      >
-                                        <svg
-                                          className="absolute inset-0"
-                                          height="16"
-                                          viewBox="0 0 16 16"
-                                          width="16"
-                                        >
-                                          <circle
-                                            className="fill-[rgba(0,0,0,0.4)]"
-                                            cx="8"
-                                            cy="8"
-                                            r="8"
-                                            role="cell"
-                                          ></circle>
-                                          <circle
-                                            className="opacity-0 transition-opacity duration-100 
-                                            [transition-timing-function: cubic-bezier(0,0,1,1)]"
-                                            cx="8"
-                                            cy="8"
-                                            r="8"
-                                            role="cell"
-                                          ></circle>
-                                        </svg>
-                                        <div className="overflow-hidden w-[10px] ml-[6px]">
-                                          <div className="flex justify-center items-center ml-[-6px]">
-                                            <svg
-                                              viewBox="0 0 24 24"
-                                              width="12"
-                                              height="12"
-                                              fill="currentColor"
-                                              aria-hidden="true"
-                                              className="block transition-all duration-200 transition-timing-function: cubic-bezier(0.8,.52,.52,1)"
-                                              style={{ color: "white" }}
-                                            >
-                                              <circle
-                                                cx="12"
-                                                cy="12"
-                                                r="2.5"
-                                              ></circle>
-                                              <circle
-                                                cx="19.5"
-                                                cy="12"
-                                                r="2.5"
-                                              ></circle>
-                                              <circle
-                                                cx="4.5"
-                                                cy="12"
-                                                r="2.5"
-                                              ></circle>
-                                            </svg>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div> */}
                                       </div>
                                     </div>
                                   </div>
@@ -1882,12 +1815,10 @@ function Header() {
                             </div>
                           </div>
 
-                          <div
-                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                            data-visualcompletion="ignore"
-                          ></div>
+                        
                         </div>
                       </div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </a>
                     <div
                       aria-label="Options for this notification"
@@ -1950,7 +1881,7 @@ function Header() {
                 >
                   <div role="grid-cell">
                     <a
-                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      className="group block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -1984,7 +1915,7 @@ function Header() {
                                         height="100%"
                                         preserveAspectRatio="xMidYMid slice"
                                         width="100%"
-                                        xlinkHref="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-1/438652510_7939446242745604_4942007167733713700_n.jpg?stp=dst-jpg_p100x100&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=G48kx52L4AAQ7kNvgGV-69p&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fkhi22-1.fna&oh=00_AfCTZ0oZpSss96VciuSCyrUk3pLDyQO51gw8sUK1_5mBcA&oe=66353B53"
+                                        xlinkHref="khurram.jpg"
                                         style={{
                                           height: "56px",
                                           width: "56px",
@@ -2076,14 +2007,6 @@ function Header() {
                                         style={{ height: "16px" }}
                                       >
                                         <div
-                                          className="relative shrink-0"
-                                          style={{
-                                            maxWidth: "100%",
-                                            minWidth: "0px",
-                                            width: "calc(-999900% + 158984px)",
-                                          }}
-                                        ></div>
-                                        <div
                                           className="relative mb-[20px]"
                                           role="cell"
                                         >
@@ -2106,12 +2029,10 @@ function Header() {
                               </div>
                             </div>
                           </div>
-                          <div
-                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                            data-visualcompletion="ignore"
-                          ></div>
+                    
                         </div>
                       </div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </a>
                     <div
                       aria-label="Options for this notification"
@@ -2174,7 +2095,7 @@ function Header() {
                 >
                   <div role="grid-cell">
                     <a
-                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      className="group block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -2288,7 +2209,7 @@ function Header() {
                               <div className="flex flex-col relative p-[6px] min-w-0 max-w-full">
                                 <div className="flex items-center">
                                   <div
-                                    aria-label="Seen by Muhammad Salar"
+                                    aria-label="Seen by Sajid Hussain Khan"
                                     className="flex items-center justify-start"
                                     role="img"
                                   >
@@ -2300,28 +2221,42 @@ function Header() {
                                         style={{ height: "16px" }}
                                       >
                                         <div
-                                          className="relative shrink-0"
-                                          style={{
-                                            maxWidth: "100%",
-                                            minWidth: "0px",
-                                            width: "calc(-999900% + 158984px)",
-                                          }}
-                                        ></div>
-                                        <div
                                           className="relative mb-[20px]"
                                           role="cell"
                                         >
-                                          <div className="relative inline-block">
-                                            <img
-                                              height="100%"
-                                              width="100%"
-                                              src="/notifIcons/notif_image_2.jpg"
-                                              style={{
-                                                height: "19px",
-                                                width: "16px",
-                                              }}
-                                            ></img>
-                                          </div>
+                                           <svg
+                                            aria-label="Muhammad Salar"
+                                            className="align-bottom"
+                                            data-visualcompletion="ignore-dynamic"
+                                            role="img"
+                                            style={{height: '16px', width: '16px'}}
+                                          >
+                                            <mask id=":chat_2:">
+                                              <circle
+                                                cx="8"
+                                                cy="8"
+                                                fill="white"
+                                                r="8"
+                                              ></circle>
+                                            </mask>
+                                            <g mask="url(#:chat_2:)">
+                                              <image
+                                                x="0"
+                                                y="0"
+                                                height="100%"
+                                                preserveAspectRatio="xMidYMid slice"
+                                                width="100%"
+                                                xlinkHref="/notifIcons/notif_image_2.jpg"
+                                                style={{height: '16px', width: '16px'}}
+                                              ></image>
+                                              <circle
+                                                class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                                                cx="8"
+                                                cy="8"
+                                                r="8"
+                                              ></circle>
+                                            </g>
+                                          </svg>
                                         </div>
                                       </div>
                                     </div>
@@ -2330,12 +2265,10 @@ function Header() {
                               </div>
                             </div>
                           </div>
-                          <div
-                            className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                            data-visualcompletion="ignore"
-                          ></div>
+                           
                         </div>
                       </div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </a>
                     <div
                       aria-label="Options for this notification"

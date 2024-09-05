@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar() {
   const containerRef = useRef(null);
+  const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
@@ -14,11 +15,22 @@ function Sidebar() {
   const [seeMore2, setSeeMore2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(0);
+  const [showEdit, setShowEdit] = useState(false);
 
   const scrollRef = useRef(false);
   const mouseMoveRef = useRef(false);
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
+
+
+const handleEditMenu = () => {
+  setShowEdit(true);
+}
+
+const handleEditMenuStop = () => {
+  setShowEdit(false);
+
+}
 
   const clickHandler = () => {
     setSeeMore((prev) => !prev);
@@ -28,17 +40,16 @@ function Sidebar() {
   };
 
   useEffect(() => {
-    if ((containerRef.current && !seeMore) || (!seeMore2 && !seeMore)) {
-      containerRef.current.scrollTop = 0;
-    }
     if (!seeMore && !seeMore2) {
-      scrollRef.current = false;
-    }
+      scrollRef.current = false;      
+    } 
+
   }, [seeMore, seeMore2]);
+
 
   useEffect(() => {
     const updateScrollbar = () => {
-      const contentHeight = containerRef.current?.scrollHeight;
+      const contentHeight = contentRef.current?.scrollHeight;
       const containerHeight = containerRef.current?.clientHeight;
 
       const scaleValue = contentHeight / containerHeight;
@@ -53,8 +64,7 @@ function Sidebar() {
         (containerHeight / contentHeight) * containerHeight;
 
       if (
-        (seeMore || seeMore2) &&
-        containerRef.current.clientHeight !== containerRef.current.scrollHeight
+        containerRef.current.clientHeight !== contentRef.current.scrollHeight
       ) {
         setThumbHeight(newThumbHeight);
       } else {
@@ -85,7 +95,7 @@ function Sidebar() {
       if (!containerRef.current) return;
 
       const maxScrollHeight =
-        containerRef.current.scrollHeight - containerRef.current.clientHeight;
+        contentRef.current.scrollHeight - containerRef.current.clientHeight;
 
       if (
         direction === "up" &&
@@ -150,7 +160,7 @@ function Sidebar() {
         clientXref.current = e.clientX;
 
         const maxScrollHeight =
-          containerRef.current.scrollHeight - containerRef.current.clientHeight;
+          contentRef.current.scrollHeight - containerRef.current.clientHeight;
 
         if (
           (containerRef.current.scrollTop === 0 &&
@@ -167,7 +177,7 @@ function Sidebar() {
           const scrollY =
             startScrollOffset +
             deltaY *
-              (containerRef.current.scrollHeight /
+              (contentRef.current.scrollHeight /
                 containerRef.current.clientHeight);
 
           containerRef.current.scrollTop = scrollY;
@@ -238,7 +248,7 @@ function Sidebar() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (containerRef.current.clientHeight !== containerRef.current.scrollHeight)
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight) 
       setScrollOpacity(1);
   };
 
@@ -257,14 +267,20 @@ function Sidebar() {
           perspectiveOrigin: "top right",
         }}
         className={`overflow-y-auto
-        overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink min-h-0 basis-full`}
+        overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink basis-[0%]`}
         onMouseEnter={seeMore || seeMore2 ? enterHandler : null}
-        onMouseLeave={seeMore || seeMore2 ? LeaveHandler : null}
+        onMouseLeave={LeaveHandler}
         ref={containerRef}
       >
+        <div 
+        ref={contentRef}
+        className="relative flex flex-col flex-grow">
         <div
-          className={`content-item sidebar flex-grow mt-4 text-[#E4E6EB] w-full cursor-pointer`}
+          className={`content-item flex flex-col sidebar flex-grow mt-4 text-[#E4E6EB] w-full cursor-pointer`}
         >
+          <div 
+          className="flex flex-col flex-grow">
+            <div className="flex-grow">
           <div>
             <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
@@ -1062,7 +1078,10 @@ function Sidebar() {
             ></div>
           </div>
 
-          <div>
+          <div 
+          onMouseOver={handleEditMenu}
+          onMouseLeave={handleEditMenuStop}
+         >
             <div className="pb-2">
               <div className="relative flex flex-col max-w-full z-0 flex-grow min-h-0 pt-[20px] pb-[4px]">
                 <div className="flex flex-col min-w-0 max-w-full">
@@ -1080,7 +1099,7 @@ function Sidebar() {
                               <div className="flex flex-col">
                                 <div className="flex flex-col">
                                   <div className="flex flex-col">
-                                    <span className="block text-[.875rem] text-[#5AA7FF] leading-[1.3333] text-start font-normal overflow-hidden group-hover:opacity-100 opacity-0">
+                                    <span className={`block text-[.875rem] text-[#5AA7FF] leading-[1.3333] text-start font-normal overflow-hidden ${showEdit  ? 'opacity-100' : ''} opacity-0`}>
                                       Edit
                                     </span>
                                   </div>
@@ -1119,13 +1138,15 @@ function Sidebar() {
                               role="none"
                               style={{ height: "36px", width: "36px" }}
                             >
+                              
                               {/* Define a circular mask */}
-                              <mask id=":chat_1:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
+                              <mask id=":shortcut_1:">
+                              <rect cy="18" fill="white" height="36" rx="8" ry="8" width="36" x="0" y="0"></rect>
+                                   
                               </mask>
 
                               {/* Apply the mask to the image */}
-                              <g mask="url(#:chat_1:)">
+                              <g mask="url(#:shortcut_1:)">
                                 <image
                                   x="0"
                                   y="0"
@@ -1135,12 +1156,7 @@ function Sidebar() {
                                   xlinkHref="ppg.jpg"
                                   style={{ height: "36px", width: "36px" }}
                                 ></image>
-                                <circle
-                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
-                                  cx="18"
-                                  cy="18"
-                                  r="18"
-                                ></circle>
+                                <rect className="stroke-2 stroke-[rgba(255,255,255,0.3)]" cy="18" fill="none" height="36" rx="8" ry="8" width="36" x="0" y="0"></rect>
                               </g>
                             </svg>
                             <div
@@ -1192,12 +1208,12 @@ function Sidebar() {
                               style={{ height: "36px", width: "36px" }}
                             >
                               {/* Define a circular mask */}
-                              <mask id=":chat_1:">
-                                <circle cx="18" cy="18" r="18" fill="white" />
+                              <mask id=":shortcut_2:">
+                              <rect cy="18" fill="white" height="36" rx="8" ry="8" width="36" x="0" y="0"></rect>
                               </mask>
 
                               {/* Apply the mask to the image */}
-                              <g mask="url(#:chat_1:)">
+                              <g mask="url(#:shortcut_2:)">
                                 <image
                                   x="0"
                                   y="0"
@@ -1207,12 +1223,9 @@ function Sidebar() {
                                   xlinkHref="ned.jpg"
                                   style={{ height: "36px", width: "36px" }}
                                 ></image>
-                                <circle
-                                  className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
-                                  cx="18"
-                                  cy="18"
-                                  r="18"
-                                ></circle>
+                       
+                                
+                                     <rect className="stroke-2 stroke-[rgba(255,255,255,0.3)]" cy="18" fill="none" height="36" rx="8" ry="8" width="36" x="0" y="0"></rect>
                               </g>
                             </svg>
                             <div
@@ -1265,12 +1278,12 @@ function Sidebar() {
                               style={{ height: "36px", width: "36px" }}
                             >
                               {/* Define a circular mask */}
-                              <mask id=":chat_1:">
+                              <mask id=":shortcut_3:">
                                 <circle cx="18" cy="18" r="18" fill="white" />
                               </mask>
 
                               {/* Apply the mask to the image */}
-                              <g mask="url(#:chat_1:)">
+                              <g mask="url(#:shortcut_3:)">
                                 <image
                                   x="0"
                                   y="0"
@@ -1328,12 +1341,12 @@ function Sidebar() {
                               style={{ height: "36px", width: "36px" }}
                             >
                               {/* Define a circular mask */}
-                              <mask id=":chat_1:">
+                              <mask id=":shortcut_4:">
                                 <circle cx="18" cy="18" r="18" fill="white" />
                               </mask>
 
                               {/* Apply the mask to the image */}
-                              <g mask="url(#:chat_1:)">
+                              <g mask="url(#:shortcut_4:)">
                                 <image
                                   x="0"
                                   y="0"
@@ -1391,12 +1404,12 @@ function Sidebar() {
                               style={{ height: "36px", width: "36px" }}
                             >
                               {/* Define a circular mask */}
-                              <mask id=":chat_1:">
+                              <mask id=":shortcut_5:">
                                 <circle cx="18" cy="18" r="18" fill="white" />
                               </mask>
 
                               {/* Apply the mask to the image */}
-                              <g mask="url(#:chat_1:)">
+                              <g mask="url(#:shortcut_5:)">
                                 <image
                                   x="0"
                                   y="0"
@@ -1500,7 +1513,7 @@ function Sidebar() {
                                   style={{ height: "36px", width: "36px" }}
                                 >
                                   {/* Define a circular mask */}
-                                  <mask id=":chat_1:">
+                                  <mask id=":shortcut_6:">
                                     <circle
                                       cx="18"
                                       cy="18"
@@ -1510,7 +1523,7 @@ function Sidebar() {
                                   </mask>
 
                                   {/* Apply the mask to the image */}
-                                  <g mask="url(#:chat_1:)">
+                                  <g mask="url(#:shortcut_6:)">
                                     <image
                                       x="0"
                                       y="0"
@@ -1569,7 +1582,7 @@ function Sidebar() {
                                   style={{ height: "36px", width: "36px" }}
                                 >
                                   {/* Define a circular mask */}
-                                  <mask id=":chat_1:">
+                                  <mask id=":shortcut_7:">
                                     <circle
                                       cx="18"
                                       cy="18"
@@ -1579,7 +1592,7 @@ function Sidebar() {
                                   </mask>
 
                                   {/* Apply the mask to the image */}
-                                  <g mask="url(#:chat_1:)">
+                                  <g mask="url(#:shortcut_7:)">
                                     <image
                                       x="0"
                                       y="0"
@@ -1664,16 +1677,19 @@ function Sidebar() {
           </div>
         </div>
         <div></div>
+        </div>
+        </div>
+        </div>
 
         <div
           className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full
-    ${scrollOpacity ? "hover:opacity-30 block" : "hidden"}  
+    ${scrollOpacity && 'hover:opacity-30'} 
                   opacity-0 `}
           data-visualcompletion="ignore"
           data-thumb="1"
           ref={trackRef}
           style={{
-            height: `${containerRef.current?.scrollHeight}px`,
+            height: `${contentRef.current?.clientHeight}px`,
             right: "0px",
             transitionProperty: "opacity",
           }}
@@ -1698,6 +1714,8 @@ function Sidebar() {
           <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
         </div>
       </div>
+   
+    
     </div>
   );
 }

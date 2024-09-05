@@ -35,8 +35,7 @@ function Sidebar_2() {
 
   useEffect(() => {
     // console.log('scroll Height', containerRef.current?.scrollHeight);
-    console.log("height", containerRef.current?.clientHeight);
-    console.log("height", containerRef.current?.scrollHeight);
+
 
     const updateScrollbar = () => {
       const contentHeight = containerRef.current?.scrollHeight;
@@ -289,7 +288,7 @@ function Sidebar_2() {
                   tabIndex="0"
                   target="_blank"
                 >
-                  <div className="relative flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
+                  <div className="relative flex text-left p-2 mx-2 rounded-[6px] hover:bg-[rgba(255,255,255,0.1)] cursor-pointer">
                     <div className="">
                       <div className="flex items-center">
                         <div className="w-[40%] self-center shrink-0">
@@ -325,9 +324,8 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
-              
                   </div>
-                  <div className="mx-[8px] my-[0px] absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+       
                 </a>
                 <div aria-label="Options for this ad" role="gridcell">
                   <div
@@ -341,7 +339,7 @@ function Sidebar_2() {
                       <div className="rounded-full customShadow">
                         <div
                           aria-label="Manage ad settings"
-                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center relative customShadow-2 outline-none list-none"
                           role="button"
                           tabIndex="0"
                         >
@@ -361,7 +359,7 @@ function Sidebar_2() {
                             }}
                           ></i>
                           <div
-                            className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                            className="inset-0 rounded-full opacity-0 hover:opacity-100 fade absolute hover:bg-[rgba(255,255,255,0.1)]"
                             role="none"
                             data-visualcompletion="ignore"
                           ></div>
@@ -386,7 +384,7 @@ function Sidebar_2() {
                   tabIndex="0"
                   target="_blank"
                 >
-                  <div className="flex text-left px-4 py-2 rounded-[6px] cursor-pointer">
+                         <div className="relative flex text-left p-2 mx-2 rounded-[6px] hover:bg-[rgba(255,255,255,0.1)] cursor-pointer">
                     <div className="">
                       <div className="flex items-center">
                         <div className="w-[40%] shrink-0 self-center">
@@ -424,7 +422,7 @@ function Sidebar_2() {
                     </div>
                    
                   </div>
-                  <div className="mx-[8px] my-[0px] absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  
                 </a>
                 <div aria-label="Options for this ad" role="gridcell">
                   <div
@@ -438,7 +436,7 @@ function Sidebar_2() {
                       <div className="rounded-full customShadow">
                         <div
                           aria-label="Manage ad settings"
-                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center relative customShadow-2 outline-none list-none"
                           role="button"
                           tabIndex="0"
                         >
@@ -457,11 +455,8 @@ function Sidebar_2() {
                               display: "inline-block",
                             }}
                           ></i>
-                          <div
-                            className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                            role="none"
-                            data-visualcompletion="ignore"
-                          ></div>
+                        <div
+                            className="inset-0 rounded-full opacity-0 hover:opacity-100 fade absolute hover:bg-[rgba(255,255,255,0.1)]"></div>
                         </div>
                       </div>
                     </div>
@@ -579,7 +574,7 @@ function Sidebar_2() {
   <div className="flex flex-col">
     <div className="flex flex-col py-2">
               <div className="relative flex rounded-lg px-4 -m-1.5">
-              <div className="img-wrapper-icons flex flex-col self-start p-1.5 rounded-full">
+              <div className="img-wrapper-icons-2 flex flex-col self-start p-1.5 rounded-full">
                 <i
                   data-visualcompletion="css-img"
                   style={{
@@ -620,7 +615,7 @@ function Sidebar_2() {
   <div className="flex flex-col">
     <div className="flex flex-col py-2">
               <div className="relative flex rounded-lg px-4 -m-1.5">
-              <div className="img-wrapper-icons flex flex-col self-start p-1.5 rounded-full">
+              <div className="img-wrapper-icons-2 flex flex-col self-start p-1.5 rounded-full">
                 <i
                   data-visualcompletion="css-img"
                   style={{
@@ -699,7 +694,7 @@ function Sidebar_2() {
                 <div className="flex flex-col justify-center self-center my-[-5px] flex-grow">
                   <div className="flex flex-col my-[5px]">
                     <span
-                      className="block text-[#E4E6EB] max-w-full min-w-0 text-[.875rem] font-[400] leading-[1.3] textProps text-left mt-[-1px] text-ellipsis"
+                      className="block text-[#E4E6EB] max-w-full min-w-0 text-[.875rem] font-[400] leading-[1.3333] textProps text-left mt-[-1px] text-ellipsis"
                       dir="auto"
                     >
                       <strong className="font-semibold">Muhammad Anas</strong> and{" "}
@@ -742,7 +737,7 @@ function Sidebar_2() {
                             </span>
                           </h3>
                           <div className="flex items-center">
-                          <div className="relative top-[1px] rounded-full hover:bg-[#303031] cursor-pointer">
+                          <div className="group relative top-[1px] rounded-full cursor-pointer">
                     <svg
                       className="w-4 h-4 text-[#B0B3B8]"
                       viewBox="0 0 16 16"
@@ -771,6 +766,7 @@ function Sidebar_2() {
                         </g>
                       </g>
                     </svg>
+                    <div className="absolute opacity-0 group-hover:opacity-100 -inset-2 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </div>
                           <div className="relative flex flex-col max-w-full z-0 justify-center items-center self-center ml-[28px]">
                             <div className="flex flex-col min-w-0 max-w-full">
@@ -833,8 +829,8 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
-                          <circle cx="18" cy="18" r="18" fill="white" />
+                        <mask id=":chat_10:">
+                          <circle cx="18" cy="18" r="18" fill="white"> </circle>
                           <circle
                             cx="31"
                             cy="31"
@@ -845,7 +841,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_10:)">
                           <image
                             x="0"
                             y="0"
@@ -871,15 +867,7 @@ function Sidebar_2() {
                           ></circle>
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -922,7 +910,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_2:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -934,7 +922,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_2:)">
                           <image
                             x="0"
                             y="0"
@@ -945,7 +933,8 @@ function Sidebar_2() {
                             style={{ height: "36px", width: "36px" }}
                           ></image>
                           <circle
-                            className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                          style={{stroke:'rgba(255,255,255,0.05'}}
+                            className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
                             cx="18"
                             cy="18"
                             r="18"
@@ -953,18 +942,10 @@ function Sidebar_2() {
                          
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                      <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
                     </div>
 
-                    <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+                    
                   </div>
 
                 </div>
@@ -1003,7 +984,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_3:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1015,7 +996,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_3:)">
                           <image
                             x="0"
                             y="0"
@@ -1034,15 +1015,7 @@ function Sidebar_2() {
                    
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -1084,7 +1057,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_4:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1096,7 +1069,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_4:)">
                           <image
                             x="0"
                             y="0"
@@ -1115,15 +1088,7 @@ function Sidebar_2() {
                     
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -1165,7 +1130,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_5:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1177,7 +1142,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_5:)">
                           <image
                             x="0"
                             y="0"
@@ -1196,15 +1161,7 @@ function Sidebar_2() {
                     
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -1246,7 +1203,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_6:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1258,7 +1215,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_6:)">
                           <image
                             x="0"
                             y="0"
@@ -1277,15 +1234,7 @@ function Sidebar_2() {
                     
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -1328,7 +1277,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_7:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1340,7 +1289,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_7:)">
                           <image
                             x="0"
                             y="0"
@@ -1359,15 +1308,7 @@ function Sidebar_2() {
                     
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -1409,7 +1350,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_8:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1421,7 +1362,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_8:)">
                           <image
                             x="0"
                             y="0"
@@ -1440,15 +1381,7 @@ function Sidebar_2() {
                     
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
@@ -1490,7 +1423,7 @@ function Sidebar_2() {
                         style={{ height: "36px", width: "36px" }}
                       >
                         {/* Define a circular mask */}
-                        <mask id=":chat_1:">
+                        <mask id=":chat_9:">
                           <circle cx="18" cy="18" r="18" fill="white" />
                           <circle
                             cx="31"
@@ -1502,7 +1435,7 @@ function Sidebar_2() {
                         </mask>
 
                         {/* Apply the mask to the image */}
-                        <g mask="url(#:chat_1:)">
+                        <g mask="url(#:chat_9:)">
                           <image
                             x="0"
                             y="0"
@@ -1521,15 +1454,7 @@ function Sidebar_2() {
                     
                         </g>
                       </svg>
-                      <div
-                        className="absolute z-[2] rounded-[50%]"
-                        data-visualcompletion="ignore"
-                        style={{
-                          bottom: "8px",
-                          right: "8px",
-                          transform: "translate(50%, 50%)",
-                        }}
-                      ></div>
+                   
                     </div>
 
                     <span className="absolute right-[1px] bottom-[1px] w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>

@@ -307,7 +307,6 @@ scrollbar-color: #7B7B7B #424242;
 
 .clip-element {
   clip: rect(1px, 1px, 1px, 1px);
-  clip-path: circle(1px at 0% 0%);
 }
 
 .textClass {
@@ -345,7 +344,7 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
 .fade {
-  transition-property: 'opacity';
+  transition-property: opacity;
   transition-timing-function: cubic-bezier(0, 0, 1, 1);
   transition-duration: 100ms;
 }
@@ -382,6 +381,8 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
   .img-wrapper-icons {
     transform: scale(.77777777);
     margin: 4px 6px 4px -4px;
+  }.img-wrapper-icons-2 {
+    transform: scale(.77777777);
   }
 }
 

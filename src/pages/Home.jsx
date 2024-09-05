@@ -23,7 +23,7 @@ function Home() {
         >
           <div
             style={{ minHeight: "calc(100vh - 56px)" }}
-            className="main-section-container relative flex basis-0 min-w-0 shrink items-stretch justify-between flex-grow min-h-[inherit]"
+            className="main-section-container relative flex basis-0 min-w-0 shrink items-stretch justify-between flex-grow"
           >
             <div
               style={{ overflowAnchor: "none" }}
@@ -31,7 +31,7 @@ function Home() {
             >
               <Sidebar />
             </div>
-            <div className="flex flex-grow justify-center min-w-0 md:px-[32px] items-stretch basis-[744px] shrink">
+            <div className="flex flex-grow justify-center min-w-0 md:px-[32px] items-stretch basis-[741px] shrink">
               <div className="min-w-0 max-w-full shrink-0 flex flex-col">
                 <div className="flex flex-col mt-[8px] w-full">
                   <div className="stories max-w-full w-[590px] ">
