@@ -1562,60 +1562,55 @@ function Header() {
                               </div>
                             </div>
                           </div>
-                      
                         </div>
-                 
                       </div>
                       <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       <div
-                      aria-label="Options for this notification"
-                      role="gridcell"
-                    >
-                      <div
-                        className="flex absolute top-[28%] group-hover:[clip:unset] group-hover:right-[36px]
+                        aria-label="Options for this notification"
+                        role="gridcell"
+                      >
+                        <div
+                          className="flex absolute top-[28%] group-hover:[clip:unset] group-hover:right-[36px]
                         group-hover:overflow-visible
                        h-[1px] overflow-hidden w-[1px]"
-                        
-                      >
-                        <div>
-                          <div className="rounded-full customShadow">
-                            <div
-                              aria-label="Manage notification settings"
-                              className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                              role="button"
-                              tabIndex="0"
-                            >
-                              <i
-                                data-visualcompletion="css-img"
-                                className="align-[-0.25em] text-[#B0B3B8]"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage:
-                                    'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                                  backgroundPosition: "0px -494px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                }}
-                              ></i>
+                        >
+                          <div>
+                            <div className="rounded-full customShadow">
                               <div
-                                className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                                role="none"
-                                data-visualcompletion="ignore"
-                              ></div>
+                                aria-label="Manage notification settings"
+                                className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                                role="button"
+                                tabIndex="0"
+                              >
+                                <i
+                                  data-visualcompletion="css-img"
+                                  className="align-[-0.25em] text-[#B0B3B8]"
+                                  style={{
+                                    filter:
+                                      "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                                    backgroundImage:
+                                      'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                                    backgroundPosition: "0px -494px",
+                                    backgroundSize: "auto",
+                                    width: "20px",
+                                    height: "20px",
+                                    backgroundRepeat: "no-repeat",
+                                    display: "inline-block",
+                                  }}
+                                ></i>
+                                <div
+                                  className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                                  role="none"
+                                  data-visualcompletion="ignore"
+                                ></div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
                     </a>
-                 
                   </div>
                 </div>
-          
               </div>{" "}
               <div
                 onMouseOver={handleShowSettings}
@@ -1772,13 +1767,15 @@ function Header() {
                                           className="relative mb-[20px]"
                                           role="cell"
                                         >
-                               
                                           <svg
                                             aria-label="Muhammad Salar"
                                             className="align-bottom"
                                             data-visualcompletion="ignore-dynamic"
                                             role="img"
-                                            style={{height: '16px', width: '16px'}}
+                                            style={{
+                                              height: "16px",
+                                              width: "16px",
+                                            }}
                                           >
                                             <mask id=":chat_2:">
                                               <circle
@@ -1796,7 +1793,10 @@ function Header() {
                                                 preserveAspectRatio="xMidYMid slice"
                                                 width="100%"
                                                 xlinkHref="salar.jpg"
-                                                style={{height: '16px', width: '16px'}}
+                                                style={{
+                                                  height: "16px",
+                                                  width: "16px",
+                                                }}
                                               ></image>
                                               <circle
                                                 class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
@@ -1814,8 +1814,6 @@ function Header() {
                               </div>
                             </div>
                           </div>
-
-                        
                         </div>
                       </div>
                       <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
@@ -2029,7 +2027,6 @@ function Header() {
                               </div>
                             </div>
                           </div>
-                    
                         </div>
                       </div>
                       <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
@@ -2224,12 +2221,15 @@ function Header() {
                                           className="relative mb-[20px]"
                                           role="cell"
                                         >
-                                           <svg
+                                          <svg
                                             aria-label="Muhammad Salar"
                                             className="align-bottom"
                                             data-visualcompletion="ignore-dynamic"
                                             role="img"
-                                            style={{height: '16px', width: '16px'}}
+                                            style={{
+                                              height: "16px",
+                                              width: "16px",
+                                            }}
                                           >
                                             <mask id=":chat_2:">
                                               <circle
@@ -2247,7 +2247,10 @@ function Header() {
                                                 preserveAspectRatio="xMidYMid slice"
                                                 width="100%"
                                                 xlinkHref="/notifIcons/notif_image_2.jpg"
-                                                style={{height: '16px', width: '16px'}}
+                                                style={{
+                                                  height: "16px",
+                                                  width: "16px",
+                                                }}
                                               ></image>
                                               <circle
                                                 class="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
@@ -2265,7 +2268,6 @@ function Header() {
                               </div>
                             </div>
                           </div>
-                           
                         </div>
                       </div>
                       <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
@@ -2355,6 +2357,7 @@ function Header() {
                 perspective: "1px",
                 transformStyle: "preserve-3d",
                 perspectiveOrigin: "top right",
+                overflowAnchor: "none",
               }}
             >
               <div className="flex flex-col min-h-0 flex-grow">

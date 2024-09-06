@@ -26,7 +26,6 @@ function Home() {
             className="main-section-container relative flex basis-0 min-w-0 shrink items-stretch justify-between flex-grow"
           >
             <div
-              style={{ overflowAnchor: "none" }}
               className="sidebar_1 sticky z-0 left-0 top-[56px] max-w-[360px] min-w-[280px] overflow-hidden basis-[360px] shrink-[9999] min-h-[inherit] max-h-0"
             >
               <Sidebar />

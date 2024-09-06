@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 function Sidebar_2() {
   const containerRef = useRef(null);
+  const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
@@ -34,11 +35,11 @@ function Sidebar_2() {
   };
 
   useEffect(() => {
-    // console.log('scroll Height', containerRef.current?.scrollHeight);
+    // console.log('scroll Height', contentRef.current?.scrollHeight);
 
 
     const updateScrollbar = () => {
-      const contentHeight = containerRef.current?.scrollHeight;
+      const contentHeight = contentRef.current?.scrollHeight;
       const containerHeight = containerRef.current?.clientHeight;
 
       const scaleValue = contentHeight / containerHeight;
@@ -51,7 +52,7 @@ function Sidebar_2() {
 
       const newThumbHeight =
         (containerHeight / contentHeight) * containerHeight;
-      if (thumbHeight === containerRef.current.scrollHeight) {
+      if (thumbHeight === contentRef.current.scrollHeight) {
         setScrollOpacity(0);
       }
       setThumbHeight(newThumbHeight);
@@ -79,7 +80,7 @@ function Sidebar_2() {
       if (!containerRef.current) return;
 
       const maxScrollHeight =
-        containerRef.current.scrollHeight - containerRef.current.clientHeight;
+        contentRef.current.scrollHeight - containerRef.current.clientHeight;
 
       if (
         direction === "up" &&
@@ -144,7 +145,7 @@ function Sidebar_2() {
         clientXref.current = e.clientX;
 
         const maxScrollHeight =
-          containerRef.current.scrollHeight - containerRef.current.clientHeight;
+          contentRef.current.scrollHeight - containerRef.current.clientHeight;
 
         if (
           (containerRef.current.scrollTop === 0 &&
@@ -161,7 +162,7 @@ function Sidebar_2() {
           const scrollY =
             startScrollOffset +
             deltaY *
-              (containerRef.current.scrollHeight /
+              (contentRef.current.scrollHeight /
                 containerRef.current.clientHeight);
 
           containerRef.current.scrollTop = scrollY;
@@ -232,7 +233,7 @@ function Sidebar_2() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (thumbHeight !== containerRef.current.scrollHeight) setScrollOpacity(1);
+    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
   };
 
   const LeaveHandler = () => {
@@ -249,12 +250,20 @@ function Sidebar_2() {
           perspective: "1px",
           transformStyle: "preserve-3d",
           perspectiveOrigin: "top right",
+          overflowAnchor: "none"
+          
         }}
         ref={containerRef}
         onMouseEnter={enterHandler}
         onMouseLeave={LeaveHandler}
       >
+        <div  className="relative flex flex-col flex-grow">
         <div className={`sidebar text-white pt-2 flex-grow`}>
+        <div 
+        ref={contentRef}
+          className="flex flex-col flex-grow">
+            <div className="flex-grow">
+
           <div className="ads-section relative">
             <div className="flex flex-col">
               <div className="flex flex-col">
@@ -1556,6 +1565,7 @@ function Sidebar_2() {
               <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </a>
 </div>
+</div>  </div>
 </div>
           </div>
 
@@ -1567,11 +1577,13 @@ function Sidebar_2() {
             data-thumb="1"
             ref={trackRef}
             style={{
-              height: `${containerRef.current?.scrollHeight}px`,
+              height: `${(contentRef.current?.scrollHeight)}px`,
               right: "0px",
               transitionProperty: "opacity",
             }}
           ></div>
+        </div>
+      
         </div>
         <div
           className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-[4px] py-0 m-0

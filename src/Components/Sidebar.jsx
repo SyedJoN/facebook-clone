@@ -13,7 +13,7 @@ function Sidebar() {
 
   const [seeMore, setSeeMore] = useState(false);
   const [seeMore2, setSeeMore2] = useState(false);
-  const [scrollOpacity, setScrollOpacity] = useState(0);
+  const [scrollOpacity, setScrollOpacity] = useState(1);
   const [thumbHeight, setThumbHeight] = useState(0);
   const [showEdit, setShowEdit] = useState(false);
 
@@ -43,14 +43,14 @@ const handleEditMenuStop = () => {
     if (!seeMore && !seeMore2) {
       scrollRef.current = false;      
     } 
-
+  
   }, [seeMore, seeMore2]);
 
 
   useEffect(() => {
     const updateScrollbar = () => {
-      const contentHeight = contentRef.current?.scrollHeight;
       const containerHeight = containerRef.current?.clientHeight;
+      const contentHeight = contentRef.current?.scrollHeight;
 
       const scaleValue = contentHeight / containerHeight;
       scaleRef.current = scaleValue;
@@ -64,19 +64,22 @@ const handleEditMenuStop = () => {
         (containerHeight / contentHeight) * containerHeight;
 
       if (
-        containerRef.current.clientHeight !== contentRef.current.scrollHeight
+        containerHeight !== contentHeight
       ) {
         setThumbHeight(newThumbHeight);
-      } else {
+        setScrollOpacity(1);
+      }
+    else {
         setScrollOpacity(0);
         setThumbHeight(0);
       }
+   
     };
 
     const handleResize = () => updateScrollbar();
-
     // Update scrollbar on initial render and window resize
     updateScrollbar();
+ 
     window.addEventListener("resize", handleResize);
 
     // Cleanup function
@@ -84,6 +87,8 @@ const handleEditMenuStop = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [seeMore, seeMore2]);
+
+
 
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
@@ -254,7 +259,8 @@ const handleEditMenuStop = () => {
 
   const LeaveHandler = () => {
     leaveHandlerFnRef.current = true;
-    !scrollRef.current && setScrollOpacity(0);
+    const isScrollable = containerRef.current?.clientHeight !== contentRef.current?.scrollHeight;
+    !scrollRef.current && isScrollable && setScrollOpacity(0);
   };
 
   return (
@@ -265,10 +271,11 @@ const handleEditMenuStop = () => {
           perspective: "1px",
           transformStyle: "preserve-3d",
           perspectiveOrigin: "top right",
+          overflowAnchor: "none"
         }}
         className={`overflow-y-auto
-        overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink basis-[0%]`}
-        onMouseEnter={seeMore || seeMore2 ? enterHandler : null}
+        overflow-x-hidden overscroll-y-contain relative hidden lg:flex lg:flex-col flex-grow shrink basis-[100%]`}
+        onMouseEnter={enterHandler}
         onMouseLeave={LeaveHandler}
         ref={containerRef}
       >
@@ -296,7 +303,7 @@ const handleEditMenuStop = () => {
                     <div className="relative flex flex-col max-w-full flex-grow z-[2]">
                       <div className="flex flex-col min-w-0 max-w-full py-2">
                         <div className="flex flex-col flex-grow min-h-0">
-                          <div className="flex flex-col ">
+                          <div className="flex flex-col">
                             <div className="flex flex-col -my-[5px]">
                               <div className="ba_1 my-[5px]">
                                 <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -334,7 +341,7 @@ const handleEditMenuStop = () => {
                     <div className="relative flex flex-col max-w-full z-0 flex-grow">
                       <div className="flex flex-col min-w-0 max-w-full py-2">
                         <div className="flex flex-col flex-grow min-h-0">
-                          <div className="flex flex-col ">
+                          <div className="flex flex-col">
                             <div className="flex flex-col -my-[5px]">
                               <div className="ba_1 my-[5px]">
                                 <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -362,7 +369,7 @@ const handleEditMenuStop = () => {
                     <div className="relative flex flex-col max-w-full z-0 flex-grow">
                       <div className="flex flex-col min-w-0 max-w-full py-2">
                         <div className="flex flex-col flex-grow min-h-0">
-                          <div className="flex flex-col ">
+                          <div className="flex flex-col">
                             <div className="flex flex-col -my-[5px]">
                               <div className="ba_1 my-[5px]">
                                 <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -401,7 +408,7 @@ const handleEditMenuStop = () => {
                     <div className="relative flex flex-col max-w-full z-0 flex-grow">
                       <div className="flex flex-col min-w-0 max-w-full py-2">
                         <div className="flex flex-col flex-grow min-h-0">
-                          <div className="flex flex-col ">
+                          <div className="flex flex-col">
                             <div className="flex flex-col -my-[5px]">
                               <div className="ba_1 my-[5px]">
                                 <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -440,7 +447,7 @@ const handleEditMenuStop = () => {
                     <div className="relative flex flex-col max-w-full z-0 flex-grow">
                       <div className="flex flex-col min-w-0 max-w-full py-2">
                         <div className="flex flex-col flex-grow min-h-0">
-                          <div className="flex flex-col ">
+                          <div className="flex flex-col">
                             <div className="flex flex-col -my-[5px]">
                               <div className="ba_1 my-[5px]">
                                 <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -479,7 +486,7 @@ const handleEditMenuStop = () => {
                     <div className="relative flex flex-col max-w-full z-0 flex-grow">
                       <div className="flex flex-col min-w-0 max-w-full py-2">
                         <div className="flex flex-col flex-grow min-h-0">
-                          <div className="flex flex-col ">
+                          <div className="flex flex-col">
                             <div className="flex flex-col -my-[5px]">
                               <div className="ba_1 my-[5px]">
                                 <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -520,7 +527,7 @@ const handleEditMenuStop = () => {
                       <div className="relative flex flex-col max-w-full z-0 flex-grow">
                         <div className="flex flex-col min-w-0 max-w-full py-2">
                           <div className="flex flex-col flex-grow min-h-0">
-                            <div className="flex flex-col ">
+                            <div className="flex flex-col">
                               <div className="flex flex-col -my-[5px]">
                                 <div className="ba_1 my-[5px]">
                                   <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -562,7 +569,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -591,7 +598,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -630,7 +637,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -659,7 +666,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -699,7 +706,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -728,7 +735,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -768,7 +775,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -808,7 +815,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -837,7 +844,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -866,7 +873,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -906,7 +913,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -946,7 +953,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -975,7 +982,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1015,7 +1022,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full z-0 flex-grow">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1053,7 +1060,7 @@ const handleEditMenuStop = () => {
                       <div className="relative flex flex-col max-w-full z-0 flex-grow">
                         <div className="flex flex-col min-w-0 max-w-full py-2">
                           <div className="flex flex-col flex-grow min-h-0">
-                            <div className="flex flex-col ">
+                            <div className="flex flex-col">
                               <div className="flex flex-col -my-[5px]">
                                 <div className="ba_1 my-[5px]">
                                   <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1175,7 +1182,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1244,7 +1251,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1308,7 +1315,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1371,7 +1378,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1434,7 +1441,7 @@ const handleEditMenuStop = () => {
                         <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                           <div className="flex flex-col min-w-0 max-w-full py-2">
                             <div className="flex flex-col flex-grow min-h-0">
-                              <div className="flex flex-col ">
+                              <div className="flex flex-col">
                                 <div className="flex flex-col -my-[5px]">
                                   <div className="ba_1 my-[5px]">
                                     <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1452,52 +1459,9 @@ const handleEditMenuStop = () => {
                   </a>
                 </div>
               </li>
-            </ul>
-            {!seeMore2 && (
-              <div onClick={() => clickHandler2()} className="px-2">
-                <a className="group relative no-underline cursor-pointer">
-                  <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                    <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
-                      <svg
-                        viewBox="0 0 16 16"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                      >
-                        <g fillRule="evenodd" transform="translate(-448 -544)">
-                          <path
-                            fillRule="nonzero"
-                            d="M452.707 549.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L456 552.586l-3.293-3.293z"
-                          ></path>
-                        </g>
-                      </svg>
-                    </div>
-                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
-                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
-                        <div className="flex flex-col min-w-0 max-w-full py-2">
-                          <div className="flex flex-col flex-grow min-h-0">
-                            <div className="flex flex-col ">
-                              <div className="flex flex-col -my-[5px]">
-                                <div className="ba_1 my-[5px]">
-                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
-                                    See more
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                  </div>
-                </a>
-              </div>
-            )}
-
-            {seeMore2 && (
-              <div>
-                <ul>
+              {seeMore2 && (
+            <>
+                
                   <li>
                     <div className="px-2">
                       <a className="group relative no-underline cursor-pointer">
@@ -1548,7 +1512,7 @@ const handleEditMenuStop = () => {
                             <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                               <div className="flex flex-col min-w-0 max-w-full py-2">
                                 <div className="flex flex-col flex-grow min-h-0">
-                                  <div className="flex flex-col ">
+                                  <div className="flex flex-col">
                                     <div className="flex flex-col -my-[5px]">
                                       <div className="ba_1 my-[5px]">
                                         <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1617,7 +1581,7 @@ const handleEditMenuStop = () => {
                             <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
                               <div className="flex flex-col min-w-0 max-w-full py-2">
                                 <div className="flex flex-col flex-grow min-h-0">
-                                  <div className="flex flex-col ">
+                                  <div className="flex flex-col">
                                     <div className="flex flex-col -my-[5px]">
                                       <div className="ba_1 my-[5px]">
                                         <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1635,9 +1599,56 @@ const handleEditMenuStop = () => {
                       </a>
                     </div>
                   </li>
-                </ul>
+                  
+                </>
+          
+            )}
+              </ul>
+         
+            {!seeMore2 && (
+              <div onClick={() => clickHandler2()} className="px-2">
+                <a className="group relative no-underline cursor-pointer">
+                  <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                    <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
+                      <svg
+                        viewBox="0 0 16 16"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                      >
+                        <g fillRule="evenodd" transform="translate(-448 -544)">
+                          <path
+                            fillRule="nonzero"
+                            d="M452.707 549.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L456 552.586l-3.293-3.293z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                      <div className="relative flex flex-col max-w-full z-0 flex-grow">
+                        <div className="flex flex-col min-w-0 max-w-full py-2">
+                          <div className="flex flex-col flex-grow min-h-0">
+                            <div className="flex flex-col">
+                              <div className="flex flex-col -my-[5px]">
+                                <div className="ba_1 my-[5px]">
+                                  <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                    See more
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  </div>
+                </a>
               </div>
             )}
+
+         
+
             {seeMore2 && (
               <div onClick={() => clickHandler2()} className="px-2">
                 <a className="group relative no-underline cursor-pointer">
@@ -1656,7 +1667,7 @@ const handleEditMenuStop = () => {
                       <div className="relative flex flex-col max-w-full z-0 flex-grow">
                         <div className="flex flex-col min-w-0 max-w-full py-2">
                           <div className="flex flex-col flex-grow min-h-0">
-                            <div className="flex flex-col ">
+                            <div className="flex flex-col">
                               <div className="flex flex-col -my-[5px]">
                                 <div className="ba_1 my-[5px]">
                                   <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
@@ -1676,7 +1687,7 @@ const handleEditMenuStop = () => {
             )}
           </div>
         </div>
-        <div></div>
+      
         </div>
         </div>
         </div>
@@ -1689,7 +1700,7 @@ const handleEditMenuStop = () => {
           data-thumb="1"
           ref={trackRef}
           style={{
-            height: `${contentRef.current?.clientHeight}px`,
+            height: `${(contentRef.current?.scrollHeight)}px`,
             right: "0px",
             transitionProperty: "opacity",
           }}
