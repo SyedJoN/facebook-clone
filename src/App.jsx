@@ -20,9 +20,7 @@ function App() {
         <div>Loading...</div>
       ) : (
         <div
-          className={`${
-            writePost ? "fixed inset-0" : "relative z-0"
-          } mainScroll`}
+          className="relative z-0 mainScroll"
         >
           <div role="banner">
             <a className="fixed flex items-center top-0 flex-shrink-0 h-[56px] ml-4 z-[3]">
@@ -43,7 +41,7 @@ function App() {
           </a>
           <Header />
           </div>
-          <div className="relative z-0 box-border">
+          <div className={`${writePost ? 'fixed right-0 left-0 mainScroll overflow-y-auto w-full h-full' : 'relative z-0'}`}>
             <main
               style={{ minHeight: "calc(100vh - 56px)" }}
               className="relative z-0 bg-[#18191A] flex flex-col top-[56px]"
@@ -55,18 +53,23 @@ function App() {
       )}
       <div>
         {writePost && (
-          <div className="relative z-3">
+          <div className="relative z-[3]">
             <div className="relative z-0">
-              <div className="flex flex-col justify-center relative min-h-[100vh]">
+              
+              <div className="postCard flex flex-col justify-center relative min-h-[100vh]">
                 <div
                   onClick={() => handleClosePost()}
                   className="fixed inset-0 bg-[rgba(11,11,11,0.8)]"
                 ></div>
+                <div className="relative flex-shrink-[inherit] flex-grow-[inherit] flex-direction-[inherit] justify-content-[inherit] align-items-[inherit] h-[inherit] max-h-[inherit] min-h-[inherit]">
+                <div className="flex flex-col justify-center items-stretch flex-grow-0 min-h-[100vh]">
                 <div className="flex min-h-[500px] py-14 px-2 items-stretch justify-center max-w-full min-w-0 pointer-events-none overflow-hidden z-0">
                   <div className="relative flex flex-col max-w-full overflow-hidden outline-none bg-[#242526] z-0 rounded-[8px] shadowStyle-1 box-content">
                     {writePost && <WritePostCard />}
                   </div>
                 </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>

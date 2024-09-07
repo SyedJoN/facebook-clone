@@ -14,6 +14,28 @@ const [keyPressed, setKeyPressed] = useState(false);
   const brCountRef = useRef(1)
   const [showScroll, setShowScroll] = useState(false);
 
+  const [postWidth, setPostWidth] = useState(500);
+  const [postHeight, setPostHeight] = useState(428);
+  const writePostRef = useRef(null);
+
+useEffect(() => {
+  const handleResize = () => {
+if (window.innerWidth >= 428) {
+  // setPostWidth = 0.8 * window.innerWidth;
+  setPostHeight(0.8 * window.innerHeight);
+}
+
+  }
+  handleResize();
+
+
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  }
+}, [])
+
+
 
   const countBrTags = (htmlString) => {
     const div = document.createElement("div");
@@ -95,8 +117,13 @@ const [keyPressed, setKeyPressed] = useState(false);
   };
 
   return (
-    <div className="md:w-[500px] w-[420px] h-fit rounded-lg relative outline-none">
-      <div className="w-full max-h-[90vh] min-h-[428px] flex overflow-visible">
+    <div 
+    style={{width: postWidth + 'px', height: postHeight + 'px'}}
+
+    className="">
+    <div 
+    className="flex-grow rounded-lg relative outline-none">
+      <div className="postCardOuter w-full max-h-[90vh] min-h-[428px] flex overflow-visible ">
         <div className="relative inset-0 pointer-events-auto flex flex-col w-[500px] min-h-[428px]">
           <div>
             <div className="flex justify-center items-center h-[60px] border-[rgba(255,255,255,0.05)] border-b-[1px]">
@@ -372,6 +399,7 @@ const [keyPressed, setKeyPressed] = useState(false);
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

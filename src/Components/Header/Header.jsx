@@ -250,25 +250,6 @@ function Header() {
     !scrollRef.current && setScrollOpacity(0);
   };
 
-  const handleShowSettings = () => {
-    setShowSettings(true);
-  };
-  const handleHideSettings = () => {
-    setShowSettings(false);
-  };
-  const handleShowSettings2 = () => {
-    setShowSettings2(true);
-  };
-  const handleHideSettings2 = () => {
-    setShowSettings2(false);
-  };
-  const handleShowSettings3 = () => {
-    setShowSettings3(true);
-  };
-  const handleHideSettings3 = () => {
-    setShowSettings3(false);
-  };
-
   const handleNotif = () => {
     setShowNotif((prev) => !prev);
     setShowMessenger(false);
@@ -624,22 +605,17 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div
-              onMouseOver={handleShowSettings}
-              onMouseLeave={handleHideSettings}
-              className="relative"
-              role="row"
-            >
-              <div
-                data-visualcompletion="ignore-dynamic"
-                role="none"
-                className="px-[8px]"
-              >
-                <div role="grid-cell">
-                  <a
-                    className="block relative rounded-[8px] bg-transparent"
-                    href=""
-                  >
+            <div className="group relative flex flex-col px-[8px]" role="row">
+                <div
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
+                >
+                  <div role="grid-cell">
+                    <a
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      href=""
+                    >
                     <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[11.5px] self-start relative">
                         <div className="inline-block align-bottom">
@@ -784,26 +760,25 @@ function Header() {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] select-none"
-                      data-visualcompletion="ignore"
-                    ></div>
+                   
                   </a>
                 </div>
+                <div
+                      className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"
+                      data-visualcompletion="ignore"
+                    ></div>
               </div>
               <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={`flex absolute top-[24%] ${
-                    showSettings
-                      ? "[clip:unset] right-[36px]"
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
+                  className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
                 >
                   <div>
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -813,8 +788,7 @@ function Header() {
                           style={{
                             filter:
                               "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundImage: "url(/3dots.png)",
                             backgroundPosition: "0px -494px",
                             backgroundSize: "auto",
                             width: "20px",
@@ -824,7 +798,7 @@ function Header() {
                           }}
                         ></i>
                         <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
                           role="none"
                           data-visualcompletion="ignore"
                         ></div>
@@ -834,22 +808,17 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div
-              onMouseOver={handleShowSettings2}
-              onMouseLeave={handleHideSettings2}
-              className="relative"
-              role="row"
-            >
-              <div
-                data-visualcompletion="ignore-dynamic"
-                role="none"
-                className="px-[8px]"
-              >
-                <div role="grid-cell">
-                  <a
-                    className="block relative rounded-[8px] bg-transparent"
-                    href=""
-                  >
+            <div className="group relative flex flex-col px-[8px]" role="row">
+                <div
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
+                >
+                  <div role="grid-cell">
+                    <a
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      href=""
+                    >
                     <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[11.5px] self-start relative">
                         <div className="inline-block align-bottom">
@@ -982,26 +951,25 @@ function Header() {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px] "
-                      data-visualcompletion="ignore"
-                    ></div>
+                
                   </a>
                 </div>
+                <div
+                      className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"
+                      data-visualcompletion="ignore"
+                    ></div>
               </div>
               <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={`flex absolute top-[24%] ${
-                    showSettings2
-                      ? "[clip:unset] right-[36px] "
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
+                  className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
                 >
                   <div>
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1011,8 +979,7 @@ function Header() {
                           style={{
                             filter:
                               "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundImage: "url(/3dots.png)",
                             backgroundPosition: "0px -494px",
                             backgroundSize: "auto",
                             width: "20px",
@@ -1022,7 +989,7 @@ function Header() {
                           }}
                         ></i>
                         <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
                           role="none"
                           data-visualcompletion="ignore"
                         ></div>
@@ -1032,22 +999,17 @@ function Header() {
                 </div>
               </div>
             </div>
-            <div
-              onMouseOver={handleShowSettings3}
-              onMouseLeave={handleHideSettings3}
-              className="relative"
-              role="row"
-            >
-              <div
-                data-visualcompletion="ignore-dynamic"
-                role="none"
-                className="px-[8px]"
-              >
-                <div role="grid-cell">
-                  <a
-                    className="block relative rounded-[8px] bg-transparent"
-                    href=""
-                  >
+            <div className="group relative flex flex-col px-[8px]" role="row">
+                <div
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
+                >
+                  <div role="grid-cell">
+                    <a
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
+                      href=""
+                    >
                     <div className="flex px-[8px] justify-between items-center">
                       <div className="flex flex-col mb-[6px] mt-[6px] mr-[11.5px] self-start relative">
                         <div className="inline-block align-bottom">
@@ -1195,7 +1157,7 @@ function Header() {
                       </div>
                     </div>
                     <div
-                      className="opacity-0 hover:opacity-10 bg-white absolute inset-0 transition-opacity ease-in-out rounded-[8px]"
+                      className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"
                       data-visualcompletion="ignore"
                     ></div>
                   </a>
@@ -1203,17 +1165,15 @@ function Header() {
               </div>
               <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className={`flex absolute top-[24%] ${
-                    showSettings3
-                      ? "[clip:unset] right-[36px] "
-                      : "clip-element h-[1px] overflow-hidden w-[1px]"
-                  }`}
+                  className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
                 >
                   <div>
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1223,8 +1183,7 @@ function Header() {
                           style={{
                             filter:
                               "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                            backgroundImage:
-                              'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
+                            backgroundImage: "url(/3dots.png)",
                             backgroundPosition: "0px -494px",
                             backgroundSize: "auto",
                             width: "20px",
@@ -1234,7 +1193,7 @@ function Header() {
                           }}
                         ></i>
                         <div
-                          className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
                           role="none"
                           data-visualcompletion="ignore"
                         ></div>
@@ -1415,27 +1374,22 @@ function Header() {
                         Communities
                       </span>
                     </span>
-                    <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 hover:bg-opacity-10 bg-white bg-opacity-0 "></div>
+                    <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 hover:bg-opacity-10 bg-white bg-opacity-0"></div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="chats flex-grow">
-              <div
-                onMouseOver={handleShowSettings}
-                onMouseLeave={handleHideSettings}
-                className="group relative flex flex-col px-[8px]"
-                role="row"
-              >
+              <div className="group relative flex flex-col px-[8px]" role="row">
                 <div
                   data-visualcompletion="ignore-dynamic"
                   role="none"
-                  className="groupflex flex-col justify-center items-stretch "
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
                 >
                   <div role="grid-cell">
                     <a
-                      className="group block relative rounded-[8px] min-w-0 min-h-0"
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -1564,68 +1518,60 @@ function Header() {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      <div
-                        aria-label="Options for this notification"
-                        role="gridcell"
-                      >
-                        <div
-                          className="flex absolute top-[28%] group-hover:[clip:unset] group-hover:right-[36px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-                        >
-                          <div>
-                            <div className="rounded-full customShadow">
-                              <div
-                                aria-label="Manage notification settings"
-                                className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                                role="button"
-                                tabIndex="0"
-                              >
-                                <i
-                                  data-visualcompletion="css-img"
-                                  className="align-[-0.25em] text-[#B0B3B8]"
-                                  style={{
-                                    filter:
-                                      "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                    backgroundImage:
-                                      'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                                    backgroundPosition: "0px -494px",
-                                    backgroundSize: "auto",
-                                    width: "20px",
-                                    height: "20px",
-                                    backgroundRepeat: "no-repeat",
-                                    display: "inline-block",
-                                  }}
-                                ></i>
-                                <div
-                                  className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </a>
                   </div>
+                  <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
+                  </div>{" "}
+
+                <div aria-label="Options for this notification" role="gridcell">
+                  <div
+                    className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                  >
+                    <div>
+                      <div className="rounded-full customShadow">
+                        <div
+                          aria-label="Manage notification settings"
+                          className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                          role="button"
+                          tabIndex="0"
+                        >
+                          <i
+                            data-visualcompletion="css-img"
+                            className="align-[-0.25em] text-[#B0B3B8]"
+                            style={{
+                              filter:
+                                "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                              backgroundImage: "url(/3dots.png)",
+                              backgroundPosition: "0px -494px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                            }}
+                          ></i>
+                            <div
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>{" "}
-              <div
-                onMouseOver={handleShowSettings}
-                onMouseLeave={handleHideSettings}
-                className="relative flex flex-col px-[8px]"
-                role="row"
-              >
+              </div>
+              <div className="group relative flex flex-col px-[8px]" role="row">
                 <div
                   data-visualcompletion="ignore-dynamic"
                   role="none"
-                  className="flex flex-col justify-center items-stretch "
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
                 >
                   <div role="grid-cell">
                     <a
-                      className="group block relative rounded-[8px] min-w-0 min-h-0"
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -1816,70 +1762,60 @@ function Header() {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </a>
-                    <div
-                      aria-label="Options for this notification"
-                      role="gridcell"
-                    >
+                  </div>
+                
+              <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
+              </div>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className={`flex absolute top-[28%] ${
-                          showSettings
-                            ? "[clip:unset] right-[36px]"
-                            : "clip-element h-[1px] overflow-hidden w-[1px]"
-                        }`}
+                        aria-label="Manage notification settings"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
                       >
-                        <div>
-                          <div className="rounded-full customShadow">
-                            <div
-                              aria-label="Manage notification settings"
-                              className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                              role="button"
-                              tabIndex="0"
-                            >
-                              <i
-                                data-visualcompletion="css-img"
-                                className="align-[-0.25em] text-[#B0B3B8]"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage:
-                                    'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                                  backgroundPosition: "0px -494px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                }}
-                              ></i>
-                              <div
-                                className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                                role="none"
-                                data-visualcompletion="ignore"
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                onMouseOver={handleShowSettings}
-                onMouseLeave={handleHideSettings}
-                className="relative flex flex-col px-[8px]"
-                role="row"
-              >
+              </div>
+              <div className="group relative flex flex-col px-[8px]" role="row">
                 <div
                   data-visualcompletion="ignore-dynamic"
                   role="none"
-                  className="flex flex-col justify-center items-stretch "
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
                 >
                   <div role="grid-cell">
                     <a
-                      className="group block relative rounded-[8px] min-w-0 min-h-0"
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -2029,70 +1965,60 @@ function Header() {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </a>
-                    <div
-                      aria-label="Options for this notification"
-                      role="gridcell"
-                    >
+                  </div>
+             
+                  <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
+              </div>{" "}
+              <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className={`flex absolute top-[28%] ${
-                          showSettings
-                            ? "[clip:unset] right-[36px]"
-                            : "clip-element h-[1px] overflow-hidden w-[1px]"
-                        }`}
+                        aria-label="Manage notification settings"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
                       >
-                        <div>
-                          <div className="rounded-full customShadow">
-                            <div
-                              aria-label="Manage notification settings"
-                              className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                              role="button"
-                              tabIndex="0"
-                            >
-                              <i
-                                data-visualcompletion="css-img"
-                                className="align-[-0.25em] text-[#B0B3B8]"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage:
-                                    'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                                  backgroundPosition: "0px -494px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                }}
-                              ></i>
-                              <div
-                                className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                                role="none"
-                                data-visualcompletion="ignore"
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>{" "}
-              <div
-                onMouseOver={handleShowSettings}
-                onMouseLeave={handleHideSettings}
-                className="relative flex flex-col px-[8px]"
-                role="row"
-              >
+              </div>
+              </div>
+              <div className="group relative flex flex-col px-[8px]" role="row">
                 <div
                   data-visualcompletion="ignore-dynamic"
                   role="none"
-                  className="flex flex-col justify-center items-stretch "
+                  className="parent-hover relative flex flex-col justify-center items-stretch"
                 >
                   <div role="grid-cell">
                     <a
-                      className="group block relative rounded-[8px] min-w-0 min-h-0"
+                      className="block relative rounded-[8px] min-w-0 min-h-0"
                       href=""
                     >
                       <div className="flex flex-col">
@@ -2270,55 +2196,50 @@ function Header() {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </a>
-                    <div
-                      aria-label="Options for this notification"
-                      role="gridcell"
-                    >
+                  </div>
+               
+                  <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
+              </div>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className={`flex absolute top-[28%] ${
-                          showSettings
-                            ? "[clip:unset] right-[36px]"
-                            : "clip-element h-[1px] overflow-hidden w-[1px]"
-                        }`}
+                        aria-label="Manage notification settings"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
                       >
-                        <div>
-                          <div className="rounded-full customShadow">
-                            <div
-                              aria-label="Manage notification settings"
-                              className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                              role="button"
-                              tabIndex="0"
-                            >
-                              <i
-                                data-visualcompletion="css-img"
-                                className="align-[-0.25em] text-[#B0B3B8]"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage:
-                                    'url("https://static.xx.fbcdn.net/rsrc.php/v3/y5/r/o2KCW4cFG6l.png?_nc_eui2=AeF_WZG5lSf7vExjmY6cyCGUxh0ziHQFXU_GHTOIdAVdTySwi35FrTHV07dyj10FvW3P86X58Jc72VTH86yfemU9")',
-                                  backgroundPosition: "0px -494px",
-                                  backgroundSize: "auto",
-                                  width: "20px",
-                                  height: "20px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                }}
-                              ></i>
-                              <div
-                                className="inset-0 rounded-full opacity-100 transition-opacity absolute ease-in-out duration-100"
-                                role="none"
-                                data-visualcompletion="ignore"
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>

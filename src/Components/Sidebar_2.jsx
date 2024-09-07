@@ -284,20 +284,19 @@ function Sidebar_2() {
             </div>
             <div className="py-2">
               <div
-                className="relative"
-                onMouseOver={handleShowSettings}
-                onMouseLeave={handleHideSettings}
+                className="group relative flex flex-col"
+
               >
                 <a
                   aria-labelledby=":r9l:"
-                  className="group relative w-full"
+                  className="parent-hover relative block"
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
                   tabIndex="0"
                   target="_blank"
                 >
-                  <div className="relative flex text-left p-2 mx-2 rounded-[6px] hover:bg-[rgba(255,255,255,0.1)] cursor-pointer">
+                  <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer">
                     <div className="">
                       <div className="flex items-center">
                         <div className="w-[40%] self-center shrink-0">
@@ -333,67 +332,68 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
+                    <div
+                          className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                   </div>
-       
+              
                 </a>
-                <div aria-label="Options for this ad" role="gridcell">
-                  <div
-                    className={`flex absolute top-[4%] ${
-                      showSettings
-                        ? "[clip:unset] right-[15px] "
-                        : "clip-element h-[1px] overflow-hidden w-[1px]"
-                    }`}
-                  >
-                    <div>
-                      <div className="rounded-full customShadow">
+                <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[53px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage notification settings"
+                        className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
                         <div
-                          aria-label="Manage ad settings"
-                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                          role="button"
-                          tabIndex="0"
-                        >
-                          <i
-                            data-visualcompletion="css-img"
-                            className="align-[-0.25em] text-[#B0B3B8]"
-                            style={{
-                              filter:
-                                "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                              backgroundImage: "url(/3dots.png)",
-                              backgroundPosition: "0px -494px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                            }}
-                          ></i>
-                          <div
-                            className="inset-0 rounded-full opacity-0 hover:opacity-100 fade absolute hover:bg-[rgba(255,255,255,0.1)]"
-                            role="none"
-                            data-visualcompletion="ignore"
-                          ></div>
-                        </div>
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              </div>
 
               <div
-                className="relative"
-                onMouseOver={handleShowSettings2}
-                onMouseLeave={handleHideSettings2}
+                className="group relative flex flex-col"
               >
                 <a
                   aria-labelledby=":r9l:"
-                  className="group relative w-full"
+                  className="parent-hover relative block"
                   href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                   rel="nofollow noreferrer"
                   role="link"
                   tabIndex="0"
                   target="_blank"
                 >
-                         <div className="relative flex text-left p-2 mx-2 rounded-[6px] hover:bg-[rgba(255,255,255,0.1)] cursor-pointer">
+                         <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer">
                     <div className="">
                       <div className="flex items-center">
                         <div className="w-[40%] shrink-0 self-center">
@@ -429,48 +429,52 @@ function Sidebar_2() {
                         </div>
                       </div>
                     </div>
-                   
+                    <div
+                      className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"
+                      data-visualcompletion="ignore"
+                    ></div>
                   </div>
                   
                 </a>
-                <div aria-label="Options for this ad" role="gridcell">
-                  <div
-                    className={`flex absolute top-[4%] ${
-                      showSettings2
-                        ? "[clip:unset] right-[15px] "
-                        : "clip-element h-[1px] overflow-hidden w-[1px]"
-                    }`}
-                  >
-                    <div>
-                      <div className="rounded-full customShadow">
+                <div aria-label="Options for this notification" role="gridcell">
+                <div
+                  className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[53px]
+                        group-hover:overflow-visible
+                       h-[1px] overflow-hidden w-[1px]"
+                >
+                  <div>
+                    <div className="rounded-full customShadow">
+                      <div
+                        aria-label="Manage notification settings"
+                        className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
                         <div
-                          aria-label="Manage ad settings"
-                          className="h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center relative customShadow-2 outline-none list-none"
-                          role="button"
-                          tabIndex="0"
-                        >
-                          <i
-                            data-visualcompletion="css-img"
-                            className="align-[-0.25em] text-[#B0B3B8]"
-                            style={{
-                              filter:
-                                "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                              backgroundImage: "url(/3dots.png)",
-                              backgroundPosition: "0px -494px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                            }}
-                          ></i>
-                        <div
-                            className="inset-0 rounded-full opacity-0 hover:opacity-100 fade absolute hover:bg-[rgba(255,255,255,0.1)]"></div>
-                        </div>
+                          className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                          role="none"
+                          data-visualcompletion="ignore"
+                        ></div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
             </div>
 

@@ -7,6 +7,7 @@
   scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
   box-sizing: border-box;
   overflow-y: scroll!important;
+
 }
 
 
@@ -24,11 +25,9 @@
 html {
   scrollbar-color: rgba(255, 255, 255, 0.189) rgba(255, 255, 255, 0.18);
   box-sizing: border-box;
-  overflow-y: scroll!important;
 }
 
 body {
-  overflow-y: visible!important;
   overscroll-behavior-y: none;
   margin: 0;
   padding: 0;
@@ -37,6 +36,7 @@ body {
   background-color: #18191A;
 
 }
+
 
 .before_a::before {
   margin-top: -5px;
@@ -349,6 +349,22 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
   transition-duration: 100ms;
 }
 
+@media (max-height: 428px) {
+  .postCardOuter {
+    overflow: scroll;
+    min-height: 0;
+    max-height: 80vh;
+  }
+}
+
+
+
+@supports (min-height: 100dvh) {
+  .postCard {
+    min-height: 100dvh;
+  }
+}
+
 
 @media (max-width: 1920px) {
   .main-section-container  {
@@ -434,9 +450,14 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
   }
 }
 
+
 @media (min-width: 1100px) and (max-height: 789px), (min-width: 1100px) and (max-width: 1379px) {
   .nav {
     max-width: 111.6px;
   }
 }
 
+.parent-hover:hover .overlay{
+  opacity: 1;
+
+}
