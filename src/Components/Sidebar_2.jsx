@@ -342,7 +342,7 @@ function Sidebar_2() {
                 </a>
                 <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[53px]
+                  className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[60px]
                         group-hover:overflow-visible
                        h-[1px] overflow-hidden w-[1px]"
                 >
@@ -438,7 +438,7 @@ function Sidebar_2() {
                 </a>
                 <div aria-label="Options for this notification" role="gridcell">
                 <div
-                  className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[53px]
+                  className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[60px]
                         group-hover:overflow-visible
                        h-[1px] overflow-hidden w-[1px]"
                 >
@@ -486,7 +486,7 @@ function Sidebar_2() {
           <div className="page-section relative">
      
             
-                <div className="relative flex flex-col max-w-full z-0 min-h-0 flex-grow pt-[20px] pb-[6px]">
+                <div className="relative flex flex-col shrink-0 max-w-full z-0 pt-[20px] pb-[6px]">
                   <div className="flex flex-col min-w-0 max-w-full -my-[5px]">
                     <div className="flex flex-col flex-grow min-h-0 max-w-full px-4">
                       <div className="flex flex-col ">
@@ -686,7 +686,7 @@ function Sidebar_2() {
               </div>
             </div>
 
-<div className="py-2">
+<div className="py-[0.39rem]">
 <div className="px-2">
             <a className="group relative block min-w-0 max-w-full rounded-lg margin-0 cursor-pointer">
               <div className="relative py-2 w-full flex rounded-lg">
@@ -739,7 +739,7 @@ function Sidebar_2() {
           <div className="contact-section relative">
             <div className={`sidebar flex flex-col text-white cursor-default`}>
             
-            <div className="relative flex flex-col max-w-full z-0 min-h-0 flex-grow pt-[20px] pb-[6px]">
+            <div className="relative flex flex-col shrink-0 max-w-full z-0 pt-[20px] pb-[6px]">
                   <div className="flex flex-col min-w-0 max-w-full -my-[5px]">
                     <div className="flex flex-col flex-grow min-h-0 max-w-full px-4">
                       <div className="flex flex-col ">
@@ -781,7 +781,7 @@ function Sidebar_2() {
                     </svg>
                     <div className="absolute opacity-0 group-hover:opacity-100 -inset-2 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </div>
-                          <div className="relative flex flex-col max-w-full z-0 justify-center items-center self-center ml-[28px]">
+                          <div className="relative flex flex-col max-w-full z-0 justify-center items-center self-center ml-6">
                             <div className="flex flex-col min-w-0 max-w-full">
                               <div className="flex flex-col flex-grow min-h-0 min-w-0 max-w-full">
                                 <div className="flex flex-col">
@@ -792,8 +792,8 @@ function Sidebar_2() {
                                         <div className="rounded-full hover:bg-[#303031] text-[#B0B3B8] cursor-pointer">
                                           <svg
                                             viewBox="0 0 20 20"
-                                            width="16"
-                                            height="16"
+                                            width="20"
+                                            height="20"
                                             fill="currentColor"
                                           >
                                             <g
@@ -1504,12 +1504,13 @@ function Sidebar_2() {
             </div>
           </div>
           <div className="group-section relative">
-          <div className="relative flex flex-col max-w-full z-0 min-h-0 flex-grow pt-[20px] pb-[6px]">
-                  <div className="flex flex-col min-w-0 max-w-full -my-[5px]">
-                    <div className="flex flex-col flex-grow min-h-0 max-w-full px-4">
-                      <div className="flex flex-col ">
-                        <div className="ba_4 flex min-w-0 max-w-full -my-[5px]">
-                          <h3 className="flex flex-col flex-grow my-[5px]">
+            
+          <div className="relative flex flex-col shrink-0 max-w-full z-0 pt-[20px] pb-[6px]">
+                  <div className="flex flex-col min-h-0 flex-grow max-w-full ">
+                    <div className="flex flex-col max-w-full px-4">
+                      <div className="flex flex-col -my-[5px]">
+                        <div className="ba_4 my-[5px]">
+                          <h3 className="min-w-0 max-w-full">
                             <span className="block text-[1rem] text-[#B0B3B8] leading-[1.1765] text-start font-semibold pb-[1px] overflow-hidden cursor-text">
                               Group chats
                             </span>
@@ -1520,7 +1521,131 @@ function Sidebar_2() {
                     </div>
                   </div>
                 </div>
+                
                 <div className="py-2">
+                <div className="px-2">
+              <a className="group relative no-underline cursor-pointer">
+            <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
+                <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                  <div className="relative h-[36px] w-[36px]">
+                  <div className="absolute top-0 right-0">
+                <div className="relative inline-block align-bottom z-0">
+                    
+                      <svg
+                        aria-hidden="true"
+                        className="align-bottom"
+                        data-visualcompletion="ignore-dynamic"
+                        role="none"
+                        style={{ height: "24px", width: "24px" }}
+                      >
+                        {/* Define a circular mask */}
+                        <mask id=":grp_chat_1:">
+                          <circle cx="12" cy="12" r="12" fill="white" />
+                        </mask>
+
+                        {/* Apply the mask to the image */}
+                        <g mask="url(#:grp_chat_1:)">
+                          <image
+                            x="0"
+                            y="0"
+                            height="100%"
+                            preserveAspectRatio="xMidYMid slice"
+                            width="100%"
+                            xlinkHref="/group_chats/grp_1.jpg"
+                            style={{ height: "24px", width: "24px" }}
+                          ></image>
+                          <circle
+                            className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                            cx="12"
+                            cy="12"
+                            r="12"
+                          ></circle>
+                    
+                        </g>
+                      </svg>
+                   
+            
+
+                  </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0">
+                  <div className="relative inline-block align-bottom z-0">
+                    
+                    <svg
+                        aria-hidden="true"
+                        className="align-bottom"
+                        data-visualcompletion="ignore-dynamic"
+                        role="none"
+                        style={{ height: "24px", width: "24px" }}
+                      >
+                        {/* Define a circular mask */}
+                        <mask id=":grp_chat_2:">
+                          <circle cx="12" cy="12" r="12" fill="white" />
+                        </mask>
+
+                        {/* Apply the mask to the image */}
+                        <g mask="url(#:grp_chat_2:)">
+                          <image
+                            x="0"
+                            y="0"
+                            height="100%"
+                            preserveAspectRatio="xMidYMid slice"
+                            width="100%"
+                            xlinkHref="/group_chats/grp_2.jpg"
+                            style={{ height: "24px", width: "24px" }}
+                          ></image>
+                          <circle
+                            className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                            cx="12"
+                            cy="12"
+                            r="12"
+                          ></circle>
+                    
+                        </g>
+                      </svg>
+                   
+             
+
+                  </div>
+               
+                  </div>
+       
+       <div 
+       style={{bottom: '5px', right: '5px', transform: 'translate(50%, 50%)'}}
+       className="absolute">
+       <div className="relative flex rounded-[50%] overflow-hidden">
+        <div className="[display:inherit] justify-[inherit] items-[inherit] rounded-[inherit] w-[inherit] h-[inherit]">
+       <span className="inline-flex justify-center cursor-pointer items-center w-[8px] h-[8px] bg-[#31A24C] rounded-full"></span>
+       <div className="absolute inset-0 opacity-0 fade pointer-events-none"></div>
+       </div>
+       <div className="clip-element_2 absolute z-0 w-[1px] h-[1px] text-[.0625rem] overflow-hidden">Active</div>
+       </div>
+       </div>
+               
+                </div>
+            
+                </div>
+                <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                  <div className="relative flex flex-col max-w-full flex-grow z-0">
+                    <div className="flex flex-col min-w-0 max-w-full py-2">
+                      <div className="flex flex-col flex-grow min-h-0">
+                        <div className="flex flex-col ">
+                          <div className="flex flex-col -my-[5px]">
+                            <div className="ba_1 my-[5px]">
+                              <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                Hax Off
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+              </a>
+</div>
                 <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
             <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
@@ -1553,7 +1678,7 @@ function Sidebar_2() {
                       <div className="flex flex-col flex-grow min-h-0">
                         <div className="flex flex-col ">
                           <div className="flex flex-col -my-[5px]">
-                            <div className="ba_1 my-[5px]">
+                            <div className="ba my-[5px]">
                               <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
                                 Create group chat
                               </span>

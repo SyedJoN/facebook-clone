@@ -20,11 +20,16 @@ const [keyPressed, setKeyPressed] = useState(false);
 
 useEffect(() => {
   const handleResize = () => {
-if (window.innerWidth >= 428) {
-  // setPostWidth = 0.8 * window.innerWidth;
+if (window.innerWidth <= 583) {
+  setPostWidth(413.781);
+} else if (window.innerHeight <= 428) {
+  setPostWidth(517);
   setPostHeight(0.8 * window.innerHeight);
-}
 
+} else {
+  setPostWidth(500);
+  setPostHeight(428);
+}
   }
   handleResize();
 
@@ -118,23 +123,27 @@ if (window.innerWidth >= 428) {
 
   return (
     <div 
-    style={{width: postWidth + 'px', height: postHeight + 'px'}}
+    style={{width: postWidth + 'px', minHeight: postHeight + 'px'}}
 
-    className="">
+    className="relative ">
+      <div
+      style={{transform:"translateX(0%) translateZ(1px)"}}
+      >
     <div 
-    className="flex-grow rounded-lg relative outline-none">
-      <div className="postCardOuter w-full max-h-[90vh] min-h-[428px] flex overflow-visible ">
-        <div className="relative inset-0 pointer-events-auto flex flex-col w-[500px] min-h-[428px]">
+    className="postCardContent max-h-[90vh] min-h-[428px] flex overscroll-contain">
+      <div className="relative flex flex-col w-[500px] min-h-[428px] pointer-events-auto">
           <div>
             <div className="flex justify-center items-center h-[60px] border-[rgba(255,255,255,0.05)] border-b-[1px]">
               <span className="pb-[2px] text-xl text-[#E4E6EB] font-bold">
                 Create post
               </span>
-              <div className="flex absolute top-[0.01rem] right-[4px]">
-                <span
+             
+            </div>
+            <div className="flex absolute top-[12px] right-[16px]">
+              <a 
                   onClick={() => handleClosePost()}
-                  className="relative m-3 p-2 cursor-pointer bg-[#3A3B3C] rounded-full"
-                >
+              className="outline-none shrink-0 relative flex items-center justify-center w-[36px] h-[36px] min-h-0 rounded-full bg-[#3A3B3C] cursor-pointer">
+       
                   <i
                     data-visualcompletion="css-img"
                     style={{
@@ -146,13 +155,13 @@ if (window.innerWidth >= 428) {
                       height: "20px",
                       backgroundRepeat: "no-repeat",
                       display: "block",
+                      verticalAlign: "-0.25em"
                     }}
                   />
                   <div className="absolute inset-0 hover:bg-[rgba(255,255,255,0.1)] rounded-full"></div>
-                </span>
+           
+              </a>
               </div>
-            </div>
-
             <div className="flex justify-center items-center pt-[16px] pb-[15px] mx-[16px]">
               <div className="">
                 <div className="relative img-wrapper w-10 h-10 rounded-full cursor-pointer select-none mr-[11px]">
@@ -241,7 +250,7 @@ if (window.innerWidth >= 428) {
                   ></div>
                 </div>
 {showColorIcon && (
-   <div className='pl-4 pr-3 absolute left-0 right-[36px] top-[114px] ${
+   <div className='pl-3 pr-2 absolute left-0 right-[36px] top-[114px] ${
     '>
   <div className="flex">
     <div className="flex items-stretch">
@@ -299,8 +308,8 @@ if (window.innerWidth >= 428) {
           <div className="py-4">
             <div className="flex flex-col">
               <div className="flex border-[0.5px] mx-4 rounded-lg border-[#3A3B3C]">
-                <div className="flex justify-between items-center w-full px-[1rem] py-[0.6rem]">
-                  <span className="text-[#E4E6EB] font-semibold text-sm">
+                <div className="flex justify-between items-center w-full px-[0.5rem] py-[0.46rem]">
+                  <span className="text-[#E4E6EB] font-semibold text-sm pb-[1px]">
                     Add to your post
                   </span>
                   <div className="flex">
@@ -397,8 +406,9 @@ if (window.innerWidth >= 428) {
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
+    </div>
     </div>
     </div>
   );

@@ -10,6 +10,7 @@ import Posts from "./Posts";
 import CustomScrollbar from "./CustomScrollbar";
 import MobileMenu from "./MobileMenu";
 import WritePostCard from "./WritePostCard";
+import NotifPanel from "./Header/NotifPanel";
 
 
 export {
@@ -24,5 +25,6 @@ export {
     Posts,
     CustomScrollbar,
     MobileMenu,
-    WritePostCard
+    WritePostCard,
+    NotifPanel
 }

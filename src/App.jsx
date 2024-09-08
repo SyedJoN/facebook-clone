@@ -63,7 +63,7 @@ function App() {
                 ></div>
                 <div className="relative flex-shrink-[inherit] flex-grow-[inherit] flex-direction-[inherit] justify-content-[inherit] align-items-[inherit] h-[inherit] max-h-[inherit] min-h-[inherit]">
                 <div className="flex flex-col justify-center items-stretch flex-grow-0 min-h-[100vh]">
-                <div className="flex min-h-[500px] py-14 px-2 items-stretch justify-center max-w-full min-w-0 pointer-events-none overflow-hidden z-0">
+                <div className="flex min-h-[500px] py-14 px-2 items-start justify-center min-w-0 pointer-events-none overflow-hidden z-0">
                   <div className="relative flex flex-col max-w-full overflow-hidden outline-none bg-[#242526] z-0 rounded-[8px] shadowStyle-1 box-content">
                     {writePost && <WritePostCard />}
                   </div>
