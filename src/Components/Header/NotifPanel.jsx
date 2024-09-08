@@ -29,15 +29,6 @@ function NotifPanel() {
     setShowUnread(true);
     setShowAll(false);
   };
-  const enterHandler = () => {
-    leaveHandlerFnRef.current = false;
-    if (thumbHeight !== containerRef.current.scrollHeight) setScrollOpacity(1);
-  };
-
-  const LeaveHandler = () => {
-    leaveHandlerFnRef.current = true;
-    !scrollRef.current && setScrollOpacity(0);
-  };
 
   useEffect(() => {
     const updateScrollbar = () => {
@@ -82,7 +73,7 @@ function NotifPanel() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [enterHandler]);
+  }, []);
 
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
@@ -245,7 +236,15 @@ function NotifPanel() {
     };
   }, []);
 
+  const enterHandler = () => {
+    leaveHandlerFnRef.current = false;
+    if (thumbHeight !== containerRef.current.scrollHeight) setScrollOpacity(1);
+  };
 
+  const LeaveHandler = () => {
+    leaveHandlerFnRef.current = true;
+    !scrollRef.current && setScrollOpacity(0);
+  };
 return (
   <div
     onMouseEnter={enterHandler}
