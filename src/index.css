@@ -37,7 +37,28 @@ body {
 
 }
 
+.inheritStyles {
+  display: inherit;
+  border-radius: inherit;
+  width: inherit;
+  height: inherit;
+  min-width: inherit;
+  min-height: inherit;
+  max-width: inherit;
+  min-width: inherit;
+}
+.inheritStylesFlex {
+  flex-direction: inherit;
+  flex-grow: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  align-self: inherit;
+}
 
+.svgClass {
+  transition-property: color,fill,stroke;
+  forced-color-adjust: auto;
+}
 .before_a::before {
   margin-top: -5px;
   display: block;

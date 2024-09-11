@@ -290,9 +290,12 @@ const handleEditMenuStop = () => {
             <div className="flex-grow">
           <div>
             <div className="px-2">
-              <a className="group relative no-underline cursor-pointer">
+              <a 
+              role="link"
+              className="group relative no-underline cursor-pointer"
+              href="https://www.facebook.com/muhammad.jon.12">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                  <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <img
                       className="object-cover w-full h-full rounded-full"
                       src="/me.jpg"
@@ -316,14 +319,14 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
             <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                  <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -361,7 +364,7 @@ const handleEditMenuStop = () => {
             <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                  <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <img src="/adsManager.png" alt="" />
                   </div>
 
@@ -389,7 +392,7 @@ const handleEditMenuStop = () => {
             <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                  <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -428,7 +431,7 @@ const handleEditMenuStop = () => {
             <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                  <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -467,7 +470,7 @@ const handleEditMenuStop = () => {
             <div className="px-2">
               <a className="group relative no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                  <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                  <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
                       data-visualcompletion="css-img"
                       style={{
@@ -508,7 +511,7 @@ const handleEditMenuStop = () => {
               <div onClick={() => clickHandler()} className="px-2">
                 <a className="group relative no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                    <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
                         viewBox="0 0 16 16"
                         width="20"
@@ -550,7 +553,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -590,7 +593,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/climate.png" alt="" />
                       </div>
 
@@ -618,7 +621,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -658,7 +661,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/feeds.png" alt="" />
                       </div>
 
@@ -687,7 +690,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -727,7 +730,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/gaming.png" alt="" />
                       </div>
 
@@ -756,7 +759,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -796,7 +799,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -836,7 +839,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/mkids.png" alt="" />
                       </div>
 
@@ -865,7 +868,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/orders.png" alt="" />
                       </div>
 
@@ -894,7 +897,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -934,7 +937,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -974,7 +977,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/activity.png" alt="" />
                       </div>
 
@@ -1003,7 +1006,7 @@ const handleEditMenuStop = () => {
                 <div className="px-2">
                   <a className="group relative no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                      <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full">
+                      <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
                           data-visualcompletion="css-img"
                           style={{
@@ -1046,7 +1049,7 @@ const handleEditMenuStop = () => {
               <div onClick={() => clickHandler()} className="px-2">
                 <a className="group relative no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                    <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
                         viewBox="0 0 20 20"
                         width="20"
@@ -1609,7 +1612,7 @@ const handleEditMenuStop = () => {
               <div onClick={() => clickHandler2()} className="px-2">
                 <a className="group relative no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                    <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
                         viewBox="0 0 16 16"
                         width="20"
@@ -1653,7 +1656,7 @@ const handleEditMenuStop = () => {
               <div onClick={() => clickHandler2()} className="px-2">
                 <a className="group relative no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
-                    <div className="img-wrapper-icons z-[2] flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full bg-[rgba(255,255,255,0.1)] px-2 py-2">
+                    <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
                         viewBox="0 0 20 20"
                         width="20"

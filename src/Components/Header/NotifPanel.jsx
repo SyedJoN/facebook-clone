@@ -301,10 +301,11 @@ return (
             </div>
           </div>
           <div>
+          
             <div className="flex pl-4">
               <div className="pr-2 ">
                 <div
-                  className={`relative h-[36px] flex flex-wrap ${
+                  className={`group relative h-[36px] flex flex-wrap ${
                     showAll ? "bg-[#1D85FC33]" : "bg-transparent"
                   } rounded-[18px] justify-center items-center px-3 mt-[0.1rem] outline-none w-full`}
                   role="button"
@@ -315,17 +316,17 @@ return (
                       showAll ? "text-[#75B6FF]" : "text-[#E4E6EB]"
                     }`}
                   >
-                    <span className="text-[.875rem] font-medium leading-[2.3333]">
+                    <span className="text-[.875rem] font-medium leading-[2.3333] select-none">
                       All
                     </span>
                   </span>
-                  <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 hover:bg-opacity-10 bg-white bg-opacity-0 "></div>
+                  <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 group-hover:bg-opacity-10 bg-white bg-opacity-0 pointer-events-none"></div>
                 </div>
               </div>
 
               <div>
                 <div
-                  className={`relative h-[36px] flex flex-wrap rounded-[18px] ${
+                  className={`group relative h-[36px] flex flex-wrap rounded-[18px] ${
                     showUnread ? "bg-[#1D85FC33]" : "bg-transparent"
                   } justify-center items-center px-3 mt-[0.1rem] outline-none w-full `}
                   role="button"
@@ -336,33 +337,71 @@ return (
                       showUnread ? "text-[#75B6FF]" : "text-[#E4E6EB]"
                     }`}
                   >
-                    <span className="text-[.875rem] font-medium leading-[2.3333]">
+                    <span className="text-[.875rem] font-medium leading-[2.3333] select-none">
                       Unread
                     </span>
                   </span>
-                  <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 hover:bg-opacity-10 bg-white bg-opacity-0 "></div>
+                  <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 group-hover:bg-opacity-10 bg-white bg-opacity-0 pointer-events-none"></div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="flex mt-[0.5rem] mx-4 flex-1 ">
-                <div className="flex flex-col flex-1">
-                  <div className="flex pb-[4px]">
-                    <span className="text-[#E4E6EB] text-base font-medium">
+            <div role="row" className="-mt-[4px]">
+           <div className="flex flex-col pt-[20px] pb-[4px]">
+              <div className="flex flex-col flex-grow px-4">
+              <div className="flex flex-col ">
+               <div className="flex flex-col -my-[5px]">
+                <div className="my-[5px]">
+                <span className="ba_4 block text-[1rem] font-semibold textProps leading-[1.1765]"
+                 dir="auto"
+                 >
+
+
+                   <div className="flex justify-between items-center">
+                  <div className="flex flex-col flex-grow shrink-0">
+                    <h2>
+                    <span className="text-[1rem] text-[#E4E6EB] textProps font-semibold leading-[1.1765]">
+                    <span className="relative block select-none cursor-text pb-[1px]">
                       Earlier
                     </span>
+                  </span>
+                  </h2>
                   </div>
-                </div>
-                <div className="relative flex flex-col justify-center">
-                  <div className="flex pb-[4px]">
-                    <span className="text-[#5AA7FF] text-[.875rem] leading-[1.5555]">
+                  <div className="relative flex justify-center ml-2 min-w-0 max-w-full shrink-0 self-start">
+                  <div class="relative flex flex-col w-0 min-w-0 max-w-full ">&nbsp;</div>
+                  <div className="relative flex justify-between items-center shrink-0">
+                  <div className="relative flex flex-col shrink-0">
+                    <div className="relative flex justify-between items-stretch shrink-0">
+                  <a className="group relative p-0 m-0 min-h-0" href="">
+                  <div className="flex flex-col">
+                  <div className="flex flex-col">
+                  <div className="flex flex-col">
+<span className="text-[.875rem] leading-[1.3333] textProps font-normal">
+                    <span className="block text-[#5AA7FF] cursor-pointer overflow-hidden whitespace-nowrap">
                       See all
                     </span>
-                    <div className="overlay absolute inset-[-4px] bg-white bg-opacity-0 hover:bg-opacity-10 transition-opacity duration-100 rounded-[4px] cursor-pointer"></div>
+                    </span>
+                    </div>
+                 
+                
                   </div>
+                  </div>
+                  <div className="overlay absolute inset-[-8px] bg-white bg-opacity-0 group-hover:bg-opacity-10 fade rounded-[4px] cursor-pointer pointer-events-none"></div>
+                  </a>
                 </div>
+                </div>
+                </div>
+                </div>
+              
+                </div>
+                 </span>
+               </div>
+                </div> 
+                </div> 
+             
               </div>
-            </div>
+              </div>
+              </div>
+          
             <div className="group relative flex flex-col px-[8px]" role="row">
               <div
                 data-visualcompletion="ignore-dynamic"
@@ -421,7 +460,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <i
@@ -449,7 +488,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -623,7 +662,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -645,7 +684,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -813,7 +852,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -835,7 +874,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -1017,7 +1056,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -1039,7 +1078,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -1221,7 +1260,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -1243,7 +1282,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -1425,7 +1464,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -1447,7 +1486,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -1629,7 +1668,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -1651,7 +1690,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">
@@ -1833,7 +1872,7 @@ return (
                             >
                               <div className="relative cursor-pointer">
                                 <div
-                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative"
+                                  className="bg-transparent min-w-0 overflow-hidden flex flex-col justify-center items-center relative select-none"
                                   style={{ backgroundColor: "transparent" }}
                                 >
                                   <img
@@ -1855,7 +1894,7 @@ return (
                         </div>
                       </div>
 
-                      <div className="notif-text flex justify-between relative items-center self-stretch">
+                      <div className="notif-text flex justify-between relative items-center self-stretch select-none">
                         <div className="flex flex-col items-stretch justify-between relative  ">
                           <div className="py-[5px]">
                             <div className="flex flex-col mb-[-5px] mt-[-5px]">

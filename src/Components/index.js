@@ -11,6 +11,8 @@ import CustomScrollbar from "./CustomScrollbar";
 import MobileMenu from "./MobileMenu";
 import WritePostCard from "./WritePostCard";
 import NotifPanel from "./Header/NotifPanel";
+import MessagePanel from "./Header/MessagePanel";
+import SettingsPanel from "./Header/SettingsPanel";
 
 
 export {
@@ -26,5 +28,7 @@ export {
     CustomScrollbar,
     MobileMenu,
     WritePostCard,
-    NotifPanel
+    NotifPanel,
+    MessagePanel,
+    SettingsPanel
 }

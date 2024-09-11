@@ -21,13 +21,19 @@ function Posts() {
         <div className="main-section relative w-[500px] overflow-hidden max-w-full">
           <div className="flex flex-wrap flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[13px] justify-center">
             <div className="flex justify-start w-full">
-              <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full cursor-pointer">
+              <a 
+              role="link"
+              className="group relative no-underline select-none cursor-pointer"
+              href="https://www.facebook.com/muhammad.jon.12">
+              <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full select-none">
                 <img
-                  className="object-cover w-full h-full rounded-full"
+                  className="object-cover w-full h-full rounded-full select-none pointer-events-none"
                   src="/me.jpg"
                   alt=""
                 />
               </div>
+              <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
+              </a>
               <div className="flex flex-grow justify-start items-center ml-2">
                 <div
                   onClick={handlePostContainer}
@@ -35,8 +41,9 @@ function Posts() {
                     content.length >= 80 ? "py-2 rounded-[20px]" : ""
                   }`}
                 >
+                  <div className="flex-grow">
                   <span
-                    className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden ${
+                    className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden flex select-none ${
                       !writePost && content.length > 0
                         ? "text-[#E4E6EB]"
                         : "text-[#B0B3B8]"
@@ -48,12 +55,13 @@ function Posts() {
                       ? defaultText
                       : content}
                   </span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="flex w-full border-t-[1px] border-[#3A3B3C] mt-[12px] h-[46px] pt-[9px] justify-around ">
-              <div className="relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
-                <div className="flex  items-center">
+              <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
+                <div className="flex items-center">
                   <span className="inline-flex mt-[2px]">
                     <img
                       width={"24px"}
@@ -63,15 +71,15 @@ function Posts() {
                     />
                   </span>
                   <span className="w-[8px]"></span>
-                  <span className="text-[#B8B3B8] text-sm font-semibold ">
+                  <span className="text-[#B8B3B8] text-sm font-semibold select-none">
                     Live video
                   </span>
                 </div>
-                <div className="absolute inset-0 p-[20px] hover:bg-[rgba(255,255,255,0.1)] opacity-0 hover:opacity-100 rounded-lg top-[-1px]"></div>
+                <div className="absolute inset-0 p-[20px] bg-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 rounded-lg top-[-1px] pointer-events-none"></div>
               </div>
 
-              <div className="relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
-                <div className="flex items-center ">
+              <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
+                <div className="flex items-center select-none">
                   <span className="inline-flex mt-[2px]">
                     <img
                       width={"24px"}
@@ -82,14 +90,14 @@ function Posts() {
                   </span>
                   <span className="w-[8px]"></span>
 
-                  <span className="text-[#B8B3B8] text-sm font-semibold ">
+                  <span className="text-[#B8B3B8] text-sm font-semibold select-none">
                     Photo/video
                   </span>
                 </div>
-                <div className="absolute inset-0 p-[20px] hover:bg-[rgba(255,255,255,0.1)] opacity-0 hover:opacity-100 rounded-lg top-[-1px]"></div>
+                <div className="absolute inset-0 p-[20px] bg-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 rounded-lg top-[-1px] pointer-events-none"></div>
               </div>
 
-              <div className="relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
+              <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center">
                   <span className="inline-flex mt-[2px]">
                     <img
@@ -101,24 +109,30 @@ function Posts() {
                   </span>
                   <span className="w-[8px]"></span>
 
-                  <span className="text-[#B8B3B8] text-sm font-semibold ">
+                  <span className="text-[#B8B3B8] text-sm font-semibold select-none">
                     Feeling/activity
                   </span>
                 </div>
-                <div className="absolute inset-0 p-[20px] hover:bg-[rgba(255,255,255,0.1)] opacity-0 hover:opacity-100 rounded-lg top-[-1px]"></div>
+                <div className="absolute inset-0 p-[20px] bg-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 rounded-lg top-[-1px] pointer-events-none"></div>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col bg-[#242526] w-full overflow-hidden rounded-lg px-[16px] pt-[12px] pb-[18px] justify-center items-center mt-4">
             <div className="flex justify-start w-full">
+            <a 
+              role="link"
+              className="group relative no-underline select-none cursor-pointer"
+              href="https://www.facebook.com/muhammad.jon.12">
               <div className="flex img-wrapper justify-start w-10 h-10  rounded-full cursor-pointer ">
                 <img
-                  className="object-cover w-full h-full rounded-full"
+                  className="object-cover w-full h-full rounded-full select-none pointer-events-none"
                   src="/me.jpg"
                   alt=""
                 />
               </div>
+              <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
+              </a>
 
               <div className="ml-2 flex-grow">
                 <div className="">
@@ -332,7 +346,7 @@ function Posts() {
               </div>
 
               <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
-                <div className="flex  items-center">
+                <div className="flex items-center">
                   <span className="inline-flex">
                     <i
                       data-visualcompletion="css-img"
@@ -703,7 +717,7 @@ function Posts() {
               </div>
 
               <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
-                <div className="flex  items-center">
+                <div className="flex items-center">
                   <span className="inline-flex">
                     <i
                       data-visualcompletion="css-img"
