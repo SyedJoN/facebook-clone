@@ -1,3 +1,4 @@
+import { throttle } from "lodash";
 import { Search, NotifPanel, MessagePanel, SettingsPanel } from "../index";
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
@@ -37,26 +38,22 @@ function Header() {
   };
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      console.log("Mouse move while down");
-    };
+  
 
     const handleMouseUp = () => {
       console.log("Mouse up");
 
       setIsLeaveMenu(resetState);
 
-      document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
 
     if (Object.values(isLeaveMenu).includes(true)) {
-      document.addEventListener("mousemove", handleMouseMove);
+
       document.addEventListener("mouseup", handleMouseUp);
     }
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [isLeaveMenu]);
@@ -114,17 +111,17 @@ function Header() {
     }));
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1099); // Adjust breakpoint as needed
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth < 1099); // Adjust breakpoint as needed
+  //   };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   const navItems = [
     {
