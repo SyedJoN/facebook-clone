@@ -4,58 +4,68 @@ import { Header, Footer, MobileMenu, WritePostCard } from "./Components/index";
 import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowPost } from "./store/showMenuSlice";
-import { throttle } from "lodash"; 
+import { throttle } from "lodash";
 
 function App() {
   const writePost = useSelector((state) => state.showMenu.writePost);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const containerRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [prevScroll, setPrevScroll] = useState(0);
+
+  const scrollYRef = useRef(0);
+  const prevScrollRef = useRef(0);
 
 
   const handleClosePost = () => {
- 
-      dispatch(setShowPost(false));
+    dispatch(setShowPost(false));
   };
 
   useEffect(() => {
     const container = containerRef.current;
 
     if (writePost) {
-      // Capture and store the current scroll position
-      setPrevScroll(window.scrollY); // Store the current scroll position before locking
-      console.log('setting, prev scroll', window.scrollY)
-      container.style.position = "fixed";// Adjust top to prevent jump
+      container.style.position = "fixed";
       container.style.left = "0";
-      container.scrollTop = scrollY;
+      container.scrollTop = scrollYRef.current;
     } else {
-      // Restore the scroll position when unlocking
       container.style.position = "relative";
-      container.style.top = ""; // Reset any fixed styles
-      window.scrollTo(0, prevScroll); // Restore the scroll position
+      container.style.top = "";
+      window.scrollTo(0, prevScrollRef.current);
     }
-  }, [writePost, prevScroll]);
+  }, [writePost, prevScrollRef.current]);
 
   useEffect(() => {
-    // Throttle the scroll event for better performance
     const handleScroll = throttle(() => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      if (currentScrollY > 0)
-        setPrevScroll(currentScrollY);
-        console.log('scrollll')
-      
-    }, 300); // Adjust throttle delay based on your performance needs
+      if (!writePost) {
+        const currentScrollY = window.scrollY;
+        
+        scrollYRef.current = currentScrollY;
+
+        prevScrollRef.current = currentScrollY;
+      }
+    }, 300);
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [writePost]);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
   return (
     <>
       {loading ? (
@@ -98,28 +108,27 @@ function App() {
       )}
 
       {/* Use portal for the writePost modal */}
-      {writePost &&
-       (
-          <div className="relative z-[3]">
-            <div className="relative z-0">
-              <div className="postCard flex flex-col justify-center relative min-h-[100vh]">
-                <div
-                  onClick={() => handleClosePost()}
-                  className="fixed inset-0 bg-[rgba(11,11,11,0.8)]"
-                ></div>
-                <div className="relative flex-shrink-[inherit] flex-grow-[inherit] flex-direction-[inherit] justify-content-[inherit] align-items-[inherit] h-[inherit] max-h-[inherit] min-h-[inherit]">
-                  <div className="flex flex-col justify-center items-stretch flex-grow-0 min-h-[100vh]">
-                    <div className="flex min-h-[500px] py-14 px-2 items-start justify-center min-w-0 pointer-events-none overflow-hidden z-0">
-                      <div className="relative flex flex-col max-w-full overflow-hidden outline-none bg-[#242526] z-0 rounded-[8px] shadowStyle-1 box-content">
-                        {writePost && <WritePostCard />}
-                      </div>
+      {writePost && (
+        <div className="relative z-[3]">
+          <div className="relative z-0">
+            <div className="postCard flex flex-col justify-center relative min-h-[100vh]">
+              <div
+                onClick={() => handleClosePost()}
+                className="fixed inset-0 bg-[rgba(11,11,11,0.8)]"
+              ></div>
+              <div className="relative flex-shrink-[inherit] flex-grow-[inherit] flex-direction-[inherit] justify-content-[inherit] align-items-[inherit] h-[inherit] max-h-[inherit] min-h-[inherit]">
+                <div className="flex flex-col justify-center items-stretch flex-grow-0 min-h-[100vh]">
+                  <div className="flex min-h-[500px] py-14 px-2 items-start justify-center min-w-0 pointer-events-none overflow-hidden z-0">
+                    <div className="relative flex flex-col max-w-full overflow-hidden outline-none bg-[#242526] z-0 rounded-[8px] shadowStyle-1 box-content">
+                      {writePost && <WritePostCard />}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
     </>
   );
 }

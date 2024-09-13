@@ -765,7 +765,7 @@ function Sidebar_2() {
                                       </g>
                                     </g>
                                   </svg>
-                                  <div className="absolute opacity-0 group-hover:opacity-100 -inset-2 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                                  <div className="absolute opacity-0 group-hover:opacity-100 -inset-2 bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
                                 </div>
                                 <div className="relative flex flex-col max-w-full z-0 justify-center items-center self-center ml-6">
                                   <div className="flex flex-col min-w-0 max-w-full">
