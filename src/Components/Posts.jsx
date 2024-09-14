@@ -4,14 +4,26 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Posts() {
   const dispatch = useDispatch();
-  const writePost = useSelector(state => state.showMenu.writePost);
+  const writePost = useSelector((state) => state.showMenu.writePost);
 
   const [defaultText, setDefaultText] = useState("What's on your mind, Syed?");
   const content = useSelector((state) => state.showMenu.postContent);
 
+  const handleMouseDown = (e) => {
+    const child = e.target.querySelector(".child");
+    if (child) {
+      child.style.cursor = "text";
+    }
+  };
 
-  const handlePostContainer = () => {         
-                                                                       
+  const handleMouseUp = (e) => {
+    const child = e.target.querySelector(".child");
+    if (child) {
+      child.style.cursor = "pointer";
+    }
+  };
+
+  const handlePostContainer = () => {
     dispatch(setShowPost(true));
   };
 
@@ -21,18 +33,19 @@ function Posts() {
         <div className="main-section relative w-[500px] overflow-hidden max-w-full">
           <div className="flex flex-wrap flex-col bg-[#242526] lg:w-full rounded-lg px-[16px] pt-[12px] pb-[13px] justify-center">
             <div className="flex justify-start w-full">
-              <a 
-              role="link"
-              className="group relative no-underline select-none cursor-pointer"
-              href="https://www.facebook.com/muhammad.jon.12">
-              <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full select-none">
-                <img
-                  className="object-cover w-full h-full rounded-full select-none pointer-events-none"
-                  src="/me.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
+              <a
+                role="link"
+                className="group relative no-underline select-none cursor-pointer"
+                href="https://www.facebook.com/muhammad.jon.12"
+              >
+                <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full select-none">
+                  <img
+                    className="object-cover w-full h-full rounded-full select-none pointer-events-none"
+                    src="/me.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
               </a>
               <div className="flex flex-grow justify-start items-center ml-2">
                 <div
@@ -42,19 +55,19 @@ function Posts() {
                   }`}
                 >
                   <div className="flex-grow">
-                  <span
-                    className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden flex select-none ${
-                      !writePost && content.length > 0
-                        ? "text-[#E4E6EB]"
-                        : "text-[#B0B3B8]"
-                    } `}
-                  >
-                    {writePost
-                      ? defaultText
-                      : content.length === 0
-                      ? defaultText
-                      : content}
-                  </span>
+                    <span
+                      className={`text-[1.0625rem] relative textClass_1 leading-[1.35] overflow-hidden flex select-none ${
+                        !writePost && content.length > 0
+                          ? "text-[#E4E6EB]"
+                          : "text-[#B0B3B8]"
+                      } `}
+                    >
+                      {writePost
+                        ? defaultText
+                        : content.length === 0
+                        ? defaultText
+                        : content}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -120,26 +133,32 @@ function Posts() {
 
           <div className="flex flex-col bg-[#242526] w-full overflow-hidden rounded-lg px-[16px] pt-[12px] pb-[18px] justify-center items-center mt-4">
             <div className="flex justify-start w-full">
-            <a 
-              role="link"
-              className="group relative no-underline select-none cursor-pointer"
-              href="https://www.facebook.com/muhammad.jon.12">
-              <div className="flex img-wrapper justify-start w-10 h-10  rounded-full cursor-pointer ">
-                <img
-                  className="object-cover w-full h-full rounded-full select-none pointer-events-none"
-                  src="/me.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
+              <a
+                role="link"
+                className="group relative no-underline select-none cursor-pointer"
+                href="https://www.facebook.com/muhammad.jon.12"
+              >
+                <div className="flex img-wrapper justify-start w-10 h-10  rounded-full cursor-pointer ">
+                  <img
+                    className="object-cover w-full h-full rounded-full select-none pointer-events-none"
+                    src="/me.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
               </a>
 
               <div className="ml-2 flex-grow">
-                <div className="">
-                  <span className="relative bottom-[5px] text-xs sm:text-sm text-[#E4E6EB] font-semibold cursor-pointer">
+                <a
+                  role="link"
+                  className="relative underline-offset-[-4px] hover:underline text-[#E4E6EB]"
+                  href="https://www.facebook.com/muhammad.jon.12"
+                >
+                  <span className="child relative bottom-[5px] text-xs sm:text-sm font-semibold">
                     Syed Muhammad Jon
                   </span>
-                </div>
+                </a>
+
                 <div className="flex flex-wrap relative bottom-[4px]">
                   <span className="text-[1.07rem] text-[#B8B3B8] text-xs cursor-pointer ">
                     39m

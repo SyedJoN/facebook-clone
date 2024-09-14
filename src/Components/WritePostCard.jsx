@@ -16,7 +16,247 @@ const [keyPressed, setKeyPressed] = useState(false);
 
   const [postWidth, setPostWidth] = useState(500);
   const [postHeight, setPostHeight] = useState(428);
-  const writePostRef = useRef(null);
+  const containerRef = useRef(null);
+  const contentRef = useRef(null);
+  const scrollThumbRef = useRef(null);
+  const trackRef = useRef(null);
+  const scrollIntervalRef = useRef(null);
+  const prevYref = useRef(null);
+  const clientXref = useRef(null);
+  const scaleRef = useRef(null);
+  const translateZRef = useRef(null);
+
+  const [scrollOpacity, setScrollOpacity] = useState(0);
+  const [thumbHeight, setThumbHeight] = useState(40);
+
+  const scrollRef = useRef(false);
+  const mouseMoveRef = useRef(false);
+  const mouseUpRef = useRef(false);
+  const leaveHandlerFnRef = useRef(false);
+
+  useEffect(() => {
+    const updateScrollbar = () => {
+      const containerHeight = containerRef.current?.clientHeight;
+      const contentHeight = contentRef.current?.scrollHeight;
+
+      const scaleValue = contentHeight / containerHeight;
+      scaleRef.current = scaleValue;
+
+      const translateZValue = scaleValue - 1;
+      translateZRef.current = translateZValue;
+
+      if (!containerRef.current || !scrollThumbRef.current) return;
+
+      console.log("containerHeight", containerHeight);
+      console.log("contentHeight", contentHeight);
+
+      const newThumbHeight =
+        (containerHeight / contentHeight) * containerHeight;
+
+        if (
+          containerHeight !== contentHeight
+        ) {
+          setThumbHeight(newThumbHeight);
+          setScrollOpacity(1);
+        }
+      else {
+          setScrollOpacity(0);
+          setThumbHeight(0);
+        }
+    };
+
+    const handleResize = () => updateScrollbar();
+
+    // Update scrollbar on initial render and window resize
+    updateScrollbar();
+    window.addEventListener("resize", handleResize);
+
+    // Attach scroll listener
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const startScroll = (direction) => {
+    const scrollAmount = 1; // Amount to scroll each frame
+    const scrollSpeed = 5; // Speed of scrolling in pixels per frame
+    const track = trackRef.current;
+    const trackRect = track.getBoundingClientRect();
+
+
+    const scroll = () => {
+      if (!containerRef.current) return;
+
+      const maxScrollHeight =
+        contentRef.current.scrollHeight - containerRef.current.clientHeight;
+
+      if (
+        direction === "up" &&
+        containerRef.current.scrollTop > 0 &&
+        clientXref.current > trackRect.left &&
+        trackRect.right > clientXref.current
+      ) {
+        containerRef.current.scrollTop -= scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else if (
+        direction === "down" &&
+        containerRef.current.scrollTop < maxScrollHeight &&
+        clientXref.current > trackRect.left &&
+        trackRect.right > clientXref.current
+      ) {
+        containerRef.current.scrollTop += scrollAmount * scrollSpeed;
+        scrollIntervalRef.current = requestAnimationFrame(scroll);
+      } else {
+        console.log("hogiya return");
+        return;
+      }
+    };
+    scrollIntervalRef.current = requestAnimationFrame(scroll);
+    scrollRef.current = true;
+
+    return () => {
+      stopScroll();
+    };
+  };
+
+  const stopScroll = () => {
+    if (scrollIntervalRef.current) {
+      cancelAnimationFrame(scrollIntervalRef.current);
+      scrollIntervalRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    const trackElement = trackRef.current;
+
+    // Define event handlers
+    const onMouseDown = (e) => {
+      clientXref.current = e.clientX;
+
+      console.log("onMouseDown");
+
+      e.preventDefault(); // Prevent text selection while dragging
+      const clickY = e.clientY;
+      const startScrollOffset = containerRef.current.scrollTop;
+      const thumb = scrollThumbRef.current;
+      const thumbRect = thumb.getBoundingClientRect();
+
+      if (clickY < thumbRect.top) {
+        startScroll("up");
+      } else if (clickY > thumbRect.bottom) {
+        startScroll("down");
+      }
+
+      const onMouseMove = (e) => {
+        stopScroll();
+        const clientY = e.clientY;
+        clientXref.current = e.clientX;
+
+        const maxScrollHeight =
+          contentRef.current.scrollHeight - containerRef.current.clientHeight;
+
+        if (
+          (containerRef.current.scrollTop === 0 &&
+            clientY < prevYref.current) ||
+          (containerRef.current.scrollTop === maxScrollHeight &&
+            clientY > prevYref.current)
+        ) {
+          prevYref.current = clientY;
+          return;
+        }
+
+        if (thumbRect.top <= clickY && clickY <= thumbRect.bottom) {
+          const deltaY = e.clientY - clickY;
+          const scrollY =
+            startScrollOffset +
+            deltaY *
+              (contentRef.current.scrollHeight /
+                containerRef.current.clientHeight);
+
+          containerRef.current.scrollTop = scrollY;
+          setScrollOpacity(1);
+          prevYref.current = clientY;
+        } else {
+          if (clickY < thumbRect.top) {
+            startScroll("up");
+            return;
+          } else if (clickY > thumbRect.bottom) {
+            startScroll("down");
+            return;
+          }
+
+          prevYref.current = clientY;
+          return;
+        }
+
+        mouseMoveRef.current = true;
+        scrollRef.current = false;
+
+        return;
+      };
+
+      setScrollOpacity(1);
+      mouseMoveRef.current = false;
+
+      const onMouseUp = (e) => {
+        clientXref.current = null;
+        prevYref.current = null;
+        stopScroll();
+        console.log("onMouseUp");
+        e.preventDefault();
+        mouseUpRef.current = true;
+        setTimeout(() => {
+          if (
+            mouseUpRef.current &&
+            mouseMoveRef.current &&
+            leaveHandlerFnRef.current
+          ) {
+            setScrollOpacity(0);
+          }
+        }, 1000);
+
+        // Cleanup event listeners
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      // Attach event listeners
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    };
+
+    // Attach mousedown event listener to trackElement
+    if (trackElement) {
+      trackElement.addEventListener("mousedown", onMouseDown);
+    }
+
+    // Cleanup function
+    return () => {
+      if (trackElement) {
+        trackElement.removeEventListener("mousedown", onMouseDown);
+      }
+      stopScroll();
+    };
+  }, []);
+
+  const enterHandler = () => {
+    leaveHandlerFnRef.current = false;
+    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
+  };
+
+  const LeaveHandler = () => {
+    leaveHandlerFnRef.current = true;
+    !scrollRef.current && setScrollOpacity(0);
+  };
+
+
+
+
+
+
+
 
 useEffect(() => {
   const handleResize = () => {
@@ -130,7 +370,7 @@ if (window.innerWidth <= 583) {
       style={{transform:"translateX(0%) translateZ(1px)"}}
       >
     <div 
-    className="postCardContent max-h-[90vh] min-h-[428px] flex overscroll-contain">
+    className="postCardContent max-h-[90vh] min-h-[428px] flex mainScroll">
       <div className="relative flex flex-col w-[500px] min-h-[428px] pointer-events-auto">
           <div>
             <div className="flex justify-center items-center h-[60px] border-[rgba(255,255,255,0.05)] border-b-[1px]">
@@ -220,9 +460,21 @@ if (window.innerWidth <= 583) {
           </div>
 
           <div
-            className={`writePostContent-container flex flex-col h-fit overscroll-contain overflox-x-hidden overflow-y-auto flex-grow ${showScroll ? 'overflow-y-auto' : 'overflow-y-hidden'}`}
+          onMouseEnter={enterHandler}
+          onMouseLeave={LeaveHandler}
+          ref={containerRef}
+          style={{
+            willChange: "transform, scroll-position",
+            perspective: "1px",
+            transformStyle: "preserve-3d",
+            perspectiveOrigin: "top right",
+            overflowAnchor: "none",
+          }}
+            className={` writePostContent-container flex flex-col overscroll-y-contain overflow-x-hidden overflow-y-auto flex-grow`}
           >
             <div
+          ref={contentRef}
+   
               className={`relative flex flex-col flex-grow pb-[40px]`}
             >
               <div
@@ -303,6 +555,37 @@ if (window.innerWidth <= 583) {
                 </p>
               )}
             </div>
+            <div
+            className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full opacity-0
+            ${contentRef ? "hover:opacity-30" : "pointer-events-none"}`}
+            data-visualcompletion="ignore"
+            data-thumb="1"
+            ref={trackRef}
+            style={{
+              display: "block",
+              height: `${contentRef.current?.scrollHeight}px`,
+              right: "0px",
+              transitionProperty: "opacity",
+            }}
+          ></div>
+          <div
+            className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-1 py-0 m-0 pointer-events-none"
+            data-visualcompletion="ignore"
+            data-thumb="1"
+            ref={scrollThumbRef}
+            style={{
+              display: "block",
+              opacity: `${scrollOpacity}`,
+              height: `${thumbHeight}px`,
+              right: "0px",
+              transitionProperty: "opacity",
+              transform: `matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1) scale(${
+                scaleRef.current
+              }) translateZ(${-translateZRef.current}px) translateZ(-2px)`,
+            }}
+          >
+            <div className="w-full h-full rounded-[4px] pointer-events-none bg-[rgba(255,255,255,0.3)]"></div>
+    </div>
           </div>
 
           <div className="py-4">
@@ -403,11 +686,14 @@ if (window.innerWidth <= 583) {
                     Post
                   </button>
                 </div>
+                
               </div>
+              
             </div>
           </div>
         
       </div>
+    
     </div>
     </div>
     </div>
