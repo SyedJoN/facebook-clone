@@ -60,9 +60,10 @@ body {
   forced-color-adjust: auto;
 }
 .before_a::before {
-  margin-top: -5px;
   display: block;
   content: "";
+  height: 0;
+  margin-top: -5px;
 }
 .before_a::after {
   display: block;
@@ -297,6 +298,7 @@ scrollbar-color: #7B7B7B #424242;
 .owl-prev,
 .owl-next {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.1);
+  
   border-radius: 50px !important;
   background-color: #3E4042 !important;
   width: 48px;

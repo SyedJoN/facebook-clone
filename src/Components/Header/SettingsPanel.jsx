@@ -231,7 +231,7 @@ function SettingsPanel() {
 
   return (
     <div
-      className="settings-container flex flex-col fixed right-0 top-2 shadow-xl shadow-[#141414] max-w-[650px]"
+      className="settings-container flex flex-col absolute right-0 top-2 shadow-[#141414] max-w-[650px]"
       style={{ transform: "translate(-16px, 45px)" }}
     >
       <div

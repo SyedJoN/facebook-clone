@@ -38,8 +38,6 @@ function Header() {
   };
 
   useEffect(() => {
-  
-
     const handleMouseUp = () => {
       console.log("Mouse up");
 
@@ -49,7 +47,6 @@ function Header() {
     };
 
     if (Object.values(isLeaveMenu).includes(true)) {
-
       document.addEventListener("mouseup", handleMouseUp);
     }
 
@@ -248,7 +245,7 @@ function Header() {
           <div className="relative flex justify-center items-center">
             <div className="settings relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-              draggable="false"
+                draggable="false"
                 onMouseEnter={
                   isLeaveMenu.Settings
                     ? (e) => handleEnterMenu(e, "Settings")
@@ -286,23 +283,20 @@ function Header() {
                 ></div>
               </div>
             </div>
-            <div
-             
-              className="messenger relative flex justify-center items-center mr-[8px] h-[56px]"
-            >
+            <div className="messenger relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-               onMouseEnter={
-                isLeaveMenu.Messenger
-                  ? (e) => handleEnterMenu(e, "Messenger")
-                  : undefined
-              }
-              onMouseDown={(e) => handleHoldMenu(e, "Messenger")}
-              onMouseUp={(e) => toggleMenu(e, "Messenger")}
-              onMouseLeave={
-                holdMenu.Messenger
-                  ? (e) => handleLeaveMenu(e, "Messenger")
-                  : undefined
-              }
+                onMouseEnter={
+                  isLeaveMenu.Messenger
+                    ? (e) => handleEnterMenu(e, "Messenger")
+                    : undefined
+                }
+                onMouseDown={(e) => handleHoldMenu(e, "Messenger")}
+                onMouseUp={(e) => toggleMenu(e, "Messenger")}
+                onMouseLeave={
+                  holdMenu.Messenger
+                    ? (e) => handleLeaveMenu(e, "Messenger")
+                    : undefined
+                }
                 style={getIconStyle("Messenger")}
                 className={`group relative flex justify-center cursor-pointer items-center w-[40px] h-[40px] ${
                   showMenu.Messenger
@@ -329,21 +323,20 @@ function Header() {
                 ></div>
               </div>
             </div>
-            <div
-             
-              className="notification relative flex justify-center items-center mr-[8px] h-[56px]"
-            >
+            <div className="notification relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-               onMouseEnter={
-                isLeaveMenu.Notif
-                  ? (e) => handleEnterMenu(e, "Notif")
-                  : undefined
-              }
-              onMouseDown={(e) => handleHoldMenu(e, "Notif")}
-              onMouseUp={(e) => toggleMenu(e, "Notif")}
-              onMouseLeave={
-                holdMenu.Notif ? (e) => handleLeaveMenu(e, "Notif") : undefined
-              }
+                onMouseEnter={
+                  isLeaveMenu.Notif
+                    ? (e) => handleEnterMenu(e, "Notif")
+                    : undefined
+                }
+                onMouseDown={(e) => handleHoldMenu(e, "Notif")}
+                onMouseUp={(e) => toggleMenu(e, "Notif")}
+                onMouseLeave={
+                  holdMenu.Notif
+                    ? (e) => handleLeaveMenu(e, "Notif")
+                    : undefined
+                }
                 style={getIconStyle("Notif")}
                 className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] bg-opacity-10 ${
                   showMenu.Notif
@@ -368,19 +361,18 @@ function Header() {
                 ></div>
               </div>
             </div>
-            <div
-             
-              className="user relative flex justify-center items-center mr-[8px] h-[56px]"
-            >
+            <div className="user relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-               onMouseEnter={
-                isLeaveMenu.User ? (e) => handleEnterMenu(e, "User") : undefined
-              }
-              onMouseDown={(e) => handleHoldMenu(e, "User")}
-              onMouseUp={(e) => toggleMenu(e, "User")}
-              onMouseLeave={
-                holdMenu.User ? (e) => handleLeaveMenu(e, "User") : undefined
-              }
+                onMouseEnter={
+                  isLeaveMenu.User
+                    ? (e) => handleEnterMenu(e, "User")
+                    : undefined
+                }
+                onMouseDown={(e) => handleHoldMenu(e, "User")}
+                onMouseUp={(e) => toggleMenu(e, "User")}
+                onMouseLeave={
+                  holdMenu.User ? (e) => handleLeaveMenu(e, "User") : undefined
+                }
                 style={getIconStyle("User")}
                 className={`group relative inline-block cursor-pointer w-[40px] h-[40px] rounded-full select-none`}
                 // onClick={() => navigate(item.slug)}
@@ -477,6 +469,463 @@ function Header() {
       {showMenu.Messenger && <MessagePanel />}
 
       {showMenu.Settings && <SettingsPanel />}
+
+      {showMenu.User && (
+        <>
+          <div
+            style={{
+              transform: "translate(344px, 54px) translate(-100%, 0px)",
+            }}
+            className="user absolute top-0 right-0 bg-[#242526] max-w-full min-w-0 rounded-lg shadowStyle-1"
+          >
+            <div className="pt-2 bg-[#242526] max-w-[400px] w-[360px] h-[556.766px] rounded-lg">
+              <div
+                style={{ transform: "translateX(0%) translateZ(1px)", maxWidth:'calc(100vw - 24px)', maxHeight: 'calc(100vh - 60px)' }}
+                className="flex flex-col overscroll-contain overflow-auto"
+              >
+                <div className="flex flex-col mb-4 mt-1 mx-4">
+                  <div
+                    style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
+                    className="1 section max-w-[350px] shadow-xl rounded-lg"
+                  >
+                    <a
+                      role="link"
+                      className="group relative block no-underline cursor-pointer my-2 mx-1"
+                      href="https://www.facebook.com/muhammad.jon.12"
+                    >
+                      <div className="flex justify-between rounded-lg items-center min-h-[44px] select-none p-2 -m-[4px]">
+                        <div className="img-wrapper-icons flex flex-col self-center min-w-0 max-w-full shrink-0 p-1 rounded-full w-11 h-11 pointer-events-none">
+                          <img
+                            className="object-cover w-full h-full rounded-full"
+                            src="/me.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+                          <div className="relative flex flex-col max-w-full flex-grow z-[2]">
+                            <div className="flex flex-col min-w-0 max-w-full py-2">
+                              <div className="flex flex-col flex-grow min-h-0 p-[4px]">
+                                <div className="flex flex-col">
+                                  <div className="flex flex-col -my-[5px]">
+                                    <div className="ba_1 my-[5px]">
+                                      <span className="block text-[1rem] text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                        Syed Muhammad Jon
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div
+                          className="absolute left-4 right-4 -bottom-[1px] h-[1px] bg-[#3e4042]"
+                          role="separator"
+                        ></div>
+                      </div>
+                    </a>
+                    <div className="px-2">
+                      <a className="group relative no-underline cursor-pointer">
+                        <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                          <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                            <div className="relative inline-block align-bottom">
+                              <div>
+                                <svg
+                                  aria-hidden="true"
+                                  className="align-bottom"
+                                  data-visualcompletion="ignore-dynamic"
+                                  role="none"
+                                  style={{ height: "36px", width: "36px" }}
+                                >
+                                  {/* Define a circular mask */}
+                                  <mask id=":shortcut_4:">
+                                    <circle
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                      fill="white"
+                                    />
+                                  </mask>
+
+                                  {/* Apply the mask to the image */}
+                                  <g mask="url(#:shortcut_4:)">
+                                    <image
+                                      x="0"
+                                      y="0"
+                                      height="100%"
+                                      preserveAspectRatio="xMidYMid slice"
+                                      width="100%"
+                                      xlinkHref="jk.jpg"
+                                      style={{ height: "36px", width: "36px" }}
+                                    ></image>
+                                    <circle
+                                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                    ></circle>
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                            <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
+                              <div className="flex flex-col min-w-0 max-w-full py-2">
+                                <div className="flex flex-col flex-grow min-h-0">
+                                  <div className="flex flex-col">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="ba_1 my-[5px]">
+                                        <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                          JK Developers
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </a>
+                      <a className="group relative no-underline cursor-pointer">
+                        <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
+                          <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
+                            <div className="relative inline-block align-bottom">
+                              <div>
+                                <svg
+                                  aria-hidden="true"
+                                  className="align-bottom"
+                                  data-visualcompletion="ignore-dynamic"
+                                  role="none"
+                                  style={{ height: "36px", width: "36px" }}
+                                >
+                                  {/* Define a circular mask */}
+                                  <mask id=":shortcut_7:">
+                                    <circle
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                      fill="white"
+                                    />
+                                  </mask>
+
+                                  {/* Apply the mask to the image */}
+                                  <g mask="url(#:shortcut_7:)">
+                                    <image
+                                      x="0"
+                                      y="0"
+                                      height="100%"
+                                      preserveAspectRatio="xMidYMid slice"
+                                      width="100%"
+                                      xlinkHref="toast.jpg"
+                                      style={{ height: "36px", width: "36px" }}
+                                    ></image>
+                                    <circle
+                                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05]"
+                                      cx="18"
+                                      cy="18"
+                                      r="18"
+                                    ></circle>
+                                  </g>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex justify-between items-center shrink self-stretch min-h-0 p-0 flex-grow">
+                            <div className="relative flex flex-col max-w-full flex-grow z-[2]z-0">
+                              <div className="flex flex-col min-w-0 max-w-full py-2">
+                                <div className="flex flex-col flex-grow min-h-0">
+                                  <div className="flex flex-col">
+                                    <div className="flex flex-col -my-[5px]">
+                                      <div className="ba_1 my-[5px]">
+                                        <span className="block text-sm text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+                                          Toast Sweet
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </a>
+                    </div>
+                    <div className="btn " role="button">
+                      <div className="bg-[#5b5b5b] m-3 rounded-sm">
+                        <div className="relative rounded-lg">
+                          <div className="flex justify-center items-center">
+                            <div className="flex flex-col w-4 h-4 items-center justify-center">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  backgroundImage: "url(/iconBar_3.png)",
+                                  backgroundPosition: "0 -298px",
+                                  backgroundSize: "auto",
+                                  width: "16px",
+                                  height: "16px",
+                                  backgroundRepeat: "no-repeat",
+                                  display: "inline-block",
+                                }}
+                              />
+                            </div>
+                            <div>
+                              <span className="textProps overflow-hidden text-[#B0B3B8] text-normal font-semibold select-none">
+                                See all profiles
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="second section">
+                    <div className="my-2">
+                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+                          <i
+                            data-visualcompletion="css-img"
+                            style={{
+                              filter:
+                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                              backgroundImage: "url(/iconBar_2.png)",
+                              backgroundPosition: "0 -481px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                              verticalAlign: "-0.25em",
+                            }}
+                          />
+                        </div>
+                        <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
+                          <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="my-[5px]">
+                                <span
+                                  className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+                                  dir="auto"
+                                >
+                                  Settings & privacy
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                                  backgroundImage: "url(/iconBar_2.png)",
+                                  backgroundPosition: "0 -50px",
+                                  backgroundSize: "auto",
+                                  width: "24px",
+                                  height: "24px",
+                                  backgroundRepeat: "no-repeat",
+                                  display: "inline-block",
+                                  verticalAlign: "-0.25em",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </div>
+                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+                          <i
+                            data-visualcompletion="css-img"
+                            style={{
+                              filter:
+                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                              backgroundImage: "url(/iconBar_3.png)",
+                              backgroundPosition: "0 -193px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                              verticalAlign: "-0.25em",
+                            }}
+                          />
+                        </div>
+                        <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
+                          <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="my-[5px]">
+                                <span
+                                  className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+                                  dir="auto"
+                                >
+                                  Help & support
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                                  backgroundImage: "url(/iconBar_2.png)",
+                                  backgroundPosition: "0 -50px",
+                                  backgroundSize: "auto",
+                                  width: "24px",
+                                  height: "24px",
+                                  backgroundRepeat: "no-repeat",
+                                  display: "inline-block",
+                                  verticalAlign: "-0.25em",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </div>
+                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+                          <i
+                            data-visualcompletion="css-img"
+                            style={{
+                              filter:
+                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                              backgroundImage: "url(/iconBar_4.png)",
+                              backgroundPosition: "0 -205px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                              verticalAlign: "-0.25em",
+                            }}
+                          />
+                        </div>
+                        <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
+                          <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
+                            <div className="flex flex-col -my-[5px]">
+                              <div className="my-[5px]">
+                                <span
+                                  className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+                                  dir="auto"
+                                >
+                                  Display & accessibility
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                                  backgroundImage: "url(/iconBar_2.png)",
+                                  backgroundPosition: "0 -50px",
+                                  backgroundSize: "auto",
+                                  width: "24px",
+                                  height: "24px",
+                                  backgroundRepeat: "no-repeat",
+                                  display: "inline-block",
+                                  verticalAlign: "-0.25em",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </div>
+                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+                          <i
+                            data-visualcompletion="css-img"
+                            style={{
+                              filter:
+                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                              backgroundImage: "url(/iconBar_3.png)",
+                              backgroundPosition: "0 -67px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                              verticalAlign: "-0.25em",
+                            }}
+                          />
+                        </div>
+
+                        <div className="flex items-stretch flex-grow">
+                          <div className="flex flex-col items-stretch justify-between flex-grow">
+                            <div className="flex flex-col">
+                              <div
+                                className="block text-md text-[#E4E6EB] font-semibold"
+                                dir="auto"
+                              >
+                                Give feedback
+                              </div>
+                            </div>
+                          </div>
+                          <div></div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </div>
+
+                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+                          <i
+                            data-visualcompletion="css-img"
+                            style={{
+                              filter:
+                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
+                              backgroundImage: "url(/extendedIconList.png)",
+                              backgroundPosition: "0 -591px",
+                              backgroundSize: "auto",
+                              width: "20px",
+                              height: "20px",
+                              backgroundRepeat: "no-repeat",
+                              display: "inline-block",
+                              verticalAlign: "-0.25em",
+                            }}
+                          />
+                        </div>
+
+                        <div className="flex items-stretch flex-grow">
+                          <div className="flex flex-col items-stretch justify-between flex-grow">
+                            <div className="flex flex-col">
+                              <div
+                                className="block text-md text-[#E4E6EB] font-semibold"
+                                dir="auto"
+                              >
+                                Log Out
+                              </div>
+                            </div>
+                          </div>
+                          <div></div>
+                        </div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="absolute left-4 right-4 -bottom-[1px] h-[1px] bg-[#3e4042]"
+              role="separator"
+            ></div>
+          </div>
+        </>
+      )}
     </header>
   );
 }
