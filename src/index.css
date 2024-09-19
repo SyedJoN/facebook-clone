@@ -121,6 +121,18 @@ body {
   height: 0;
   margin-bottom: -3px;
 }
+.ba_5::before {
+  margin-top: -7px;
+  display: block;
+  height: 0;
+  content: "";
+}
+.ba_5::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -4px;
+}
 
 .rotate:hover {
   transform: rotate(0deg);

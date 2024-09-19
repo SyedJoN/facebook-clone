@@ -9,6 +9,7 @@ function Header() {
   const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
   const iconRef = useRef(null);
+  const [isChecked, setIsChecked] = useState('dark');
 
   const [isLeaveMenu, setIsLeaveMenu] = useState({
     Settings: false,
@@ -476,6 +477,547 @@ function Header() {
       {showMenu.Settings && <SettingsPanel />}
 
       {showMenu.User && (
+        // <>
+        //   <div
+        //     style={{
+        //       transform: "translate(344px, 53px) translate(-100%, 0px)",
+        //     }}
+        //     className="user absolute top-0 right-0 bg-[#242526] max-w-full min-w-0 rounded-lg shadowStyle-1"
+        //   >
+        //     <div className="pt-2 bg-[#242526] max-w-[400px] w-[360px] h-[556.766px] rounded-lg">
+        //       <div
+        //         style={{
+        //           transform: "translateX(0%) translateZ(1px)",
+        //           maxWidth: "calc(100vw - 24px)",
+        //           maxHeight: "calc(100vh - 60px)",
+        //         }}
+        //         className="flex flex-col overscroll-contain overflow-auto"
+        //       >
+        //         <div className="flex flex-col ">
+        //           <div
+        //             style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
+        //             className="1 section max-w-[350px] shadow-xl rounded-lg mb-3 mt-1 mx-4"
+        //           >
+        //             <a
+        //               role="link"
+        //               className="group relative block no-underline cursor-pointer my-2 mx-1"
+        //               href="https://www.facebook.com/muhammad.jon.12"
+        //             >
+        //               <div className="flex justify-between rounded-lg items-center min-h-[44px] select-none p-2 -m-[4px]">
+        //                 <div className="img-wrapper-icons flex flex-col self-center min-w-0 max-w-full shrink-0 p-1 rounded-full w-11 h-11 pointer-events-none">
+        //                   <img
+        //                     className="object-cover w-full h-full rounded-full"
+        //                     src="/me.jpg"
+        //                     alt=""
+        //                   />
+        //                 </div>
+        //                 <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
+        //                   <div className="relative flex flex-col max-w-full flex-grow z-[2]">
+        //                     <div className="flex flex-col min-w-0 max-w-full py-2">
+        //                       <div className="flex flex-col flex-grow min-h-0 p-[4px]">
+        //                         <div className="flex flex-col">
+        //                           <div className="flex flex-col -my-[5px]">
+        //                             <div className="ba_1 my-[5px]">
+        //                               <span className="block text-[1rem] text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
+        //                                 Syed Muhammad Jon
+        //                               </span>
+        //                             </div>
+        //                           </div>
+        //                         </div>
+        //                       </div>
+        //                     </div>
+        //                   </div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //             </a>
+        //             <hr
+        //               className="mx-4 h-[1px] border-[#3E4042]"
+        //               role="separator"
+        //             ></hr>
+        //             <div className="py-1 mx-1">
+        //               <div className="group relative flex flex-col justify-between">
+        //                 <a className="flex flex-col justify-center items-stretch min-h-[56px] no-underline cursor-pointer p-3 -m-1.5">
+        //                   <div className="relative flex justify-between rounded-lg items-center select-none min-h-[40px]">
+        //                     <div className="relative flex flex-col self-start">
+        //                       <div className="img-wrapper-icons flex flex-col p-1.5 -m-1 rounded-full">
+        //                         <div className="relative flex justify-center items-center">
+        //                           <div className="rotate">
+        //                             <svg
+        //                               viewBox="0 0 20 20"
+        //                               width="32"
+        //                               height="32"
+        //                               fill="currentColor"
+        //                               aria-hidden="true"
+        //                               className="block duration-200 fade"
+        //                               style={{ color: "#8A8D91" }}
+        //                             >
+        //                               <g
+        //                                 filLRule="evenodd"
+        //                                 transform="translate(-446 -398)"
+        //                               >
+        //                                 <g fill-rule="nonzero">
+        //                                   <path
+        //                                     d="M96.628 206.613A7.97 7.97 0 0 1 96 203.5a7.967 7.967 0 0 1 2.343-5.657A7.978 7.978 0 0 1 104 195.5a7.978 7.978 0 0 1 5.129 1.86.75.75 0 0 0 .962-1.15A9.479 9.479 0 0 0 104 194a9.478 9.478 0 0 0-6.717 2.783A9.467 9.467 0 0 0 94.5 203.5a9.47 9.47 0 0 0 .747 3.698.75.75 0 1 0 1.381-.585zm14.744-6.226A7.97 7.97 0 0 1 112 203.5a7.967 7.967 0 0 1-2.343 5.657A7.978 7.978 0 0 1 104 211.5a7.978 7.978 0 0 1-5.128-1.86.75.75 0 0 0-.962 1.152A9.479 9.479 0 0 0 104 213a9.478 9.478 0 0 0 6.717-2.783 9.467 9.467 0 0 0 2.783-6.717 9.47 9.47 0 0 0-.747-3.698.75.75 0 1 0-1.381.585z"
+        //                                     transform="translate(352 204.5)"
+        //                                   ></path>
+        //                                   <path
+        //                                     d="M109.5 197h-2.25a.75.75 0 1 0 0 1.5h3a.75.75 0 0 0 .75-.75v-3a.75.75 0 1 0-1.5 0V197zm-11 13h2.25a.75.75 0 1 0 0-1.5h-3a.75.75 0 0 0-.75.75v3a.75.75 0 1 0 1.5 0V210z"
+        //                                     transform="translate(352 204.5)"
+        //                                   ></path>
+        //                                 </g>
+        //                               </g>
+        //                             </svg>
+        //                           </div>
+        //                           <div className="absolute flex flex-col items-center justify-center p-[3px] bg-[#242526] rounded-[24px] pointer-events-none">
+        //                             <div className="relative inline-block align-bottom">
+        //                               <svg
+        //                                 aria-hidden="true"
+        //                                 className="align-bottom"
+        //                                 data-visualcompletion="ignore-dynamic"
+        //                                 role="none"
+        //                                 style={{
+        //                                   height: "20px",
+        //                                   width: "20px",
+        //                                 }}
+        //                               >
+        //                                 {/* Define a circular mask */}
+        //                                 <mask id=":user_page_1:">
+        //                                   <circle
+        //                                     cx="10"
+        //                                     cy="10"
+        //                                     r="10"
+        //                                     fill="white"
+        //                                   />
+        //                                 </mask>
+
+        //                                 {/* Apply the mask to the image */}
+        //                                 <g mask="url(#:user_page_1:)">
+        //                                   <image
+        //                                     x="0"
+        //                                     y="0"
+        //                                     height="100%"
+        //                                     preserveAspectRatio="xMidYMid slice"
+        //                                     width="100%"
+        //                                     xlinkHref="jk.jpg"
+        //                                     style={{
+        //                                       height: "20px",
+        //                                       width: "20px",
+        //                                     }}
+        //                                   ></image>
+        //                                   <circle
+        //                                     className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+        //                                     cx="10"
+        //                                     cy="10"
+        //                                     r="10"
+        //                                   ></circle>
+        //                                 </g>
+        //                               </svg>
+        //                             </div>
+        //                           </div>
+        //                         </div>
+        //                       </div>
+        //                     </div>
+        //                     <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
+        //                       <div className="relative flex flex-col max-w-full flex-grow z-0">
+        //                         <div className="flex flex-col min-w-0 max-w-full">
+        //                           <div className="flex flex-col flex-grow min-h-0 p-1.5 ml-1">
+        //                             <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
+        //                               JK Developers
+        //                             </span>
+        //                           </div>
+        //                         </div>
+        //                       </div>
+        //                     </div>
+        //                   </div>
+        //                 </a>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //               <div className="group relative flex flex-col justify-between">
+        //                 <a className="flex flex-col justify-center items-stretch min-h-[56px] no-underline cursor-pointer p-3 -m-1.5">
+        //                   <div className="relative flex justify-between rounded-lg items-center select-none min-h-[40px]">
+        //                     <div className="relative flex flex-col self-start">
+        //                       <div className="img-wrapper-icons flex flex-col p-1.5 -m-1 rounded-full">
+        //                         <div className="relative flex justify-center items-center">
+        //                           <div className="rotate">
+        //                             <svg
+        //                               viewBox="0 0 20 20"
+        //                               width="32"
+        //                               height="32"
+        //                               fill="currentColor"
+        //                               aria-hidden="true"
+        //                               className="block duration-200 fade"
+        //                               style={{ color: "#8A8D91" }}
+        //                             >
+        //                               <g
+        //                                 filLRule="evenodd"
+        //                                 transform="translate(-446 -398)"
+        //                               >
+        //                                 <g fill-rule="nonzero">
+        //                                   <path
+        //                                     d="M96.628 206.613A7.97 7.97 0 0 1 96 203.5a7.967 7.967 0 0 1 2.343-5.657A7.978 7.978 0 0 1 104 195.5a7.978 7.978 0 0 1 5.129 1.86.75.75 0 0 0 .962-1.15A9.479 9.479 0 0 0 104 194a9.478 9.478 0 0 0-6.717 2.783A9.467 9.467 0 0 0 94.5 203.5a9.47 9.47 0 0 0 .747 3.698.75.75 0 1 0 1.381-.585zm14.744-6.226A7.97 7.97 0 0 1 112 203.5a7.967 7.967 0 0 1-2.343 5.657A7.978 7.978 0 0 1 104 211.5a7.978 7.978 0 0 1-5.128-1.86.75.75 0 0 0-.962 1.152A9.479 9.479 0 0 0 104 213a9.478 9.478 0 0 0 6.717-2.783 9.467 9.467 0 0 0 2.783-6.717 9.47 9.47 0 0 0-.747-3.698.75.75 0 1 0-1.381.585z"
+        //                                     transform="translate(352 204.5)"
+        //                                   ></path>
+        //                                   <path
+        //                                     d="M109.5 197h-2.25a.75.75 0 1 0 0 1.5h3a.75.75 0 0 0 .75-.75v-3a.75.75 0 1 0-1.5 0V197zm-11 13h2.25a.75.75 0 1 0 0-1.5h-3a.75.75 0 0 0-.75.75v3a.75.75 0 1 0 1.5 0V210z"
+        //                                     transform="translate(352 204.5)"
+        //                                   ></path>
+        //                                 </g>
+        //                               </g>
+        //                             </svg>
+        //                           </div>
+        //                           <div className="absolute flex flex-col items-center justify-center p-[3px] bg-[#242526] rounded-[24px] pointer-events-none">
+        //                             <div className="relative inline-block align-bottom">
+        //                               <svg
+        //                                 aria-hidden="true"
+        //                                 className="align-bottom"
+        //                                 data-visualcompletion="ignore-dynamic"
+        //                                 role="none"
+        //                                 style={{
+        //                                   height: "20px",
+        //                                   width: "20px",
+        //                                 }}
+        //                               >
+        //                                 {/* Define a circular mask */}
+        //                                 <mask id=":user_page_2:">
+        //                                   <circle
+        //                                     cx="10"
+        //                                     cy="10"
+        //                                     r="10"
+        //                                     fill="white"
+        //                                   />
+        //                                 </mask>
+
+        //                                 {/* Apply the mask to the image */}
+        //                                 <g mask="url(#:user_page_2:)">
+        //                                   <image
+        //                                     x="0"
+        //                                     y="0"
+        //                                     height="100%"
+        //                                     preserveAspectRatio="xMidYMid slice"
+        //                                     width="100%"
+        //                                     xlinkHref="toast.jpg"
+        //                                     style={{
+        //                                       height: "20px",
+        //                                       width: "20px",
+        //                                     }}
+        //                                   ></image>
+        //                                   <circle
+        //                                     className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+        //                                     cx="10"
+        //                                     cy="10"
+        //                                     r="10"
+        //                                   ></circle>
+        //                                 </g>
+        //                               </svg>
+        //                             </div>
+        //                           </div>
+        //                         </div>
+        //                       </div>
+        //                     </div>
+        //                     <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
+        //                       <div className="relative flex flex-col max-w-full flex-grow z-0">
+        //                         <div className="flex flex-col min-w-0 max-w-full">
+        //                           <div className="flex flex-col flex-grow min-h-0 p-1.5 ml-1">
+        //                             <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
+        //                               Toast Sweet
+        //                             </span>
+        //                           </div>
+        //                         </div>
+        //                       </div>
+        //                     </div>
+        //                   </div>
+        //                 </a>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //             </div>
+        //             <hr
+        //               className="mx-4 h-[1px] border-[#3E4042]"
+        //               role="separator"
+        //             ></hr>
+        //             <div
+        //               className="flex btn p-3 justify-between items-stretch"
+        //               role="button"
+        //             >
+        //               <div className="group relative flex flex-col basis-0 h-9 rounded-md p-1 flex-grow shrink bg-[rgba(255,255,255,.1)]">
+        //                 <div className="flex items-center justify-center flex-grow rounded-lg bg-transparent  px-2">
+        //                   <div
+        //                     style={{
+        //                       width: "calc(100% + 6px)",
+        //                       marginLeft: "calc(-1* 3px)",
+        //                       marginRight: "calc(-1* 3px)",
+        //                     }}
+        //                     className="flex justify-center items-center"
+        //                   >
+        //                     <div className="flex flex-col w-4 h-4 items-center justify-center mx-[3px]">
+        //                       <i
+        //                         data-visualcompletion="css-img"
+        //                         style={{
+        //                           filter:
+        //                             "invert(89%) sepia(6%) hue-rotate(185deg)",
+        //                           backgroundImage: "url(/iconBar_3.png)",
+        //                           backgroundPosition: "0 -298px",
+        //                           backgroundSize: "auto",
+        //                           width: "16px",
+        //                           height: "16px",
+        //                           backgroundRepeat: "no-repeat",
+        //                           display: "inline-block",
+        //                         }}
+        //                       />
+        //                     </div>
+        //                     <span className="text-[#E4E6EB] leading-[1.3333] text-[.875rem] mx-[3px]">
+        //                       <span className="ba_1 block textProps text-[#E4E6EB] leading-[1.3333] text-[.875rem] font-semibold select-none ">
+        //                         See all profiles
+        //                       </span>
+        //                     </span>
+        //                   </div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //             </div>
+        //           </div>
+
+        //           <div className="second section pt-1 pb-2">
+        //             <div className="px-2">
+        //               <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+        //                 <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+        //                   <i
+        //                     data-visualcompletion="css-img"
+        //                     style={{
+        //                       filter:
+        //                         "invert(89%) sepia(6%)  hue-rotate(185deg)",
+        //                       backgroundImage: "url(/iconBar_2.png)",
+        //                       backgroundPosition: "0 -482px",
+        //                       backgroundSize: "auto",
+        //                       width: "20px",
+        //                       height: "20px",
+        //                       backgroundRepeat: "no-repeat",
+        //                       display: "inline-block",
+        //                       verticalAlign: "-0.25em",
+        //                     }}
+        //                   />
+        //                 </div>
+        //                 <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
+        //                   <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
+        //                     <div className="flex flex-col -my-[5px]">
+        //                       <div className="my-[5px]">
+        //                         <span
+        //                           className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+        //                           dir="auto"
+        //                         >
+        //                           Settings & privacy
+        //                         </span>
+        //                       </div>
+        //                     </div>
+        //                   </div>
+        //                   <div>
+        //                     <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
+        //                       <i
+        //                         data-visualcompletion="css-img"
+        //                         style={{
+        //                           filter:
+        //                             "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+        //                           backgroundImage: "url(/iconBar_4.png)",
+        //                           backgroundPosition: "0 -50px",
+        //                           backgroundSize: "auto",
+        //                           width: "24px",
+        //                           height: "24px",
+        //                           backgroundRepeat: "no-repeat",
+        //                           display: "inline-block",
+        //                           verticalAlign: "-0.25em",
+        //                         }}
+        //                       />
+        //                     </div>
+        //                   </div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //               <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+        //                 <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+        //                   <i
+        //                     data-visualcompletion="css-img"
+        //                     style={{
+        //                       filter:
+        //                         "invert(89%) sepia(6%)  hue-rotate(185deg)",
+        //                       backgroundImage: "url(/iconBar_3.png)",
+        //                       backgroundPosition: "0 -193px",
+        //                       backgroundSize: "auto",
+        //                       width: "20px",
+        //                       height: "20px",
+        //                       backgroundRepeat: "no-repeat",
+        //                       display: "inline-block",
+        //                       verticalAlign: "-0.25em",
+        //                     }}
+        //                   />
+        //                 </div>
+        //                 <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
+        //                   <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
+        //                     <div className="flex flex-col -my-[5px]">
+        //                       <div className="my-[5px]">
+        //                         <span
+        //                           className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+        //                           dir="auto"
+        //                         >
+        //                           Help & support
+        //                         </span>
+        //                       </div>
+        //                     </div>
+        //                   </div>
+        //                   <div>
+        //                     <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
+        //                       <i
+        //                         data-visualcompletion="css-img"
+        //                         style={{
+        //                           filter:
+        //                             "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+        //                           backgroundImage: "url(/iconBar_4.png)",
+        //                           backgroundPosition: "0 -50px",
+        //                           backgroundSize: "auto",
+        //                           width: "24px",
+        //                           height: "24px",
+        //                           backgroundRepeat: "no-repeat",
+        //                           display: "inline-block",
+        //                           verticalAlign: "-0.25em",
+        //                         }}
+        //                       />
+        //                     </div>
+        //                   </div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //               <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+        //                 <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+        //                   <i
+        //                     data-visualcompletion="css-img"
+        //                     style={{
+        //                       filter:
+        //                         "invert(89%) sepia(6%)  hue-rotate(185deg)",
+        //                       backgroundImage: "url(/iconBar_4.png)",
+        //                       backgroundPosition: "0 -205px",
+        //                       backgroundSize: "auto",
+        //                       width: "20px",
+        //                       height: "20px",
+        //                       backgroundRepeat: "no-repeat",
+        //                       display: "inline-block",
+        //                       verticalAlign: "-0.25em",
+        //                     }}
+        //                   />
+        //                 </div>
+        //                 <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
+        //                   <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
+        //                     <div className="flex flex-col -my-[5px]">
+        //                       <div className="my-[5px]">
+        //                         <span
+        //                           className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+        //                           dir="auto"
+        //                         >
+        //                           Display & accessibility
+        //                         </span>
+        //                       </div>
+        //                     </div>
+        //                   </div>
+        //                   <div>
+        //                     <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
+        //                       <i
+        //                         data-visualcompletion="css-img"
+        //                         style={{
+        //                           filter:
+        //                             "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+        //                           backgroundImage: "url(/iconBar_4.png)",
+        //                           backgroundPosition: "0 -50px",
+        //                           backgroundSize: "auto",
+        //                           width: "24px",
+        //                           height: "24px",
+        //                           backgroundRepeat: "no-repeat",
+        //                           display: "inline-block",
+        //                           verticalAlign: "-0.25em",
+        //                         }}
+        //                       />
+        //                     </div>
+        //                   </div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //               <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+        //                 <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+        //                   <i
+        //                     data-visualcompletion="css-img"
+        //                     style={{
+        //                       filter:
+        //                         "invert(89%) sepia(6%)  hue-rotate(185deg)",
+        //                       backgroundImage: "url(/iconBar_3.png)",
+        //                       backgroundPosition: "0 -67px",
+        //                       backgroundSize: "auto",
+        //                       width: "20px",
+        //                       height: "20px",
+        //                       backgroundRepeat: "no-repeat",
+        //                       display: "inline-block",
+        //                       verticalAlign: "-0.25em",
+        //                     }}
+        //                   />
+        //                 </div>
+
+        //                 <div className="flex items-stretch flex-grow">
+        //                   <div className="flex flex-col items-stretch justify-between flex-grow">
+        //                     <div className="flex flex-col">
+        //                       <span
+        //                         className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+        //                         dir="auto"
+        //                       >
+        //                         Give feedback
+        //                       </span>
+        //                     </div>
+        //                   </div>
+        //                   <div></div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+
+        //               <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
+        //                 <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
+        //                   <i
+        //                     data-visualcompletion="css-img"
+        //                     style={{
+        //                       filter:
+        //                         "invert(89%) sepia(6%)  hue-rotate(185deg)",
+        //                       backgroundImage: "url(/extendedIconList.png)",
+        //                       backgroundPosition: "0 -591px",
+        //                       backgroundSize: "auto",
+        //                       width: "20px",
+        //                       height: "20px",
+        //                       backgroundRepeat: "no-repeat",
+        //                       display: "inline-block",
+        //                       verticalAlign: "-0.25em",
+        //                     }}
+        //                   />
+        //                 </div>
+
+        //                 <div className="flex items-stretch flex-grow">
+        //                   <div className="flex flex-col items-stretch justify-between flex-grow">
+        //                     <div className="flex flex-col">
+        //                       <span
+        //                         className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
+        //                         dir="auto"
+        //                       >
+        //                         Log Out
+        //                       </span>
+        //                     </div>
+        //                   </div>
+        //                   <div></div>
+        //                 </div>
+        //                 <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+        //               </div>
+        //             </div>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>
+        //     <div
+        //       className="absolute left-4 right-4 -bottom-[1px] h-[1px] bg-[#3e4042]"
+        //       role="separator"
+        //     ></div>
+        //   </div>
+        // </>
         <>
           <div
             style={{
@@ -483,7 +1025,7 @@ function Header() {
             }}
             className="user absolute top-0 right-0 bg-[#242526] max-w-full min-w-0 rounded-lg shadowStyle-1"
           >
-            <div className="pt-2 bg-[#242526] max-w-[400px] w-[360px] h-[556.766px] rounded-lg">
+            <div className="bg-[#242526] max-w-[400px] w-[360px] h-[556.766px] rounded-lg">
               <div
                 style={{
                   transform: "translateX(0%) translateZ(1px)",
@@ -492,524 +1034,224 @@ function Header() {
                 }}
                 className="flex flex-col overscroll-contain overflow-auto"
               >
-                <div className="flex flex-col ">
-                  <div
-                    style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.2)" }}
-                    className="1 section max-w-[350px] shadow-xl rounded-lg mb-3 mt-1 mx-4"
-                  >
-                    <a
-                      role="link"
-                      className="group relative block no-underline cursor-pointer my-2 mx-1"
-                      href="https://www.facebook.com/muhammad.jon.12"
-                    >
-                      <div className="flex justify-between rounded-lg items-center min-h-[44px] select-none p-2 -m-[4px]">
-                        <div className="img-wrapper-icons flex flex-col self-center min-w-0 max-w-full shrink-0 p-1 rounded-full w-11 h-11 pointer-events-none">
-                          <img
-                            className="object-cover w-full h-full rounded-full"
-                            src="/me.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="flex self-stretch justify-between items-center min-h-0 p-0 flex-grow shrink">
-                          <div className="relative flex flex-col max-w-full flex-grow z-[2]">
-                            <div className="flex flex-col min-w-0 max-w-full py-2">
-                              <div className="flex flex-col flex-grow min-h-0 p-[4px]">
-                                <div className="flex flex-col">
-                                  <div className="flex flex-col -my-[5px]">
-                                    <div className="ba_1 my-[5px]">
-                                      <span className="block text-[1rem] text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
-                                        Syed Muhammad Jon
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-                    </a>
-                    <hr
-                      className="mx-4 h-[1px] border-[#3E4042]"
-                      role="separator"
-                    ></hr>
-                    <div className="py-1 mx-1">
-                      <div className="group relative flex flex-col justify-between">
-                        <a className="flex flex-col justify-center items-stretch min-h-[56px] no-underline cursor-pointer p-3 -m-1.5">
-                          <div className="relative flex justify-between rounded-lg items-center select-none min-h-[40px]">
-                            <div className="relative flex flex-col self-start">
-                              <div className="img-wrapper-icons flex flex-col p-1.5 -m-1 rounded-full">
-                                <div className="relative flex justify-center items-center">
-                                  <div className="rotate">
-                                    <svg
-                                      viewBox="0 0 20 20"
-                                      width="32"
-                                      height="32"
-                                      fill="currentColor"
-                                      aria-hidden="true"
-                                      className="block duration-200 fade"
-                                      style={{ color: "#8A8D91" }}
-                                    >
-                                      <g
-                                        filLRule="evenodd"
-                                        transform="translate(-446 -398)"
-                                      >
-                                        <g fill-rule="nonzero">
-                                          <path
-                                            d="M96.628 206.613A7.97 7.97 0 0 1 96 203.5a7.967 7.967 0 0 1 2.343-5.657A7.978 7.978 0 0 1 104 195.5a7.978 7.978 0 0 1 5.129 1.86.75.75 0 0 0 .962-1.15A9.479 9.479 0 0 0 104 194a9.478 9.478 0 0 0-6.717 2.783A9.467 9.467 0 0 0 94.5 203.5a9.47 9.47 0 0 0 .747 3.698.75.75 0 1 0 1.381-.585zm14.744-6.226A7.97 7.97 0 0 1 112 203.5a7.967 7.967 0 0 1-2.343 5.657A7.978 7.978 0 0 1 104 211.5a7.978 7.978 0 0 1-5.128-1.86.75.75 0 0 0-.962 1.152A9.479 9.479 0 0 0 104 213a9.478 9.478 0 0 0 6.717-2.783 9.467 9.467 0 0 0 2.783-6.717 9.47 9.47 0 0 0-.747-3.698.75.75 0 1 0-1.381.585z"
-                                            transform="translate(352 204.5)"
-                                          ></path>
-                                          <path
-                                            d="M109.5 197h-2.25a.75.75 0 1 0 0 1.5h3a.75.75 0 0 0 .75-.75v-3a.75.75 0 1 0-1.5 0V197zm-11 13h2.25a.75.75 0 1 0 0-1.5h-3a.75.75 0 0 0-.75.75v3a.75.75 0 1 0 1.5 0V210z"
-                                            transform="translate(352 204.5)"
-                                          ></path>
-                                        </g>
-                                      </g>
-                                    </svg>
-                                  </div>
-                                  <div className="absolute flex flex-col items-center justify-center p-[3px] bg-[#242526] rounded-[24px] pointer-events-none">
-                                    <div className="relative inline-block align-bottom">
-                                      <svg
-                                        aria-hidden="true"
-                                        className="align-bottom"
-                                        data-visualcompletion="ignore-dynamic"
-                                        role="none"
-                                        style={{
-                                          height: "20px",
-                                          width: "20px",
-                                        }}
-                                      >
-                                        {/* Define a circular mask */}
-                                        <mask id=":user_page_1:">
-                                          <circle
-                                            cx="10"
-                                            cy="10"
-                                            r="10"
-                                            fill="white"
-                                          />
-                                        </mask>
-
-                                        {/* Apply the mask to the image */}
-                                        <g mask="url(#:user_page_1:)">
-                                          <image
-                                            x="0"
-                                            y="0"
-                                            height="100%"
-                                            preserveAspectRatio="xMidYMid slice"
-                                            width="100%"
-                                            xlinkHref="jk.jpg"
-                                            style={{
-                                              height: "20px",
-                                              width: "20px",
-                                            }}
-                                          ></image>
-                                          <circle
-                                            className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
-                                            cx="10"
-                                            cy="10"
-                                            r="10"
-                                          ></circle>
-                                        </g>
-                                      </svg>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
-                              <div className="relative flex flex-col max-w-full flex-grow z-0">
-                                <div className="flex flex-col min-w-0 max-w-full">
-                                  <div className="flex flex-col flex-grow min-h-0 p-1.5 ml-1">
-                                    <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
-                                      JK Developers
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-                      <div className="group relative flex flex-col justify-between">
-                        <a className="flex flex-col justify-center items-stretch min-h-[56px] no-underline cursor-pointer p-3 -m-1.5">
-                          <div className="relative flex justify-between rounded-lg items-center select-none min-h-[40px]">
-                            <div className="relative flex flex-col self-start">
-                              <div className="img-wrapper-icons flex flex-col p-1.5 -m-1 rounded-full">
-                                <div className="relative flex justify-center items-center">
-                                  <div className="rotate">
-                                    <svg
-                                      viewBox="0 0 20 20"
-                                      width="32"
-                                      height="32"
-                                      fill="currentColor"
-                                      aria-hidden="true"
-                                      className="block duration-200 fade"
-                                      style={{ color: "#8A8D91" }}
-                                    >
-                                      <g
-                                        filLRule="evenodd"
-                                        transform="translate(-446 -398)"
-                                      >
-                                        <g fill-rule="nonzero">
-                                          <path
-                                            d="M96.628 206.613A7.97 7.97 0 0 1 96 203.5a7.967 7.967 0 0 1 2.343-5.657A7.978 7.978 0 0 1 104 195.5a7.978 7.978 0 0 1 5.129 1.86.75.75 0 0 0 .962-1.15A9.479 9.479 0 0 0 104 194a9.478 9.478 0 0 0-6.717 2.783A9.467 9.467 0 0 0 94.5 203.5a9.47 9.47 0 0 0 .747 3.698.75.75 0 1 0 1.381-.585zm14.744-6.226A7.97 7.97 0 0 1 112 203.5a7.967 7.967 0 0 1-2.343 5.657A7.978 7.978 0 0 1 104 211.5a7.978 7.978 0 0 1-5.128-1.86.75.75 0 0 0-.962 1.152A9.479 9.479 0 0 0 104 213a9.478 9.478 0 0 0 6.717-2.783 9.467 9.467 0 0 0 2.783-6.717 9.47 9.47 0 0 0-.747-3.698.75.75 0 1 0-1.381.585z"
-                                            transform="translate(352 204.5)"
-                                          ></path>
-                                          <path
-                                            d="M109.5 197h-2.25a.75.75 0 1 0 0 1.5h3a.75.75 0 0 0 .75-.75v-3a.75.75 0 1 0-1.5 0V197zm-11 13h2.25a.75.75 0 1 0 0-1.5h-3a.75.75 0 0 0-.75.75v3a.75.75 0 1 0 1.5 0V210z"
-                                            transform="translate(352 204.5)"
-                                          ></path>
-                                        </g>
-                                      </g>
-                                    </svg>
-                                  </div>
-                                  <div className="absolute flex flex-col items-center justify-center p-[3px] bg-[#242526] rounded-[24px] pointer-events-none">
-                                    <div className="relative inline-block align-bottom">
-                                      <svg
-                                        aria-hidden="true"
-                                        className="align-bottom"
-                                        data-visualcompletion="ignore-dynamic"
-                                        role="none"
-                                        style={{
-                                          height: "20px",
-                                          width: "20px",
-                                        }}
-                                      >
-                                        {/* Define a circular mask */}
-                                        <mask id=":user_page_2:">
-                                          <circle
-                                            cx="10"
-                                            cy="10"
-                                            r="10"
-                                            fill="white"
-                                          />
-                                        </mask>
-
-                                        {/* Apply the mask to the image */}
-                                        <g mask="url(#:user_page_2:)">
-                                          <image
-                                            x="0"
-                                            y="0"
-                                            height="100%"
-                                            preserveAspectRatio="xMidYMid slice"
-                                            width="100%"
-                                            xlinkHref="toast.jpg"
-                                            style={{
-                                              height: "20px",
-                                              width: "20px",
-                                            }}
-                                          ></image>
-                                          <circle
-                                            className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
-                                            cx="10"
-                                            cy="10"
-                                            r="10"
-                                          ></circle>
-                                        </g>
-                                      </svg>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
-                              <div className="relative flex flex-col max-w-full flex-grow z-0">
-                                <div className="flex flex-col min-w-0 max-w-full">
-                                  <div className="flex flex-col flex-grow min-h-0 p-1.5 ml-1">
-                                    <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
-                                      Toast Sweet
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-                    </div>
-                    <hr
-                      className="mx-4 h-[1px] border-[#3E4042]"
-                      role="separator"
-                    ></hr>
-                    <div
-                      className="flex btn p-3 justify-between items-stretch"
-                      role="button"
-                    >
-                      <div className="group relative flex flex-col basis-0 h-9 rounded-md p-1 flex-grow shrink bg-[rgba(255,255,255,.1)]">
-                        <div className="flex items-center justify-center flex-grow rounded-lg bg-transparent  px-2">
-                          <div
-                            style={{
-                              width: "calc(100% + 6px)",
-                              marginLeft: "calc(-1* 3px)",
-                              marginRight: "calc(-1* 3px)",
-                            }}
-                            className="flex justify-center items-center"
-                          >
-                            <div className="flex flex-col w-4 h-4 items-center justify-center mx-[3px]">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                  backgroundImage: "url(/iconBar_3.png)",
-                                  backgroundPosition: "0 -298px",
-                                  backgroundSize: "auto",
-                                  width: "16px",
-                                  height: "16px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                }}
-                              />
-                            </div>
-                            <span className="text-[#E4E6EB] leading-[1.3333] text-[.875rem] mx-[3px]">
-                              <span className="ba_1 block textProps text-[#E4E6EB] leading-[1.3333] text-[.875rem] font-semibold select-none ">
-                                See all profiles
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
+                <div className="flex items-center pb-2 px-4 pt-4">
+                  <div className="group flex flex-col items-center justify-between p-2 cursor-pointer">
+                    <div className="relative flex flex-col items-center justify-center align-bottom border-[rgba(0,0,0,0.4)] bg-[#242526] rounded-full">
+                      <i
+                        data-visualcompletion="css-img"
+                        style={{
+                          filter: "invert(89%) sepia(6%) hue-rotate(185deg)",
+                          backgroundImage: "url(/iconBar_2.png)",
+                          backgroundPosition: "0 -125px",
+                          backgroundSize: "auto",
+                          width: "20px",
+                          height: "20px",
+                          backgroundRepeat: "no-repeat",
+                          display: "inline-block",
+                          verticalAlign: "-0.25em",
+                        }}
+                      />
+                      <div className="absolute opacity-0 group-hover:opacity-100 -inset-2 bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
                     </div>
                   </div>
 
-                  <div className="second section pt-1 pb-2">
-                    <div className="px-2">
-                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
-                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
-                          <i
-                            data-visualcompletion="css-img"
-                            style={{
-                              filter:
-                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
-                              backgroundImage: "url(/iconBar_2.png)",
-                              backgroundPosition: "0 -482px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                              verticalAlign: "-0.25em",
-                            }}
-                          />
-                        </div>
-                        <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
-                          <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
-                            <div className="flex flex-col -my-[5px]">
-                              <div className="my-[5px]">
-                                <span
-                                  className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
-                                  dir="auto"
-                                >
-                                  Settings & privacy
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage: "url(/iconBar_4.png)",
-                                  backgroundPosition: "0 -50px",
-                                  backgroundSize: "auto",
-                                  width: "24px",
-                                  height: "24px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                  verticalAlign: "-0.25em",
-                                }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
-                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
-                          <i
-                            data-visualcompletion="css-img"
-                            style={{
-                              filter:
-                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
-                              backgroundImage: "url(/iconBar_3.png)",
-                              backgroundPosition: "0 -193px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                              verticalAlign: "-0.25em",
-                            }}
-                          />
-                        </div>
-                        <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
-                          <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
-                            <div className="flex flex-col -my-[5px]">
-                              <div className="my-[5px]">
-                                <span
-                                  className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
-                                  dir="auto"
-                                >
-                                  Help & support
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage: "url(/iconBar_4.png)",
-                                  backgroundPosition: "0 -50px",
-                                  backgroundSize: "auto",
-                                  width: "24px",
-                                  height: "24px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                  verticalAlign: "-0.25em",
-                                }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
-                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
-                          <i
-                            data-visualcompletion="css-img"
-                            style={{
-                              filter:
-                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
-                              backgroundImage: "url(/iconBar_4.png)",
-                              backgroundPosition: "0 -205px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                              verticalAlign: "-0.25em",
-                            }}
-                          />
-                        </div>
-                        <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
-                          <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
-                            <div className="flex flex-col -my-[5px]">
-                              <div className="my-[5px]">
-                                <span
-                                  className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
-                                  dir="auto"
-                                >
-                                  Display & accessibility
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="wrapper flex flex-col items-center justify-center w-6 h-6 ml-[12px] my-[12px]">
-                              <i
-                                data-visualcompletion="css-img"
-                                style={{
-                                  filter:
-                                    "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                                  backgroundImage: "url(/iconBar_4.png)",
-                                  backgroundPosition: "0 -50px",
-                                  backgroundSize: "auto",
-                                  width: "24px",
-                                  height: "24px",
-                                  backgroundRepeat: "no-repeat",
-                                  display: "inline-block",
-                                  verticalAlign: "-0.25em",
-                                }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
-                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
-                          <i
-                            data-visualcompletion="css-img"
-                            style={{
-                              filter:
-                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
-                              backgroundImage: "url(/iconBar_3.png)",
-                              backgroundPosition: "0 -67px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                              verticalAlign: "-0.25em",
-                            }}
-                          />
-                        </div>
-
-                        <div className="flex items-stretch flex-grow">
-                          <div className="flex flex-col items-stretch justify-between flex-grow">
-                            <div className="flex flex-col">
-                              <span
-                                className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
-                                dir="auto"
-                              >
-                                Give feedback
-                              </span>
-                            </div>
-                          </div>
-                          <div></div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
-
-                      <div className="group relative flex items-center min-h-[44px] justify-between px-2 cursor-pointer">
-                        <div className="wrapper inline-flex items-center justify-center w-9 h-9 bg-[rgba(255,255,255,.1)] rounded-[50%] my-[6px] mr-[12px]">
-                          <i
-                            data-visualcompletion="css-img"
-                            style={{
-                              filter:
-                                "invert(89%) sepia(6%)  hue-rotate(185deg)",
-                              backgroundImage: "url(/extendedIconList.png)",
-                              backgroundPosition: "0 -591px",
-                              backgroundSize: "auto",
-                              width: "20px",
-                              height: "20px",
-                              backgroundRepeat: "no-repeat",
-                              display: "inline-block",
-                              verticalAlign: "-0.25em",
-                            }}
-                          />
-                        </div>
-
-                        <div className="flex items-stretch flex-grow">
-                          <div className="flex flex-col items-stretch justify-between flex-grow">
-                            <div className="flex flex-col">
-                              <span
-                                className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
-                                dir="auto"
-                              >
-                                Log Out
-                              </span>
-                            </div>
-                          </div>
-                          <div></div>
-                        </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
-                      </div>
+                  <div className="flex justify-between items-stretch pl-2.5">
+                    <div className="flex flex-col items-stretch justify-between">
+                      <h2 className="min-w-0 max-w-full">
+                        <span
+                          className="ba_5 block text-[1.5rem] textProps textClass text-[#E4E6EB] font-[700] leading-[1.1667]"
+                          dir="auto"
+                        >
+                          Display & accessibility
+                        </span>
+                      </h2>
                     </div>
                   </div>
                 </div>
-              </div>
+                <div className="mx-2 mt-1 mb-2">
+                  <div className="group relative mx-2 mt-1 mb-2">
+                    <div className="flex flex-col justify-center items-stretch -m-1.5 py-3 px-2 min-h-[56px]">
+                    <div className="relative flex justify-between rounded-lg items-center select-none flex-grow">
+                      <div className="relative flex flex-col self-start shrink-0">
+                        <div className="relative flex justify-center items-center p-1.5 -mt-1">
+                          <div className="flex justify-center items-center h-9 w-9 bg-[rgba(255,255,255,.1)] rounded-full">
+                            <i
+                              data-visualcompletion="css-img"
+                              style={{
+                                filter:
+                                  "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                backgroundImage: "url(/DarkModeIcon.png)",
+                                backgroundPosition: "0 -210px",
+                                backgroundSize: "auto",
+                                width: "20px",
+                                height: "20px",
+                                backgroundRepeat: "no-repeat",
+                                display: "inline-block",
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
+                        <div className="relative flex flex-col max-w-full flex-grow z-0">
+                          <div className="flex flex-col min-w-0 max-w-full">
+                            <div className="flex flex-col flex-grow min-h-0 p-1.5 -my-[5px]">
+                              <div className="my-[5px]">
+                                <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
+                                  Dark mode
+                                </span>
+                              </div>
+
+                              <div className="my-[5px]">
+                                <span className="ba_1 block text-sm text-[#B0B3B8] leading-[1.3333] text-start font-[400] textClass">
+                                  Adjust the appearance of Facebook to reduce
+                                  glare and give your eyes a break.
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    <div className="darkmode-options">
+                      <div className="1 ml-[42px] min-h-[56px] shrink-0 px-1.5 py-3 -m-1.5">
+                        <div className="flex justify-between items-stretch">
+                          <div className="flex items-center min-w-0 max-w-full flex-grow">
+                            <div className="flex flex-col flex-grow p-1.5">
+                              <div className="flex flex-col -my-[5px]">
+                            <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps">
+                              Off
+                            </label>
+                          </div>
+                          </div>
+                          </div>
+                          <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                          <div className="relative flex justify-center items-center">
+                            <i
+                              data-visualcompletion="css-img"
+                              style={{
+                                filter:
+                                  `${isChecked === 'light' ? 'invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)' : 'invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)'}`,
+                                backgroundImage: "url(/iconBar_2.png)",
+                                backgroundPosition: `0 ${isChecked === 'light' ? '-356px' : '-377px'}`,
+                                backgroundSize: "auto",
+                                width: "20px",
+                                height: "20px",
+                                backgroundRepeat: "no-repeat",
+                                display: "inline-block",
+                              }}
+                            />
+                   
+                           
+                                <input 
+                                className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                value={`${isChecked === 'light' ? 'DISABLED' : 'ENABLED'}`}
+                                checked={isChecked === 'light'} 
+                                onChange={()=> {setIsChecked('light')}}
+                                type="radio" />
+                       
+                          
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="2 ml-[42px] min-h-[56px] shrink-0 px-1.5 py-3 -m-1.5">
+                        <div className="flex justify-between items-stretch">
+                          <div className="flex items-center min-w-0 max-w-full flex-grow">
+                            <div className="flex flex-col flex-grow p-1.5">
+                              <div className="flex flex-col -my-[5px]">
+                            <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps">
+                              On
+                            </label>
+                          </div>
+                          </div>
+                          </div>
+                          <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                          <div className="relative flex justify-center items-center">
+                            <i
+                              data-visualcompletion="css-img"
+                              style={{
+                                filter:
+                                  `${isChecked === 'dark' ? 'invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)' : 'invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)'}`,
+                                backgroundImage: "url(/iconBar_2.png)",
+                                backgroundPosition: `0 ${isChecked === 'dark' ? '-356px' : '-377px'}`,
+                                backgroundSize: "auto",
+                                width: "20px",
+                                height: "20px",
+                                backgroundRepeat: "no-repeat",
+                                display: "inline-block",
+                              }}
+                            />
+                   
+                           
+                                <input 
+                                className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                value={`${isChecked === 'dark' ? 'DISABLED' : 'ENABLED'}`}
+                                checked={isChecked === 'dark'}
+                                onChange={()=> {setIsChecked('dark')}}
+                                type="radio" />
+                       
+                          
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="3 ml-[42px] min-h-[56px] shrink-0 px-1.5 py-3 -m-1.5">
+                        <div className="flex justify-between items-stretch">
+                          <div className="flex items-center min-w-0 max-w-full flex-grow">
+                            <div className="flex flex-col flex-grow p-1.5">
+                              <div className="flex flex-col -my-[5px]">
+                            <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps">
+                              Automatic
+                        
+                            </label>
+                            <div className="my-[5px]">
+                              <span className="ba_3 block text-[#8A8D91] text-xs textClass textProps leading-[1.3333] font-[400]">
+                                We'll automatically adjust the display based on your device's system settings.
+                              </span>
+                              </div>
+                          </div>
+                          
+                          </div>
+                          </div>
+                          <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                          <div className="relative flex justify-center items-center">
+                            <i
+                              data-visualcompletion="css-img"
+                              style={{
+                                filter:
+                                  `${isChecked === 'light' ? 'invert(19%) sepia(70%) saturate(5671%) hue-rotate(203deg) brightness(96%) contrast(101%)' : 'invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)'}`,
+                                backgroundImage: "url(/iconBar_2.png)",
+                                backgroundPosition: `0 ${isChecked === 'light' ? '-356px' : '-377px'}`,
+                                backgroundSize: "auto",
+                                width: "20px",
+                                height: "20px",
+                                backgroundRepeat: "no-repeat",
+                                display: "inline-block",
+                              }}
+                            />
+                   
+                           
+                                <input 
+                                className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                value={`${isChecked === 'light' ? 'DISABLED' : 'ENABLED'}`}
+                                checked={isChecked === 'light'} 
+                                onChange={()=> {setIsChecked('light')}}
+                                type="radio" />
+                       
+                          
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+               
+                   
+            </div>
             </div>
             <div
               className="absolute left-4 right-4 -bottom-[1px] h-[1px] bg-[#3e4042]"
