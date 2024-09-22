@@ -8,15 +8,10 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
-  const iconRef = useRef(null);
-  const [isChecked, setIsChecked] = useState('dark');
+  const [isChecked, setIsChecked] = useState("dark");
+  const [isCheckedFont, setIsCheckedFont] = useState("true");
 
-  const [isLeaveMenu, setIsLeaveMenu] = useState({
-    Settings: false,
-    Messenger: false,
-    Notif: false,
-    User: false,
-  });
+
 
   const [showMenu, setShowMenu] = useState({
     Settings: false,
@@ -24,56 +19,14 @@ function Header() {
     Notif: false,
     User: false,
   });
-  const [holdMenu, setHoldMenu] = useState({
-    Settings: false,
-    Messenger: false,
-    Notif: false,
-    User: false,
-  });
 
-  const resetState = {
-    Settings: false,
-    Messenger: false,
-    Notif: false,
-    User: false,
-  };
-
-  useEffect(() => {
-    const handleMouseUp = () => {
-      console.log("Mouse up");
-
-      setIsLeaveMenu(resetState);
-
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-
-    if (Object.values(isLeaveMenu).includes(true)) {
-      document.addEventListener("mouseup", handleMouseUp);
-    }
-
-    return () => {
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isLeaveMenu]);
-
-  const handleHoldMenu = (e, menu) => {
-    console.log("hold");
-    if (e.button !== 0) return;
-    setHoldMenu((prev) => ({
-      ...prev,
-      [menu]: true,
-    }));
-  };
-
-  const getIconStyle = (menu) => ({
-    transform: holdMenu[menu] && "scale(0.96)",
-  });
 
   const toggleMenu = (e, menu) => {
-    console.log("mouseupp");
     if (e.button !== 0) return;
+ 
 
     setShowMenu((prev) => {
+      
       const newState = {
         Settings: false,
         Messenger: false,
@@ -82,31 +35,20 @@ function Header() {
       };
       newState[menu] = !prev[menu];
       return newState;
+      
     });
 
-    setHoldMenu((prev) => ({
-      ...prev,
-      [menu]: false,
-    }));
+
   };
 
-  const handleEnterMenu = (e, menu) => {
-    setHoldMenu((prev) => ({
-      ...prev,
-      [menu]: true,
-    }));
+  const handleMouseEnter = (e, menu) => {
+    e.target.classList.add('notifIconScale')
+    // scaleIconRefs.current[menu].current?.classList.add("notifIconScale");
   };
-  const handleLeaveMenu = (e, menu) => {
-    console.log("leave");
-    setHoldMenu((prev) => ({
-      ...prev,
-      [menu]: false,
-    }));
+  const handleMouseLeave = (e, menu) => {
+    e.target.classList.remove('notifIconScale')
 
-    setIsLeaveMenu((prev) => ({
-      ...prev,
-      [menu]: true,
-    }));
+    // scaleIconRefs.current[menu].current?.classList.remove("notifIconScale");
   };
 
   // useEffect(() => {
@@ -159,8 +101,8 @@ function Header() {
       active: true,
       icon: (
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-          <path d="M12 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-2 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-          <path d="M.5 12C.5 5.649 5.649.5 12 .5S23.5 5.649 23.5 12 18.351 23.5 12 23.5.5 18.351.5 12zm2.21-2a9.537 9.537 0 0 0 0 3.993l.3.007A2 2 0 0 0 3 10h-.29zm.663-1.983a4 4 0 0 1 0 7.966 9.523 9.523 0 0 0 1.948 2.773A5.002 5.002 0 0 1 10 15.523h4a5.002 5.002 0 0 1 4.679 3.233 9.523 9.523 0 0 0 1.948-2.773 4 4 0 0 1 0-7.966A9.501 9.501 0 0 0 12 2.5a9.501 9.501 0 0 0-8.627 5.517zM21.5 12a9.55 9.55 0 0 0-.212-2.007l-.265.007H21a2 2 0 0 0-.01 4l.3-.007c.138-.643.21-1.31.21-1.993zM12 21.5a9.455 9.455 0 0 0 4.97-1.402A3 3 0 0 0 14 17.523h-4a3 3 0 0 0-2.97 2.575A9.456 9.456 0 0 0 12 21.5z"></path>
+          <path d="M12 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-2 4a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+          <path d="M12 .5C5.649.5.5 5.649.5 12S5.649 23.5 12 23.5 23.5 18.351 23.5 12 18.351.5 12 .5zM2.5 12c0-.682.072-1.348.209-1.99a2 2 0 0 1 0 3.98A9.539 9.539 0 0 1 2.5 12zm4 0a4.001 4.001 0 0 0-3.16-3.912A9.502 9.502 0 0 1 12 2.5a9.502 9.502 0 0 1 8.66 5.588 4.001 4.001 0 0 0 0 7.824 9.514 9.514 0 0 1-1.755 2.613A5.002 5.002 0 0 0 14 14.5h-4a5.002 5.002 0 0 0-4.905 4.025 9.515 9.515 0 0 1-1.755-2.613A4.001 4.001 0 0 0 6.5 12zm13 0a2 2 0 0 1 1.791-1.99 9.538 9.538 0 0 1 0 3.98A2 2 0 0 1 19.5 12zm-2.51 8.086A9.455 9.455 0 0 1 12 21.5c-1.83 0-3.54-.517-4.99-1.414a1.004 1.004 0 0 1-.01-.148V19.5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v.438a1 1 0 0 1-.01.148z"></path>
         </svg>
       ),
     },
@@ -186,7 +128,7 @@ function Header() {
   ];
 
   return (
-    <header className="flex flex-col w-full h-[56px] fixed right-0 top-0 bg-[#242526] border-b-[0.5px] border-[#3A3B3C] z-[1]">
+    <header className="flex flex-col w-full h-[56px] fixed right-0 top-0 bg-[#242526] z-[1]">
       <div className="flex top-0 left-0 h-[56px] items-center xl:w-[320px] w-[112px] max-w-[100vw]">
         <div className="relative flex px-[16px] w-full">
           <div className="relative flex z-3 w-full">
@@ -220,19 +162,19 @@ function Header() {
                       ></div>
                     )}
                     <a
-                      className="flex flex-col outline-none h-full justify-center items-center w-full"
+                      className="group relative flex flex-col outline-zero h-full justify-center items-center w-full cursor-pointer"
                       onClick={() => navigate(item.slug)}
                     >
                       <span className="relative flex justify-center items-center z-50">
                         {item.icon}
                       </span>
                       <div
-                        style={{ inset: "2px 0px" }}
-                        className={`absolute ${
+                        style={{ inset: "4px 0px" }}
+                        className={`absolute opacity-0 pointer-events-none fade ${
                           location.pathname !== item.slug
-                            ? "group-hover:bg-[#3A3B3C]"
+                            ? "group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] group-hover:bg-[rgba(255,255,255,0.1)]"
                             : ""
-                        } rounded-lg h-[50px]`}
+                        } rounded-lg`}
                       ></div>
                     </a>
                   </div>
@@ -246,23 +188,12 @@ function Header() {
           <div className="relative flex justify-center items-center">
             <div className="settings relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                draggable="false"
-                onMouseEnter={
-                  isLeaveMenu.Settings
-                    ? (e) => handleEnterMenu(e, "Settings")
-                    : undefined
-                }
-                onMouseDown={(e) => handleHoldMenu(e, "Settings")}
-                onMouseUp={(e) => toggleMenu(e, "Settings")}
-                onMouseLeave={
-                  holdMenu.Settings
-                    ? (e) => handleLeaveMenu(e, "Settings")
-                    : undefined
-                }
-                style={getIconStyle("Settings")}
+                onMouseUp={(e) => toggleMenu(e, "Settings")} 
+                onMouseEnter={(e)=> handleMouseEnter(e)}
+                onMouseLeave={(e)=> handleMouseLeave(e)}
                 aria-label="Create"
                 className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
-                  showMenu.Settings ? "bg-[#1D85FC33]" : "bg-[#E4E6EB]"
+                  showMenu.Settings ? "bg-[#1D85FC33] notifIconScale" : "bg-[#E4E6EB]"
                 } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
                 // onClick={() => navigate(item.slug)}
               >
@@ -276,35 +207,20 @@ function Header() {
                   <path d="M18.5 1A1.5 1.5 0 0 0 17 2.5v3A1.5 1.5 0 0 0 18.5 7h3A1.5 1.5 0 0 0 23 5.5v-3A1.5 1.5 0 0 0 21.5 1h-3zm0 8a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 21.5 9h-3zm-16 8A1.5 1.5 0 0 0 1 18.5v3A1.5 1.5 0 0 0 2.5 23h3A1.5 1.5 0 0 0 7 21.5v-3A1.5 1.5 0 0 0 5.5 17h-3zm8 0A1.5 1.5 0 0 0 9 18.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5h-3zm8 0a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5h-3zm-16-8A1.5 1.5 0 0 0 1 10.5v3A1.5 1.5 0 0 0 2.5 15h3A1.5 1.5 0 0 0 7 13.5v-3A1.5 1.5 0 0 0 5.5 9h-3zm0-8A1.5 1.5 0 0 0 1 2.5v3A1.5 1.5 0 0 0 2.5 7h3A1.5 1.5 0 0 0 7 5.5v-3A1.5 1.5 0 0 0 5.5 1h-3zm8 0A1.5 1.5 0 0 0 9 2.5v3A1.5 1.5 0 0 0 10.5 7h3A1.5 1.5 0 0 0 15 5.5v-3A1.5 1.5 0 0 0 13.5 1h-3zm0 8A1.5 1.5 0 0 0 9 10.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 13.5 9h-3z"></path>
                 </svg>
                 <div
-                  className={`absolute inset-0 rounded-full opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer ${
-                    holdMenu.Settings
-                      ? "bg-[rgba(68,73,80,0.15)] group-hover:opacity-100 duration-0"
-                      : "group-hover:opacity-100 fade"
-                  } pointer-events-none`}
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0
+                  group-hover:opacity-100 fade pointer-events-none"
                 ></div>
               </div>
             </div>
 
             <div className="messenger relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                onMouseEnter={
-                  isLeaveMenu.Messenger
-                    ? (e) => handleEnterMenu(e, "Messenger")
-                    : undefined
-                }
-                onMouseDown={(e) => handleHoldMenu(e, "Messenger")}
-                onMouseUp={(e) => toggleMenu(e, "Messenger")}
-                onMouseLeave={
-                  holdMenu.Messenger
-                    ? (e) => handleLeaveMenu(e, "Messenger")
-                    : undefined
-                }
-                style={getIconStyle("Messenger")}
-                className={`group relative flex justify-center cursor-pointer items-center w-[40px] h-[40px] ${
-                  showMenu.Messenger
-                    ? "bg-[#1D85FC33]"
-                    : "bg-[rgba(255,255,255,0.1)]"
-                }  bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
+               onMouseUp={(e) => toggleMenu(e, "Messenger")}        
+               onMouseEnter={(e)=> handleMouseEnter(e)}
+               onMouseLeave={(e)=> handleMouseLeave(e)}
+               className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
+                showMenu.Messenger ? "bg-[#1D85FC33] notifIconScale" : "bg-[#E4E6EB]"
+              } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
                 // onClick={() => navigate(item.slug)}
               >
                 <svg
@@ -319,35 +235,20 @@ function Header() {
                   </g>
                 </svg>
                 <div
-                  className={`absolute inset-0 rounded-full opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer ${
-                    holdMenu.Messenger
-                      ? "bg-[rgba(68,73,80,0.15)] group-hover:opacity-100 duration-0"
-                      : "group-hover:opacity-100 fade"
-                  } pointer-events-none`}
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0
+                  group-hover:opacity-100 fade pointer-events-none"
                 ></div>
               </div>
             </div>
 
             <div className="notification relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                onMouseEnter={
-                  isLeaveMenu.Notif
-                    ? (e) => handleEnterMenu(e, "Notif")
-                    : undefined
-                }
-                onMouseDown={(e) => handleHoldMenu(e, "Notif")}
-                onMouseUp={(e) => toggleMenu(e, "Notif")}
-                onMouseLeave={
-                  holdMenu.Notif
-                    ? (e) => handleLeaveMenu(e, "Notif")
-                    : undefined
-                }
-                style={getIconStyle("Notif")}
-                className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] bg-opacity-10 ${
-                  showMenu.Notif
-                    ? "bg-[#1D85FC33]"
-                    : "bg-[rgba(255,255,255,0.1)]"
-                } rounded-full border-[rgba(0,0,0,.4)] select-none`}
+                onMouseUp={(e) => toggleMenu(e, "Notif")} 
+                onMouseEnter={(e)=> handleMouseEnter(e)}
+                onMouseLeave={(e)=> handleMouseLeave(e)}
+                className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
+                  showMenu.Notif ? "bg-[#1D85FC33] notifIconScale" : "bg-[#E4E6EB]"
+                } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -358,28 +259,18 @@ function Header() {
                   <path d="M3 9.5a9 9 0 1 1 18 0v2.927c0 1.69.475 3.345 1.37 4.778a1.5 1.5 0 0 1-1.272 2.295h-4.625a4.5 4.5 0 0 1-8.946 0H2.902a1.5 1.5 0 0 1-1.272-2.295A9.01 9.01 0 0 0 3 12.43V9.5zm6.55 10a2.5 2.5 0 0 0 4.9 0h-4.9z"></path>
                 </svg>
                 <div
-                  className={`absolute inset-0 rounded-full opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer ${
-                    holdMenu.Notif
-                      ? "bg-[rgba(68,73,80,0.15)] group-hover:opacity-100 duration-0"
-                      : "group-hover:opacity-100 fade"
-                  } pointer-events-none`}
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0
+                  group-hover:opacity-100 fade pointer-events-none"
                 ></div>
               </div>
             </div>
             <div className="user relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                onMouseEnter={
-                  isLeaveMenu.User
-                    ? (e) => handleEnterMenu(e, "User")
-                    : undefined
-                }
-                onMouseDown={(e) => handleHoldMenu(e, "User")}
-                onMouseUp={(e) => toggleMenu(e, "User")}
-                onMouseLeave={
-                  holdMenu.User ? (e) => handleLeaveMenu(e, "User") : undefined
-                }
-                style={getIconStyle("User")}
-                className={`group relative inline-block cursor-pointer w-[40px] h-[40px] rounded-full select-none`}
+                onMouseUp={(e) => toggleMenu(e, "User")} 
+                onMouseEnter={(e)=> handleMouseEnter(e)}
+                onMouseLeave={(e)=> handleMouseLeave(e)}
+              className="relative group cursor-pointer"
+
                 // onClick={() => navigate(item.slug)}
               >
                 <svg
@@ -428,11 +319,7 @@ function Header() {
                   alt=""
                 /> */}
                 <div
-                  className={`absolute inset-0 rounded-full opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer ${
-                    holdMenu.User
-                      ? "bg-[rgba(68,73,80,0.35)] group-hover:opacity-100 duration-0"
-                      : "group-hover:opacity-100 fade"
-                  } pointer-events-none`}
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.35)] duration-0 group-hover:opacity-100 fade pointer-events-none"
                 ></div>
                 <div
                   style={{
@@ -469,7 +356,7 @@ function Header() {
           </div>
         </div>
       </nav>
-
+      <div className="absolute -bottom-[6px] right-0 left-0 h-[7px] headerAfter pointer-events-none"></div>
       {showMenu.Notif && <NotifPanel />}
 
       {showMenu.Messenger && <MessagePanel />}
@@ -516,7 +403,7 @@ function Header() {
         //                     <div className="flex flex-col min-w-0 max-w-full py-2">
         //                       <div className="flex flex-col flex-grow min-h-0 p-[4px]">
         //                         <div className="flex flex-col">
-        //                           <div className="flex flex-col -my-[5px]">
+        //                           <div className="flex flex-col -my-[5px] select-none">
         //                             <div className="ba_1 my-[5px]">
         //                               <span className="block text-[1rem] text-[#E4E6EB] leading-[1.3333] text-start font-medium pb-[1px] overflow-hidden">
         //                                 Syed Muhammad Jon
@@ -799,7 +686,7 @@ function Header() {
         //                 </div>
         //                 <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
         //                   <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
-        //                     <div className="flex flex-col -my-[5px]">
+        //                     <div className="flex flex-col -my-[5px] select-none">
         //                       <div className="my-[5px]">
         //                         <span
         //                           className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
@@ -852,7 +739,7 @@ function Header() {
         //                 </div>
         //                 <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
         //                   <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
-        //                     <div className="flex flex-col -my-[5px]">
+        //                     <div className="flex flex-col -my-[5px] select-none">
         //                       <div className="my-[5px]">
         //                         <span
         //                           className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
@@ -905,7 +792,7 @@ function Header() {
         //                 </div>
         //                 <div className="flex justify-between items-center self-stretch flex-grow min-h-[inherit]">
         //                   <div className="flex flex-col items-stretch justify-between basis-0 flex-grow py-2">
-        //                     <div className="flex flex-col -my-[5px]">
+        //                     <div className="flex flex-col -my-[5px] select-none">
         //                       <div className="my-[5px]">
         //                         <span
         //                           className="before_a block text-[.875rem] font-[500] textProps textClass whitespace-nowrap leading-[1.3333] text-start text-[#E4E6EB]"
@@ -1025,7 +912,7 @@ function Header() {
             }}
             className="user absolute top-0 right-0 bg-[#242526] max-w-full min-w-0 rounded-lg shadowStyle-1"
           >
-            <div className="bg-[#242526] max-w-[400px] w-[360px] h-[556.766px] rounded-lg">
+            <div className="bg-[#242526] max-w-[400px] w-[360px] h-[522.875px] rounded-lg">
               <div
                 style={{
                   transform: "translateX(0%) translateZ(1px)",
@@ -1068,190 +955,450 @@ function Header() {
                     </div>
                   </div>
                 </div>
-                <div className="mx-2 mt-1 mb-2">
-                  <div className="group relative mx-2 mt-1 mb-2">
+                <div>
+                  <div className="relative mx-2 mt-1 mb-2">
                     <div className="flex flex-col justify-center items-stretch -m-1.5 py-3 px-2 min-h-[56px]">
-                    <div className="relative flex justify-between rounded-lg items-center select-none flex-grow">
-                      <div className="relative flex flex-col self-start shrink-0">
-                        <div className="relative flex justify-center items-center p-1.5 -mt-1">
-                          <div className="flex justify-center items-center h-9 w-9 bg-[rgba(255,255,255,.1)] rounded-full">
-                            <i
-                              data-visualcompletion="css-img"
-                              style={{
-                                filter:
-                                  "invert(89%) sepia(6%) hue-rotate(185deg)",
-                                backgroundImage: "url(/DarkModeIcon.png)",
-                                backgroundPosition: "0 -210px",
-                                backgroundSize: "auto",
-                                width: "20px",
-                                height: "20px",
-                                backgroundRepeat: "no-repeat",
-                                display: "inline-block",
-                              }}
-                            />
+                      <div className="relative flex justify-between rounded-lg items-center select-none flex-grow">
+                        <div className="relative flex flex-col self-start shrink-0">
+                          <div className="relative flex justify-center items-center p-1.5 -mt-1">
+                            <div className="flex justify-center items-center h-9 w-9 bg-[rgba(255,255,255,.1)] rounded-full">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage: "url(/DarkModeIcon.png)",
+                                  backgroundPosition: "0 -210px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                  display: "inline-block",
+                                }}
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
-                        <div className="relative flex flex-col max-w-full flex-grow z-0">
-                          <div className="flex flex-col min-w-0 max-w-full">
-                            <div className="flex flex-col flex-grow min-h-0 p-1.5 -my-[5px]">
-                              <div className="my-[5px]">
-                                <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
-                                  Dark mode
-                                </span>
-                              </div>
+                        <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
+                          <div className="relative flex flex-col max-w-full flex-grow z-0">
+                            <div className="flex flex-col min-w-0 max-w-full">
+                              <div className="flex flex-col flex-grow min-h-0 p-1.5 -my-[5px]">
+                                <div className="my-[5px]">
+                                  <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
+                                    Dark mode
+                                  </span>
+                                </div>
 
-                              <div className="my-[5px]">
-                                <span className="ba_1 block text-sm text-[#B0B3B8] leading-[1.3333] text-start font-[400] textClass">
-                                  Adjust the appearance of Facebook to reduce
-                                  glare and give your eyes a break.
-                                </span>
+                                <div className="my-[5px]">
+                                  <span className="ba_1 block text-sm text-[#B0B3B8] leading-[1.3333] text-start font-[400] textClass">
+                                    Adjust the appearance of Facebook to reduce
+                                    glare and give your eyes a break.
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <div className="darkmode-options">
+                      <div className="flex flex-col items-stretch justify-center">
+                        <div className="group relative 1 flex flex-col justify-center ml-[48px] shrink-0 cursor-pointer">
+                          <div className="min-h-[56px] px-2 py-3 -m-1.5">
+                            <div className="flex justify-between items-stretch">
+                              <div className="flex items-center min-w-0 max-w-full flex-grow">
+                                <div className="flex flex-col flex-grow p-1.5">
+                                  <div className="flex flex-col -my-[5px] select-none">
+                                    <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps pointer-events-none">
+                                      Off
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                                <div className="relative flex justify-center items-center">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter: `${
+                                        isChecked === "light"
+                                          ? "invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)"
+                                          : "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)"
+                                      }`,
+                                      backgroundImage: "url(/iconBar_2.png)",
+                                      backgroundPosition: `0 ${
+                                        isChecked === "light"
+                                          ? "-356px"
+                                          : "-377px"
+                                      }`,
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                      display: "inline-block",
+                                    }}
+                                  />
+
+                                  <input
+                                    className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                    value={`${
+                                      isChecked === "light"
+                                        ? "DISABLED"
+                                        : "ENABLED"
+                                    }`}
+                                    checked={isChecked === "light"}
+                                    onChange={() => {
+                                      setIsChecked("light");
+                                    }}
+                                    type="radio"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-stretch justify-center">
+                        <div className="group relative 2 ml-[48px] shrink-0 cursor-pointer">
+                          <div className="min-h-[56px] px-2 py-3 -m-1.5">
+                            <div className="flex justify-between items-stretch">
+                              <div className="flex items-center min-w-0 max-w-full flex-grow">
+                                <div className="flex flex-col flex-grow p-1.5">
+                                  <div className="flex flex-col -my-[5px] select-none">
+                                    <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps pointer-events-none">
+                                      On
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                                <div className="relative flex justify-center items-center">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter: `${
+                                        isChecked === "dark"
+                                          ? "invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)"
+                                          : "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)"
+                                      }`,
+                                      backgroundImage: "url(/iconBar_2.png)",
+                                      backgroundPosition: `0 ${
+                                        isChecked === "dark"
+                                          ? "-356px"
+                                          : "-377px"
+                                      }`,
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                      display: "inline-block",
+                                    }}
+                                  />
+
+                                  <input
+                                    className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                    value={`${
+                                      isChecked === "dark"
+                                        ? "DISABLED"
+                                        : "ENABLED"
+                                    }`}
+                                    checked={isChecked === "dark"}
+                                    onChange={() => {
+                                      setIsChecked("dark");
+                                    }}
+                                    type="radio"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <div className="group relative 3 ml-[48px] shrink-0 cursor-pointer">
+                          <div className="min-h-[56px] px-2 py-3 -m-1.5">
+                            <div className="flex justify-between items-stretch">
+                              <div className="flex items-center min-w-0 max-w-full flex-grow">
+                                <div className="flex flex-col flex-grow p-1.5">
+                                  <div className="flex flex-col -my-[5px] select-none">
+                                    <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps pointer-events-none">
+                                      Automatic
+                                    </label>
+                                    <div className="my-[5px]">
+                                      <span className="ba_3 block text-[#8A8D91] text-xs textClass textProps leading-[1.3333] font-[400]">
+                                        We'll automatically adjust the display
+                                        based on your device's system settings.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                                <div className="relative flex justify-center items-center">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter: `${
+                                        isChecked === "automatic"
+                                          ? "invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)"
+                                          : "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)"
+                                      }`,
+                                      backgroundImage: "url(/iconBar_2.png)",
+                                      backgroundPosition: `0 ${
+                                        isChecked === "automatic"
+                                          ? "-356px"
+                                          : "-377px"
+                                      }`,
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                      display: "inline-block",
+                                    }}
+                                  />
+
+                                  <input
+                                    className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                    value={`${
+                                      isChecked === "automatic"
+                                        ? "DISABLED"
+                                        : "ENABLED"
+                                    }`}
+                                    checked={isChecked === "automatic"}
+                                    onChange={() => {
+                                      setIsChecked("automatic");
+                                    }}
+                                    type="radio"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col justify-center items-stretch -m-1.5 py-3 px-2 min-h-[56px]">
+                      <div className="relative flex justify-between rounded-lg items-center select-none flex-grow">
+                        <div className="relative flex flex-col self-start shrink-0">
+                          <div className="relative flex justify-center items-center p-1.5 -mt-1">
+                            <div className="flex justify-center items-center h-9 w-9 bg-[rgba(255,255,255,.1)] rounded-full">
+                              <i
+                                data-visualcompletion="css-img"
+                                style={{
+                                  filter:
+                                    "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                  backgroundImage: "url(/iconBar_3.png)",
+                                  backgroundPosition: "0 -256px",
+                                  backgroundSize: "auto",
+                                  width: "20px",
+                                  height: "20px",
+                                  backgroundRepeat: "no-repeat",
+                                  display: "inline-block",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
+                          <div className="relative flex flex-col max-w-full flex-grow z-0">
+                            <div className="flex flex-col min-w-0 max-w-full">
+                              <div className="flex flex-col flex-grow min-h-0 p-1.5 -my-[5px]">
+                                <div className="my-[5px]">
+                                  <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
+                                    Compact Mode
+                                  </span>
+                                </div>
+
+                                <div className="my-[5px]">
+                                  <span className="ba_1 block text-sm text-[#B0B3B8] leading-[1.3333] text-start font-[400] textClass">
+                                    Make your font size smaller so more content
+                                    can fit on the screen.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div className="darkmode-options">
-                      <div className="1 ml-[42px] min-h-[56px] shrink-0 px-1.5 py-3 -m-1.5">
-                        <div className="flex justify-between items-stretch">
-                          <div className="flex items-center min-w-0 max-w-full flex-grow">
-                            <div className="flex flex-col flex-grow p-1.5">
-                              <div className="flex flex-col -my-[5px]">
-                            <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps">
-                              Off
-                            </label>
-                          </div>
-                          </div>
-                          </div>
-                          <div className="flex flex-col p-1.5 cursor-pointer self-center">
-                          <div className="relative flex justify-center items-center">
-                            <i
-                              data-visualcompletion="css-img"
-                              style={{
-                                filter:
-                                  `${isChecked === 'light' ? 'invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)' : 'invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)'}`,
-                                backgroundImage: "url(/iconBar_2.png)",
-                                backgroundPosition: `0 ${isChecked === 'light' ? '-356px' : '-377px'}`,
-                                backgroundSize: "auto",
-                                width: "20px",
-                                height: "20px",
-                                backgroundRepeat: "no-repeat",
-                                display: "inline-block",
-                              }}
-                            />
-                   
-                           
-                                <input 
-                                className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
-                                value={`${isChecked === 'light' ? 'DISABLED' : 'ENABLED'}`}
-                                checked={isChecked === 'light'} 
-                                onChange={()=> {setIsChecked('light')}}
-                                type="radio" />
-                       
-                          
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="2 ml-[42px] min-h-[56px] shrink-0 px-1.5 py-3 -m-1.5">
-                        <div className="flex justify-between items-stretch">
-                          <div className="flex items-center min-w-0 max-w-full flex-grow">
-                            <div className="flex flex-col flex-grow p-1.5">
-                              <div className="flex flex-col -my-[5px]">
-                            <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps">
-                              On
-                            </label>
-                          </div>
-                          </div>
-                          </div>
-                          <div className="flex flex-col p-1.5 cursor-pointer self-center">
-                          <div className="relative flex justify-center items-center">
-                            <i
-                              data-visualcompletion="css-img"
-                              style={{
-                                filter:
-                                  `${isChecked === 'dark' ? 'invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)' : 'invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)'}`,
-                                backgroundImage: "url(/iconBar_2.png)",
-                                backgroundPosition: `0 ${isChecked === 'dark' ? '-356px' : '-377px'}`,
-                                backgroundSize: "auto",
-                                width: "20px",
-                                height: "20px",
-                                backgroundRepeat: "no-repeat",
-                                display: "inline-block",
-                              }}
-                            />
-                   
-                           
-                                <input 
-                                className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
-                                value={`${isChecked === 'dark' ? 'DISABLED' : 'ENABLED'}`}
-                                checked={isChecked === 'dark'}
-                                onChange={()=> {setIsChecked('dark')}}
-                                type="radio" />
-                       
-                          
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="3 ml-[42px] min-h-[56px] shrink-0 px-1.5 py-3 -m-1.5">
-                        <div className="flex justify-between items-stretch">
-                          <div className="flex items-center min-w-0 max-w-full flex-grow">
-                            <div className="flex flex-col flex-grow p-1.5">
-                              <div className="flex flex-col -my-[5px]">
-                            <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps">
-                              Automatic
-                        
-                            </label>
-                            <div className="my-[5px]">
-                              <span className="ba_3 block text-[#8A8D91] text-xs textClass textProps leading-[1.3333] font-[400]">
-                                We'll automatically adjust the display based on your device's system settings.
-                              </span>
+                      <div className="flex flex-col items-stretch justify-center">
+                        <div className="group relative 1 ml-[48px] shrink-0 cursor-pointer">
+                          <div className="min-h-[56px] px-2 py-3 -m-1.5">
+                            <div className="flex justify-between items-stretch">
+                              <div className="flex items-center min-w-0 max-w-full flex-grow">
+                                <div className="flex flex-col flex-grow p-1.5">
+                                  <div className="flex flex-col -my-[5px] select-none">
+                                    <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps pointer-events-none">
+                                      Off
+                                    </label>
+                                  </div>
+                                </div>
                               </div>
+                              <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                                <div className="relative flex justify-center items-center">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter: `${
+                                        isCheckedFont === "false"
+                                          ? "invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)"
+                                          : "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)"
+                                      }`,
+                                      backgroundImage: "url(/iconBar_2.png)",
+                                      backgroundPosition: `0 ${
+                                        isCheckedFont === "false"
+                                          ? "-356px"
+                                          : "-377px"
+                                      }`,
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                      display: "inline-block",
+                                    }}
+                                  />
+
+                                  <input
+                                    className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                    value={`${
+                                      isCheckedFont === "false"
+                                        ? "DISABLED"
+                                        : "ENABLED"
+                                    }`}
+                                    checked={isCheckedFont === "false"}
+                                    onChange={() => {
+                                      setIsCheckedFont("false");
+                                    }}
+                                    type="radio"
+                                  />
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                          
+                          <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-stretch justify-center">
+                        <div className="group relative 2 ml-[48px] shrink-0 cursor-pointer">
+                          <div className="min-h-[56px] px-2 py-3 -m-1.5">
+                            <div className="flex justify-between items-stretch">
+                              <div className="flex items-center min-w-0 max-w-full flex-grow">
+                                <div className="flex flex-col flex-grow p-1.5">
+                                  <div className="flex flex-col -my-[5px] select-none">
+                                    <label className="my-[5px] before_a block text-[#E4E6EB] text-sm font-medium leading-[1.3333] textProps pointer-events-none">
+                                      On
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="flex flex-col p-1.5 cursor-pointer self-center">
+                                <div className="relative flex justify-center items-center">
+                                  <i
+                                    data-visualcompletion="css-img"
+                                    style={{
+                                      filter: `${
+                                        isCheckedFont === "true"
+                                          ? "invert(74%) sepia(14%) saturate(7129%) hue-rotate(185deg) brightness(102%) contrast(101%)"
+                                          : "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)"
+                                      }`,
+                                      backgroundImage: "url(/iconBar_2.png)",
+                                      backgroundPosition: `0 ${
+                                        isCheckedFont === "true"
+                                          ? "-356px"
+                                          : "-377px"
+                                      }`,
+                                      backgroundSize: "auto",
+                                      width: "20px",
+                                      height: "20px",
+                                      backgroundRepeat: "no-repeat",
+                                      display: "inline-block",
+                                    }}
+                                  />
+
+                                  <input
+                                    className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
+                                    value={`${
+                                      isCheckedFont === "true"
+                                        ? "DISABLED"
+                                        : "ENABLED"
+                                    }`}
+                                    checked={isCheckedFont === "true"}
+                                    onChange={() => {
+                                      setIsCheckedFont("true");
+                                    }}
+                                    type="radio"
+                                  />
+                                </div>
+                              </div>
+                            </div>
                           </div>
+                          <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative group flex flex-col justify-center items-stretch cursor-pointer">
+                      <div className="flex flex-col justify-center items-stretch -m-1.5 py-3 px-2 min-h-[56px]">
+                        <div className="flex justify-between rounded-lg items-center select-none flex-grow">
+                          <div className="relative flex flex-col self-end shrink-0">
+                            <div className="relative flex justify-center items-center p-1.5 -mt-1">
+                              <div className="flex justify-center items-center h-9 w-9 bg-[rgba(255,255,255,.1)] rounded-full">
+                                <i
+                                  data-visualcompletion="css-img"
+                                  style={{
+                                    filter:
+                                      "invert(89%) sepia(6%) hue-rotate(185deg)",
+                                    backgroundImage: "url(/iconBar_3.png)",
+                                    backgroundPosition: "0 -130px",
+                                    backgroundSize: "auto",
+                                    width: "20px",
+                                    height: "20px",
+                                    backgroundRepeat: "no-repeat",
+                                    display: "inline-block",
+                                  }}
+                                />
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex flex-col p-1.5 cursor-pointer self-center">
-                          <div className="relative flex justify-center items-center">
-                            <i
-                              data-visualcompletion="css-img"
-                              style={{
-                                filter:
-                                  `${isChecked === 'light' ? 'invert(19%) sepia(70%) saturate(5671%) hue-rotate(203deg) brightness(96%) contrast(101%)' : 'invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)'}`,
-                                backgroundImage: "url(/iconBar_2.png)",
-                                backgroundPosition: `0 ${isChecked === 'light' ? '-356px' : '-377px'}`,
-                                backgroundSize: "auto",
-                                width: "20px",
-                                height: "20px",
-                                backgroundRepeat: "no-repeat",
-                                display: "inline-block",
-                              }}
-                            />
-                   
-                           
-                                <input 
-                                className="absolute inset-0 opacity-[.001] w-full h-full cursor-pointer"
-                                value={`${isChecked === 'light' ? 'DISABLED' : 'ENABLED'}`}
-                                checked={isChecked === 'light'} 
-                                onChange={()=> {setIsChecked('light')}}
-                                type="radio" />
-                       
-                          
+                          <div className="flex flex-wrap justify-between items-center shrink min-h-0 p-0 flex-grow">
+                            <div className="relative flex flex-col max-w-full flex-grow z-0">
+                              <div className="flex flex-col min-w-0 max-w-full">
+                                <div className="flex flex-col flex-grow min-h-0 p-1.5 -my-[5px]">
+                                  <div className="my-[5px]">
+                                    <span className="ba_4 block text-[1rem] text-[#E4E6EB] leading-[1.1765] text-start font-semibold">
+                                      Keyboard
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>
+                              <div className="wrapper flex flex-col items-center justify-center w-6 h-6 mr-1.5 my-[12px]">
+                                <svg
+                                  viewBox="0 0 24 24"
+                                  width="24"
+                                  height="24"
+                                  fill="currentColor"
+                                  aria-hidden="true"
+                                  className="block svgClass fade"
+                                  style={{ color: "#B0B3B8" }}
+                                >
+                                  <path d="M8.293 3.293a1 1 0 0 1 1.414 0c.887.887 1.778 1.775 2.669 2.663 1.428 1.424 2.859 2.85 4.281 4.28a2.497 2.497 0 0 1-.004 3.526 7797.1 7797.1 0 0 1-4.265 4.266c-.894.893-1.788 1.786-2.68 2.68a1 1 0 0 1-1.415-1.415l2.682-2.68c1.421-1.422 2.843-2.842 4.263-4.264a.497.497 0 0 0 .002-.702c-1.42-1.428-2.845-2.848-4.271-4.27-.892-.888-1.784-1.778-2.676-2.67a1 1 0 0 1 0-1.414z"></path>
+                                </svg>
+                              </div>
+                            </div>
                           </div>
-                          </div>
+                          <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div></div>
                 </div>
-               
-                   
-            </div>
+              </div>
             </div>
             <div
               className="absolute left-4 right-4 -bottom-[1px] h-[1px] bg-[#3e4042]"

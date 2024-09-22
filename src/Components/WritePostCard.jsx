@@ -382,7 +382,7 @@ if (window.innerWidth <= 583) {
             <div className="flex absolute top-[12px] right-[16px]">
               <a 
                   onClick={() => handleClosePost()}
-              className="outline-none shrink-0 relative flex items-center justify-center w-[36px] h-[36px] min-h-0 rounded-full bg-[#3A3B3C] cursor-pointer">
+              className="outline-zero shrink-0 relative flex items-center justify-center w-[36px] h-[36px] min-h-0 rounded-full bg-[#3A3B3C] cursor-pointer">
        
                   <i
                     data-visualcompletion="css-img"

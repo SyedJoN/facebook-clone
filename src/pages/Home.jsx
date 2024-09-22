@@ -42,7 +42,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="sidebar_2 sticky right-0 top-[56px] basis-[360px] max-w-[360px] min-w-[280px] max-h-0 overflow-hidden min-h-[inherit]">
+            <div className="sidebar_2 sticky right-0 top-[56px] max-w-[360px] basis-[360px] min-w-[280px] max-h-0 overflow-hidden min-h-[inherit] shrink-[9999]">
               <Sidebar_2 />
             </div>
           </div>

@@ -75,7 +75,7 @@ function Posts() {
             <div className="flex w-full border-t-[1px] border-[#3A3B3C] mt-[12px] h-[46px] pt-[9px] justify-around ">
               <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center">
-                  <span className="inline-flex mt-[2px]">
+                  <span className="inline-flex mt-[2px] select-none">
                     <img
                       width={"24px"}
                       height={"24px"}
@@ -88,12 +88,12 @@ function Posts() {
                     Live video
                   </span>
                 </div>
-                <div className="absolute inset-0 p-[20px] bg-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 rounded-lg top-[-1px] pointer-events-none"></div>
+                <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </div>
 
               <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center select-none">
-                  <span className="inline-flex mt-[2px]">
+                  <span className="inline-flex mt-[2px] select-none">
                     <img
                       width={"24px"}
                       height={"24px"}
@@ -107,12 +107,12 @@ function Posts() {
                     Photo/video
                   </span>
                 </div>
-                <div className="absolute inset-0 p-[20px] bg-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 rounded-lg top-[-1px] pointer-events-none"></div>
+                <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </div>
 
               <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center">
-                  <span className="inline-flex mt-[2px]">
+                  <span className="inline-flex mt-[2px] select-none">
                     <img
                       width={"24px"}
                       height={"24px"}
@@ -126,7 +126,7 @@ function Posts() {
                     Feeling/activity
                   </span>
                 </div>
-                <div className="absolute inset-0 p-[20px] bg-[rgba(255,255,255,0.1)] opacity-0 group-hover:opacity-100 rounded-lg top-[-1px] pointer-events-none"></div>
+                <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ function Posts() {
               </div>
 
               <div className="relative bottom-[2px] inline-flex items-center gap-[0.1rem]">
-                <div className="flex hover:bg-[#3A3B3C] rounded-full p-[0.4rem] cursor-pointer  ">
+                <div className="group relative flex rounded-full p-[0.4rem] cursor-pointer">
                   <svg
                     viewBox="0 0 20 20"
                     width="20"
@@ -213,8 +213,11 @@ function Posts() {
                       <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
                     </g>
                   </svg>
+                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade">
+
+</div>
                 </div>
-                <div className="flex hover:bg-[#3A3B3C] rounded-full p-2 relative cursor-pointer ">
+                <div className="relative group flex p-2 cursor-pointer">
                   <i
                     data-visualcompletion="css-img"
                     style={{
@@ -229,6 +232,8 @@ function Posts() {
                       display: "inline-block",
                     }}
                   />
+                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.01)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade">
+                  </div>
                 </div>
               </div>
             </div>
@@ -244,7 +249,7 @@ function Posts() {
             >
               <div className="flex flex-col w-full h-full rounded-xl  ">
                 <img
-                  className="object-cover w-full h-full cursor-pointer "
+                  className="object-cover w-full h-full cursor-pointer select-none"
                   src="/post.jpg "
                   alt=""
                 />
@@ -615,7 +620,7 @@ function Posts() {
             >
               <div className="flex flex-col w-full h-full rounded-xl  ">
                 <img
-                  className="object-cover w-full h-full cursor-pointer "
+                  className="object-cover w-full h-full cursor-pointer select-none"
                   src="/post.jpg "
                   alt=""
                 />

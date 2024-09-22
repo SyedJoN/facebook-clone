@@ -382,6 +382,8 @@ scrollbar-color: #7B7B7B #424242;
 .textProps {
   word-wrap: break-word;
   word-break: break-word;
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .customShadow {
@@ -517,7 +519,36 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
   }
 }
 
-.parent-hover:hover .overlay{
+/* .parent-hover:hover .overlay{
   opacity: 1;
 
+}*/
+
+.iconScale:active {
+  transform: scale(0.96);
 }
+.notifIconScale:active {
+  transform: scale(0.96);
+}
+
+.parent-hover:hover .overlay{
+  overflow: visible;
+  clip: unset;
+  right: 60px;
+
+}
+.clip-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+}
+
+.outline-zero {
+   outline: none;
+}
+
+.headerAfter {
+  background-image: url('Header/header_after.png');
+  background-size: 1px 7px;
+  background-repeat: repeat-x;
+}
+

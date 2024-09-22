@@ -129,7 +129,7 @@ function MessagePanel() {
                     id="message-search"
                     name="message-search"
                     aria-label="Search Messenger"
-                    className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#B0B3B8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
+                    className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#B0B3B8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-zero"
                     type="text"
                     placeholder="Search Messenger"
                   />
@@ -143,7 +143,7 @@ function MessagePanel() {
               <div
                 className={`group relative h-[36px] flex flex-wrap ${
                   showAll ? "bg-[#1D85FC33]" : "bg-transparent"
-                } rounded-[18px] justify-center items-center px-3 outline-none w-full`}
+                } rounded-[18px] justify-center items-center px-3 outline-zero w-full`}
                 role="button"
                 onMouseDown={() => handleShowAll()}
               >
@@ -162,7 +162,7 @@ function MessagePanel() {
               <div
                 className={`group relative h-[36px] flex flex-wrap rounded-[18px] ${
                   showUnread ? "bg-[#1D85FC33]" : "bg-transparent"
-                } justify-center items-center px-3 outline-none w-full `}
+                } justify-center items-center px-3 outline-zero w-full `}
                 role="button"
                 onClick={() => handleShowUnread()}
               >
@@ -324,7 +324,7 @@ function MessagePanel() {
                   <div className="rounded-full customShadow">
                     <div
                       aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none select-none"
+                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
                       role="button"
                       tabIndex="0"
                     >
@@ -505,7 +505,7 @@ function MessagePanel() {
                                           width: "16px",
                                         }}
                                       >
-                                        <mask id=":chat_2:">
+                                        <mask id=":message_2:">
                                           <circle
                                             cx="8"
                                             cy="8"
@@ -513,7 +513,7 @@ function MessagePanel() {
                                             r="8"
                                           ></circle>
                                         </mask>
-                                        <g mask="url(#:chat_2:)">
+                                        <g mask="url(#:message_2:)">
                                           <image
                                             x="0"
                                             y="0"
@@ -559,7 +559,7 @@ function MessagePanel() {
                   <div className="rounded-full customShadow">
                     <div
                       aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none select-none"
+                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
                       role="button"
                       tabIndex="0"
                     >
@@ -754,7 +754,7 @@ function MessagePanel() {
                   <div className="rounded-full customShadow">
                     <div
                       aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none select-none"
+                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
                       role="button"
                       tabIndex="0"
                     >
@@ -923,7 +923,7 @@ function MessagePanel() {
                                           width: "16px",
                                         }}
                                       >
-                                        <mask id=":chat_2:">
+                                        <mask id=":message_2:">
                                           <circle
                                             cx="8"
                                             cy="8"
@@ -931,7 +931,7 @@ function MessagePanel() {
                                             r="8"
                                           ></circle>
                                         </mask>
-                                        <g mask="url(#:chat_2:)">
+                                        <g mask="url(#:message_2:)">
                                           <image
                                             x="0"
                                             y="0"
@@ -977,7 +977,7 @@ function MessagePanel() {
                   <div className="rounded-full customShadow">
                     <div
                       aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none select-none"
+                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
                       role="button"
                       tabIndex="0"
                     >

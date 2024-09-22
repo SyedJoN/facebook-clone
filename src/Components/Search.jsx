@@ -13,7 +13,7 @@ function Search({ onChangeVal, className = "" }) {
   };
   return (
     <label
-      className={`relative flex ${className} align-middle items-stretch bg-[#3A3B3C] min-w-10 min-h-10 w-full text-[12px] outline-none self-center rounded-full`}
+      className={`relative flex ${className} align-middle items-stretch bg-[#3A3B3C] min-w-10 min-h-10 w-full text-[12px] outline-zero self-center rounded-full`}
     >
       <span
         className="flex items-center text-[#B0B3B8] pl-3 whitespace-nowrap pointer-events-none"
@@ -49,7 +49,7 @@ function Search({ onChangeVal, className = "" }) {
       </span>
 
       <input
-        className="relative z-[1] input-search flex justify-center flex-grow min-w-0 text-start items-center flex-shrink xl:placeholder-[#aeb2b9] bg-transparent h-10 pl-[0.49rem] pb-[3px] md:text-[.9375rem] placeholder-transparent outline-none"
+        className="relative z-[1] input-search flex justify-center flex-grow min-w-0 text-start items-center flex-shrink xl:placeholder-[#aeb2b9] bg-transparent h-10 pl-[0.49rem] pb-[3px] md:text-[.9375rem] placeholder-transparent outline-zero"
         type="text"
         onChange={handleInputVal}
         value={inputVal}

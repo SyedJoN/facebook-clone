@@ -10,6 +10,7 @@ function Sidebar_2() {
   const clientXref = useRef(null);
   const scaleRef = useRef(null);
   const translateZRef = useRef(null);
+  const scaleIconRef = useRef(null);
 
   const scrollRef = useRef(false);
   const mouseMoveRef = useRef(false);
@@ -20,6 +21,15 @@ function Sidebar_2() {
   const [showSettings2, setShowSettings2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(40);
+
+
+
+const handleMouseEnter = () => {
+  scaleIconRef.current?.classList.add("iconScale")
+}
+const handleMouseLeave = () => {
+  scaleIconRef.current?.classList.remove("iconScale")
+}
 
   const handleShowSettings = () => {
     setShowSettings(true);
@@ -244,7 +254,7 @@ function Sidebar_2() {
   return (
     <div className="relative flex flex-col min-h-[inherit] max-h-[inherit] z-0">
       <div
-        className="flex flex-col relative min-h-0 overscroll-y-contain overflow-y-scroll overflow-x-hidden shrink flex-grow basis-full"
+        className="flex flex-col relative min-h-0 overscroll-y-contain overflow-y-scroll overflow-x-hidden shrink flex-grow basis-full select-none"
         style={{
           willChange: "transform, scroll-position",
           perspective: "1px",
@@ -272,24 +282,24 @@ function Sidebar_2() {
                             className="text-left block text-[1rem] leading-[1.1765] textProps ba_1 text-[#B0B3B8] font-[600]"
                             dir="auto"
                           >
-                            <span className="textClass">Sponsored</span>
+                            <span className="textClass overflow-hidden select-text">Sponsored</span>
                           </span>
                         </h3>
                       </div>
                     </div>
                   </div>
                   <div className="py-2">
-                    <div className="group relative flex flex-col">
+                    <div className="parent-hover relative flex flex-col">
                       <a
                         aria-labelledby=":r9l:"
-                        className="parent-hover relative block"
+                        className="relative block"
                         href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                         rel="nofollow noreferrer"
                         role="link"
                         tabIndex="0"
                         target="_blank"
                       >
-                        <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer">
+                        <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer hover:bg-[rgba(255,255,255,0.1)] select-none">
                           <div className="">
                             <div className="flex items-center">
                               <div className="w-[40%] self-center shrink-0">
@@ -306,7 +316,7 @@ function Sidebar_2() {
                                       className="text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
                                       dir="auto"
                                     >
-                                      <span className="relative overflow-hidden textClass ">
+                                      <span className="relative overflow-hidden textClass select-none">
                                         What to Look for in an MFA Solution
                                       </span>
                                     </span>
@@ -325,27 +335,26 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div
-                            className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"
+                          {/* <div
+                            className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade pointer-events-none"
                             role="none"
                             data-visualcompletion="ignore"
-                          ></div>
+                          ></div> */}
                         </div>
                       </a>
                       <div
                         aria-label="Options for this notification"
-                        role="gridcell"
-                      >
+                        role="gridcell">
                         <div
-                          className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[60px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-                        >
+                          className="`flex absolute top-[5px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2`" >
                           <div>
                             <div className="rounded-full customShadow">
                               <div
+                              ref={scaleIconRef}
+                              onMouseEnter={handleMouseEnter}
+                              onMouseLeave={handleMouseLeave}
                                 aria-label="Manage notification settings"
-                                className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                                className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none"
                                 role="button"
                                 tabIndex="0"
                               >
@@ -365,7 +374,7 @@ function Sidebar_2() {
                                   }}
                                 ></i>
                                 <div
-                                  className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
+                                  className="absolute inset-0 opacity-0 rounded-full group-hover:bg-[rgba(255,255,255,0.1)] group-active:bg-[rgba(68,73,80,0.15)] scale-100 group-hover:opacity-100 fade pointer-events-none"
                                   role="none"
                                   data-visualcompletion="ignore"
                                 ></div>
@@ -403,7 +412,7 @@ function Sidebar_2() {
                                       className="text-left block text-[.875rem] leading-[1.3333] textProps ba_1 text-[#E4E6EB] font-[500]"
                                       dir="auto"
                                     >
-                                      <span className="relative overflow-hidden textClass ">
+                                      <span className="relative overflow-hidden textClass select-none">
                                         Your promocode #PLUSFIVE
                                       </span>
                                     </span>
@@ -435,10 +444,7 @@ function Sidebar_2() {
                         role="gridcell"
                       >
                         <div
-                          className="flex absolute top-[16%] group-hover:[clip:unset] group-hover:right-[60px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-                        >
+                          className="flex absolute top-[22%] group-hover:[clip:unset] group-hover:right-[60px] group-hover:overflow-visible h-[1px] overflow-hidden w-[1px]">
                           <div>
                             <div className="rounded-full customShadow">
                               <div
@@ -566,7 +572,7 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                     <div className="px-4">
@@ -606,7 +612,7 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
 
                       <a className="group relative inline-block w-full p-0 m-0 cursor-pointer">
@@ -645,7 +651,7 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                   </div>
@@ -709,7 +715,7 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                   </div>
@@ -897,7 +903,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
 
@@ -978,7 +984,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1056,7 +1062,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1134,7 +1140,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1212,7 +1218,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1290,7 +1296,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
 
@@ -1369,7 +1375,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1447,7 +1453,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1525,7 +1531,7 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                         </a>
                       </div>
                     </div>
@@ -1683,7 +1689,7 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                     <div className="px-2">
@@ -1730,7 +1736,7 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                   </div>{" "}

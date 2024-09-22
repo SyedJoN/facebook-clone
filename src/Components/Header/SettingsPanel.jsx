@@ -296,7 +296,7 @@ function SettingsPanel() {
                             id="settings-search"
                             name="settings-search"
                             aria-label="Search menu"
-                            className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#dedfe1b8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-none"
+                            className="flex justify-center text-left flex-grow pt-[6px] pb-[8px] items-center flex-shrink w-full xl:placeholder-[#dedfe1b8] bg-[#3A3B3C] h-[36px] px-[0.38rem] rounded-full md:text-[.9375rem] placeholder-transparent outline-zero"
                             type="text"
                             placeholder="Search menu"
                           />
@@ -328,7 +328,7 @@ function SettingsPanel() {
                           <div>
                             <div className="relative flex flex-col shrink-0 px-2">
                               <ul className="flex flex-col">
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -362,7 +362,7 @@ function SettingsPanel() {
                                   <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                 </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -400,7 +400,7 @@ function SettingsPanel() {
                                   <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                 </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -433,7 +433,7 @@ function SettingsPanel() {
                                   <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                 </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -466,7 +466,7 @@ function SettingsPanel() {
                                   <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                 </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -500,7 +500,7 @@ function SettingsPanel() {
                                   <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                 </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -562,7 +562,7 @@ function SettingsPanel() {
                           </div>
                           <div className="px-2">
                             <ul className="flex flex-col flex-1">
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -595,7 +595,7 @@ function SettingsPanel() {
                                 <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
 
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -627,7 +627,7 @@ function SettingsPanel() {
                                 <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
 
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -688,7 +688,7 @@ function SettingsPanel() {
                         </div>
                         <div className="px-2">
                           <ul className="flex flex-col flex-1">
-                            <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                            <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                               <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                 <div className="flex items-center justify-between">
                                   <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -721,7 +721,7 @@ function SettingsPanel() {
                               <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                             </a>
 
-                            <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                            <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                               <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                 <div className="flex items-center justify-between">
                                   <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -781,7 +781,7 @@ function SettingsPanel() {
                           </div>
                           <div className="px-2">
                             <ul className="flex flex-col flex-1">
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -814,7 +814,7 @@ function SettingsPanel() {
                                 <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
 
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -847,7 +847,7 @@ function SettingsPanel() {
                                 <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
 
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -910,7 +910,7 @@ function SettingsPanel() {
                           </div>
                           <div className="px-2">
                             <ul className="flex flex-col flex-1">
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -971,7 +971,7 @@ function SettingsPanel() {
                           </div>
                           <div className="px-2">
                             <ul className="flex flex-col flex-1">
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -1004,7 +1004,7 @@ function SettingsPanel() {
 
                                 <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>{" "}
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -1036,7 +1036,7 @@ function SettingsPanel() {
                                 </div>
                                 <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                               </a>
-                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                              <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                 <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                   <div className="relative flex items-center justify-between">
                                     <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -1100,7 +1100,7 @@ function SettingsPanel() {
                           <div className="px-2">
                             <ul className="flex flex-col flex-1">
                               <div className="flex flex-col">
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">
@@ -1133,7 +1133,7 @@ function SettingsPanel() {
                                   <div className="rounded-lg absolute inset-0 opacity-0 bg-[rgba(255,255,255,0.1)] hover:opacity-100"></div>
                                 </a>
 
-                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-none no-underline z-0 cursor-pointer">
+                                <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                   <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
                                     <div className="flex items-center justify-between">
                                       <div className="img shrink-0 flex flex-col relative min-w-0 max-w-full -mt-[4px] p-[6px]">

@@ -319,7 +319,7 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
@@ -357,7 +357,7 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
@@ -385,7 +385,7 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
@@ -424,7 +424,7 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
@@ -463,7 +463,7 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
@@ -502,7 +502,7 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                 </div>
               </a>
             </div>
@@ -543,7 +543,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </div>
                 </a>
               </div>
@@ -585,7 +585,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -614,7 +614,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -653,7 +653,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -682,7 +682,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -722,7 +722,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -751,7 +751,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -791,7 +791,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -831,7 +831,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -860,7 +860,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -889,7 +889,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -929,7 +929,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -969,7 +969,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -998,7 +998,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -1038,7 +1038,7 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                     </div>
                   </a>
                 </div>
@@ -1076,7 +1076,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </div>
                 </a>
               </div>
@@ -1199,7 +1199,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </a>
                 </div>
               </li>
@@ -1268,7 +1268,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </a>
                 </div>
               </li>
@@ -1332,7 +1332,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </a>
                 </div>
               </li>
@@ -1395,7 +1395,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </a>
                 </div>
               </li>
@@ -1458,7 +1458,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </a>
                 </div>
               </li>
@@ -1529,7 +1529,7 @@ const handleEditMenuStop = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                   </li>
@@ -1598,7 +1598,7 @@ const handleEditMenuStop = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                       </a>
                     </div>
                   </li>
@@ -1644,7 +1644,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </div>
                 </a>
               </div>
@@ -1683,7 +1683,7 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
                   </div>
                 </a>
               </div>

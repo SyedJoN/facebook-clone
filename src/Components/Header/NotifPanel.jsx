@@ -307,7 +307,7 @@ return (
                 <div
                   className={`group relative h-[36px] flex flex-wrap ${
                     showAll ? "bg-[#1D85FC33]" : "bg-transparent"
-                  } rounded-[18px] justify-center items-center px-3 mt-[0.1rem] outline-none w-full`}
+                  } rounded-[18px] justify-center items-center px-3 mt-[0.1rem] outline-zero w-full`}
                   role="button"
                   onMouseDown={() => handleShowAll()}
                 >
@@ -328,7 +328,7 @@ return (
                 <div
                   className={`group relative h-[36px] flex flex-wrap rounded-[18px] ${
                     showUnread ? "bg-[#1D85FC33]" : "bg-transparent"
-                  } justify-center items-center px-3 mt-[0.1rem] outline-none w-full `}
+                  } justify-center items-center px-3 mt-[0.1rem] outline-zero w-full `}
                   role="button"
                   onClick={() => handleShowUnread()}
                 >
@@ -367,7 +367,7 @@ return (
                   </h2>
                   </div>
                   <div className="relative flex justify-center ml-2 min-w-0 max-w-full shrink-0 self-start">
-                  <div class="relative flex flex-col w-0 min-w-0 max-w-full ">&nbsp;</div>
+                  <div className="relative flex flex-col w-0 min-w-0 max-w-full ">&nbsp;</div>
                   <div className="relative flex justify-between items-center shrink-0">
                   <div className="relative flex flex-col shrink-0">
                     <div className="relative flex justify-between items-stretch shrink-0">
@@ -538,7 +538,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -574,7 +574,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -733,7 +733,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -764,7 +764,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -932,7 +932,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -968,7 +968,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1136,7 +1136,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -1172,7 +1172,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1340,7 +1340,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -1376,7 +1376,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1544,7 +1544,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -1580,7 +1580,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1748,7 +1748,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -1784,7 +1784,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
@@ -1952,7 +1952,7 @@ return (
                           <div className="flex items-center">
                             <div className="">
                               <div
-                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-none items-center"
+                                className="relative flex w-[20px] h-[48px] bg-transparent pl-[4px] outline-zero items-center"
                                 role="presentation"
                                 tabIndex="0"
                               >
@@ -1988,7 +1988,7 @@ return (
                     <div className="rounded-full customShadow">
                       <div
                         aria-label="Manage notification settings"
-                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                        className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none"
                         role="button"
                         tabIndex="0"
                       >
