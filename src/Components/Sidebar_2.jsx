@@ -10,7 +10,6 @@ function Sidebar_2() {
   const clientXref = useRef(null);
   const scaleRef = useRef(null);
   const translateZRef = useRef(null);
-  const scaleIconRef = useRef(null);
 
   const scrollRef = useRef(false);
   const mouseMoveRef = useRef(false);
@@ -21,15 +20,42 @@ function Sidebar_2() {
   const [showSettings2, setShowSettings2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(40);
+  const [rightClick, setrightClick] = useState(false)
 
+  const handleRightClick = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+      e.currentTarget.classList.add("iconScale");
 
+    } else if (e.button === 2) {
 
-const handleMouseEnter = () => {
-  scaleIconRef.current?.classList.add("iconScale")
-}
-const handleMouseLeave = () => {
-  scaleIconRef.current?.classList.remove("iconScale")
-}
+      e.currentTarget.classList.remove("iconScale");
+
+      setrightClick(true);
+    }
+  };
+
+  const handleMouseEnter = (e, menu) => {
+    if (!rightClick)  {
+      e.currentTarget.classList.add("iconScale");
+
+    } else {
+      e.currentTarget.classList.remove("iconScale");
+
+    }
+ 
+  };
+  const handleMouseLeave = (e, menu) => {
+    e.currentTarget.classList.remove("iconScale");
+
+   
+  };
+// const handleMouseEnter = () => {
+//   scaleIconRef.current?.classList.add("iconScale")
+// }
+// const handleMouseLeave = () => {
+//   scaleIconRef.current?.classList.remove("iconScale")
+// }
 
   const handleShowSettings = () => {
     setShowSettings(true);
@@ -350,9 +376,9 @@ const handleMouseLeave = () => {
                           <div>
                             <div className="rounded-full customShadow">
                               <div
-                              ref={scaleIconRef}
-                              onMouseEnter={handleMouseEnter}
-                              onMouseLeave={handleMouseLeave}
+                              onMouseDown={(e) => handleRightClick(e)}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={(e) => handleMouseLeave(e)}
                                 aria-label="Manage notification settings"
                                 className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none"
                                 role="button"
@@ -374,10 +400,9 @@ const handleMouseLeave = () => {
                                   }}
                                 ></i>
                                 <div
-                                  className="absolute inset-0 opacity-0 rounded-full group-hover:bg-[rgba(255,255,255,0.1)] group-active:bg-[rgba(68,73,80,0.15)] scale-100 group-hover:opacity-100 fade pointer-events-none"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
                               </div>
                             </div>
                           </div>
@@ -385,7 +410,8 @@ const handleMouseLeave = () => {
                       </div>
                     </div>
 
-                    <div className="group relative flex flex-col">
+                    <div className="parent-hover relative flex flex-col">
+
                       <a
                         aria-labelledby=":r9l:"
                         className="parent-hover relative block"
@@ -395,7 +421,7 @@ const handleMouseLeave = () => {
                         tabIndex="0"
                         target="_blank"
                       >
-                        <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer">
+                               <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer hover:bg-[rgba(255,255,255,0.1)] select-none">
                           <div className="">
                             <div className="flex items-center">
                               <div className="w-[40%] shrink-0 self-center">
@@ -443,13 +469,16 @@ const handleMouseLeave = () => {
                         aria-label="Options for this notification"
                         role="gridcell"
                       >
-                        <div
-                          className="flex absolute top-[22%] group-hover:[clip:unset] group-hover:right-[60px] group-hover:overflow-visible h-[1px] overflow-hidden w-[1px]">
+                          <div
+                          className="`flex absolute top-[5px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2`" >
                           <div>
                             <div className="rounded-full customShadow">
                               <div
+                              onMouseDown={(e) => handleRightClick(e)}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={(e) => handleMouseLeave(e)}
                                 aria-label="Manage notification settings"
-                                className="h-[40px] w-[40px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-none list-none"
+                                className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none"
                                 role="button"
                                 tabIndex="0"
                               >
@@ -468,11 +497,10 @@ const handleMouseLeave = () => {
                                     display: "inline-block",
                                   }}
                                 ></i>
-                                <div
-                                  className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
-                                  role="none"
-                                  data-visualcompletion="ignore"
-                                ></div>
+                              <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
                               </div>
                             </div>
                           </div>

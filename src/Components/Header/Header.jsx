@@ -10,8 +10,11 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isChecked, setIsChecked] = useState("dark");
   const [isCheckedFont, setIsCheckedFont] = useState("true");
+  const [rightClick, setrightClick] = useState(false)
 
-
+  useEffect(() => {
+    console.log(rightClick);
+  }, [rightClick]);
 
   const [showMenu, setShowMenu] = useState({
     Settings: false,
@@ -20,13 +23,12 @@ function Header() {
     User: false,
   });
 
-
   const toggleMenu = (e, menu) => {
+    
     if (e.button !== 0) return;
- 
+  
 
     setShowMenu((prev) => {
-      
       const newState = {
         Settings: false,
         Messenger: false,
@@ -35,18 +37,35 @@ function Header() {
       };
       newState[menu] = !prev[menu];
       return newState;
-      
     });
+  };
 
+  const handleRightClick = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+      e.currentTarget.classList.add("notifIconScale");
 
+    } else if (e.button === 2) {
+
+      e.currentTarget.classList.remove("notifIconScale");
+
+      setrightClick(true);
+    }
   };
 
   const handleMouseEnter = (e, menu) => {
-    e.target.classList.add('notifIconScale')
+    if (!rightClick)  {
+      e.currentTarget.classList.add("notifIconScale");
+
+    } else {
+      e.currentTarget.classList.remove("notifIconScale");
+
+    }
+ 
     // scaleIconRefs.current[menu].current?.classList.add("notifIconScale");
   };
   const handleMouseLeave = (e, menu) => {
-    e.target.classList.remove('notifIconScale')
+    e.currentTarget.classList.remove("notifIconScale");
 
     // scaleIconRefs.current[menu].current?.classList.remove("notifIconScale");
   };
@@ -188,12 +207,15 @@ function Header() {
           <div className="relative flex justify-center items-center">
             <div className="settings relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                onMouseUp={(e) => toggleMenu(e, "Settings")} 
-                onMouseEnter={(e)=> handleMouseEnter(e)}
-                onMouseLeave={(e)=> handleMouseLeave(e)}
+                onMouseUp={(e) => toggleMenu(e, "Settings")}
+                onMouseDown={(e) => handleRightClick(e)}
+                onMouseEnter={(e) => handleMouseEnter(e)}
+                onMouseLeave={(e) => handleMouseLeave(e)}
                 aria-label="Create"
                 className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
-                  showMenu.Settings ? "bg-[#1D85FC33] notifIconScale" : "bg-[#E4E6EB]"
+                  showMenu.Settings
+                    ? "bg-[#1D85FC33]"
+                    : "bg-[#E4E6EB]"
                 } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
                 // onClick={() => navigate(item.slug)}
               >
@@ -207,20 +229,23 @@ function Header() {
                   <path d="M18.5 1A1.5 1.5 0 0 0 17 2.5v3A1.5 1.5 0 0 0 18.5 7h3A1.5 1.5 0 0 0 23 5.5v-3A1.5 1.5 0 0 0 21.5 1h-3zm0 8a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 21.5 9h-3zm-16 8A1.5 1.5 0 0 0 1 18.5v3A1.5 1.5 0 0 0 2.5 23h3A1.5 1.5 0 0 0 7 21.5v-3A1.5 1.5 0 0 0 5.5 17h-3zm8 0A1.5 1.5 0 0 0 9 18.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5h-3zm8 0a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5h-3zm-16-8A1.5 1.5 0 0 0 1 10.5v3A1.5 1.5 0 0 0 2.5 15h3A1.5 1.5 0 0 0 7 13.5v-3A1.5 1.5 0 0 0 5.5 9h-3zm0-8A1.5 1.5 0 0 0 1 2.5v3A1.5 1.5 0 0 0 2.5 7h3A1.5 1.5 0 0 0 7 5.5v-3A1.5 1.5 0 0 0 5.5 1h-3zm8 0A1.5 1.5 0 0 0 9 2.5v3A1.5 1.5 0 0 0 10.5 7h3A1.5 1.5 0 0 0 15 5.5v-3A1.5 1.5 0 0 0 13.5 1h-3zm0 8A1.5 1.5 0 0 0 9 10.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 13.5 9h-3z"></path>
                 </svg>
                 <div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0
-                  group-hover:opacity-100 fade pointer-events-none"
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
                 ></div>
               </div>
             </div>
 
             <div className="messenger relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-               onMouseUp={(e) => toggleMenu(e, "Messenger")}        
-               onMouseEnter={(e)=> handleMouseEnter(e)}
-               onMouseLeave={(e)=> handleMouseLeave(e)}
-               className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
-                showMenu.Messenger ? "bg-[#1D85FC33] notifIconScale" : "bg-[#E4E6EB]"
-              } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
+                onMouseUp={(e) => toggleMenu(e, "Messenger")}
+                onMouseDown={(e) => handleRightClick(e)}
+                onMouseEnter={(e) => handleMouseEnter(e)}
+                onMouseLeave={(e) => handleMouseLeave(e)}
+                className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
+                  showMenu.Messenger
+                    ? "bg-[#1D85FC33] notifIconScale"
+                    : "bg-[#E4E6EB]"
+                } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
                 // onClick={() => navigate(item.slug)}
               >
                 <svg
@@ -235,19 +260,22 @@ function Header() {
                   </g>
                 </svg>
                 <div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0
-                  group-hover:opacity-100 fade pointer-events-none"
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
                 ></div>
               </div>
             </div>
 
             <div className="notification relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                onMouseUp={(e) => toggleMenu(e, "Notif")} 
-                onMouseEnter={(e)=> handleMouseEnter(e)}
-                onMouseLeave={(e)=> handleMouseLeave(e)}
+                onMouseUp={(e) => toggleMenu(e, "Notif")}
+                onMouseDown={(e) => handleRightClick(e)}
+                onMouseEnter={(e) => handleMouseEnter(e)}
+                onMouseLeave={(e) => handleMouseLeave(e)}
                 className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
-                  showMenu.Notif ? "bg-[#1D85FC33] notifIconScale" : "bg-[#E4E6EB]"
+                  showMenu.Notif
+                    ? "bg-[#1D85FC33] notifIconScale"
+                    : "bg-[#E4E6EB]"
                 } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
               >
                 <svg
@@ -259,17 +287,20 @@ function Header() {
                   <path d="M3 9.5a9 9 0 1 1 18 0v2.927c0 1.69.475 3.345 1.37 4.778a1.5 1.5 0 0 1-1.272 2.295h-4.625a4.5 4.5 0 0 1-8.946 0H2.902a1.5 1.5 0 0 1-1.272-2.295A9.01 9.01 0 0 0 3 12.43V9.5zm6.55 10a2.5 2.5 0 0 0 4.9 0h-4.9z"></path>
                 </svg>
                 <div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0
-                  group-hover:opacity-100 fade pointer-events-none"
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
                 ></div>
               </div>
             </div>
             <div className="user relative flex justify-center items-center mr-[8px] h-[56px]">
               <div
-                onMouseUp={(e) => toggleMenu(e, "User")} 
-                onMouseEnter={(e)=> handleMouseEnter(e)}
-                onMouseLeave={(e)=> handleMouseLeave(e)}
-              className="relative group cursor-pointer"
+                onMouseUp={(e) => toggleMenu(e, "User")}
+                onMouseDown={(e) => handleRightClick(e)}
+                onMouseEnter={(e) => handleMouseEnter(e)}
+                onMouseLeave={(e) => handleMouseLeave(e)}
+                className={`relative group cursor-pointer ${
+                  showMenu.User ? "notifIconScale" : ""
+                }`}
 
                 // onClick={() => navigate(item.slug)}
               >
@@ -318,8 +349,9 @@ function Header() {
                   src="/me.jpg"
                   alt=""
                 /> */}
-                <div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.35)] duration-0 group-hover:opacity-100 fade pointer-events-none"
+                 <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.35)]' : ''} duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
                 ></div>
                 <div
                   style={{
