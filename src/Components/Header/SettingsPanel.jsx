@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 function SettingsPanel() {
   const containerRef = useRef(null);
+  const contentRef = useRef(null);
   const scrollThumbRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIntervalRef = useRef(null);
@@ -9,7 +10,6 @@ function SettingsPanel() {
   const clientXref = useRef(null);
   const scaleRef = useRef(null);
   const translateZRef = useRef(null);
-
 
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(40);
@@ -21,7 +21,7 @@ function SettingsPanel() {
 
   useEffect(() => {
     const updateScrollbar = () => {
-      const contentHeight = containerRef.current?.scrollHeight;
+      const contentHeight = contentRef.current?.scrollHeight;
       const containerHeight = containerRef.current?.clientHeight;
 
       const scaleValue = contentHeight / containerHeight;
@@ -39,7 +39,7 @@ function SettingsPanel() {
         (containerHeight / contentHeight) * containerHeight;
 
       setThumbHeight(newThumbHeight);
-      if (thumbHeight === containerRef.current.scrollHeight) {
+      if (thumbHeight === contentRef.current.scrollHeight) {
         setScrollOpacity(0);
       }
     };
@@ -68,7 +68,7 @@ function SettingsPanel() {
       if (!containerRef.current) return;
 
       const maxScrollHeight =
-        containerRef.current.scrollHeight - containerRef.current.clientHeight;
+        contentRef.current.scrollHeight - containerRef.current.clientHeight;
 
       if (
         direction === "up" &&
@@ -133,7 +133,7 @@ function SettingsPanel() {
         clientXref.current = e.clientX;
 
         const maxScrollHeight =
-          containerRef.current.scrollHeight - containerRef.current.clientHeight;
+          contentRef.current.scrollHeight - containerRef.current.clientHeight;
 
         if (
           (containerRef.current.scrollTop === 0 &&
@@ -150,7 +150,7 @@ function SettingsPanel() {
           const scrollY =
             startScrollOffset +
             deltaY *
-              (containerRef.current.scrollHeight /
+              (contentRef.current.scrollHeight /
                 containerRef.current.clientHeight);
 
           containerRef.current.scrollTop = scrollY;
@@ -221,7 +221,7 @@ function SettingsPanel() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (thumbHeight !== containerRef.current.scrollHeight) setScrollOpacity(1);
+    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
   };
 
   const LeaveHandler = () => {
@@ -265,7 +265,7 @@ function SettingsPanel() {
           }}
         >
           <div className="flex flex-col min-h-0 flex-grow">
-            <div className="relative flex -m-2">
+            <div ref={contentRef} className="relative flex -m-2">
               <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden">
                 <div
                   className="flex flex-col basis-0 bg-[#242526] rounded-lg customShadow-3"
@@ -2081,7 +2081,7 @@ function SettingsPanel() {
             ref={trackRef}
             style={{
               display: "block",
-              height: `${containerRef.current?.scrollHeight}px`,
+              height: `${contentRef.current?.scrollHeight}px`,
               right: "0px",
               transitionProperty: "opacity",
             }}

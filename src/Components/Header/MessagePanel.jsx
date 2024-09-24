@@ -3,6 +3,29 @@ import React, { useState } from "react";
 function MessagePanel() {
   const [showAll, setShowAll] = useState(true);
   const [showUnread, setShowUnread] = useState(false);
+  const [rightClick, setrightClick] = useState(false);
+
+  const handleRightClick = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+      e.currentTarget.classList.add("notifIconScale");
+    } else if (e.button === 2) {
+      e.currentTarget.classList.remove("notifIconScale");
+
+      setrightClick(true);
+    }
+  };
+
+  const handleMouseEnter = (e, menu) => {
+    if (!rightClick) {
+      e.currentTarget.classList.add("notifIconScale");
+    } else {
+      e.currentTarget.classList.remove("notifIconScale");
+    }
+  };
+  const handleMouseLeave = (e, menu) => {
+    e.currentTarget.classList.remove("notifIconScale");
+  };
 
   const handleShowAll = () => {
     setShowAll(true);
@@ -182,7 +205,7 @@ function MessagePanel() {
         </div>
 
         <div className="chats flex-grow">
-          <div className="group relative flex flex-col px-[8px]" role="row">
+          <div className="flex flex-col px-[8px]" role="row">
             <div
               data-visualcompletion="ignore-dynamic"
               role="none"
@@ -193,7 +216,7 @@ function MessagePanel() {
                   className="block relative rounded-[8px] min-w-0 min-h-0"
                   href=""
                 >
-                  <div className="flex flex-col">
+                  <div className="flex flex-col hover:bg-[rgba(255,255,255,0.1)] rounded-lg">
                     <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
                       <div className="flex justify-between items-center">
                         <div className="flex flex-col self-start relative p-[6px]">
@@ -271,7 +294,7 @@ function MessagePanel() {
                                         </span>
                                       </span>
                                       <span
-                                        className="dot text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
+                                        className="text-[#B0B3B8] font-normal block text-[.75rem] [word-wrap:break-word] [word-break:break-word] min-w-0 max-w-full"
                                         dir="auto"
                                       >
                                         <span className="block [white-space:nowrap] overflow-ellipsis relative pb-[1px]">
@@ -312,49 +335,51 @@ function MessagePanel() {
                   </div>
                 </a>
               </div>
-              <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
-            </div>{" "}
-            <div aria-label="Options for this notification" role="gridcell">
-              <div
-                className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-              >
-                <div>
-                  <div className="rounded-full customShadow">
-                    <div
-                      aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
-                      role="button"
-                      tabIndex="0"
-                    >
-                      <i
-                        data-visualcompletion="css-img"
-                        className="align-[-0.25em] text-[#B0B3B8]"
-                        style={{
-                          filter:
-                            "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                          backgroundImage: "url(/3dots.png)",
-                          backgroundPosition: "0px -494px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      ></i>
+
+              <div aria-label="Options for this notification" role="gridcell">
+                <div className="flex absolute top-[18px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2">
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
-                        role="none"
-                        data-visualcompletion="ignore"
-                      ></div>
+                        onMouseDown={(e) => handleRightClick(e)}
+                        onMouseEnter={(e) => handleMouseEnter(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
+                        aria-label="Manage notification settings"
+                        className="relative group h-[36px] w-[36px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-zero list-none select-none border-[rgba(0,0,0,0.4)]"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                            !rightClick
+                              ? "group-active:bg-[rgba(68,73,80,0.15)]"
+                              : ""
+                          } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                        ></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="group relative flex flex-col px-[8px]" role="row">
+          <div className="flex flex-col px-[8px]" role="row">
             <div
               data-visualcompletion="ignore-dynamic"
               role="none"
@@ -365,7 +390,7 @@ function MessagePanel() {
                   className="block relative rounded-[8px] min-w-0 min-h-0"
                   href=""
                 >
-                  <div className="flex flex-col">
+                  <div className="flex flex-col hover:bg-[rgba(255,255,255,0.1)] rounded-lg">
                     <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
                       <div className="flex justify-between items-center">
                         <div className="flex flex-col self-start relative p-[6px]">
@@ -548,48 +573,50 @@ function MessagePanel() {
               </div>
 
               <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
-            </div>
-            <div aria-label="Options for this notification" role="gridcell">
-              <div
-                className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-              >
-                <div>
-                  <div className="rounded-full customShadow">
-                    <div
-                      aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
-                      role="button"
-                      tabIndex="0"
-                    >
-                      <i
-                        data-visualcompletion="css-img"
-                        className="align-[-0.25em] text-[#B0B3B8]"
-                        style={{
-                          filter:
-                            "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                          backgroundImage: "url(/3dots.png)",
-                          backgroundPosition: "0px -494px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      ></i>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div className="flex absolute top-[18px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2">
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
-                        role="none"
-                        data-visualcompletion="ignore"
-                      ></div>
+                        onMouseDown={(e) => handleRightClick(e)}
+                        onMouseEnter={(e) => handleMouseEnter(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
+                        aria-label="Manage notification settings"
+                        className="relative group h-[36px] w-[36px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-zero list-none select-none border-[rgba(0,0,0,0.4)]"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                            !rightClick
+                              ? "group-active:bg-[rgba(68,73,80,0.15)]"
+                              : ""
+                          } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                        ></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="group relative flex flex-col px-[8px]" role="row">
+          <div className="flex flex-col px-[8px]" role="row">
             <div
               data-visualcompletion="ignore-dynamic"
               role="none"
@@ -600,7 +627,7 @@ function MessagePanel() {
                   className="block relative rounded-[8px] min-w-0 min-h-0"
                   href=""
                 >
-                  <div className="flex flex-col">
+                  <div className="flex flex-col hover:bg-[rgba(255,255,255,0.1)] rounded-lg">
                     <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
                       <div className="flex justify-between items-center">
                         <div className="flex flex-col self-start relative p-[6px]">
@@ -743,48 +770,50 @@ function MessagePanel() {
               </div>
 
               <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
-            </div>{" "}
-            <div aria-label="Options for this notification" role="gridcell">
-              <div
-                className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-              >
-                <div>
-                  <div className="rounded-full customShadow">
-                    <div
-                      aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
-                      role="button"
-                      tabIndex="0"
-                    >
-                      <i
-                        data-visualcompletion="css-img"
-                        className="align-[-0.25em] text-[#B0B3B8]"
-                        style={{
-                          filter:
-                            "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                          backgroundImage: "url(/3dots.png)",
-                          backgroundPosition: "0px -494px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      ></i>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div className="flex absolute top-[18px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2">
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
-                        role="none"
-                        data-visualcompletion="ignore"
-                      ></div>
+                        onMouseDown={(e) => handleRightClick(e)}
+                        onMouseEnter={(e) => handleMouseEnter(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
+                        aria-label="Manage notification settings"
+                        className="relative group h-[36px] w-[36px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-zero list-none select-none border-[rgba(0,0,0,0.4)]"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                            !rightClick
+                              ? "group-active:bg-[rgba(68,73,80,0.15)]"
+                              : ""
+                          } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                        ></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="group relative flex flex-col px-[8px]" role="row">
+          <div className="flex flex-col px-[8px]" role="row">
             <div
               data-visualcompletion="ignore-dynamic"
               role="none"
@@ -795,7 +824,7 @@ function MessagePanel() {
                   className="block relative rounded-[8px] min-w-0 min-h-0"
                   href=""
                 >
-                  <div className="flex flex-col">
+                  <div className="flex flex-col hover:bg-[rgba(255,255,255,0.1)] rounded-lg">
                     <div className="flex flex-col justify-center items-stretch m-[-6px] p-[8px]">
                       <div className="flex justify-between items-center">
                         <div className="flex flex-col self-start relative p-[6px]">
@@ -966,41 +995,43 @@ function MessagePanel() {
               </div>
 
               <div className="absolute opacity-0 inset-0 bg-[rgba(255,255,255,0.1)] rounded-[8px] fade overlay pointer-events-none"></div>
-            </div>
-            <div aria-label="Options for this notification" role="gridcell">
-              <div
-                className="flex absolute top-[50%] group-hover:[clip:unset] group-hover:right-[72px]
-                        group-hover:overflow-visible
-                       h-[1px] overflow-hidden w-[1px]"
-              >
-                <div>
-                  <div className="rounded-full customShadow">
-                    <div
-                      aria-label="Manage notification settings"
-                      className="h-[36px] w-[36px] rounded-full bg-[#3E4042] hover:bg-[#525455] flex justify-center items-center relative customShadow-2 -translate-y-1/2 outline-zero list-none select-none"
-                      role="button"
-                      tabIndex="0"
-                    >
-                      <i
-                        data-visualcompletion="css-img"
-                        className="align-[-0.25em] text-[#B0B3B8]"
-                        style={{
-                          filter:
-                            "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
-                          backgroundImage: "url(/3dots.png)",
-                          backgroundPosition: "0px -494px",
-                          backgroundSize: "auto",
-                          width: "20px",
-                          height: "20px",
-                          backgroundRepeat: "no-repeat",
-                          display: "inline-block",
-                        }}
-                      ></i>
+              <div aria-label="Options for this notification" role="gridcell">
+                <div className="flex absolute top-[18px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2">
+                  <div>
+                    <div className="rounded-full customShadow">
                       <div
-                        className="inset-0 rounded-full opacity-100 absolute fade pointer-events-none"
-                        role="none"
-                        data-visualcompletion="ignore"
-                      ></div>
+                        onMouseDown={(e) => handleRightClick(e)}
+                        onMouseEnter={(e) => handleMouseEnter(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
+                        aria-label="Manage notification settings"
+                        className="relative group h-[36px] w-[36px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-zero list-none select-none border-[rgba(0,0,0,0.4)]"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <i
+                          data-visualcompletion="css-img"
+                          className="align-[-0.25em] text-[#B0B3B8]"
+                          style={{
+                            filter:
+                              "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
+                            backgroundImage: "url(/3dots.png)",
+                            backgroundPosition: "0px -494px",
+                            backgroundSize: "auto",
+                            width: "20px",
+                            height: "20px",
+                            backgroundRepeat: "no-repeat",
+                            display: "inline-block",
+                          }}
+                        ></i>
+                        <div
+                          className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                            !rightClick
+                              ? "group-active:bg-[rgba(68,73,80,0.15)]"
+                              : ""
+                          } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                        ></div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -20,15 +20,13 @@ function Sidebar_2() {
   const [showSettings2, setShowSettings2] = useState(false);
   const [scrollOpacity, setScrollOpacity] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(40);
-  const [rightClick, setrightClick] = useState(false)
+  const [rightClick, setrightClick] = useState(false);
 
   const handleRightClick = (e) => {
     if (e.button === 0) {
       setrightClick(false);
       e.currentTarget.classList.add("iconScale");
-
     } else if (e.button === 2) {
-
       e.currentTarget.classList.remove("iconScale");
 
       setrightClick(true);
@@ -36,26 +34,21 @@ function Sidebar_2() {
   };
 
   const handleMouseEnter = (e, menu) => {
-    if (!rightClick)  {
+    if (!rightClick) {
       e.currentTarget.classList.add("iconScale");
-
     } else {
       e.currentTarget.classList.remove("iconScale");
-
     }
- 
   };
   const handleMouseLeave = (e, menu) => {
     e.currentTarget.classList.remove("iconScale");
-
-   
   };
-// const handleMouseEnter = () => {
-//   scaleIconRef.current?.classList.add("iconScale")
-// }
-// const handleMouseLeave = () => {
-//   scaleIconRef.current?.classList.remove("iconScale")
-// }
+  // const handleMouseEnter = () => {
+  //   scaleIconRef.current?.classList.add("iconScale")
+  // }
+  // const handleMouseLeave = () => {
+  //   scaleIconRef.current?.classList.remove("iconScale")
+  // }
 
   const handleShowSettings = () => {
     setShowSettings(true);
@@ -308,7 +301,9 @@ function Sidebar_2() {
                             className="text-left block text-[1rem] leading-[1.1765] textProps ba_1 text-[#B0B3B8] font-[600]"
                             dir="auto"
                           >
-                            <span className="textClass overflow-hidden select-text">Sponsored</span>
+                            <span className="textClass overflow-hidden select-text">
+                              Sponsored
+                            </span>
                           </span>
                         </h3>
                       </div>
@@ -370,17 +365,17 @@ function Sidebar_2() {
                       </a>
                       <div
                         aria-label="Options for this notification"
-                        role="gridcell">
-                        <div
-                          className="`flex absolute top-[5px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2`" >
+                        role="gridcell"
+                      >
+                        <div className="`flex absolute top-[5px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2`">
                           <div>
                             <div className="rounded-full customShadow">
                               <div
-                              onMouseDown={(e) => handleRightClick(e)}
-                              onMouseEnter={(e) => handleMouseEnter(e)}
-                              onMouseLeave={(e) => handleMouseLeave(e)}
+                                onMouseDown={(e) => handleRightClick(e)}
+                                onMouseEnter={(e) => handleMouseEnter(e)}
+                                onMouseLeave={(e) => handleMouseLeave(e)}
                                 aria-label="Manage notification settings"
-                                className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none"
+                                className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none border-[rgba(0,0,0,0.4)]"
                                 role="button"
                                 tabIndex="0"
                               >
@@ -400,9 +395,13 @@ function Sidebar_2() {
                                   }}
                                 ></i>
                                 <div
-                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                    !rightClick
+                                      ? "group-active:bg-[rgba(68,73,80,0.15)]"
+                                      : ""
+                                  } duration-0
                   group-hover:opacity-100 fade pointer-events-none`}
-                ></div>
+                                ></div>
                               </div>
                             </div>
                           </div>
@@ -411,17 +410,16 @@ function Sidebar_2() {
                     </div>
 
                     <div className="parent-hover relative flex flex-col">
-
                       <a
                         aria-labelledby=":r9l:"
-                        className="parent-hover relative block"
+                        className="relative block"
                         href="https://blue-games.net/product/grand-theft-auto-v?ns=cmfbclid=IwAR2cqsQtD1zt81eJ7OmMavaSNOVzoKr6mo3nJWVBsR1ABC4VStFuQdWdrRQ_aem_AUQMoN9zePL1T0mbTvHLRVVZ2Uw3kKuI3msXSrnGfx_L9_Zs9i4PDniWI9kug8a3tEYLqAvNuphlPFSnjsoSrwd6"
                         rel="nofollow noreferrer"
                         role="link"
                         tabIndex="0"
                         target="_blank"
                       >
-                               <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer hover:bg-[rgba(255,255,255,0.1)] select-none">
+                        <div className="relative flex text-left p-2 mx-2 rounded-[6px] cursor-pointer hover:bg-[rgba(255,255,255,0.1)] select-none">
                           <div className="">
                             <div className="flex items-center">
                               <div className="w-[40%] shrink-0 self-center">
@@ -469,16 +467,15 @@ function Sidebar_2() {
                         aria-label="Options for this notification"
                         role="gridcell"
                       >
-                          <div
-                          className="`flex absolute top-[5px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2`" >
+                        <div className="flex absolute top-[5px] h-[1px] clip-hidden w-[1px] overlay -translate-y-1/2">
                           <div>
                             <div className="rounded-full customShadow">
                               <div
-                              onMouseDown={(e) => handleRightClick(e)}
-                              onMouseEnter={(e) => handleMouseEnter(e)}
-                              onMouseLeave={(e) => handleMouseLeave(e)}
+                                onMouseDown={(e) => handleRightClick(e)}
+                                onMouseEnter={(e) => handleMouseEnter(e)}
+                                onMouseLeave={(e) => handleMouseLeave(e)}
                                 aria-label="Manage notification settings"
-                                className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none"
+                                className="relative group h-[40px] w-[40px] rounded-full bg-[#3E4042] flex justify-center items-center customShadow-2 outline-none list-none border-[rgba(0,0,0,0.4)]"
                                 role="button"
                                 tabIndex="0"
                               >
@@ -497,10 +494,14 @@ function Sidebar_2() {
                                     display: "inline-block",
                                   }}
                                 ></i>
-                              <div
-                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${!rightClick ? 'group-active:bg-[rgba(68,73,80,0.15)]' : ''} duration-0
+                                <div
+                                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                    !rightClick
+                                      ? "group-active:bg-[rgba(68,73,80,0.15)]"
+                                      : ""
+                                  } duration-0
                   group-hover:opacity-100 fade pointer-events-none`}
-                ></div>
+                                ></div>
                               </div>
                             </div>
                           </div>
