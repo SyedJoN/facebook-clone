@@ -253,8 +253,11 @@ const handleEditMenuStop = () => {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight) 
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)  {
       setScrollOpacity(1);
+    } else {
+      setScrollOpacity(0);
+    }
   };
 
   const LeaveHandler = () => {

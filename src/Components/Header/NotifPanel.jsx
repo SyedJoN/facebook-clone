@@ -73,9 +73,17 @@ function NotifPanel() {
       const newThumbHeight =
         (containerHeight / contentHeight) * containerHeight;
 
-      setThumbHeight(newThumbHeight);
-      if (thumbHeight === contentRef.current.scrollHeight) {
+      
+      console.log(thumbHeight)
+      if (
+        containerHeight !== contentHeight
+      ) {
+        setThumbHeight(newThumbHeight);
+        setScrollOpacity(1);
+      }
+    else {
         setScrollOpacity(0);
+        setThumbHeight(0);
       }
     };
 
@@ -256,7 +264,11 @@ function NotifPanel() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)  {
+      setScrollOpacity(1);
+    } else {
+      setScrollOpacity(0);
+    }
   };
 
   const LeaveHandler = () => {
@@ -325,11 +337,12 @@ function NotifPanel() {
               <div className="flex pl-4">
                 <div className="pr-2 ">
                   <div
+                    onMouseDown={(e) => handleRightClick(e)}
                     className={`group relative h-[36px] flex flex-wrap ${
                       showAll ? "bg-[#1D85FC33]" : "bg-transparent"
                     } rounded-[18px] justify-center items-center px-3 mt-[0.1rem] outline-zero w-full`}
                     role="button"
-                    onMouseDown={() => handleShowAll()}
+                    onMouseUp={() => handleShowAll()}
                   >
                     <span
                       className={`${
@@ -340,17 +353,24 @@ function NotifPanel() {
                         All
                       </span>
                     </span>
-                    <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 group-hover:bg-opacity-10 bg-white bg-opacity-0 pointer-events-none"></div>
+                    <div
+                                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                    !rightClick
+                                      ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                      : ""
+                                  } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                                ></div>
                   </div>
                 </div>
 
                 <div>
                   <div
+                    onMouseDown={(e) => handleRightClick(e)}
+                    onMouseUp={() => handleShowUnread()}    
                     className={`group relative h-[36px] flex flex-wrap rounded-[18px] ${
                       showUnread ? "bg-[#1D85FC33]" : "bg-transparent"
                     } justify-center items-center px-3 mt-[0.1rem] outline-zero w-full `}
                     role="button"
-                    onClick={() => handleShowUnread()}
                   >
                     <span
                       className={`${
@@ -361,7 +381,13 @@ function NotifPanel() {
                         Unread
                       </span>
                     </span>
-                    <div className="overlay absolute transition-opacity duration-100 rounded-[18px] inset-0 group-hover:bg-opacity-10 bg-white bg-opacity-0 pointer-events-none"></div>
+                    <div
+                                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                    !rightClick
+                                      ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                      : ""
+                                  } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                                ></div>
                   </div>
                 </div>
               </div>
@@ -393,6 +419,8 @@ function NotifPanel() {
                                   <div className="relative flex flex-col shrink-0">
                                     <div className="relative flex justify-between items-stretch shrink-0">
                                       <a
+                                onMouseDown={(e) => handleRightClick(e)}
+
                                         className="group relative p-0 m-0 min-h-0"
                                         href=""
                                       >
@@ -407,7 +435,13 @@ function NotifPanel() {
                                             </div>
                                           </div>
                                         </div>
-                                        <div className="overlay absolute inset-[-8px] bg-white bg-opacity-0 group-hover:bg-opacity-10 fade rounded-[4px] cursor-pointer pointer-events-none"></div>
+                                        <div
+                                  className={`absolute -inset-2 opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer rounded-[4px] ${
+                                    !rightClick
+                                      ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                      : ""
+                                  } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                                ></div>
                                       </a>
                                     </div>
                                   </div>

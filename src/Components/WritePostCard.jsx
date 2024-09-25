@@ -243,7 +243,11 @@ const [keyPressed, setKeyPressed] = useState(false);
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)  {
+      setScrollOpacity(1);
+    } else {
+      setScrollOpacity(0);
+    }
   };
 
   const LeaveHandler = () => {

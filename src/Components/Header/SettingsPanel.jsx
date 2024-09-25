@@ -38,10 +38,16 @@ function SettingsPanel() {
       const newThumbHeight =
         (containerHeight / contentHeight) * containerHeight;
 
-      setThumbHeight(newThumbHeight);
-      if (thumbHeight === contentRef.current.scrollHeight) {
-        setScrollOpacity(0);
-      }
+        if (
+          containerHeight !== contentHeight
+        ) {
+          setThumbHeight(newThumbHeight);
+          setScrollOpacity(1);
+        }
+      else {
+          setScrollOpacity(0);
+          setThumbHeight(0);
+        }
     };
 
     const handleResize = () => updateScrollbar();
@@ -221,7 +227,11 @@ function SettingsPanel() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)  {
+      setScrollOpacity(1);
+    } else {
+      setScrollOpacity(0);
+    }
   };
 
   const LeaveHandler = () => {

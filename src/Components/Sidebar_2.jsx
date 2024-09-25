@@ -262,7 +262,11 @@ function Sidebar_2() {
 
   const enterHandler = () => {
     leaveHandlerFnRef.current = false;
-    if (thumbHeight !== contentRef.current.scrollHeight) setScrollOpacity(1);
+    if (containerRef.current.clientHeight !== contentRef.current.scrollHeight)  {
+      setScrollOpacity(1);
+    } else {
+      setScrollOpacity(0);
+    }
   };
 
   const LeaveHandler = () => {
@@ -399,8 +403,7 @@ function Sidebar_2() {
                                     !rightClick
                                       ? "group-active:bg-[rgba(68,73,80,0.15)]"
                                       : ""
-                                  } duration-0
-                  group-hover:opacity-100 fade pointer-events-none`}
+                                  } duration-0 group-hover:opacity-100 fade pointer-events-none`}
                                 ></div>
                               </div>
                             </div>
@@ -526,14 +529,18 @@ function Sidebar_2() {
                                 Your Pages and profiles
                               </span>
                             </h3>
-                            <div className="relative flex flex-col max-w-full z-0 justify-center items-center self-center">
+                            <div 
+                              onMouseDown={(e) => handleRightClick(e)}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={(e) => handleMouseLeave(e)}
+                            className="group relative flex flex-col max-w-full z-0 justify-center items-center self-center">
                               <div className="flex flex-col min-w-0 max-w-full">
                                 <div className="flex flex-col flex-grow min-h-0 min-w-0 max-w-full">
                                   <div className="flex flex-col">
                                     <div className="flex flex-col">
                                       <div className="flex flex-col">
                                         <div className="flex flex-col">
-                                          <div className="rounded-full hover:bg-[#303031] text-[#B0B3B8] cursor-pointer">
+                                          <div className="rounded-full text-[#B0B3B8] cursor-pointer">
                                             <svg
                                               viewBox="0 0 20 20"
                                               width="16"
@@ -559,7 +566,12 @@ function Sidebar_2() {
                                   transitionProperty: "opacity",
                                   transitionDuration: "cubic-bezier(0,0,1,1",
                                 }}
-                                className="absolute inset-[-8px] duration-100 hover:opacity-100 rounded-full opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer"
+                                className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
                               ></div>
                             </div>
                           </div>
@@ -768,7 +780,11 @@ function Sidebar_2() {
                                 </span>
                               </h3>
                               <div className="flex items-center">
-                                <div className="group relative top-[1px] rounded-full cursor-pointer">
+                                <div 
+                                   onMouseDown={(e) => handleRightClick(e)}
+                                   onMouseEnter={(e) => handleMouseEnter(e)}
+                                   onMouseLeave={(e) => handleMouseLeave(e)}
+                                className="group relative top-[1px] rounded-full cursor-pointer">
                                   <svg
                                     className="w-4 h-4 text-[#B0B3B8]"
                                     viewBox="0 0 16 16"
@@ -800,16 +816,31 @@ function Sidebar_2() {
                                       </g>
                                     </g>
                                   </svg>
-                                  <div className="absolute opacity-0 group-hover:opacity-100 -inset-2 bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
+                                  <div
+                                    style={{
+                                      transitionProperty: "opacity",
+                                      transitionDuration:
+                                        "cubic-bezier(0,0,1,1",
+                                    }}
+                                    className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 pointer-events-none`}
+                                  ></div>
                                 </div>
-                                <div className="relative flex flex-col max-w-full z-0 justify-center items-center self-center ml-6">
+                                <div 
+                                   onMouseDown={(e) => handleRightClick(e)}
+                                   onMouseEnter={(e) => handleMouseEnter(e)}
+                                   onMouseLeave={(e) => handleMouseLeave(e)}
+                                className="group relative flex flex-col max-w-full z-0 justify-center items-center self-center ml-6">
                                   <div className="flex flex-col min-w-0 max-w-full">
                                     <div className="flex flex-col flex-grow min-h-0 min-w-0 max-w-full">
                                       <div className="flex flex-col">
                                         <div className="flex flex-col">
                                           <div className="flex flex-col">
                                             <div className="flex flex-col">
-                                              <div className="rounded-full hover:bg-[#303031] text-[#B0B3B8] cursor-pointer">
+                                              <div className="rounded-full text-[#B0B3B8] cursor-pointer">
                                                 <svg
                                                   viewBox="0 0 20 20"
                                                   width="20"
@@ -836,7 +867,11 @@ function Sidebar_2() {
                                       transitionDuration:
                                         "cubic-bezier(0,0,1,1",
                                     }}
-                                    className="absolute inset-[-8px] duration-100 hover:opacity-100 rounded-full opacity-0 bg-[rgba(255,255,255,0.1)] cursor-pointer"
+                                    className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 pointer-events-none`}
                                   ></div>
                                 </div>
                               </div>
