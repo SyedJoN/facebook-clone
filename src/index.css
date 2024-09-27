@@ -527,9 +527,6 @@ inset 0 0 0 1px rgba(255,255,255,0.05);
 .iconScale:active {
   transform: scale(0.96);
 }
-.notifIconScale:active {
-  transform: scale(0.96);
-}
 
 .parent-hover:hover .overlay{
   overflow: visible;

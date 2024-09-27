@@ -38,12 +38,20 @@ function Header() {
     });
   };
 
+  const handleRightClickStatic = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+    } else if (e.button === 2) {
+      setrightClick(true);
+    }
+  };
+
   const handleRightClick = (e) => {
     if (e.button === 0) {
       setrightClick(false);
-      e.currentTarget.classList.add("notifIconScale");
+      e.currentTarget.classList.add("iconScale");
     } else if (e.button === 2) {
-      e.currentTarget.classList.remove("notifIconScale");
+      e.currentTarget.classList.remove("iconScale");
 
       setrightClick(true);
     }
@@ -51,17 +59,17 @@ function Header() {
 
   const handleMouseEnter = (e, menu) => {
     if (!rightClick) {
-      e.currentTarget.classList.add("notifIconScale");
+      e.currentTarget.classList.add("iconScale");
     } else {
-      e.currentTarget.classList.remove("notifIconScale");
+      e.currentTarget.classList.remove("iconScale");
     }
 
-    // scaleIconRefs.current[menu].current?.classList.add("notifIconScale");
+    // scaleIconRefs.current[menu].current?.classList.add("iconScale");
   };
   const handleMouseLeave = (e, menu) => {
-    e.currentTarget.classList.remove("notifIconScale");
+    e.currentTarget.classList.remove("iconScale");
 
-    // scaleIconRefs.current[menu].current?.classList.remove("notifIconScale");
+    // scaleIconRefs.current[menu].current?.classList.remove("iconScale");
   };
 
   // useEffect(() => {
@@ -154,7 +162,9 @@ function Header() {
       </div>
 
       <nav className="fixed top-0 left-0 right-0 flex justify-center h-[56px] w-full">
-        <ul className="flex justify-center flex-grow w-full px-[110px] items-end">
+        <ul 
+        onMouseDown={(e) => handleRightClickStatic(e)}
+        className="flex justify-center flex-grow w-full px-[110px] items-end">
           {navItems.map((item) =>
             item.active ? (
               <li
@@ -185,9 +195,10 @@ function Header() {
                         style={{ inset: "4px 0px" }}
                         className={`absolute opacity-0 pointer-events-none fade ${
                           location.pathname !== item.slug
-                            ? "group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] group-hover:bg-[rgba(255,255,255,0.1)]"
-                            : ""
-                        } rounded-lg`}
+                            ? "group-hover:opacity-100 group-hover:bg-[rgba(255,255,255,0.1)]"
+                            : ""}
+                            ${!rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                        } rounded-lg duration-0`}
                       ></div>
                     </a>
                   </div>
@@ -237,7 +248,7 @@ function Header() {
                 onMouseLeave={(e) => handleMouseLeave(e)}
                 className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
                   showMenu.Messenger
-                    ? "bg-[#1D85FC33] notifIconScale"
+                    ? "bg-[#1D85FC33] iconScale"
                     : "bg-[#E4E6EB]"
                 } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
                 // onClick={() => navigate(item.slug)}
@@ -270,7 +281,7 @@ function Header() {
                 onMouseLeave={(e) => handleMouseLeave(e)}
                 className={`group relative flex justify-center items-center cursor-pointer w-[40px] h-[40px] ${
                   showMenu.Notif
-                    ? "bg-[#1D85FC33] notifIconScale"
+                    ? "bg-[#1D85FC33] iconScale"
                     : "bg-[#E4E6EB]"
                 } bg-opacity-10 rounded-full border-[rgba(0,0,0,.4)] select-none`}
               >
@@ -297,7 +308,7 @@ function Header() {
                 onMouseEnter={(e) => handleMouseEnter(e)}
                 onMouseLeave={(e) => handleMouseLeave(e)}
                 className={`relative group cursor-pointer ${
-                  showMenu.User ? "notifIconScale" : ""
+                  showMenu.User ? "iconScale" : ""
                 }`}
 
                 // onClick={() => navigate(item.slug)}

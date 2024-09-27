@@ -21,8 +21,19 @@ function Sidebar() {
   const mouseMoveRef = useRef(false);
   const mouseUpRef = useRef(false);
   const leaveHandlerFnRef = useRef(false);
+  const [rightClick, setrightClick] = useState(false);
 
 
+  const handleRightClick = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+    } else if (e.button === 2) {
+      setrightClick(true);
+    }
+  };
+
+  
+ 
 const handleEditMenu = () => {
   setShowEdit(true);
 }
@@ -291,7 +302,9 @@ const handleEditMenuStop = () => {
           <div 
           className="flex flex-col flex-grow">
             <div className="flex-grow">
-          <div>
+          <div
+           onMouseDown={(e) => handleRightClick(e)}
+           >
             <div className="px-2">
               <a 
               role="link"
@@ -322,7 +335,10 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                 </div>
               </a>
             </div>
@@ -360,7 +376,10 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                 </div>
               </a>
             </div>
@@ -388,7 +407,10 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                 </div>
               </a>
             </div>
@@ -427,7 +449,10 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                 </div>
               </a>
             </div>
@@ -466,7 +491,10 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                 </div>
               </a>
             </div>
@@ -505,7 +533,10 @@ const handleEditMenuStop = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                  <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                 </div>
               </a>
             </div>
@@ -546,7 +577,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </div>
                 </a>
               </div>
@@ -588,7 +622,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -617,7 +654,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -656,7 +696,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -685,7 +728,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -725,7 +771,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -754,7 +803,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -794,7 +846,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -834,7 +889,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -863,7 +921,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -892,7 +953,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -932,7 +996,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -972,7 +1039,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -1001,7 +1071,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -1041,7 +1114,10 @@ const handleEditMenuStop = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                      <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                     </div>
                   </a>
                 </div>
@@ -1079,7 +1155,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </div>
                 </a>
               </div>
@@ -1202,7 +1281,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </a>
                 </div>
               </li>
@@ -1271,7 +1353,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </a>
                 </div>
               </li>
@@ -1335,7 +1420,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </a>
                 </div>
               </li>
@@ -1398,7 +1486,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </a>
                 </div>
               </li>
@@ -1461,7 +1552,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </a>
                 </div>
               </li>
@@ -1532,7 +1626,10 @@ const handleEditMenuStop = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                   </li>
@@ -1601,7 +1698,10 @@ const handleEditMenuStop = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                   </li>
@@ -1647,7 +1747,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </div>
                 </a>
               </div>
@@ -1686,7 +1789,10 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="absolute opacity-0 group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                   </div>
                 </a>
               </div>

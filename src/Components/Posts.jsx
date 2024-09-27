@@ -8,20 +8,40 @@ function Posts() {
 
   const [defaultText, setDefaultText] = useState("What's on your mind, Syed?");
   const content = useSelector((state) => state.showMenu.postContent);
+  const [rightClick, setrightClick] = useState(false);
 
-  const handleMouseDown = (e) => {
-    const child = e.target.querySelector(".child");
-    if (child) {
-      child.style.cursor = "text";
+  const handleRightClickStatic = (e) => {
+    if (e.button === 0) {
+      setRightClick(false);
+    } else if (e.button === 2) {
+      setRightClick(true);
+    }
+  };
+  const handleRightClick = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+      e.currentTarget.classList.add("notifIconScale");
+    } else if (e.button === 2) {
+      e.currentTarget.classList.remove("notifIconScale");
+
+      setrightClick(true);
     }
   };
 
-  const handleMouseUp = (e) => {
-    const child = e.target.querySelector(".child");
-    if (child) {
-      child.style.cursor = "pointer";
+  const handleMouseEnter = (e, menu) => {
+    if (!rightClick) {
+      e.currentTarget.classList.add("notifIconScale");
+    } else {
+      e.currentTarget.classList.remove("notifIconScale");
     }
+
+
   };
+  const handleMouseLeave = (e, menu) => {
+    e.currentTarget.classList.remove("notifIconScale");
+
+  };
+
 
   const handlePostContainer = () => {
     dispatch(setShowPost(true));
@@ -72,7 +92,10 @@ function Posts() {
                 </div>
               </div>
             </div>
-            <div className="flex w-full border-t-[1px] border-[#3A3B3C] mt-[12px] h-[46px] pt-[9px] justify-around ">
+            <div
+              onMouseDown={(e) => handleRightClickStatic(e)}
+              className="flex w-full border-t-[1px] border-[#3A3B3C] mt-[12px] h-[46px] pt-[9px] justify-around "
+            >
               <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
                 <div className="flex items-center">
                   <span className="inline-flex mt-[2px] select-none">
@@ -88,7 +111,12 @@ function Posts() {
                     Live video
                   </span>
                 </div>
-                <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
 
               <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
@@ -107,7 +135,12 @@ function Posts() {
                     Photo/video
                   </span>
                 </div>
-                <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
 
               <div className="group relative flex pb-[8px] w-full pl-[8px] pr-[8px] pt-[8px] justify-center shrink-1 flex-grow rounded-lg cursor-pointer ">
@@ -126,7 +159,12 @@ function Posts() {
                     Feeling/activity
                   </span>
                 </div>
-                <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
             </div>
           </div>
@@ -213,9 +251,7 @@ function Posts() {
                       <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
                     </g>
                   </svg>
-                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade">
-
-</div>
+                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
                 </div>
                 <div className="relative group flex p-2 cursor-pointer">
                   <i
@@ -232,8 +268,7 @@ function Posts() {
                       display: "inline-block",
                     }}
                   />
-                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.01)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade">
-                  </div>
+                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.01)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
                 </div>
               </div>
             </div>
@@ -318,8 +353,11 @@ function Posts() {
                 </div>
               </div>
             </div>
-            <div className="relative flex w-full my-[5px] h-[30px] justify-around items-center ">
-              <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
+            <div
+              onMouseDown={(e) => handleRightClickStatic(e)}
+              className="relative flex w-full my-[5px] h-[30px] justify-around items-center"
+            >
+              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -342,9 +380,15 @@ function Posts() {
                     Like
                   </span>
                 </div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
 
-              <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
+              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -367,9 +411,15 @@ function Posts() {
                     Comment
                   </span>
                 </div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
 
-              <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
+              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -392,6 +442,12 @@ function Posts() {
                     Share
                   </span>
                 </div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
             </div>
             <div className="block w-full border-b-[1px] border-[#3E4042]"></div>
@@ -404,7 +460,7 @@ function Posts() {
                 />
               </div>
               <div className="block w-full h-[35px] ml-1 mt-2">
-                <div className="bg-[#3A3B3C] rounded-full px-[2px] py-[3px] cursor-text ">
+                <div className="bg-[#3A3B3C] rounded-full px-[2px] cursor-text">
                   <div className="flex ">
                     <div className="flex ml-2 items-center">
                       <span className="text-xs sm:text-[1rem] text-[#B0B3B8]">
@@ -412,10 +468,16 @@ function Posts() {
                       </span>
                     </div>
 
-                    <ul className="flex ml-auto">
-                      <li>
-                        <span className="">
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                    <ul
+                      
+                    className="flex ml-auto items-center h-[36px]">
+                      <li className="mx-1.5">
+                        <span className="inheritStyles">
+                          <div 
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                          className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -430,12 +492,24 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                          className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -450,12 +524,23 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div 
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -470,12 +555,23 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)}  className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -490,19 +586,31 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div 
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                           className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
                                 filter:
                                   "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
                                 backgroundImage: "url(/lcs.png)",
-                                backgroundPosition: "0 -1356px",
+                                backgroundPosition: "-1px -1356px",
                                 backgroundSize: "auto",
                                 width: "16px",
                                 height: "16px",
@@ -510,6 +618,13 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
@@ -689,8 +804,8 @@ function Posts() {
                 </div>
               </div>
             </div>
-            <div className="relative flex w-full my-[5px] h-[30px] justify-around items-center ">
-              <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
+            <div className="relative flex w-full my-[5px] h-[30px] justify-around items-center">
+              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -715,7 +830,7 @@ function Posts() {
                 </div>
               </div>
 
-              <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
+              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -740,7 +855,7 @@ function Posts() {
                 </div>
               </div>
 
-              <div className="flex justify-center flex-grow items-center hover:bg-[#3A3B3C] rounded-md cursor-pointer h-[32px]">
+              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -775,7 +890,7 @@ function Posts() {
                 />
               </div>
               <div className="block w-full h-[35px] ml-1 mt-2">
-                <div className="bg-[#3A3B3C] rounded-full px-[2px] py-[3px] cursor-text ">
+                <div className="bg-[#3A3B3C] rounded-full px-[2px] cursor-text">
                   <div className="flex ">
                     <div className="flex ml-2 items-center">
                       <span className="text-xs sm:text-[1rem] text-[#B0B3B8]">
@@ -783,10 +898,17 @@ function Posts() {
                       </span>
                     </div>
 
-                    <ul className="flex ml-auto">
-                      <li>
-                        <span className="">
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                    <ul
+                    
+                      className="flex ml-auto items-center h-[36px]"
+                    >
+                      <li className="mx-1.5">
+                        <span className="inheritStyles">
+                          <div 
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                           className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -801,12 +923,24 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div 
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                          className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -821,12 +955,24 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                 ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div 
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                          className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -841,12 +987,24 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                          className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -861,19 +1019,31 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                 ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>
-                      <li>
-                        <span>
-                          <div className="inline-flex hover:bg-[#525454] rounded-full p-[0.4rem] cursor-pointer ">
+                      <li className="mx-1.5">
+
+                        <span className="inheritStyles">
+                          <div
+                           onMouseDown={(e) => handleRightClick(e)}
+                           onMouseEnter={(e) => handleMouseEnter(e)}
+                           onMouseLeave={(e) => handleMouseLeave(e)} 
+                           className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
                                 filter:
                                   "invert(62%) sepia(98%) saturate(12%) hue-rotate(175deg) brightness(90%) contrast(96%)",
                                 backgroundImage: "url(/lcs.png)",
-                                backgroundPosition: "0 -1356px",
+                                backgroundPosition: "-1px -1356px",
                                 backgroundSize: "auto",
                                 width: "16px",
                                 height: "16px",
@@ -881,6 +1051,13 @@ function Posts() {
                                 display: "inline-block",
                               }}
                             />
+                            <div
+                              className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                                !rightClick
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  : ""
+                              } duration-0 group-hover:opacity-100 fade pointer-events-none`}
+                            ></div>
                           </div>
                         </span>
                       </li>

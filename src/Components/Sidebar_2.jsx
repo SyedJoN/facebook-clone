@@ -22,6 +22,14 @@ function Sidebar_2() {
   const [thumbHeight, setThumbHeight] = useState(40);
   const [rightClick, setrightClick] = useState(false);
 
+  const handleRightClickStatic = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+    } else if (e.button === 2) {
+      setrightClick(true);
+    }
+  };
+
   const handleRightClick = (e) => {
     if (e.button === 0) {
       setrightClick(false);
@@ -580,7 +588,9 @@ function Sidebar_2() {
                     </div>
                   </div>
 
-                  <div className="py-2">
+                  <div 
+                   onMouseDown={(e) => handleRightClickStatic(e)}
+                  className="profile-section py-2">
                     <div className="px-2">
                       <a className="group relative no-underline cursor-pointer">
                         <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
@@ -613,7 +623,10 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                     <div className="px-4">
@@ -653,7 +666,10 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
 
                       <a className="group relative inline-block w-full p-0 m-0 cursor-pointer">
@@ -692,7 +708,10 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                   </div>
@@ -702,7 +721,10 @@ function Sidebar_2() {
                     role="separator"
                   ></div>
                 </div>
-                <div className="birthday-section relative">
+                <div 
+                   onMouseDown={(e) => handleRightClickStatic(e)}
+
+                className="birthday-section relative">
                   <div className="flex flex-col pt-5 pb-1">
                     <div className="flex flex-col px-4">
                       <div className="flex flex-col -my-[5px]">
@@ -756,7 +778,10 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                   </div>
@@ -765,7 +790,10 @@ function Sidebar_2() {
                     role="separator"
                   ></div>
                 </div>
-                <div className="contact-section relative">
+                <div 
+                   onMouseDown={(e) => handleRightClickStatic(e)}
+
+                className="contact-section relative">
                   <div
                     className={`sidebar flex flex-col text-white cursor-default`}
                   >
@@ -881,7 +909,10 @@ function Sidebar_2() {
                       </div>
                     </div>
 
-                    <div className="py-2">
+                    <div 
+           
+                        className="py-2"
+                    >
                       <div className="px-2">
                         <a className="group relative no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
@@ -967,7 +998,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
 
@@ -1048,7 +1082,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1126,7 +1163,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1204,7 +1244,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1282,7 +1325,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1360,7 +1406,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
 
@@ -1439,7 +1488,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1517,7 +1569,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                       <div className="px-2">
@@ -1595,7 +1650,10 @@ function Sidebar_2() {
                               </div>
                             </div>
                           </div>
-                          <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                          <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                         </a>
                       </div>
                     </div>
@@ -1606,7 +1664,10 @@ function Sidebar_2() {
                     ></div>
                   </div>
                 </div>
-                <div className="group-section relative">
+                <div 
+                   onMouseDown={(e) => handleRightClickStatic(e)}
+
+                className="group-section relative">
                   <div className="relative flex flex-col shrink-0 max-w-full z-0 pt-[20px] pb-[6px]">
                     <div className="flex flex-col min-h-0 flex-grow max-w-full ">
                       <div className="flex flex-col max-w-full px-4">
@@ -1753,7 +1814,10 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                     <div className="px-2">
@@ -1800,7 +1864,10 @@ function Sidebar_2() {
                             </div>
                           </div>
                         </div>
-                        <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-[8px] pointer-events-none fade"></div>
+                        <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}></div>
                       </a>
                     </div>
                   </div>{" "}
