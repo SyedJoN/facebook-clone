@@ -1,10 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
+
 function Stories() {
+  const [rightClick, setrightClick] = useState(false);
+
+  const handleRightClick = (e) => {
+    if (e.button === 0) {
+      setrightClick(false);
+      e.target.classList.add("iconScale");
+    } else if (e.button === 2) {
+      setrightClick(true);
+      e.target.classList.remove("iconScale");
+
+    }
+  };
+
+  const handleMouseEnter = (e) => {
+    if (!rightClick) {
+      e.target.classList.add("iconScale");
+    } else {
+      e.target.classList.remove("iconScale");
+    }
+  };
+  const handleMouseLeave = (e) => {
+    e.target.classList.remove("iconScale");
+  };
+
+  useEffect(() => {
+    const prevNav = document.querySelector('.owl-prev .group');
+    const nextNav = document.querySelector('.owl-next .group');
+  
+    if (prevNav) {
+      prevNav.addEventListener('mousedown', handleRightClick);
+      prevNav.addEventListener('mouseenter', handleMouseEnter);
+      prevNav.addEventListener('mouseleave', handleMouseLeave);
+    }
+    if (nextNav) {
+      nextNav.addEventListener('mousedown', handleRightClick);
+      nextNav.addEventListener('mouseenter', handleMouseEnter);
+      nextNav.addEventListener('mouseleave', handleMouseLeave);
+    }
+
+
+    return () => {
+      if (prevNav) {
+        prevNav.removeEventListener('mousedown', handleRightClick);
+        prevNav.removeEventListener('mouseenter', handleMouseEnter);
+        prevNav.removeEventListener('mouseleave', handleMouseLeave);
+      }
+      if (nextNav) {
+        nextNav.removeEventListener('mousedown', handleRightClick);
+        nextNav.removeEventListener('mouseenter', handleMouseEnter);
+        nextNav.removeEventListener('mouseleave', handleMouseLeave);
+      }
+    };
+  }, []);
   return (
     <div className="stories-carousel relative min-h-[200px] block py-2 z-0">
       <OwlCarousel
@@ -14,9 +68,25 @@ function Stories() {
         dots={false}
         mouseDrag={false}
         navText={[
-          '<svg viewBox="0 0 24 24" width="24" height="24" fill="#ababab" className=""><path d="M14.791 5.207 8 12l6.793 6.793a1 1 0 1 1-1.415 1.414l-7.5-7.5a1 1 0 0 1 0-1.414l7.5-7.5a1 1 0 1 1 1.415 1.414z"></path></svg>',
+          `<div
+          class="storiesNav relative group h-[48px] w-[48px] rounded-full bg-[#3E4042] flex justify-center items-center outline-zero list-none border-[rgba(0,0,0,0.4)]">
+             <svg viewBox="0 0 24 24" width="24" height="24" fill="#ababab">
+               <path d="M14.791 5.207 8 12l6.793 6.793a1 1 0 1 1-1.415 1.414l-7.5-7.5a1 1 0 0 1 0-1.414l7.5-7.5a1 1 0 1 1 1.415 1.414z"></path>
+             </svg>
+          <div class="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+            !rightClick ? "group-active:bg-[rgba(68,73,80,0.15)]" : ""
+          } duration-0 group-hover:opacity-100 fade pointer-events-none"></div></div>`,
 
-          '<svg viewBox="0 0 24 24" width="24" height="24" fill="#ababab" className=""><path d="M9.209 5.207 16 12l-6.791 6.793a1 1 0 1 0 1.415 1.414l7.5-7.5a1 1 0 0 0 0-1.414l-7.5-7.5a1 1 0 1 0-1.415 1.414z"></path></svg>',
+          `<div
+                   class="storiesNav relative group h-[48px] w-[48px] rounded-full bg-[#3E4042] flex justify-center items-center outline-zero list-none border-[rgba(0,0,0,0.4)]">
+
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#ababab">
+      <path d="M9.209 5.207 16 12l-6.791 6.793a1 1 0 1 0 1.415 1.414l7.5-7.5a1 1 0 0 0 0-1.414l-7.5-7.5a1 1 0 1 0-1.415 1.414z"></path>
+    </svg>
+           
+          <div class="absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+            !rightClick ? "group-active:bg-[rgba(68,73,80,0.15)]" : ""
+          } duration-0 group-hover:opacity-100 fade pointer-events-none"></div></div>`,
         ]}
         responsive={{
           // Define responsive breakpoints
@@ -74,12 +144,12 @@ function Stories() {
                       </svg>
                     </div>
                   </div>
-<div className="pointer-events-none">
-                  <div className="ba block min-w-0 max-w-full text-[#E4E6EB] bg-[#242526] font-[600] text-[.75rem] leading-[1.2308] justify-center items-end h-full textProps">
-                    <span className="relative overflow-hidden text-center cursor-pointer pb-[1px] font-[600] text-[.75rem] leading-[1.2308] flex textProps ">
-                    Create story
-                    </span>
-                  </div>
+                  <div className="pointer-events-none">
+                    <div className="ba block min-w-0 max-w-full text-[#E4E6EB] bg-[#242526] font-[600] text-[.75rem] leading-[1.2308] justify-center items-end h-full textProps">
+                      <span className="relative overflow-hidden text-center cursor-pointer pb-[1px] font-[600] text-[.75rem] leading-[1.2308] flex textProps ">
+                        Create story
+                      </span>
+                    </div>
                   </div>
 
                   {/* <div className="fixed inset-0 rounded-b-xl bg-black/90 opacity-0 hover:opacity-[0.15] z-50"></div> */}

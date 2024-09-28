@@ -162,15 +162,6 @@ body {
   overflow: visible !important;
 }
 
-
-.owl-next:hover {
-  background-color: #525455 !important;
-}
-
-.owl-prev:hover {
-  background-color: #525455 !important;
-}
-
 .scroll-container {
   height: 860px;
 
@@ -317,13 +308,13 @@ scrollbar-color: #7B7B7B #424242;
   display: none;
 }
 
-
+.storesNav {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.1);
+}
 .owl-prev,
 .owl-next {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.1);
-  
-  border-radius: 50px !important;
-  background-color: #3E4042 !important;
+
+  position: relative;
   width: 48px;
   height: 48px;
   position: absolute;

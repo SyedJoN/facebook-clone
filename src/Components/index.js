@@ -15,6 +15,7 @@ import MessagePanel from "./Header/MessagePanel";
 import SettingsPanel from "./Header/SettingsPanel";
 
 
+
 export {
     Container,
     Logo,
@@ -30,5 +31,6 @@ export {
     WritePostCard,
     NotifPanel,
     MessagePanel,
-    SettingsPanel
+    SettingsPanel,
+
 }

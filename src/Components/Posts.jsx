@@ -12,17 +12,17 @@ function Posts() {
 
   const handleRightClickStatic = (e) => {
     if (e.button === 0) {
-      setRightClick(false);
+      setrightClick(false);
     } else if (e.button === 2) {
-      setRightClick(true);
+      setrightClick(true);
     }
   };
   const handleRightClick = (e) => {
     if (e.button === 0) {
       setrightClick(false);
-      e.currentTarget.classList.add("notifIconScale");
+      e.currentTarget.classList.add("iconScale");
     } else if (e.button === 2) {
-      e.currentTarget.classList.remove("notifIconScale");
+      e.currentTarget.classList.remove("iconScale");
 
       setrightClick(true);
     }
@@ -30,15 +30,15 @@ function Posts() {
 
   const handleMouseEnter = (e, menu) => {
     if (!rightClick) {
-      e.currentTarget.classList.add("notifIconScale");
+      e.currentTarget.classList.add("iconScale");
     } else {
-      e.currentTarget.classList.remove("notifIconScale");
+      e.currentTarget.classList.remove("iconScale");
     }
 
 
   };
   const handleMouseLeave = (e, menu) => {
-    e.currentTarget.classList.remove("notifIconScale");
+    e.currentTarget.classList.remove("iconScale");
 
   };
 
@@ -58,13 +58,53 @@ function Posts() {
                 className="group relative no-underline select-none cursor-pointer"
                 href="https://www.facebook.com/muhammad.jon.12"
               >
-                <div className="flex img-wrapper shrink-0 justify-start w-10 h-10 rounded-full select-none">
-                  <img
-                    className="object-cover w-full h-full rounded-full select-none pointer-events-none"
-                    src="/me.jpg"
-                    alt=""
-                  />
-                </div>
+                 <div
+                onMouseDown={(e) => handleRightClickStatic(e)}
+                className="relative cursor-pointer"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="align-bottom"
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  style={{ height: "40px", width: "40px" }}
+                >
+ 
+                  <mask id=":PostProfile:">
+                    <circle cx="20" cy="20" fill="white" r="20">
+                   
+                    </circle>
+                    
+                  </mask>
+
+
+                  <g mask="url(#:PostProfile:)">
+                    <image
+                      x="0"
+                      y="0"
+                      height="100%"
+                      preserveAspectRatio="xMidYMid slice"
+                      width="100%"
+                      xlinkHref="me.jpg"
+                      style={{ height: "40px", width: "40px" }}
+                    ></image>
+                    <circle
+                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                      cx="20"
+                      cy="20"
+                      r="20"
+                    ></circle>
+                  </g>
+                </svg>
+               
+                <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
+                
+              </div>
                 <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
               </a>
               <div className="flex flex-grow justify-start items-center ml-2">
@@ -169,23 +209,76 @@ function Posts() {
             </div>
           </div>
 
-          <div className="flex flex-col bg-[#242526] w-full overflow-hidden rounded-lg px-[16px] pt-[12px] pb-[18px] justify-center items-center mt-4">
+          <div className="flex flex-col bg-[#242526] w-full overflow-hidden rounded-lg px-[16px] pt-[12px] justify-center items-center mt-4">
             <div className="flex justify-start w-full">
+              <span>
+              <a
+             
+              className="group relative cursor-pointer flex flex-col items-center justify-center">
+                <div>
+                <object className="inline" type="nested/pressable">
               <a
                 role="link"
-                className="group relative no-underline select-none cursor-pointer"
+                className="group relative inline-block no-underline select-none cursor-pointer"
                 href="https://www.facebook.com/muhammad.jon.12"
               >
-                <div className="flex img-wrapper justify-start w-10 h-10  rounded-full cursor-pointer ">
-                  <img
-                    className="object-cover w-full h-full rounded-full select-none pointer-events-none"
-                    src="/me.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="absolute inset-0 rounded-full opacity-0 fade duration-100 cursor-pointer group-hover:bg-[rgba(255,255,255,0.1)] group-hover:opacity-100 pointer-events-none"></div>
-              </a>
+                 <div
+                  onMouseDown={(e) => handleRightClick(e)}
+                  onMouseEnter={(e) => handleMouseEnter(e)}
+                  onMouseLeave={(e) => handleMouseLeave(e)} 
+                className="relative inline-block cursor-pointer select-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="align-bottom"
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  style={{ height: "40px", width: "40px" }}
+                >
+ 
+                  <mask id=":PostUser:">
+                    <circle cx="20" cy="20" fill="white" r="20">
+                   
+                    </circle>
+                 
+                  </mask>
 
+
+                  <g mask="url(#:PostUser:)">
+                    <image
+                      x="0"
+                      y="0"
+                      height="100%"
+                      preserveAspectRatio="xMidYMid slice"
+                      width="100%"
+                      xlinkHref="me.jpg"
+                      style={{ height: "40px", width: "40px" }}
+                    ></image>
+                    <circle
+                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                      cx="20"
+                      cy="20"
+                      r="20"
+                    ></circle>
+                  </g>
+                </svg>
+               
+               
+                <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(68,73,80,0.35)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
+              </div>
+               
+              </a>
+              </object>
+              </div>
+           
+           
+</a>
+</span>
               <div className="ml-2 flex-grow">
                 <a
                   role="link"
@@ -282,7 +375,7 @@ function Posts() {
               className="flex w-full overflow-hidden rounded-xl "
               style={{ border: "1px solid #3E4042" }}
             >
-              <div className="flex flex-col w-full h-full rounded-xl  ">
+              <div className="flex flex-col w-full h-full rounded-xl ">
                 <img
                   className="object-cover w-full h-full cursor-pointer select-none"
                   src="/post.jpg "
@@ -354,10 +447,10 @@ function Posts() {
               </div>
             </div>
             <div
+              className="relative flex w-full my-[5px] h-[30px] justify-around items-center">
+              <div 
               onMouseDown={(e) => handleRightClickStatic(e)}
-              className="relative flex w-full my-[5px] h-[30px] justify-around items-center"
-            >
-              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
+              className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -376,7 +469,7 @@ function Posts() {
                     />
                   </span>
 
-                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2">
+                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 select-none">
                     Like
                   </span>
                 </div>
@@ -388,7 +481,9 @@ function Posts() {
                 ></div>
               </div>
 
-              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
+              <div
+              onMouseDown={(e)=> handleRightClickStatic(e)} 
+              className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -407,7 +502,7 @@ function Posts() {
                     />
                   </span>
 
-                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 ">
+                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 select-none ">
                     Comment
                   </span>
                 </div>
@@ -419,7 +514,9 @@ function Posts() {
                 ></div>
               </div>
 
-              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
+              <div
+              onMouseDown={(e)=> handleRightClickStatic(e)} 
+              className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -438,7 +535,7 @@ function Posts() {
                     />
                   </span>
 
-                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 ">
+                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 select-none ">
                     Share
                   </span>
                 </div>
@@ -451,19 +548,97 @@ function Posts() {
               </div>
             </div>
             <div className="block w-full border-b-[1px] border-[#3E4042]"></div>
-            <div className="flex justify-start w-full">
-              <div className="img-wrapper justify-start w-8 h-8 rounded-full mt-[10px] cursor-pointer ">
-                <img
-                  className="object-cover w-full h-full rounded-full"
-                  src="/me.jpg"
-                  alt=""
-                />
+            <div className="flex flex-col my-2 w-full">
+            <div className="flex outline-zero w-full">
+            <div className="group flex justify-center items-center mr-1.5 mt-[2px]">
+              <div
+                onMouseDown={(e) => handleRightClickStatic(e)}
+                className="relative cursor-pointer"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="align-bottom"
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  style={{ height: "32px", width: "32px" }}
+                >
+ 
+                  <mask id=":CommentProfile:">
+                    <circle cx="16" cy="16" fill="white" r="16">
+                      {" "}
+                    </circle>
+                    <circle
+                      cx="27"
+                      cy="27"
+                      data-visualcompletion="ignore"
+                      fill="black"
+                      r="6"
+                    ></circle>
+                  </mask>
+
+
+                  <g mask="url(#:CommentProfile:)">
+                    <image
+                      x="0"
+                      y="0"
+                      height="100%"
+                      preserveAspectRatio="xMidYMid slice"
+                      width="100%"
+                      xlinkHref="me.jpg"
+                      style={{ height: "32px", width: "32px" }}
+                    ></image>
+                    <circle
+                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                      cx="16"
+                      cy="16"
+                      r="16"
+                    ></circle>
+                  </g>
+                </svg>
+               
+                <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
+                <div
+                  style={{
+                    bottom: "6px",
+                    right: "6px",
+                    transform: "translate(50%, 50%)",
+                  }}
+                  className="absolute z-[2] rounded-[50%]"
+                >
+                  <div className="inheritStyles">
+                    <div className="flex flex-col justify-center items-center flex-grow overflow-hidden bg-[rgba(255,255,255,.1)] rounded-[50%]">
+                      <svg
+                        viewBox="0 0 16 16"
+                        width="12"
+                        height="12"
+                        fill="currentColor"
+                        className="block svgClass fade
+        "
+                        style={{ color: "#E4E6EB" }}
+                      >
+                        <g fillRule="evenodd" transform="translate(-448 -544)">
+                          <path
+                            fillRule="nonzero"
+                            d="M452.707 549.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L456 552.586l-3.293-3.293z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div className="absolute inset-0 opacity-0 fade pointer-events-none"></div>
+                  </div>
+                </div>
               </div>
-              <div className="block w-full h-[35px] ml-1 mt-2">
-                <div className="bg-[#3A3B3C] rounded-full px-[2px] cursor-text">
-                  <div className="flex ">
-                    <div className="flex ml-2 items-center">
-                      <span className="text-xs sm:text-[1rem] text-[#B0B3B8]">
+            </div>
+              <div className="flex-grow basis-0">
+                <div className="bg-[#3A3B3C] rounded-full cursor-text">
+                  <div className="flex">
+                    <div className="flex items-center flex-grow px-3 py-2">
+                      <span className="text-xs sm:text-[1rem] text-[#B0B3B8] select-none">
                         Comment as Syed Muhammad Jon
                       </span>
                     </div>
@@ -633,23 +808,89 @@ function Posts() {
                 </div>
               </div>
             </div>
+            </div>
           </div>
           <div className="flex flex-col bg-[#242526] w-full overflow-hidden rounded-lg px-[16px] pt-[12px] pb-[18px] justify-center items-center mt-2">
-            <div className="flex justify-start w-full">
-              <div className="flex img-wrapper justify-start w-10 h-10  rounded-full cursor-pointer ">
-                <img
-                  className="object-cover w-full h-full rounded-full"
-                  src="/me.jpg"
-                  alt=""
-                />
-              </div>
+          <div className="flex justify-start w-full">
+              <span>
+              <a
+             
+              className="group relative cursor-pointer flex flex-col items-center justify-center">
+                <div>
+                <object className="inline" type="nested/pressable">
+              <a
+                role="link"
+                className="group relative inline-block no-underline select-none cursor-pointer"
+                href="https://www.facebook.com/muhammad.jon.12"
+              >
+                 <div
+                  onMouseDown={(e) => handleRightClick(e)}
+                  onMouseEnter={(e) => handleMouseEnter(e)}
+                  onMouseLeave={(e) => handleMouseLeave(e)} 
+                className="relative inline-block cursor-pointer select-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="align-bottom"
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  style={{ height: "40px", width: "40px" }}
+                >
+ 
+                  <mask id=":PostUser:">
+                    <circle cx="20" cy="20" fill="white" r="20">
+                   
+                    </circle>
+                 
+                  </mask>
 
+
+                  <g mask="url(#:PostUser:)">
+                    <image
+                      x="0"
+                      y="0"
+                      height="100%"
+                      preserveAspectRatio="xMidYMid slice"
+                      width="100%"
+                      xlinkHref="me.jpg"
+                      style={{ height: "40px", width: "40px" }}
+                    ></image>
+                    <circle
+                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                      cx="20"
+                      cy="20"
+                      r="20"
+                    ></circle>
+                  </g>
+                </svg>
+               
+               
+                <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(68,73,80,0.35)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
+              </div>
+               
+              </a>
+              </object>
+              </div>
+           
+           
+</a>
+</span>
               <div className="ml-2 flex-grow">
-                <div className="">
-                  <span className="relative bottom-[5px] text-xs sm:text-sm text-[#E4E6EB] font-semibold cursor-pointer ">
+                <a
+                  role="link"
+                  className="relative underline-offset-[-4px] hover:underline text-[#E4E6EB]"
+                  href="https://www.facebook.com/muhammad.jon.12"
+                >
+                  <span className="child relative bottom-[5px] text-xs sm:text-sm font-semibold">
                     Syed Muhammad Jon
                   </span>
-                </div>
+                </a>
+
                 <div className="flex flex-wrap relative bottom-[4px]">
                   <span className="text-[1.07rem] text-[#B8B3B8] text-xs cursor-pointer ">
                     39m
@@ -692,7 +933,7 @@ function Posts() {
               </div>
 
               <div className="relative bottom-[2px] inline-flex items-center gap-[0.1rem]">
-                <div className="flex hover:bg-[#3A3B3C] rounded-full p-[0.4rem] cursor-pointer  ">
+                <div className="group relative flex rounded-full p-[0.4rem] cursor-pointer">
                   <svg
                     viewBox="0 0 20 20"
                     width="20"
@@ -704,8 +945,9 @@ function Posts() {
                       <path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path>
                     </g>
                   </svg>
+                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.2)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
                 </div>
-                <div className="flex hover:bg-[#3A3B3C] rounded-full p-2 relative cursor-pointer ">
+                <div className="relative group flex p-2 cursor-pointer">
                   <i
                     data-visualcompletion="css-img"
                     style={{
@@ -720,6 +962,7 @@ function Posts() {
                       display: "inline-block",
                     }}
                   />
+                  <div className="absolute opacity-0 bg-none group-hover:opacity-100 group-active:bg-[rgba(255,255,255,0.01)] inset-0 group-hover:bg-[rgba(255,255,255,0.1)] rounded-full pointer-events-none fade"></div>
                 </div>
               </div>
             </div>
@@ -805,7 +1048,9 @@ function Posts() {
               </div>
             </div>
             <div className="relative flex w-full my-[5px] h-[30px] justify-around items-center">
-              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
+              <div 
+               onMouseDown={(e) => handleRightClickStatic(e)}
+              className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -824,13 +1069,21 @@ function Posts() {
                     />
                   </span>
 
-                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2">
+                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 select-none">
                     Like
                   </span>
                 </div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
 
-              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
+              <div 
+              onMouseDown={(e) => handleRightClickStatic(e)}
+              className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -849,13 +1102,21 @@ function Posts() {
                     />
                   </span>
 
-                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 ">
+                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 select-none ">
                     Comment
                   </span>
                 </div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
 
-              <div className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
+              <div
+              onMouseDown={(e) => handleRightClickStatic(e)} 
+              className="group relative flex justify-center flex-grow items-center rounded-md cursor-pointer h-[32px]">
                 <div className="flex items-center">
                   <span className="inline-flex">
                     <i
@@ -874,41 +1135,124 @@ function Posts() {
                     />
                   </span>
 
-                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 ">
+                  <span className="text-[#B0B3B8] text-sm font-semibold ml-2 select-none ">
                     Share
                   </span>
                 </div>
+                <div
+                  className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
               </div>
             </div>
             <div className="block w-full border-b-[1px] border-[#3E4042]"></div>
-            <div className="flex justify-start w-full">
-              <div className="img-wrapper justify-start w-8 h-8 rounded-full mt-[10px] cursor-pointer ">
-                <img
-                  className="object-cover w-full h-full rounded-full"
-                  src="/me.jpg"
-                  alt=""
-                />
+            <div className="flex flex-col my-2 w-full">
+            <div className="flex outline-zero w-full">
+            <div className="group flex justify-center items-center mr-1.5 mt-[2px]">
+              <div
+                onMouseDown={(e) => handleRightClickStatic(e)}
+                className="relative cursor-pointer"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="align-bottom"
+                  data-visualcompletion="ignore-dynamic"
+                  role="none"
+                  style={{ height: "32px", width: "32px" }}
+                >
+ 
+                  <mask id=":CommentProfile_2:">
+                    <circle cx="16" cy="16" fill="white" r="16">
+                      {" "}
+                    </circle>
+                    <circle
+                      cx="27"
+                      cy="27"
+                      data-visualcompletion="ignore"
+                      fill="black"
+                      r="6"
+                    ></circle>
+                  </mask>
+
+
+                  <g mask="url(#:CommentProfile_2:)">
+                    <image
+                      x="0"
+                      y="0"
+                      height="100%"
+                      preserveAspectRatio="xMidYMid slice"
+                      width="100%"
+                      xlinkHref="me.jpg"
+                      style={{ height: "32px", width: "32px" }}
+                    ></image>
+                    <circle
+                      className="fill-none stroke-2 stroke-[rgba(255,255,255,0.05)]"
+                      cx="16"
+                      cy="16"
+                      r="16"
+                    ></circle>
+                  </g>
+                </svg>
+               
+                <div
+                  className={`absolute inset-0 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
+                  } duration-0
+                  group-hover:opacity-100 fade pointer-events-none`}
+                ></div>
+                <div
+                  style={{
+                    bottom: "6px",
+                    right: "6px",
+                    transform: "translate(50%, 50%)",
+                  }}
+                  className="absolute z-[2] rounded-[50%]"
+                >
+                  <div className="inheritStyles">
+                    <div className="flex flex-col justify-center items-center flex-grow overflow-hidden bg-[rgba(255,255,255,.1)] rounded-[50%]">
+                      <svg
+                        viewBox="0 0 16 16"
+                        width="12"
+                        height="12"
+                        fill="currentColor"
+                        className="block svgClass fade
+        "
+                        style={{ color: "#E4E6EB" }}
+                      >
+                        <g fillRule="evenodd" transform="translate(-448 -544)">
+                          <path
+                            fillRule="nonzero"
+                            d="M452.707 549.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L456 552.586l-3.293-3.293z"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div className="absolute inset-0 opacity-0 fade pointer-events-none"></div>
+                  </div>
+                </div>
               </div>
-              <div className="block w-full h-[35px] ml-1 mt-2">
-                <div className="bg-[#3A3B3C] rounded-full px-[2px] cursor-text">
-                  <div className="flex ">
-                    <div className="flex ml-2 items-center">
-                      <span className="text-xs sm:text-[1rem] text-[#B0B3B8]">
+            </div>
+              <div className="flex-grow basis-0">
+                <div className="bg-[#3A3B3C] rounded-full cursor-text">
+                  <div className="flex">
+                    <div className="flex items-center flex-grow px-3 py-2">
+                      <span className="text-xs sm:text-[1rem] text-[#B0B3B8] select-none">
                         Comment as Syed Muhammad Jon
                       </span>
                     </div>
 
                     <ul
-                    
-                      className="flex ml-auto items-center h-[36px]"
-                    >
+                      
+                    className="flex ml-auto items-center h-[36px]">
                       <li className="mx-1.5">
                         <span className="inheritStyles">
                           <div 
                            onMouseDown={(e) => handleRightClick(e)}
                            onMouseEnter={(e) => handleMouseEnter(e)}
                            onMouseLeave={(e) => handleMouseLeave(e)} 
-                           className="group relative flex rounded-full cursor-pointer select-none">
+                          className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -936,7 +1280,7 @@ function Posts() {
                       <li className="mx-1.5">
 
                         <span className="inheritStyles">
-                          <div 
+                          <div
                            onMouseDown={(e) => handleRightClick(e)}
                            onMouseEnter={(e) => handleMouseEnter(e)}
                            onMouseLeave={(e) => handleMouseLeave(e)} 
@@ -958,7 +1302,7 @@ function Posts() {
                             <div
                               className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
                                 !rightClick
-                                 ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
                                   : ""
                               } duration-0 group-hover:opacity-100 fade pointer-events-none`}
                             ></div>
@@ -971,8 +1315,7 @@ function Posts() {
                           <div 
                            onMouseDown={(e) => handleRightClick(e)}
                            onMouseEnter={(e) => handleMouseEnter(e)}
-                           onMouseLeave={(e) => handleMouseLeave(e)} 
-                          className="group relative flex rounded-full cursor-pointer select-none">
+                           onMouseLeave={(e) => handleMouseLeave(e)} className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -1003,8 +1346,7 @@ function Posts() {
                           <div
                            onMouseDown={(e) => handleRightClick(e)}
                            onMouseEnter={(e) => handleMouseEnter(e)}
-                           onMouseLeave={(e) => handleMouseLeave(e)} 
-                          className="group relative flex rounded-full cursor-pointer select-none">
+                           onMouseLeave={(e) => handleMouseLeave(e)}  className="group relative flex rounded-full cursor-pointer select-none">
                             <i
                               data-visualcompletion="css-img"
                               style={{
@@ -1022,7 +1364,7 @@ function Posts() {
                             <div
                               className={`absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
                                 !rightClick
-                                 ? "group-active:bg-[rgba(255,255,255,0.2)]"
+                                  ? "group-active:bg-[rgba(255,255,255,0.2)]"
                                   : ""
                               } duration-0 group-hover:opacity-100 fade pointer-events-none`}
                             ></div>
@@ -1032,7 +1374,7 @@ function Posts() {
                       <li className="mx-1.5">
 
                         <span className="inheritStyles">
-                          <div
+                          <div 
                            onMouseDown={(e) => handleRightClick(e)}
                            onMouseEnter={(e) => handleMouseEnter(e)}
                            onMouseLeave={(e) => handleMouseLeave(e)} 
@@ -1065,6 +1407,7 @@ function Posts() {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>
