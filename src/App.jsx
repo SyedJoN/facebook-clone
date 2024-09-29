@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { Header, Footer, MobileMenu, WritePostCard } from "./Components/index";
+import { Header, Footer, MobileMenu, WritePostCard, Search } from "./Components/index";
 import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowPost } from "./store/showMenuSlice";
 import { throttle } from "lodash";
+import { setSearchFocus } from "./store/searchSlice";
+
 
 function App() {
   const writePost = useSelector((state) => state.showMenu.writePost);
+  const searchFocus = useSelector((state) => state.search.searchFocus);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const containerRef = useRef(null);
@@ -15,6 +18,10 @@ function App() {
   const scrollYRef = useRef(0);
   const prevScrollRef = useRef(0);
 
+
+  const handleArrowClick = () => {
+    dispatch(setSearchFocus(false));
+  };
 
   const handleClosePost = () => {
     dispatch(setShowPost(false));
@@ -72,8 +79,10 @@ function App() {
         <div>Loading...</div>
       ) : (
         <div className="relative z-0 mainScroll">
-          <div role="banner">
-            <a className="fixed flex items-center top-0 flex-shrink-0 h-[56px] ml-4 z-[3]">
+          <div role="banner" className="h-0">
+            <a 
+            href="http://localhost:5173/"
+            className={`fixed flex items-center top-0 flex-shrink-0 h-[56px] ml-4 ${searchFocus ? "opacity-0 z-0" : 'opacity-100 z-[3]'}`}>
               <svg
                 viewBox="0 0 36 36"
                 style={{ color: "#0866FF" }}
@@ -89,8 +98,66 @@ function App() {
                 ></path>
               </svg>
             </a>
-            <Header />
+            <div className="fixed flex top-0 left-0 h-[56px] items-center xl:w-[320px] w-[112px] max-w-[100vw] z-[2]">
+        <div className="relative flex px-[16px] w-full">
+          <div className="flex items-center w-full">
+            <div className="flex w-9 items-center shrink-0">
+              <div
+                style={{
+                  transform: !searchFocus
+                    ? "translateX(24px) translateZ(0)"
+                    : "translateX(0px) translateZ(0)",
+                  transitionProperty: "opacity, transform",
+                }}
+                className={`${
+                  searchFocus ? "opacity-100" : "opacity-0"
+                } duration-100 ease-linear`}
+              >
+                <div className="w-9">
+                  <div className="w-7">
+                    <div
+                      onMouseDown={() => handleArrowClick()}
+                      className={`group relative flex items-stretch z-20 w-5 h-5 cursor-pointer`}
+                    >
+                      <svg
+                        viewBox="0 0 20 20"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="block text-[#B0B3B8] svgClass"
+                        style={{ color: "#B0B3B8" }}
+                      >
+                        <g fillRule="evenodd" transform="translate(-446 -350)">
+                          <g fillRule="nonzero">
+                            <path
+                              d="M100.249 201.999a1 1 0 0 0-1.415-1.415l-5.208 5.209a1 1 0 0 0 0 1.414l5.208 5.209A1 1 0 0 0 100.25 211l-4.501-4.501 4.5-4.501z"
+                              transform="translate(355 153.5)"
+                            ></path>
+                            <path
+                              d="M107.666 205.5H94.855a1 1 0 1 0 0 2h12.813a1 1 0 1 0 0-2z"
+                              transform="translate(355 153.5)"
+                            ></path>
+                          </g>
+                        </g>
+                      </svg>
+                      <div className="absolute -inset-2 rounded-full opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer group-active:bg-[rgba(68,73,80,0.15)] duration-0 group-hover:opacity-100 fade pointer-events-none"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div 
+            style={{transitionProperty: "width"}}
+            className={`flex shrink-0 ${!searchFocus ? "w-[12px]" : "w-0"} h-[56px] duration-100 ease-linear`}>
+              &nbsp;
+            </div>
+            <Search className="" />
           </div>
+        </div>
+      </div>
+            <Header />
+       
           <div
             ref={containerRef}
             className={`${
@@ -99,11 +166,12 @@ function App() {
           >
             <main
               style={{ minHeight: "calc(100vh - 56px)" }}
-              className="relative z-0 bg-[#18191A] flex flex-col top-[56px]"
+              className="relative z-0 bg-[#18191A] flex flex-col"
             >
               <Outlet />
             </main>
           </div>
+        </div>
         </div>
       )}
 
