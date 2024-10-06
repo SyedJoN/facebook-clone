@@ -8,9 +8,9 @@ function MessagePanel() {
   const handleRightClick = (e) => {
     if (e.button === 0) {
       setrightClick(false);
-      e.currentTarget.classList.add("notifIconScale");
+      e.currentTarget.classList.add("iconScale");
     } else if (e.button === 2) {
-      e.currentTarget.classList.remove("notifIconScale");
+      e.currentTarget.classList.remove("iconScale");
 
       setrightClick(true);
     }
@@ -18,13 +18,13 @@ function MessagePanel() {
 
   const handleMouseEnter = (e, menu) => {
     if (!rightClick) {
-      e.currentTarget.classList.add("notifIconScale");
+      e.currentTarget.classList.add("iconScale");
     } else {
-      e.currentTarget.classList.remove("notifIconScale");
+      e.currentTarget.classList.remove("iconScale");
     }
   };
   const handleMouseLeave = (e, menu) => {
-    e.currentTarget.classList.remove("notifIconScale");
+    e.currentTarget.classList.remove("iconScale");
   };
 
   const handleShowAll = () => {

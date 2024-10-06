@@ -79,7 +79,7 @@ function App() {
         <div>Loading...</div>
       ) : (
         <div className="relative z-0 mainScroll">
-          <div role="banner" className="h-0">
+          <div role="banner">
             <a 
             href="http://localhost:5173/"
             className={`fixed flex items-center top-0 flex-shrink-0 h-[56px] ml-4 ${searchFocus ? "opacity-0 z-0" : 'opacity-100 z-[3]'}`}>
@@ -157,6 +157,7 @@ function App() {
         </div>
       </div>
             <Header />
+      </div>
        
           <div
             ref={containerRef}
@@ -165,14 +166,13 @@ function App() {
             }`}
           >
             <main
-              style={{ minHeight: "calc(100vh - 56px)" }}
-              className="relative z-0 bg-[#18191A] flex flex-col"
+              className="relative z-0 flex flex-col"
             >
               <Outlet />
             </main>
           </div>
         </div>
-        </div>
+    
       )}
 
       {/* Use portal for the writePost modal */}

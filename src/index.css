@@ -13,6 +13,7 @@ object {
   display: inline;
 }
 
+
 *,
 *::before,
 *::after {
@@ -138,6 +139,18 @@ body {
   content: "";
 }
 .ba_5::after {
+  display: block;
+  content: "";
+  height: 0;
+  margin-bottom: -4px;
+}
+.ba_6::before {
+  margin-top: -6px;
+  display: block;
+  height: 0;
+  content: "";
+}
+.ba_6::after {
   display: block;
   content: "";
   height: 0;

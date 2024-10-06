@@ -8,22 +8,21 @@ function Home() {
 
   return (
     <div
-      className={`flex flex-col relative`}
-      // style={{minHeight:"calc(100vh - 56px)"}}
+      className={`flex flex-col relative z-0 top-[56px] mb-[56px]`}
+      style={{minHeight:"calc(100vh - 56px)"}}
     >
       <div
         className="relative z-0 flex flex-col flex-grow min-h-[inherit]"
-        // style={{marginBottom:"calc(-100vh + 56px"}}
+        // style={{marginBottom:"calc(-100vh + 56px)"}}
       >
         <div>{showMenu && <MobileMenu />}</div>
         <div
           className={`${
             showMenu ? "hidden" : "flex"
-          } relative z-0 items-start justify-between flex-grow shrink basis-0 min-h-[inherit] max-w-none`}
+          } relative z-0 items-stretch justify-center shrink-0 flex-grow min-w-[320px] min-h-[inherit] max-w-none`}
         >
           <div
-            style={{ minHeight: "calc(100vh - 56px)" }}
-            className="main-section-container relative flex basis-0 min-w-0 shrink items-stretch justify-between flex-grow"
+            className="main-section-container relative flex basis-0 min-w-0 min-h-[inherit] shrink items-stretch justify-between flex-grow"
           >
             <div
               className="sidebar_1 sticky z-0 left-0 top-[56px] max-w-[360px] min-w-[280px] overflow-hidden basis-[360px] shrink-[9999] min-h-[inherit] max-h-0"
