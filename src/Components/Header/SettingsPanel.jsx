@@ -174,6 +174,7 @@ function SettingsPanel() {
       ) || []
   );
   useEffect(() => {
+    console.log(filteredItems)
     const updateScrollbar = () => {
       const contentHeight = contentRef.current?.scrollHeight;
       const containerHeight = containerRef.current?.clientHeight;
@@ -429,9 +430,10 @@ function SettingsPanel() {
             <div ref={contentRef} className="relative flex -m-2">
               <div className="max-w-full min-w-0 m-2 basis-0 shrink flex-grow overflow-hidden">
                 <div
-                  className="flex flex-col basis-0 bg-[#242526] rounded-lg customShadow-3"
+                  className="flex flex-col basis-0 bg-[#242526] rounded-lg customShadow-3 select-text"
                   style={{ minHeight: "calc(100vh - 118px)" }}
                 >
+                  <div className="flex-grow"> 
                   <div className="relative flex flex-col w-[360px]">
                     <div className="search-container flex flex-col p-4">
                       <div className="flex flex-col">
@@ -683,7 +685,7 @@ function SettingsPanel() {
 
                                 {categoryFilteredItems.map(
                                   (item, itemIndex) => (
-                                    <div key={itemIndex} className="px-2">
+                                    <div key={itemIndex} className="px-2 select-none">
                                       <ul className="flex flex-col flex-1">
                                         <a className="relative block min-w-0 min-h-0 m-0 p-0 border-[rgba(0,0,0,0.4)] bg-non outline-zero no-underline z-0 cursor-pointer">
                                           <div className="relative flex flex-col items-stretch cursor-pointer min-h-[56px] -m-[6px] px-2 py-3">
@@ -1619,6 +1621,7 @@ function SettingsPanel() {
                         </div>
                       </div>
                     </div> */}
+                  </div>
                   </div>
                 </div>
 

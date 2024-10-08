@@ -77,7 +77,7 @@ const [keyPressed, setKeyPressed] = useState(false);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [content]);
 
   const startScroll = (direction) => {
     const scrollAmount = 1; // Amount to scroll each frame
@@ -561,7 +561,7 @@ if (window.innerWidth <= 583) {
             </div>
             <div
             className={`bg-[#3E4042] w-4 absolute top-0 ease-linear duration-500 h-full opacity-0
-            ${contentRef ? "hover:opacity-30" : "pointer-events-none"}`}
+            ${scrollOpacity > 0 ? "hover:opacity-30" : "pointer-events-none"}`}
             data-visualcompletion="ignore"
             data-thumb="1"
             ref={trackRef}
@@ -573,7 +573,7 @@ if (window.innerWidth <= 583) {
             }}
           ></div>
           <div
-            className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-1 py-0 m-0 pointer-events-none"
+            className="absolute top-0 w-4 origin-top-right ease-linear duration-300 px-1 box-border pointer-events-none"
             data-visualcompletion="ignore"
             data-thumb="1"
             ref={scrollThumbRef}

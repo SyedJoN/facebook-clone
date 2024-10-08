@@ -592,7 +592,7 @@ function Sidebar_2() {
                    onMouseDown={(e) => handleRightClickStatic(e)}
                   className="profile-section py-2">
                     <div className="px-2">
-                      <a className="group relative no-underline cursor-pointer">
+                      <a className="group relative block no-underline cursor-pointer">
                         <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                           <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                             <img
@@ -914,7 +914,7 @@ function Sidebar_2() {
                         className="py-2"
                     >
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1006,7 +1006,7 @@ function Sidebar_2() {
                       </div>
 
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1089,7 +1089,7 @@ function Sidebar_2() {
                         </a>
                       </div>
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1170,7 +1170,7 @@ function Sidebar_2() {
                         </a>
                       </div>
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1251,7 +1251,7 @@ function Sidebar_2() {
                         </a>
                       </div>
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1332,7 +1332,7 @@ function Sidebar_2() {
                         </a>
                       </div>
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1414,7 +1414,7 @@ function Sidebar_2() {
                       </div>
 
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1495,7 +1495,7 @@ function Sidebar_2() {
                         </a>
                       </div>
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1576,7 +1576,7 @@ function Sidebar_2() {
                         </a>
                       </div>
                       <div className="px-2">
-                        <a className="group relative no-underline cursor-pointer">
+                        <a className="group relative block no-underline cursor-pointer">
                           <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                             <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                               <div className="relative inline-block align-bottom">
@@ -1685,7 +1685,7 @@ function Sidebar_2() {
                   </div>
                   <div className="py-2">
                     <div className="px-2">
-                      <a className="group relative no-underline cursor-pointer">
+                      <a className="group relative block no-underline cursor-pointer">
                         <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                           <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                             <div className="relative h-[36px] w-[36px]">
@@ -1821,7 +1821,7 @@ function Sidebar_2() {
                       </a>
                     </div>
                     <div className="px-2">
-                      <a className="group relative no-underline cursor-pointer">
+                      <a className="group relative block no-underline cursor-pointer">
                         <div className="relative flex flex-wrap px-2 rounded-lg items-center select-none">
                           <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                             <div

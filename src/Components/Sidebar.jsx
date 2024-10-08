@@ -50,12 +50,11 @@ const handleEditMenuStop = () => {
     setSeeMore2((prev) => !prev);
   };
 
-  useEffect(() => {
-    if (!seeMore && !seeMore2) {
-      scrollRef.current = false;      
-    } 
-  
-  }, [seeMore, seeMore2]);
+useEffect(()=> {
+ if (!seeMore) {
+  containerRef.current.scrollTop = 0;
+ }
+}, [seeMore])
 
 
   useEffect(() => {
@@ -308,7 +307,7 @@ const handleEditMenuStop = () => {
             <div className="px-2">
               <a 
               role="link"
-              className="group relative no-underline cursor-pointer"
+              className="group relative block no-underline cursor-pointer"
               href="https://www.facebook.com/muhammad.jon.12">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                   <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
@@ -343,7 +342,7 @@ const handleEditMenuStop = () => {
               </a>
             </div>
             <div className="px-2">
-              <a className="group relative no-underline cursor-pointer">
+              <a className="group relative block no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                   <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
@@ -384,7 +383,7 @@ const handleEditMenuStop = () => {
               </a>
             </div>
             <div className="px-2">
-              <a className="group relative no-underline cursor-pointer">
+              <a className="group relative block no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                   <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <img src="/adsManager.png" alt="" />
@@ -415,7 +414,7 @@ const handleEditMenuStop = () => {
               </a>
             </div>
             <div className="px-2">
-              <a className="group relative no-underline cursor-pointer">
+              <a className="group relative block no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                   <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
@@ -457,7 +456,7 @@ const handleEditMenuStop = () => {
               </a>
             </div>
             <div className="px-2">
-              <a className="group relative no-underline cursor-pointer">
+              <a className="group relative block no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                   <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
@@ -499,7 +498,7 @@ const handleEditMenuStop = () => {
               </a>
             </div>
             <div className="px-2">
-              <a className="group relative no-underline cursor-pointer">
+              <a className="group relative block no-underline cursor-pointer">
                 <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                   <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                     <i
@@ -543,7 +542,7 @@ const handleEditMenuStop = () => {
 
             {!seeMore && (
               <div onClick={() => clickHandler()} className="px-2">
-                <a className="group relative no-underline cursor-pointer">
+                <a className="group relative block no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                     <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
@@ -588,7 +587,7 @@ const handleEditMenuStop = () => {
             {seeMore && (
               <div>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -631,7 +630,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/climate.png" alt="" />
@@ -662,7 +661,7 @@ const handleEditMenuStop = () => {
                   </a>
                 </div>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -705,7 +704,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/feeds.png" alt="" />
@@ -737,7 +736,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -780,7 +779,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/gaming.png" alt="" />
@@ -812,7 +811,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -855,7 +854,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -898,7 +897,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/mkids.png" alt="" />
@@ -930,7 +929,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/orders.png" alt="" />
@@ -962,7 +961,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -1005,7 +1004,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -1048,7 +1047,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <img src="/activity.png" alt="" />
@@ -1080,7 +1079,7 @@ const handleEditMenuStop = () => {
                 </div>
 
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none">
                         <i
@@ -1126,7 +1125,7 @@ const handleEditMenuStop = () => {
 
             {seeMore && (
               <div onClick={() => clickHandler()} className="px-2">
-                <a className="group relative no-underline cursor-pointer">
+                <a className="group relative block no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                     <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
@@ -1218,7 +1217,7 @@ const handleEditMenuStop = () => {
             <ul className="">
               <li>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                         <div className="relative inline-block align-bottom">
@@ -1281,16 +1280,16 @@ const handleEditMenuStop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
+                    <div className={`absolute inset-0 w-full h-full rounded-lg opacity-0 group-hover:bg-[rgba(255,255,255,0.1)] cursor-pointer ${
                     !rightClick ? "group-active:bg-[rgba(255,255,255,0.2)]" : ""
                   } duration-0
-                  group-hover:opacity-100 fade pointer-events-none`}></div>
+                  group-hover:opacity-100 fade pointer-events-none group-hover:pointer-events-auto`}></div>
                   </a>
                 </div>
               </li>
               <li>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                         <div className="relative inline-block align-bottom">
@@ -1363,7 +1362,7 @@ const handleEditMenuStop = () => {
 
               <li>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                         <div className="relative inline-block align-bottom">
@@ -1429,7 +1428,7 @@ const handleEditMenuStop = () => {
               </li>
               <li>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                         <div className="relative inline-block align-bottom">
@@ -1495,7 +1494,7 @@ const handleEditMenuStop = () => {
               </li>
               <li>
                 <div className="px-2">
-                  <a className="group relative no-underline cursor-pointer">
+                  <a className="group relative block no-underline cursor-pointer">
                     <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                       <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                         <div className="relative inline-block align-bottom">
@@ -1564,7 +1563,7 @@ const handleEditMenuStop = () => {
                 
                   <li>
                     <div className="px-2">
-                      <a className="group relative no-underline cursor-pointer">
+                      <a className="group relative block no-underline cursor-pointer">
                         <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                           <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                             <div className="relative inline-block align-bottom">
@@ -1636,7 +1635,7 @@ const handleEditMenuStop = () => {
 
                   <li>
                     <div className="px-2">
-                      <a className="group relative no-underline cursor-pointer">
+                      <a className="group relative block no-underline cursor-pointer">
                         <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                           <div className="img-wrapper-icons flex flex-col self-start my-1.5 mr-3 rounded-full">
                             <div className="relative inline-block align-bottom">
@@ -1713,7 +1712,7 @@ const handleEditMenuStop = () => {
          
             {!seeMore2 && (
               <div onClick={() => clickHandler2()} className="px-2">
-                <a className="group relative no-underline cursor-pointer">
+                <a className="group relative block no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                     <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
@@ -1760,7 +1759,7 @@ const handleEditMenuStop = () => {
 
             {seeMore2 && (
               <div onClick={() => clickHandler2()} className="px-2">
-                <a className="group relative no-underline cursor-pointer">
+                <a className="group relative block no-underline cursor-pointer">
                   <div className="flex justify-between px-2 rounded-lg items-center min-h-[44px] select-none">
                     <div className="img-wrapper-icons flex flex-col self-center w-9 h-9 my-[6px] mr-[12px] rounded-full pointer-events-none bg-[rgba(255,255,255,0.1)] px-2 py-2">
                       <svg
